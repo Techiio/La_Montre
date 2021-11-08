@@ -1,0 +1,108 @@
+/*Latin */
+@font-face {
+    font-family: 'Lobster';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/lobster/v23/neILzCirqoswsqX9zoKmMw.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+    font-family: 'Lobster-ext';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/lobster/v23/neILzCirqoswsqX9zoymM5Ez.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Background 1 */
+.background_grey {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    left: 0px;
+    top: 0px;
+
+    background: #9A9898;
+}
+/* Logo Eko background */
+
+.logo_ekobig {
+    position: absolute;
+    width: 934px;
+    height: 942px;
+    left: 493px;
+    top: 69px;
+
+    background: url(/ressources/Eko.png);
+}
+
+/* eko top gauche */
+
+.eko_name_topleft {
+    position: absolute;
+    width: 340px;
+    height: 146px;
+    left: 42px;
+    top: -4px;
+
+    font-family: 'Lobster';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 144px;
+    line-height: 180px;
+
+    color: #57DC18;
+
+    text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.7);
+
+}
+
+/* Logo LM petit top droit */
+
+.logo_LMsmall_topright {
+    position: absolute;
+    width: 104px;
+    height: 146px;
+    left: 1484px;
+    top: 8px;
+
+    background: url(/ressources/La Montre.png);
+
+}
+
+/* Ma Montre */
+
+.LM_name_topright {
+    position: absolute;
+    width: 291px;
+    height: 73px;
+    left: 1629px;
+    top: 45px;
+
+    font-family: 'Lobster';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 60px;
+
+    color: #E3AC1F;
+
+    border: 2px solid #000000;
+
+}
+
+/* Header rectangle */
+
+.header_rectangle {
+    position: absolute;
+    width: 1920px;
+    height: 163px;
+    left: 0px;
+    top: 0px;
+
+    background: rgba(0, 0, 0, 0.6);
+
+}
