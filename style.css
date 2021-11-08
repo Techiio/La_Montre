@@ -64,13 +64,13 @@
 
 .logo_LMsmall_topright {
     position: absolute;
-    width: 934px;
-    height: 942px;
-    left: 493px;
-    top: 69px;
+    width: 100px;
+    height: 146px;
+    left: 1300px;
+    top: 8px;
 
 
-    background: url(/ressources/LaMontre.png);
+    background: url(/ressources/LaMontreS.png);
 }
 
 /* Ma Montre */
