@@ -33,7 +33,7 @@
     position: absolute;
     width: 934px;
     height: 942px;
-    left: 493px;
+    left: 400px;
     top: 69px;
 
     background: url(/ressources/Eko.png);
@@ -46,12 +46,12 @@
     width: 340px;
     height: 146px;
     left: 42px;
-    top: -4px;
+    top: -140px;
 
     font-family: 'Lobster';
     font-style: normal;
     font-weight: normal;
-    font-size: 144px;
+    font-size: 100px;
     line-height: 180px;
 
     color: #57DC18;
@@ -63,11 +63,11 @@
 /* Logo LM petit top droit */
 
 .logo_LMsmall_topright {
-    position: absolute;
-    width: 100px;
-    height: 146px;
+    position: relative;
+    width: 150px;
+    height: 150px;
     left: 1300px;
-    top: 8px;
+    top: 2px;
 
 
     background: url(/ressources/LaMontreS.png);
@@ -79,13 +79,13 @@
     position: absolute;
     width: 500px;
     height: 40px;
-    left: 1450px;
-    top: -20px;
+    left: 1480px;
+    top: -15px;
 
     font-family: 'Lobster';
     font-style: normal;
     font-weight: normal;
-    font-size: 48px;
+    font-size: 38px;
     line-height: 80px;
 
     color: #E3AC1F;
