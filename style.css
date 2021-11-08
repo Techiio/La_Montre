@@ -64,33 +64,33 @@
 
 .logo_LMsmall_topright {
     position: absolute;
-    width: 104px;
-    height: 146px;
-    left: 1484px;
-    top: 8px;
+    width: 934px;
+    height: 942px;
+    left: 493px;
+    top: 69px;
 
-    background: url(/ressources/La Montre.png);
 
+    background: url(/ressources/LaMontre.png);
 }
 
 /* Ma Montre */
 
 .LM_name_topright {
     position: absolute;
-    width: 291px;
-    height: 73px;
-    left: 1629px;
-    top: 45px;
+    width: 500px;
+    height: 40px;
+    left: 1450px;
+    top: -20px;
 
     font-family: 'Lobster';
     font-style: normal;
     font-weight: normal;
     font-size: 48px;
-    line-height: 60px;
+    line-height: 80px;
 
     color: #E3AC1F;
 
-    border: 2px solid #000000;
+    text-shadow: #000000 2px 2px, #000000 -2px 2px, #000000 -2px -2px, #000000 2px -2px;
 
 }
 
