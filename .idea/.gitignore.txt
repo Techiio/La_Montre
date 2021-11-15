@@ -1,0 +1,4 @@
+/workspace/
+/LaMontre.iml/
+/modules/
+/vcs/
