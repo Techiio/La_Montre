@@ -17,6 +17,7 @@
     unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
+
 /* Background 1 */
 .background_grey {
     position: absolute;
@@ -63,10 +64,10 @@
 /* Logo LM petit top droit */
 
 .logo_LMsmall_topright {
-    position: relative;
+    position: absolute;
     width: 150px;
     height: 150px;
-    left: 1300px;
+    left: 1400px;
     top: 2px;
 
 
@@ -77,9 +78,9 @@
 
 .LM_name_topright {
     position: absolute;
-    width: 500px;
+    width: 350px;
     height: 40px;
-    left: 1480px;
+    left: 1550px;
     top: -15px;
 
     font-family: 'Lobster';
