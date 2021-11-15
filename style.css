@@ -40,25 +40,30 @@
     background: url(/ressources/Eko.png);
 }
 
-/* eko top gauche */
 
-.eko_name_topleft {
+/* Logo La Montre background */
+
+.logo_LMbig {
     position: absolute;
-    width: 340px;
-    height: 146px;
-    left: 42px;
-    top: -140px;
+    width: 934px;
+    height: 1000px;
+    left: 430px;
+    top: 40px;
 
-    font-family: 'Lobster';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 100px;
-    line-height: 180px;
+    background: url(/ressources/LaMontre.png);
+}
 
-    color: #57DC18;
+/* Logo Eko petit top droit */
 
-    text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.7);
+.logo_ekosmall_topleft {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    left: 10px;
+    top: 2px;
 
+
+    background: url(/ressources/EkoS.png);
 }
 
 /* Logo LM petit top droit */
@@ -76,7 +81,7 @@
 
 /* Ma Montre */
 
-.LM_name_topright {
+.txt_LM_topright {
     position: absolute;
     width: 350px;
     height: 40px;
@@ -95,6 +100,129 @@
 
 }
 
+/* eko top gauche */
+
+.txt_eko_topleft {
+    position: absolute;
+    width: 340px;
+    height: 146px;
+    left: 42px;
+    top: -140px;
+
+    font-family: 'Lobster';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 100px;
+    line-height: 180px;
+
+    color: #57DC18;
+
+    text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.7);
+
+}
+
+/* texte connexion */
+
+.txt_login_connexion_mid {
+
+    position: absolute;
+    width: 302px;
+    height: 78px;
+    left: 609px;
+    top: 300px;
+
+    font-family: Lobster;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 90px;
+
+    color: #DF911C;
+
+    text-shadow: 0px 5px 10px #000000;
+}
+
+/* texte Nom d’utilisateur */
+
+.txt_username_login {
+    position: absolute;
+    width: 260px;
+    height: 56px;
+    left: 722px;
+    top: 388px;
+
+    font-family: Lobster;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 45px;
+
+    color: #DAAB0B;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
+}
+
+/* texte Mot de Passe */
+
+.txt_password_login {
+    position: absolute;
+    width: 260px;
+    height: 56px;
+    left: 722px;
+    top: 520px;
+
+    font-family: Lobster;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 45px;
+
+    color: #DAAB0B;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
+}
+
+/* texte S’inscrire */
+
+.txt_inscrire_login {
+    position: absolute;
+    width: 111px;
+    height: 28px;
+    left: 705px;
+    top: 675px;
+
+    font-family: Lobster;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 16px;
+    line-height: 35px;
+
+    color: #FFFFFF;
+
+    text-shadow: 0px 5px 10px #000000;
+
+}
+
+/* texte Se connecter */
+
+.txt_connecter_login {
+
+    position: absolute;
+    width: 178px;
+    height: 36px;
+    left: 1130px;
+    top: 680px;
+
+    font-family: Lobster;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 35px;
+
+    color: #05FF00;
+
+}
+
 /* Header rectangle */
 
 .header_rectangle {
@@ -107,3 +235,73 @@
     background: rgba(0, 0, 0, 0.6);
 
 }
+
+/* Rectangle back login */
+
+.login_backgrey1 {
+    position: absolute;
+    width: 831px;
+    height: 455px;
+    left: 551px;
+    top: 312px;
+
+
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 50px;
+
+}
+
+/* Rectangle back txt light grey */
+
+.login_backgrey2 {
+
+    position: absolute;
+    width: 180px;
+    height: 51px;
+    left: 1100px;
+    top: 696px;
+
+    background: rgba(218, 231, 214, 0.39);
+    border-radius: 20px;
+
+}
+
+/* Rectangle back txt yellow 1*/
+
+.login_backyellow1 {
+
+    position: absolute;
+    width: 523px;
+    height: 79px;
+    left: 705px;
+    top: 462px;
+
+    background: rgba(240, 209, 100, 0.6);
+    backdrop-filter: blur(10px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 50px;
+
+}
+
+/* Rectangle back txt yellow 2 */
+
+.login_backyellow2 {
+
+    position: absolute;
+    width: 523px;
+    height: 79px;
+    left: 705px;
+    top: 597px;
+
+    background: rgba(240, 209, 100, 0.6);
+    backdrop-filter: blur(10px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 50px;
+
+}
+
