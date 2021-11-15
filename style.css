@@ -19,6 +19,7 @@
 
 
 /* Background 1 */
+
 .background_grey {
     position: absolute;
     width: 1920px;
@@ -28,6 +29,7 @@
 
     background: #9A9898;
 }
+
 /* Logo Eko background */
 
 .logo_ekobig {
@@ -39,7 +41,6 @@
 
     background: url(/ressources/Eko.png);
 }
-
 
 /* Logo La Montre background */
 
@@ -142,9 +143,30 @@
     text-shadow: 0px 5px 10px #000000;
 }
 
-/* texte Nom d’utilisateur */
+/* texte inscription */
 
-.txt_username_login {
+.txt_login_inscription_mid {
+
+    position: absolute;
+    width: 302px;
+    height: 78px;
+    left: 380px;
+    top: 175px;
+
+    font-family: Lobster;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 90px;
+
+    color: #DF911C;
+
+    text-shadow: 0px 5px 10px #000000;
+}
+
+/* texte Nom d’utilisateur login */
+
+.txt_username1_login {
     position: absolute;
     width: 260px;
     height: 56px;
@@ -162,9 +184,69 @@
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
 }
 
-/* texte Mot de Passe */
+/* texte Nom d’utilisateur inscription*/
 
-.txt_password_login {
+.txt_username2_login {
+    position: absolute;
+    width: 260px;
+    height: 56px;
+    left: 630px;
+    top: 307px;
+
+    font-family: Lobster;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 45px;
+
+    color: #DAAB0B;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
+}
+
+/* texte code produit inscription */
+
+.txt_codeproduct_login {
+    position: absolute;
+    width: 260px;
+    height: 56px;
+    left: 695px;
+    top: 440px;
+
+    font-family: Lobster;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 45px;
+
+    color: #DAAB0B;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
+}
+
+/* texte code famille inscription */
+
+.txt_codefamilly_login {
+    position: absolute;
+    width: 260px;
+    height: 56px;
+    left: 695px;
+    top: 565px;
+
+    font-family: Lobster;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 45px;
+
+    color: #DAAB0B;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
+}
+
+/* texte Mot de Passe 1*/
+
+.txt_password1_login {
     position: absolute;
     width: 260px;
     height: 56px;
@@ -175,6 +257,46 @@
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
+    line-height: 45px;
+
+    color: #DAAB0B;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
+}
+
+/* texte Mot de Passe 2*/
+
+.txt_password2_login {
+    position: absolute;
+    width: 260px;
+    height: 56px;
+    left: 694px;
+    top: 695px;
+
+    font-family: Lobster;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 45px;
+
+    color: #DAAB0B;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
+}
+
+/* texte Mot de Passe 3 confirmation*/
+
+.txt_password3_login {
+    position: absolute;
+    width: 260px;
+    height: 56px;
+    left: 635px;
+    top: 808px;
+
+    font-family: Lobster;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
     line-height: 45px;
 
     color: #DAAB0B;
@@ -203,15 +325,56 @@
 
 }
 
+/* texte cocher */
+
+.txt_check_login {
+    position: absolute;
+    width: 520px;
+    height: 20px;
+    left: 910px;
+    top: 910px;
+
+    font-family: Lobster;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 14px;
+    line-height: 35px;
+
+    color: #FFFFFF;
+
+    text-shadow: 0px 5px 10px #000000;
+
+}
+
 /* texte Se connecter */
 
-.txt_connecter_login {
+.txt_connecter1_login {
 
     position: absolute;
     width: 178px;
     height: 36px;
     left: 1130px;
     top: 680px;
+
+    font-family: Lobster;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 35px;
+
+    color: #05FF00;
+
+}
+
+/* texte Se connecter */
+
+.txt_connecter2_login {
+
+    position: absolute;
+    width: 178px;
+    height: 36px;
+    left: 1130px;
+    top: 955px;
 
     font-family: Lobster;
     font-style: normal;
@@ -269,6 +432,40 @@
 
 }
 
+/* Rectangle back inscription */
+
+.login_backgrey3 {
+
+
+    position: absolute;
+    width: 1196px;
+    height: 826px;
+    left: 355px;
+    top: 210px;
+
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 50px;
+
+}
+
+/* Rectangle back txt light grey inscription */
+
+.login_backgrey4 {
+
+    position: absolute;
+    width: 180px;
+    height: 51px;
+    left: 1100px;
+    top: 970px;
+
+    background: rgba(218, 231, 214, 0.39);
+    border-radius: 20px;
+
+}
+
 /* Rectangle back txt yellow 1*/
 
 .login_backyellow1 {
@@ -304,4 +501,100 @@
     border-radius: 50px;
 
 }
+
+/* Rectangle back tkt green 1 */
+
+.login_backgreen1 {
+
+
+    position: absolute;
+    width: 516px;
+    height: 79px;
+    left: 880px;
+    top: 320px;
+
+    background: #B2F064;
+    border-radius: 20px;
+
+}
+
+/* Rectangle back tkt green 2 */
+
+.login_backgreen2 {
+
+
+    position: absolute;
+    width: 516px;
+    height: 79px;
+    left: 880px;
+    top: 450px;
+
+    background: #B2F064;
+    border-radius: 20px;
+
+}
+
+/* Rectangle back tkt green 3 */
+
+.login_backgreen3 {
+
+
+    position: absolute;
+    width: 516px;
+    height: 79px;
+    left: 880px;
+    top: 580px;
+
+    background: #B2F064;
+    border-radius: 20px;
+
+}
+
+/* Rectangle back tkt green 4 */
+
+.login_backgreen4 {
+
+
+    position: absolute;
+    width: 516px;
+    height: 79px;
+    left: 880px;
+    top: 710px;
+
+    background: #B2F064;
+    border-radius: 20px;
+
+}
+
+/* Rectangle back tkt green 5 */
+
+.login_backgreen5 {
+
+
+    position: absolute;
+    width: 516px;
+    height: 79px;
+    left: 880px;
+    top: 840px;
+
+    background: #B2F064;
+    border-radius: 20px;
+
+}
+
+/* Rectangle check inscription */
+
+.login_rectanglecheck {
+
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    left: 875px;
+    top: 933px;
+
+    background: #FFFFFF;
+
+}
+
+
 
