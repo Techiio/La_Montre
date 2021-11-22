@@ -85,7 +85,7 @@ section{
 }
 
 .header .logo img{
-    height: 6rem;
+    height: 7rem;
 }
 
 .header .navbar a{
@@ -204,6 +204,19 @@ section{
     text-align: center;
 }
 
+.line{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background:url(../images/line.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.line .content{
+    max-width: 10rem;
+}
+
 .home{
     min-height: 100vh;
     display: flex;
@@ -249,6 +262,7 @@ section{
 .about .row .image img{
     width: 100%;
 }
+
 .about .row .content{
     flex:1 1 45rem;
     padding:2rem;
@@ -411,7 +425,7 @@ section{
     gap:1rem;
 }
 
-.contact .row .map{
+.contact .row .faq{
     flex:1 1 45rem;
     width: 100%;
     object-fit: cover;
@@ -433,7 +447,7 @@ section{
     display: flex;
     align-items: center;
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
     background:var(--bg);
     border:var(--border);
 }

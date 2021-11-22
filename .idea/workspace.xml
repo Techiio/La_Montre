@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="008e1cad-61eb-47e4-ab53-0abc28a9dedc" name="Changes" comment="tests css">
-      <change beforePath="$PROJECT_DIR$/tryout/brouillon_simon.html" beforeDir="false" afterPath="$PROJECT_DIR$/tryout/brouillon_simon.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tryout/tryform.html" beforeDir="false" afterPath="$PROJECT_DIR$/tryout/tryform.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tryout/tryout.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/visiteur_accueil.html" beforeDir="false" afterPath="$PROJECT_DIR$/visiteur_accueil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visiteur_connexion.html" beforeDir="false" afterPath="$PROJECT_DIR$/visiteur_connexion.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visiteur_inscription.html" beforeDir="false" afterPath="$PROJECT_DIR$/visiteur_inscription.html" afterDir="false" />
+    <list default="true" id="008e1cad-61eb-47e4-ab53-0abc28a9dedc" name="Changes" comment="Grosse modif, page d'accueil responsive faite">
+      <change afterPath="$PROJECT_DIR$/images/faqtemplate.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/line.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-gest-admin_faq-contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/user-gest-admin_faq-contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visiteur-accueil.html" beforeDir="false" afterPath="$PROJECT_DIR$/visiteur-accueil.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +38,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -68,7 +70,7 @@
       <workItem from="1637067921253" duration="4167000" />
       <workItem from="1637145913576" duration="1309000" />
       <workItem from="1637312001402" duration="3876000" />
-      <workItem from="1637568458079" duration="3595000" />
+      <workItem from="1637568458079" duration="7976000" />
     </task>
     <task id="LOCAL-00002" summary="visiteur_inscription.html done">
       <created>1636984933037</created>
@@ -112,7 +114,21 @@
       <option name="project" value="LOCAL" />
       <updated>1637312260471</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Grosse modif, page d'accueil responsive faite">
+      <created>1637575389834</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1637575389834</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Grosse modif, page d'accueil responsive faite">
+      <created>1637575517694</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1637575517694</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,9 +147,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="visiteur_inscription.html done" />
     <MESSAGE value="correction générales" />
     <MESSAGE value="tests css" />
-    <option name="LAST_COMMIT_MESSAGE" value="tests css" />
+    <MESSAGE value="Grosse modif, page d'accueil responsive faite" />
+    <option name="LAST_COMMIT_MESSAGE" value="Grosse modif, page d'accueil responsive faite" />
   </component>
 </project>
