@@ -1,63 +1,80 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet"
-          type="text/css"
-          href="styles.css"/>
-    <title>LaMontre-Inscription</title>
-</head>
-    <body>
-        <div class="background_grey">
-        </div>
-        <div class="logo_LMbig">
-        </div>
-        <div class="header_rectangle">
-        </div>
-        <a href="visiteur_accueil.html">
-            <div class="logo_ekosmall_topleft">
-            </div>
-        </a>
-        <div class="login_backgrey3">
-        </div>
-        <div class="login_backgrey4">
-        </div>
-        <div class="txt_login_inscription_mid">
-            <h1> Inscription </h1>
-        </div>
-        <div class="txt_username2_login">
-            <h2> Nom d'Utilisateur </h2>
-        </div>
-        <div class="txt_check_login">
-            <h2> Cochez si vous souhaitez être le Gestionnaire de votre famille </h2>
-            </div>
-        <div class="txt_connecter2_login">
-            <h3> Se connecter </h3>
-        </div>
-        <div class="txt_codeproduct_login">
-            <h2> Code Produit </h2>
-        </div>
-        <div class="txt_codefamilly_login">
-            <h2> Code Famille </h2>
-        </div>
-        <div class="txt_password2_login">
-            <h2> Mot de Passe </h2>
-        </div>
-        <div class="txt_password3_login">
-            <h2> Confirmation Mot de Passe </h2>
-        </div>
-        <div class="login_rectanglecheck">
-        </div>
-        <div class="login_backgreen1">
-        </div>
-        <div class="login_backgreen2">
-        </div>
-        <div class="login_backgreen3">
-        </div>
-        <div class="login_backgreen4">
-        </div>
-        <div class="login_backgreen5">
-        </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Visiteur Inscription</title>
 
-    </body>
+        <!-- font awesome cdn link  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+        <!-- custom css file link  -->
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+<body>
+
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo">
+        <img src="images/EkoS.png" alt="">
+    </a>
+
+
+    <a href="#" class="logo">
+        <img src="images/LaMontreS.png" alt="">
+    </a>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- contact section starts  -->
+<div class="content">
+    <h1 class="heading"> <span>Je</span> m'inscris </h1>
+</div>
+
+<section class="inscri" id="inscri">
+
+    <h1 class="heading"> <span>Je</span> m'inscris </h1>
+
+    <div class="row">
+
+
+        <form action="">
+            <div class="inputBox">
+                <span class="fas fa-user"></span>
+                <input type="text" placeholder="pseudo">
+            </div>
+            <div class="inputBox">
+                <span class="fas fa-fire"></span>
+                <input type="text" placeholder="code produit">
+            </div>
+            <div class="inputBox">
+                <span class="fas fa-house-user"></span>
+                <input type="number" placeholder="code famille">
+            </div>
+            <div class="inputBox">
+                <span class="fas fa-envelope"></span>
+                <input type="text" placeholder="mot de passe">
+            </div>
+            <div class="inputBox">
+                <span class="fas fa-phone"></span>
+                <input type="text" placeholder="confirmation mot de passe">
+            </div>
+            <input type="submit" value="Ok!" class="btn">
+        </form>
+
+    </div>
+
+</section>
+
+
+
+<!-- contact section ends -->
+
 </html>
