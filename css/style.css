@@ -282,12 +282,12 @@ section{
 
 .menu .box-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    gap:1.5rem;
+    grid-template-columns:50% 50%;
+    gap:2rem;
 }
 
 .menu .box-container .box{
-    padding:5rem;
+    padding:4rem;
     text-align: center;
     border:var(--border);    
 }
@@ -298,7 +298,7 @@ section{
 
 .menu .box-container .box h3{
     color: #fff;
-    font-size: 2rem;
+    font-size: 4rem;
     padding:1rem 0;
 }
 
@@ -429,6 +429,7 @@ section{
     flex:1 1 45rem;
     width: 100%;
     object-fit: cover;
+    text-align: center;
 }
 
 .contact .row form{
@@ -447,7 +448,7 @@ section{
     display: flex;
     align-items: center;
     margin-top: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 3.8rem;
     background:var(--bg);
     border:var(--border);
 }
