@@ -532,58 +532,90 @@ section{
     background:none;
 }
 
-.blogs .box-container{
+.modif .box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap:1.5rem;
 }
 
-.blogs .box-container .box{
+.modif .box-container .box{
     border:var(--border);    
 }
 
-.blogs .box-container .box .image{
+.modif .box-container .box .image{
     height: 25rem;
     overflow:hidden;
     width: 100%;
 }
 
-.blogs .box-container .box .image img{
+.modif .box-container .box .image img{
     height: 100%;
     object-fit: cover;
     width: 100%;
 }
 
-.blogs .box-container .box:hover .image img{
+.modif .box-container .box:hover .image img{
     transform: scale(1.2);
 }
 
-.blogs .box-container .box .content{
+.modif .box-container .box .content{
     padding:2rem;
 }
 
-.blogs .box-container .box .content .title{
+.modif .box-container .box .content .title{
     font-size: 2.5rem;
     line-height: 1.5;
     color:#fff;
 }
 
-.blogs .box-container .box .content .title:hover{
+.modif .box-container .box .content .btn{
+    text-align: center;
+    display: grid;
+    gap: 2rem;
+    line-height: 1.5;
+    color:#fff;
+}
+
+.modif .box-container .box .content .title:hover{
     color:var(--main-color);
 }
 
-.blogs .box-container .box .content span{
+.modif .box-container .box .content span{
     color:var(--main-color);
     display: block;
     padding-top: 1rem;
     font-size: 2rem;
 }
 
-.blogs .box-container .box .content p{
+.modif .box-container .box .content p{
     font-size: 1.6rem;
     line-height: 1.8;
     color:#ccc;
     padding:1rem 0;
+}
+
+.modif .box-container .box .content .inputBox{
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    background:var(--bg);
+    border:var(--border);
+}
+
+.modif .box-container .box .content .inputBox span{
+    color:#fff;
+    font-size: 2rem;
+    padding-left: 2rem;
+}
+
+.modif .box-container .box .content .inputBox input{
+    width: 100%;
+    padding:2rem;
+    font-size: 1.7rem;
+    color:#fff;
+    text-transform: none;
+    background:none;
 }
 
 .footer{
