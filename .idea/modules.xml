@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/LaMontre.iml" filepath="$PROJECT_DIR$/.idea/LaMontre.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../xampp/htdocs/LaMontre_PHP-SQL/.idea/LaMontre_PHP-SQL.iml" filepath="$PROJECT_DIR$/../../../../../xampp/htdocs/LaMontre_PHP-SQL/.idea/LaMontre_PHP-SQL.iml" />
     </modules>
   </component>
 </project>
