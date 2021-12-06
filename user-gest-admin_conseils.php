@@ -70,39 +70,64 @@ div.divGrand {
 
 <!-- header section ends -->
 
-<!--conseils section starts  -->
 <section class="content">
-    <h1 class="heading">.</h1>
+    <h1 class="heading"> . </h1>
 </section>
+<!-- mes conseils section starts  -->
 
-<section class="inscri" id="inscri">
+<section class="famille" id="famille">
 
-    <h1 class="heading"> Mes <span>Conseils</span></h1>
+    <h1 class="heading"> Ma <span>Famille</span> </h1>
 
-</section>
+    <div class="box-container">
 
-<div class="divGrand"> 
-  <h1 style="text-align: center;">Score et conseils</h1> 
-  <div class="Score">
-    <h2>Meilleur score</h2><br><br><br>
-      <h2>/20</h2>
-  </div>
-  <p>     </p>
-  <div class="Score">
-    <h2>Pire score</h2><br><br><br>
-      <h2>/20</h2>
-  </div>
-  <h2>Conseil du jour :</h2>
-</div>  
+        <a href="#" class="box">
+            <img src="images/quote-img.png" alt="" class="quote">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nulla sit libero nemo fuga sequi nobis? Necessitatibus aut laborum, nisi quas eaque laudantium consequuntur iste ex aliquam minus vel? Nemo.</p>
+            <img src="images/pic-3.png" class="user" alt="">
+            <h3>john deo</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </a>
 
-<!-- conseils section ends -->
-<section class="footer">
+        <a href="#" class="box">
+            <img src="images/quote-img.png" alt="" class="quote">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nulla sit libero nemo fuga sequi nobis? Necessitatibus aut laborum, nisi quas eaque laudantium consequuntur iste ex aliquam minus vel? Nemo.</p>
+            <img src="images/pic-3.png" class="user" alt="">
+            <h3>john deo</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </a>
 
-    <div class="links">
-        <a href="visiteur_CGU.php">CGU</a>
+        <a href="#" class="box">
+            <img src="images/quote-img.png" alt="" class="quote">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nulla sit libero nemo fuga sequi nobis? Necessitatibus aut laborum, nisi quas eaque laudantium consequuntur iste ex aliquam minus vel? Nemo.</p>
+            <img src="images/pic-3.png" class="user" alt="">
+            <h3>john deo</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </a>
+
     </div>
 
 </section>
+
+<!-- ma famille section ends -->
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
