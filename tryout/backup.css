@@ -110,6 +110,14 @@ textarea {
     color: var(--main-color);
 }
 
+.header a h3{
+    color: var(--main-color);
+}
+
+.header a h3{
+    color: var(--main-color);
+}
+
 .header .logo img{
     height: 7rem;
 }
@@ -130,6 +138,7 @@ textarea {
     color:#fff;
     cursor: pointer;
     font-size: 2.5rem;
+    margin-left: 2rem;
 }
 
 .header .icons div:hover{
@@ -174,6 +183,54 @@ textarea {
 }
 
 .header .search-form label:hover{
+    color:var(--main-color);
+}
+
+.header .cart-items-container{
+    position: absolute;
+    top:100%; right: -100%;
+    height: calc(100vh - 9.5rem);
+    width: 35rem;
+    background: #fff;
+    padding:0 1.5rem;
+}
+
+.header .cart-items-container.active{
+    right: 0;
+}
+
+.header .cart-items-container .cart-item{
+    position: relative;
+    margin:2rem 0;
+    display: flex;
+    align-items: center;
+    gap:1.5rem;
+}
+
+.header .cart-items-container .cart-item .fa-times{
+    position: absolute;
+    top:1rem; right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--black);
+}
+
+.header .cart-items-container .cart-item .fa-times:hover{
+    color:var(--main-color);
+}
+
+.header .cart-items-container .cart-item img{
+    height: 7rem;
+}
+
+.header .cart-items-container .cart-item .content h3{
+    font-size: 2rem;
+    color:var(--black);
+    padding-bottom: .5rem;
+}
+
+.header .cart-items-container .cart-item .content .price{
+    font-size: 1.5rem;
     color:var(--main-color);
 }
 
@@ -267,7 +324,7 @@ textarea {
 .menu .box-container .box{
     padding:4rem;
     text-align: center;
-    border:var(--border);    
+    border:var(--border);
 }
 
 .menu .box-container .box img{
@@ -517,7 +574,7 @@ textarea {
 }
 
 .modif .box-container .box{
-    border:var(--border);    
+    border:var(--border);
 }
 
 .modif .box-container .box .image{
