@@ -26,12 +26,12 @@
 
     <div class="icons">
         <nav class="navbar">
-            <a href="visiteur_connexion.html">Connexion</a>
+            <a href="visiteur_connexion.php">Connexion</a>
         </nav>
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="index.html" class="logo">
+    <a href="visiteur_accueil.php" class="logo">
         <img src="images/LaMontreS.png" alt="">
     </a>
 
@@ -93,7 +93,7 @@
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.html">CGU</a>
+        <a href="visiteur_CGU.php">CGU</a>
     </div>
 
 </section>

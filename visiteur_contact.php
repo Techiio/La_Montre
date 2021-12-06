@@ -25,7 +25,7 @@
     </a>
 
 
-    <a href="index.html" class="logo">
+    <a href="visiteur_accueil.php" class="logo">
         <img src="images/LaMontreS.png" alt="">
     </a>
 
@@ -70,7 +70,7 @@
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.html">CGU</a>
+        <a href="visiteur_CGU.php">CGU</a>
     </div>
 
 </section>

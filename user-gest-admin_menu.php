@@ -24,7 +24,7 @@
         <a>[USER.NAME.TBD]</a>
     </nav>
 
-    <a href="index.html" class="logo">
+    <a href="visiteur_accueil.php" class="logo">
         <img src="images/LaMontreS.png" alt="">
         <h3>Déconnexion</h3>
     </a>
@@ -43,23 +43,23 @@
     <h1 class="heading"> Ma <span>Montre</span> </h1>
 
     <div class="box-container">
-        <a href="user-gest-admin_ma-journee.html" class="box">
+        <a href="user-gest-admin_ma-journee.php" class="box">
             <img src="images/try-1.png" alt="">
             <h3>Ma Journée</h3>
 
         </a>
 
-        <a href="user-gest-admin_statistiques.html" class="box">
+        <a href="user-gest-admin_statistiques.php" class="box">
             <img src="images/try-1.png" alt="">
             <h3>Mes Stats</h3>
         </a>
 
-        <a href="user-gest-admin_conseils.html" class="box">
+        <a href="user-gest-admin_conseils.php" class="box">
             <img src="images/try-1.png" alt="">
             <h3>Mes Conseils</h3>
         </a>
 
-        <a href="user-gest-admin_faq-contact.html" class="box">
+        <a href="user-gest-admin_faq-contact.php" class="box">
             <img src="images/try-1.png" alt="">
             <h3>FAQ/Contact</h3>
         </a>
@@ -72,7 +72,7 @@
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.html">CGU</a>
+        <a href="visiteur_CGU.php">CGU</a>
     </div>
 
 </section>

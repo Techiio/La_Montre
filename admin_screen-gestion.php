@@ -26,15 +26,15 @@
 
     <div class="icons">
         <nav class="navbar">
-            <a href="user-gest-admin_menu.html">Mon Menu</a>
-            <a href="user-gest-admin_ma-journee.html">Ma Journée</a>
-            <a href="user-gest-admin_statistiques.html">Mes Stats</a>
-            <a href="user-gest-admin_conseils.html">Mes Conseils</a>
+            <a href="user-gest-admin_menu.php">Mon Menu</a>
+            <a href="user-gest-admin_ma-journee.php">Ma Journée</a>
+            <a href="user-gest-admin_statistiques.php">Mes Stats</a>
+            <a href="user-gest-admin_conseils.php">Mes Conseils</a>
         </nav>
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="index.html" class="logo">
+    <a href="visiteur_accueil.php" class="logo">
         <img src="images/LaMontreS.png" alt="">
         <h3>Déconnexion</h3>
     </a>
@@ -91,7 +91,7 @@
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.html">CGU</a>
+        <a href="visiteur_CGU.php">CGU</a>
     </div>
 
 </section>

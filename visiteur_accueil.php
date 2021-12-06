@@ -20,13 +20,13 @@
 
 <header class="header">
 
-    <a href="index.html" class="logo">
+    <a href="visiteur_accueil.php" class="logo">
         <img src="images/LaMontreS.png" alt="">
     </a>
 
     <nav class="navbar">
-        <a href="visiteur_connexion.html">Connexion</a>
-        <a href="visiteur_inscription.html">Inscription</a>
+        <a href="visiteur_connexion.php">Connexion</a>
+        <a href="visiteur_inscription.php">Inscription</a>
     </nav>
 
 
@@ -47,7 +47,7 @@
     <div class="content">
         <h3>Avec vous à chaque nouvelle journée</h3>
         <p>Baptiste stp j'ai besoin de tes boutons connexion et inscription ^^</p>
-        <a href="visiteur_contact.html" class="btn">Nous contacter</a>
+        <a href="visiteur_contact.php" class="btn">Nous contacter</a>
     </div>
 
 </section>
@@ -57,7 +57,7 @@
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.html">CGU</a>
+        <a href="visiteur_CGU.php">CGU</a>
     </div>
 
 </section>

@@ -27,7 +27,7 @@
         <a>[USER_NAME_TBD]</a>
     </nav>
 
-    <a href="index.html" class="logo">
+    <a href="visiteur_accueil.php" class="logo">
         <img src="images/LaMontreS.png" alt="">
     </a>
 
