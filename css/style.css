@@ -101,6 +101,15 @@ textarea {
     z-index: 1000;
 }
 
+.header .logo h1{
+    color:var(--main-color);
+    font-size: ;
+}
+
+.header a h3{
+    color: var(--main-color);
+}
+
 .header .logo img{
     height: 7rem;
 }
@@ -130,6 +139,7 @@ textarea {
 
 #menu-btn{
     display: none;
+
 }
 
 .header .search-form{
