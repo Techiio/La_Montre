@@ -110,6 +110,14 @@ textarea {
     color: var(--main-color);
 }
 
+.header a h3{
+    color: var(--main-color);
+}
+
+.header a h3{
+    color: var(--main-color);
+}
+
 .header .logo img{
     height: 7rem;
 }
