@@ -49,36 +49,36 @@
     <h1 class="heading">.</h1>
 </section>
 
-<section class="menu" id="menu">
-
+<section class="content">
     <h1 class="heading"> Mes <span>Stats</span> </h1>
-
-    <div class="box-container">
-        <a href="user-gest-admin_ma-journee.php" class="box">
-            <img src="images/try-1.png" alt="">
-            <h3>Ma Journée</h3>
-
-        </a>
-
-        <a href="user-gest-admin_statistiques.php" class="box">
-            <img src="images/try-1.png" alt="">
-            <h3>Mes Stats</h3>
-        </a>
-
-        <a href="user-gest-admin_conseils.php" class="box">
-            <img src="images/try-1.png" alt="">
-            <h3>Mes Conseils</h3>
-        </a>
-
-        <a href="user-gest-admin_faq-contact.php" class="box">
-            <img src="images/try-1.png" alt="">
-            <h3>FAQ/Contact</h3>
-        </a>
-
-    </div>
-
 </section>
 
+<section class="data">
+
+    <div class="box4">
+        <p>Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi
+            tomatillo melon azuki bean garlic.</p>
+    </div>
+    <div class="box5">
+        <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi
+            pea sprouts fava bean collard greens dandelion okra wakame tomato.
+            Dandelion cucumber earthnut pea peanut soko zucchini.</p>
+    </div>
+
+    <div class="box6">
+        <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi
+            pea sprouts fava bean collard greens dandelion okra wakame tomato.
+            Dandelion cucumber earthnut pea peanut soko zucchini.</p>
+    </div>
+
+    <div class="box7">
+        <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi
+            pea sprouts fava bean collard greens dandelion okra wakame tomato.
+            Dandelion cucumber earthnut pea peanut soko zucchini.</p>
+    </div>
+
+
+</section>
 <!-- mes stats section ends -->
 
 <section class="footer">

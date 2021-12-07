@@ -14,7 +14,7 @@ $mysqlConnection = new PDO(
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Visiteur Connexion</title>
+        <title>Ma Journée</title>
 
         <!-- font awesome cdn link  -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -57,33 +57,30 @@ $mysqlConnection = new PDO(
     <h1 class="heading">.</h1>
 </section>
 
-<section class="menu" id="menu">
-
+<section class="content">
     <h1 class="heading"> Ma <span>Journée</span> </h1>
+</section>
 
-    <div class="box-container" style="width: 70%">
-        <div class="box">
-            <h3>Ma Journée</h3>
+<section class="data">
 
+        <div class="box1">
+            <p>Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi
+                tomatillo melon azuki bean garlic.</p>
+        </div>
+        <div class="box2">
+            <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi
+                pea sprouts fava bean collard greens dandelion okra wakame tomato.
+                Dandelion cucumber earthnut pea peanut soko zucchini.</p>
         </div>
 
-        <div class="box">
-            <h3>Mes Stats</h3>
+        <div class="box3">
+            <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi
+                pea sprouts fava bean collard greens dandelion okra wakame tomato.
+                Dandelion cucumber earthnut pea peanut soko zucchini.</p>
         </div>
-    </div>
-    <div class="box-container" style="width: 30%">
-        <div class="box">
-            <h3>Mes Conseils</h3>
-        </div>
-
-        <div class="box">
-            <h3>FAQ/Contact</h3>
-        </div>
-
-    </div>
 
 </section>
-<!-- ma journée section ends -->
+<!-- ma journée section end-->
 
 <section class="footer">
 
