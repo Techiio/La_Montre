@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : lun. 06 déc. 2021 à 10:26
--- Version du serveur : 5.7.36
--- Version de PHP : 7.4.26
+-- Hôte : 127.0.0.1
+-- Généré le : mar. 07 déc. 2021 à 15:33
+-- Version du serveur : 10.4.21-MariaDB
+-- Version de PHP : 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,8 +27,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `connexion`
 --
 
-DROP TABLE IF EXISTS `connexion`;
-CREATE TABLE IF NOT EXISTS `connexion` (
+CREATE TABLE `connexion` (
   `CodeStatut` int(11) NOT NULL,
   `Identifiant` varchar(60) NOT NULL,
   `Mdp` int(11) NOT NULL
@@ -40,30 +39,26 @@ CREATE TABLE IF NOT EXISTS `connexion` (
 -- Structure de la table `conseil`
 --
 
-DROP TABLE IF EXISTS `conseil`;
-CREATE TABLE IF NOT EXISTS `conseil` (
+CREATE TABLE `conseil` (
   `CONSEIL` varchar(300) NOT NULL,
   `Score` int(11) NOT NULL,
-  `CodeProduit` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`Score`)
+  `CodeProduit` varchar(50) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `donnésmontre`
+-- Structure de la table `donneesmontre`
 --
 
-DROP TABLE IF EXISTS donneesmontre;
-CREATE TABLE IF NOT EXISTS `donnésmontre` (
+CREATE TABLE `donneesmontre` (
   `Bpm` int(11) NOT NULL,
   `Date` date NOT NULL,
   `Heure` time NOT NULL,
   `dB` int(11) NOT NULL,
   `No2` int(11) NOT NULL,
   `DegréCelsius` int(11) NOT NULL,
-  `CodeProduit` int(11) DEFAULT NULL,
-  PRIMARY KEY (`Date`)
+  `CodeProduit` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -72,8 +67,7 @@ CREATE TABLE IF NOT EXISTS `donnésmontre` (
 -- Structure de la table `listeconseil`
 --
 
-DROP TABLE IF EXISTS `listeconseil`;
-CREATE TABLE IF NOT EXISTS `listeconseil` (
+CREATE TABLE `listeconseil` (
   `Conseil` varchar(300) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -83,14 +77,12 @@ CREATE TABLE IF NOT EXISTS `listeconseil` (
 -- Structure de la table `profil`
 --
 
-DROP TABLE IF EXISTS `profil`;
-CREATE TABLE IF NOT EXISTS `profil` (
+CREATE TABLE `profil` (
   `CodePersonne` int(11) NOT NULL,
   `CodeProduit` int(11) NOT NULL,
   `Couleur` varchar(7) NOT NULL,
   `CodeFamille` varchar(10) DEFAULT NULL,
-  `Identifiant` varchar(60) DEFAULT NULL,
-  PRIMARY KEY (`CodeProduit`)
+  `Identifiant` varchar(60) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -99,8 +91,7 @@ CREATE TABLE IF NOT EXISTS `profil` (
 -- Structure de la table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `prenom` varchar(30) NOT NULL,
   `codeP` varchar(26) NOT NULL,
   `codeF` text NOT NULL,
@@ -115,6 +106,28 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`prenom`, `codeP`, `codeF`, `mdp1`, `mdp2`) VALUES
 ('caca', 'acac', '89', 'caca', 'caca'),
 ('Baptiste', 'oui', '30', 'bbbb', 'bbbb');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `conseil`
+--
+ALTER TABLE `conseil`
+  ADD PRIMARY KEY (`Score`);
+
+--
+-- Index pour la table `donneesmontre`
+--
+ALTER TABLE `donneesmontre`
+  ADD PRIMARY KEY (`Date`);
+
+--
+-- Index pour la table `profil`
+--
+ALTER TABLE `profil`
+  ADD PRIMARY KEY (`CodeProduit`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
