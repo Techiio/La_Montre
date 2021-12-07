@@ -1,3 +1,12 @@
+<?php
+// Souvent on identifie cet objet par la variable $conn ou $db
+$mysqlConnection = new PDO(
+    'mysql:host=localhost;dbname=bdd;charset=utf8',
+    'root',
+    ''
+);
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -52,27 +61,24 @@
 
     <h1 class="heading"> Ma <span>Journée</span> </h1>
 
-    <div class="box-container">
-        <a href="user-gest-admin_ma-journee.php" class="box">
-            <img src="images/try-1.png" alt="">
+    <div class="box-container" style="width: 70%">
+        <div class="box">
             <h3>Ma Journée</h3>
 
-        </a>
+        </div>
 
-        <a href="user-gest-admin_statistiques.php" class="box">
-            <img src="images/try-1.png" alt="">
+        <div class="box">
             <h3>Mes Stats</h3>
-        </a>
-
-        <a href="user-gest-admin_conseils.php" class="box">
-            <img src="images/try-1.png" alt="">
+        </div>
+    </div>
+    <div class="box-container" style="width: 30%">
+        <div class="box">
             <h3>Mes Conseils</h3>
-        </a>
+        </div>
 
-        <a href="user-gest-admin_faq-contact.php" class="box">
-            <img src="images/try-1.png" alt="">
+        <div class="box">
             <h3>FAQ/Contact</h3>
-        </a>
+        </div>
 
     </div>
 
