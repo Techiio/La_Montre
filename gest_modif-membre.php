@@ -19,7 +19,7 @@
 <header class="header">
 
     <a class="logo">
-        <img src="images/EkoS.png" alt="">
+        <img src="images/LaMontreS.png" alt="">
     </a>
 
     <div class="icons">
@@ -34,7 +34,6 @@
     </div>
 
     <a href="visiteur_accueil.php" class="logo">
-        <img src="images/LaMontreS.png" alt="">
         <h3>Déconnexion</h3>
     </a>
 
