@@ -1,10 +1,14 @@
 <?php
-// Souvent on identifie cet objet par la variable $conn ou $db
-$mysqlConnection = new PDO(
-    'mysql:host=localhost;dbname=bdd;charset=utf8',
-    'root',
-    ''
-);
+try
+{
+    $db = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
+        'root',
+        '');
+}
+catch (Exception $e)
+{
+    die('Erreur : ' . $e->getMessage());
+}
 ?>
 
 <!DOCTYPE html>
@@ -74,9 +78,7 @@ $mysqlConnection = new PDO(
         </div>
 
         <div class="box3">
-            <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi
-                pea sprouts fava bean collard greens dandelion okra wakame tomato.
-                Dandelion cucumber earthnut pea peanut soko zucchini.</p>
+            <p>Infos du Jour :</p>
         </div>
 
 </section>

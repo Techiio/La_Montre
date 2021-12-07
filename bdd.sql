@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `conseil` (
 -- Structure de la table `donnésmontre`
 --
 
-DROP TABLE IF EXISTS `donnésmontre`;
+DROP TABLE IF EXISTS donneesmontre;
 CREATE TABLE IF NOT EXISTS `donnésmontre` (
   `Bpm` int(11) NOT NULL,
   `Date` date NOT NULL,
