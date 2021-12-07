@@ -26,6 +26,10 @@ catch (Exception $e)
         <!-- custom css file link  -->
         <link rel="stylesheet" href="css/style.css">
 
+        <!-- js chart -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js" integrity="sha512-tMabqarPtykgDtdtSqCL3uLVM0gS1ZkUAVhRFu1vSEFgvB73niFQWJuvviDyBGBH22Lcau4rHB5p2K2T0Xvr6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
     </head>
 <body>
 
@@ -68,8 +72,7 @@ catch (Exception $e)
 <section class="data">
 
         <div class="box1">
-            <p>Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi
-                tomatillo melon azuki bean garlic.</p>
+            <canvas id="line-chart"></canvas>
         </div>
         <div class="box2">
             <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi
@@ -94,6 +97,6 @@ catch (Exception $e)
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
-
+<script src="js/chart.js"></script>
 </body>
 </html>
