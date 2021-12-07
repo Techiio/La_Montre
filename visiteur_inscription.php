@@ -1,7 +1,5 @@
 
-<?php
-require('Inscription.php')
-?>
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -73,12 +71,19 @@ require('Inscription.php')
               />
             </div>
             <div>
-              <input type="checkbox" id="check" name="check" />
+              <input type="checkbox" id="check" class="check" />
               <label for="check">
                 <h4>
                   Cochez si vous souhaitez être le gestionnaire de votre famille
                 </h4>
               </label>
+                <br>
+                <input type="checkbox" id="check" class="check" />
+                <label for="check">
+                    <h4>
+                        J'accepte les CGU (Obligatoire)
+                    </h4>
+                </label>
             </div>
             <input
               type="submit"
