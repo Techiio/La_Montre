@@ -832,7 +832,6 @@ textarea {
         grid-row-start: 1;
         grid-row-end: 4;
     }
-
     .data .box2{
 
         border: var(--border);

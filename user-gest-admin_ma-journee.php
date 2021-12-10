@@ -72,7 +72,7 @@ catch (Exception $e)
 <section class="data">
 
         <div class="box1">
-            <canvas id="line-chart" width="600px" height="200px"></canvas>
+            <canvas id="line-chart" width="9rem" height="3rem"></canvas>
         </div>
         <div class="box2">
             <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi
