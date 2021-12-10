@@ -9,6 +9,9 @@ catch (Exception $e)
 {
     die('Erreur : ' . $e->getMessage());
 }
+$data = 'SELECT * FROM donneesmontre ORDER BY date DESC, heure DESC LIMIT 24';
+echo $data
+
 ?>
 
 <!DOCTYPE html>
@@ -72,7 +75,7 @@ catch (Exception $e)
 <section class="data">
 
         <div class="box1">
-            <canvas id="line-chart" width="9rem" height="3rem"></canvas>
+            <canvas id="line-chart"></canvas>
         </div>
         <div class="box2">
             <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi

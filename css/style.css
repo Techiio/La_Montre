@@ -625,9 +625,9 @@ textarea {
 .data {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 10rem;
+    grid-auto-rows: 16rem;
     color: white;
-    padding: 4rem;
+    padding: 1rem;
     gap:2rem;
     text-align: center;
 
@@ -760,7 +760,6 @@ textarea {
 
 
 
-
 /* media queries  */
 @media (max-width:991px){
 
@@ -822,7 +821,16 @@ textarea {
     .home .content p{
         font-size: 1.5rem;
     }
+    .data {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 7rem;
+        color: white;
+        padding: 1rem;
+        gap:2rem;
+        text-align: center;
 
+    }
     .data .box1{
 
         border: var(--border);
