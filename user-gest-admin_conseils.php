@@ -14,33 +14,7 @@
         <link rel="stylesheet" href="css/style.css">
 
     </head>
-<style>
-    div.Score {
-        
-    border-radius: 10px;
-    margin-top: 50px;
-    margin-left: 400px;
-    margin-right: 400px;
-    margin-bottom: 50px;
-  	border-style: solid;
-  	border-width: 10 px;
-    border-color: black;
-    background: darkorange;
-    padding: 20px;
-    box-shadow: 5px 5px 10px ;
-}
-
-div.divGrand {
-        
-    border-radius: 10px;
-    margin-top: 50px;
-    margin-left: 100px;
-    margin-right: 100px;
-    margin-bottom: 100px;
-    padding: 20px;
-    background: #ffcc66;
-}
-</style>        
+      
 <body>
 
 <!-- header section starts  -->
@@ -76,55 +50,25 @@ div.divGrand {
 <!-- mes conseils section starts  -->
 
 <section class="famille" id="famille">
-
     <h1 class="heading"> Ma <span>Famille</span> </h1>
-
     <div class="box-container">
-
         <a href="#" class="box">
-            <img src="images/quote-img.png" alt="" class="quote">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nulla sit libero nemo fuga sequi nobis? Necessitatibus aut laborum, nisi quas eaque laudantium consequuntur iste ex aliquam minus vel? Nemo.</p>
-            <img src="images/pic-3.png" class="user" alt="">
-            <h3>john deo</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-            </div>
+            <h3>Meilleur score</h3><br><br><br><br>
+            <p>/20 en</p>
+            
         </a>
-
         <a href="#" class="box">
-            <img src="images/quote-img.png" alt="" class="quote">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nulla sit libero nemo fuga sequi nobis? Necessitatibus aut laborum, nisi quas eaque laudantium consequuntur iste ex aliquam minus vel? Nemo.</p>
-            <img src="images/pic-3.png" class="user" alt="">
-            <h3>john deo</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-            </div>
+            <h3>Pire score</h3><br><br><br><br>
+            <p>/20 en</p>
         </a>
-
+        
+    </div><br><br>
+    <div class="box-container">
         <a href="#" class="box">
-            <img src="images/quote-img.png" alt="" class="quote">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nulla sit libero nemo fuga sequi nobis? Necessitatibus aut laborum, nisi quas eaque laudantium consequuntur iste ex aliquam minus vel? Nemo.</p>
-            <img src="images/pic-3.png" class="user" alt="">
-            <h3>john deo</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-            </div>
+            <h3>Conseils du jour :</h3><br><br><br><br>
+            <p> </p>
         </a>
-
-    </div>
-
+        
 </section>
 
 <!-- ma famille section ends -->
