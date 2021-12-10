@@ -2,8 +2,8 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : mar. 07 déc. 2021 à 15:33
+-- Hôte : localhost
+-- Généré le : ven. 10 déc. 2021 à 11:29
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.12
 
@@ -30,8 +30,15 @@ SET time_zone = "+00:00";
 CREATE TABLE `connexion` (
   `CodeStatut` int(11) NOT NULL,
   `Identifiant` varchar(60) NOT NULL,
-  `Mdp` int(11) NOT NULL
+  `Mdp` varchar(60) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `connexion`
+--
+
+INSERT INTO `connexion` (`CodeStatut`, `Identifiant`, `Mdp`) VALUES
+(0, 'jeangerard', 'jean');
 
 -- --------------------------------------------------------
 
@@ -40,9 +47,10 @@ CREATE TABLE `connexion` (
 --
 
 CREATE TABLE `conseil` (
-  `CONSEIL` varchar(300) NOT NULL,
   `Score` int(11) NOT NULL,
-  `CodeProduit` varchar(50) DEFAULT NULL
+  `CodeProduit` varchar(50) DEFAULT NULL,
+  `pirescore` int(11) DEFAULT NULL,
+  `Conseil` varchar(50) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -60,6 +68,13 @@ CREATE TABLE `donneesmontre` (
   `DegréCelsius` int(11) NOT NULL,
   `CodeProduit` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `donneesmontre`
+--
+
+INSERT INTO `donneesmontre` (`Bpm`, `Date`, `Heure`, `dB`, `No2`, `DegréCelsius`, `CodeProduit`) VALUES
+(0, '2010-12-21', '11:30:00', 0, 0, 15, 0);
 
 -- --------------------------------------------------------
 
@@ -85,49 +100,43 @@ CREATE TABLE `profil` (
   `Identifiant` varchar(60) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
 --
--- Structure de la table `users`
+-- Déchargement des données de la table `profil`
 --
 
-CREATE TABLE `users` (
-  `prenom` varchar(30) NOT NULL,
-  `codeP` varchar(26) NOT NULL,
-  `codeF` text NOT NULL,
-  `mdp1` text NOT NULL,
-  `mdp2` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `users`
---
-
-INSERT INTO `users` (`prenom`, `codeP`, `codeF`, `mdp1`, `mdp2`) VALUES
-('caca', 'acac', '89', 'caca', 'caca'),
-('Baptiste', 'oui', '30', 'bbbb', 'bbbb');
+INSERT INTO `profil` (`CodePersonne`, `CodeProduit`, `Couleur`, `CodeFamille`, `Identifiant`) VALUES
+(0, 0, 'green', NULL, 'jeangerard');
 
 --
 -- Index pour les tables déchargées
 --
 
 --
+-- Index pour la table `connexion`
+--
+ALTER TABLE `connexion`
+  ADD PRIMARY KEY (`Identifiant`);
+
+--
 -- Index pour la table `conseil`
 --
 ALTER TABLE `conseil`
-  ADD PRIMARY KEY (`Score`);
+  ADD PRIMARY KEY (`Score`),
+  ADD KEY `CodeProduit` (`CodeProduit`);
 
 --
 -- Index pour la table `donneesmontre`
 --
 ALTER TABLE `donneesmontre`
-  ADD PRIMARY KEY (`Date`);
+  ADD PRIMARY KEY (`Date`),
+  ADD KEY `CodeProduit` (`CodeProduit`);
 
 --
 -- Index pour la table `profil`
 --
 ALTER TABLE `profil`
-  ADD PRIMARY KEY (`CodeProduit`);
+  ADD PRIMARY KEY (`CodeProduit`),
+  ADD KEY `Identifiant` (`Identifiant`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
