@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -22,14 +20,14 @@
       <!-- header section starts  -->
 
       <header class="header">
-        <a href="#" class="logo">
+        <a class="logo">
           <img src="images/EkoS.png" alt="" />
         </a>
         <nav class="navbar">
-          <a href="visiteur_connexion.html">Connexion</a>
+          <a href="visiteur_connexion.php">Connexion</a>
         </nav>
 
-        <a href="visiteur-accueil.html" class="logo">
+        <a href="visiteur_accueil.php" class="logo">
           <img src="images/LaMontreS.png" alt="" />
         </a>
       </header>
@@ -97,4 +95,13 @@
       </section>
     </body>
   </head>
+
+  <section class="footer">
+
+      <div class="links">
+          <a href="visiteur_CGU.php">CGU</a>
+      </div>
+
+  </section>
+
 </html>

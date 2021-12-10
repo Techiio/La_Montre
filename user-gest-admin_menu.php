@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Menu</title>
 
+    <!-- font awesome cdn link  -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css">
 
@@ -44,24 +50,24 @@
 
     <div class="box-container">
         <a href="user-gest-admin_ma-journee.php" class="box">
-            <img src="images/try-1.png" alt="">
+            <span class="fas fa-calendar-alt"></span>
             <h3>Ma Journée</h3>
 
         </a>
 
         <a href="user-gest-admin_statistiques.php" class="box">
-            <img src="images/try-1.png" alt="">
+            <span class="fas fa-chart-bar"></span>
             <h3>Mes Stats</h3>
         </a>
 
         <a href="user-gest-admin_conseils.php" class="box">
-            <img src="images/try-1.png" alt="">
+            <span class="fas fa-hands-helping"></span>
             <h3>Mes Conseils</h3>
         </a>
 
         <a href="user-gest-admin_faq-contact.php" class="box">
-            <img src="images/try-1.png" alt="">
-            <h3>FAQ/Contact</h3>
+            <span class="fas fa-comments"></span>
+            <h3>FAQ / Contact</h3>
         </a>
 
     </div>

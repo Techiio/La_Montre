@@ -263,6 +263,12 @@ textarea {
     gap:2rem;
 }
 
+.menu .box-container span{
+    color:white;
+    font-size: 10rem;
+    padding-left: 2rem;
+}
+
 .menu .box-container .box{
     padding:4rem;
     text-align: center;

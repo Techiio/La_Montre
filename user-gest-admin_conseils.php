@@ -73,6 +73,15 @@
 
 <!-- ma famille section ends -->
 
+<section class="footer">
+
+    <div class="links">
+        <a href="visiteur_CGU.php">CGU</a>
+    </div>
+
+</section>
+
+
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
 
