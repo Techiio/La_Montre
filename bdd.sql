@@ -2,8 +2,8 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le : ven. 10 déc. 2021 à 11:29
+-- Hôte : 127.0.0.1
+-- Généré le : sam. 11 déc. 2021 à 13:55
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.12
 
@@ -74,7 +74,15 @@ CREATE TABLE `donneesmontre` (
 --
 
 INSERT INTO `donneesmontre` (`Bpm`, `Date`, `Heure`, `dB`, `No2`, `DegréCelsius`, `CodeProduit`) VALUES
-(0, '2010-12-21', '11:30:00', 0, 0, 15, 0);
+(0, '2010-12-21', '11:30:00', 0, 0, 15, 0),
+(30, '2021-12-09', '12:00:00', 20, 10, 3, 2),
+(80, '2021-12-10', '20:00:00', 60, 30, 10, 2),
+(5, '2021-12-10', '19:00:00', 5, 5, 5, 1),
+(60, '2021-12-10', '13:00:00', 80, 15, 25, 2),
+(40, '2021-12-10', '14:00:00', 40, 40, 20, 2),
+(90, '2021-12-10', '15:00:00', 50, 20, 15, 2),
+(80, '2021-12-09', '20:00:00', 60, 30, 10, 2),
+(50, '2021-12-07', '16:00:00', 40, 40, 15, 2);
 
 -- --------------------------------------------------------
 
@@ -105,7 +113,9 @@ CREATE TABLE `profil` (
 --
 
 INSERT INTO `profil` (`CodePersonne`, `CodeProduit`, `Couleur`, `CodeFamille`, `Identifiant`) VALUES
-(0, 0, 'green', NULL, 'jeangerard');
+(0, 0, 'green', NULL, 'jeangerard'),
+(1, 1, 'blue', NULL, 'jacque'),
+(1, 2, 'green', NULL, 'jean');
 
 --
 -- Index pour les tables déchargées
@@ -128,7 +138,6 @@ ALTER TABLE `conseil`
 -- Index pour la table `donneesmontre`
 --
 ALTER TABLE `donneesmontre`
-  ADD PRIMARY KEY (`Date`),
   ADD KEY `CodeProduit` (`CodeProduit`);
 
 --
