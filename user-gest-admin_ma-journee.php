@@ -17,9 +17,40 @@ $req = $db->query($sql);
 $data = $req->fetch();
 $codeproduit = $data['CodeProduit'];
 
-$sql = 'SELECT * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date DESC, Heure DESC LIMIT 100';
+$sql = 'SELECT * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date ASC, Heure ASC LIMIT 24';
 $req = $db->query($sql);
 
+$heure = [];
+$Bpm = [];
+$dB = [];
+$No2 = [];
+$DegCel = [];
+
+$vheure = [];
+$vBpm = [];
+$vdB = [];
+$vNo2 = [];
+$vDegCel = [];
+
+$i = 0;
+
+while ($data = $req->fetch()) {
+
+    $heure[$i] = $data['Heure'];
+    $Bpm[$i] = $data['Bpm'];
+    $dB[$i] = $data['dB'];
+    $No2[$i] = $data['No2'] ;
+    $DegCel[$i] = $data['DegréCelsius'];
+
+    $vheure[$i] = substr($data['Heure'], 0, 2).',';
+    $vBpm[$i] = $data['Bpm'].',' ;
+    $vdB[$i] = $data['dB'] .',';
+    $vNo2[$i] = $data['No2'].',' ;
+    $vDegCel[$i] = $data['DegréCelsius'].',' ;
+
+    $i = $i + 1;
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -83,16 +114,27 @@ $req = $db->query($sql);
 <section class="data">
 
         <div class="box1">
+            <p class="textgraph" style="color: darkorange">Evolution des données en fonction des dernières 24h</p>
             <canvas id="line-chart"></canvas>
         </div>
         <div class="box2">
-            <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi
-                pea sprouts fava bean collard greens dandelion okra wakame tomato.
-                Dandelion cucumber earthnut pea peanut soko zucchini.</p>
+            <p class="text">Récupérer les données</p>
         </div>
 
         <div class="box3">
-            <p>Infos du Jour :</p>
+            <p class="bigtext" style="color: darkorange">Infos du Jour</p>
+            <p class="text">Durée d'activité : </p>
+            <p class="score"><?php echo 'Insérer variable durée'?></p>
+            <p class="text">Pic de No2 : </p>
+            <p class="score"><?php echo max($No2).' insérer unité' ?></p>
+            <p class="text">Pic de poul : </p>
+            <p class="score"><?php echo max($Bpm).' Bpm' ?></p>
+            <p class="text">Pic de température : </p>
+            <p class="score"><?php echo max($DegCel).'°C' ?></p>
+            <p class="text">Pic de son : </p>
+            <p class="score"><?php echo max($dB).' dB' ?></p>
+            <p class="bigtext">Meilleur score : </p>
+            <p class="score" style="font-size: 3.5rem"><?php echo 'Insérer variable meilleur score' ?></p>
         </div>
 
 </section>
@@ -113,17 +155,17 @@ $req = $db->query($sql);
         type: 'line',
         data: {
             labels: [
-                    <?php
-                    while($data = $req->fetch()){
-
-                        echo $data['Date'].',';
-
-                    ?>
+                <?php
+                foreach($vheure as $var){
+                    echo $var;
+                }
+                ?>
             ],
             datasets: [{
                 data: [
                     <?php
-                        echo $data['Bpm'].',';
+                    foreach($vBpm as $var){
+                        echo $var;
                     }
                     ?>
                 ],
@@ -131,17 +173,41 @@ $req = $db->query($sql);
                 borderColor: "#3e95cd",
                 fill: false
             }, {
-                data: [282,350,400],
+                data: [
+                    <?php
+
+                    foreach ($vdB as $var) {
+                        echo $var;
+                    }
+
+                    ?>
+                ],
                 label: "dB",
                 borderColor: "#8e5ea2",
                 fill: false
             }, {
-                data: [168,170,200],
+                data: [
+                    <?php
+
+                    foreach ($vNo2 as $var) {
+                        echo $var;
+                    }
+
+                    ?>
+                ],
                 label: "No2",
                 borderColor: "#3cba9f",
                 fill: false
             }, {
-                data: [40,20,10],
+                data: [
+                    <?php
+
+                    foreach ($vDegCel as $var) {
+                        echo $var;
+                    }
+
+                    ?>
+                ],
                 label: "Degré Celsius",
                 borderColor: "#e8c3b9",
                 fill: false
@@ -151,7 +217,7 @@ $req = $db->query($sql);
         options: {
             title: {
                 display: true,
-                text: 'World population per region (in millions)'
+                text: 'Evolution des données en fonction des dernières 24h'
             }
         }
     });
