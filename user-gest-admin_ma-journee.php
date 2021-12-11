@@ -9,8 +9,19 @@ catch (Exception $e)
 {
     die('Erreur : ' . $e->getMessage());
 }
-$data = 'SELECT * FROM donneesmontre ORDER BY date DESC, heure DESC LIMIT 24';
-echo $data
+
+$id = "jean";
+
+$sql = "SELECT CodeProduit FROM profil WHERE Identifiant ='$id'";
+$req = $db->query($sql);
+$data = $req->fetch();
+$codeproduit = $data['CodeProduit'];
+
+$sql = 'SELECT * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date DESC, Heure DESC LIMIT 100';
+$req = $db->query($sql);
+$data = $req->fetch();
+
+print_r($data);
 
 ?>
 
