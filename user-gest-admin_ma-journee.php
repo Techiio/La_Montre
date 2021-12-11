@@ -21,8 +21,6 @@ $sql = 'SELECT * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER 
 $req = $db->query($sql);
 $data = $req->fetch();
 
-print_r($data);
-
 ?>
 
 <!DOCTYPE html>
