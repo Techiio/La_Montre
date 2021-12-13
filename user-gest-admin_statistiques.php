@@ -56,6 +56,7 @@ $vdB = array_reverse($vdB);
 $vNo2 = array_reverse($vNo2);
 $vDegCel = array_reverse($vDegCel);
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -71,6 +72,10 @@ $vDegCel = array_reverse($vDegCel);
         <!-- custom css file link  -->
         <link rel="stylesheet" href="css/style.css">
 
+        <!-- js chart -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js" integrity="sha512-tMabqarPtykgDtdtSqCL3uLVM0gS1ZkUAVhRFu1vSEFgvB73niFQWJuvviDyBGBH22Lcau4rHB5p2K2T0Xvr6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
     </head>
 <body>
 
@@ -79,15 +84,13 @@ $vDegCel = array_reverse($vDegCel);
 <header class="header">
 
     <a class="logo">
-        <img src="images/EkoS.png" alt="">
+        <img src="images/LaMontreS.png" alt="">
     </a>
-
 
     <div class="icons">
         <nav class="navbar">
             <a href="user-gest-admin_menu.php">Mon Menu</a>
             <a href="user-gest-admin_ma-journee.php">Ma Journée</a>
-            <a href="user-gest-admin_statistiques.php">Mes Stats</a>
             <a href="user-gest-admin_conseils.php">Mes Conseils</a>
             <a href="user-gest-admin_faq-contact.php">Contact/FAQ</a>
         </nav>
@@ -95,17 +98,14 @@ $vDegCel = array_reverse($vDegCel);
     </div>
 
     <a href="visiteur_accueil.php" class="logo">
-        <img src="images/LaMontreS.png" alt="">
         <h3>Déconnexion</h3>
     </a>
-
-
 
 </header>
 
 <!-- header section ends -->
 
-<!-- mes stats section starts  -->
+<!-- ma journée section starts  -->
 <section class="content">
     <h1 class="heading">.</h1>
 </section>
@@ -117,30 +117,35 @@ $vDegCel = array_reverse($vDegCel);
 <section class="data">
 
     <div class="box4">
-        <p class="textgraph" style="color: darkorange">Evolution des données en fonction des 7 derniers jours</p>
-        <canvas id="line-chart-week"></canvas>
+        <p class="textgraph" style="color: darkorange">Evolution des données en fonction des dernières 168h</p>
+        <canvas id="line-chart-day"></canvas>
     </div>
     <div class="box5">
-        <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi
-            pea sprouts fava bean collard greens dandelion okra wakame tomato.
-            Dandelion cucumber earthnut pea peanut soko zucchini.</p>
+        <p class="text">Récupérer les données</p>
     </div>
 
     <div class="box6">
-        <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi
-            pea sprouts fava bean collard greens dandelion okra wakame tomato.
-            Dandelion cucumber earthnut pea peanut soko zucchini.</p>
+        <p class="text">Récupérer les données</p>
     </div>
 
     <div class="box7">
-        <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi
-            pea sprouts fava bean collard greens dandelion okra wakame tomato.
-            Dandelion cucumber earthnut pea peanut soko zucchini.</p>
+        <p class="bigtext" style="color: darkorange">Infos du Jour</p>
+        <p class="text">Durée d'activité : </p>
+        <p class="score"><?php echo 'Insérer variable durée'?></p>
+        <p class="text" style="color: #3cba9f">Pic de No2 : </p>
+        <p class="score"><?php echo max($No2).' insérer unité' ?></p>
+        <p class="text" style="color: #3e95cd">Pic de poul : </p>
+        <p class="score"><?php echo max($Bpm).' Bpm' ?></p>
+        <p class="text" style="color: #e8c3b9">Pic de température : </p>
+        <p class="score"><?php echo max($DegCel).'°C' ?></p>
+        <p class="text" style="color: #8e5ea2">Pic de son : </p>
+        <p class="score"><?php echo max($dB).' dB' ?></p>
+        <p class="bigtext">Meilleur score : </p>
+        <p class="score" style="font-size: 3.5rem"><?php echo 'Insérer variable meilleur score' ?></p>
     </div>
 
-
 </section>
-<!-- mes stats section ends -->
+<!-- ma journée section end-->
 
 <section class="footer">
 
@@ -153,34 +158,65 @@ $vDegCel = array_reverse($vDegCel);
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
 <script>
-    new Chart(document.getElementById("line-chart-week"), {
+    new Chart(document.getElementById("line-chart-day"), {
         type: 'line',
         data: {
-            labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],
+            labels: [
+                <?php
+                foreach($vheure as $var){
+                    echo $var;
+                }
+                ?>
+            ],
             datasets: [{
-                data: [86,114,106,106,107,111,133,221,783,2478],
-                label: "Africa",
+                data: [
+                    <?php
+                    foreach($vBpm as $var){
+                        echo $var;
+                    }
+                    ?>
+                ],
+                label: "Bpm",
                 borderColor: "#3e95cd",
                 fill: false
             }, {
-                data: [282,350,411,502,635,809,947,1402,3700,5267],
-                label: "Asia",
+                data: [
+                    <?php
+
+                    foreach ($vdB as $var) {
+                        echo $var;
+                    }
+
+                    ?>
+                ],
+                label: "dB",
                 borderColor: "#8e5ea2",
                 fill: false
             }, {
-                data: [168,170,178,190,203,276,408,547,675,734],
-                label: "Europe",
+                data: [
+                    <?php
+
+                    foreach ($vNo2 as $var) {
+                        echo $var;
+                    }
+
+                    ?>
+                ],
+                label: "No2",
                 borderColor: "#3cba9f",
                 fill: false
             }, {
-                data: [40,20,10,16,24,38,74,167,508,784],
-                label: "Latin America",
+                data: [
+                    <?php
+
+                    foreach ($vDegCel as $var) {
+                        echo $var;
+                    }
+
+                    ?>
+                ],
+                label: "Degré Celsius",
                 borderColor: "#e8c3b9",
-                fill: false
-            }, {
-                data: [6,3,2,2,7,26,82,172,312,433],
-                label: "North America",
-                borderColor: "#c45850",
                 fill: false
             }
             ]
@@ -188,9 +224,10 @@ $vDegCel = array_reverse($vDegCel);
         options: {
             title: {
                 display: true,
-                text: 'World population per region (in millions)'
+                text: 'Evolution des données en fonction des dernières 24h'
             }
         }
     });
 </script>
+</body>
 </html>
