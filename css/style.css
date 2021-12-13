@@ -447,7 +447,12 @@ textarea {
 }
 .contact.row .div1 h4 {
     text-transform: none;
-    font-size: 1.7rem;
+    font-size: 1.3rem;
+    color:#fff;
+}
+.contact.row .div1 h5 {
+    text-transform: none;
+    font-size: 1.0rem;
     color:#fff;
 }
 .contact .row h3{

@@ -53,11 +53,11 @@
 
         <div class="div1">
             <h3 > Foire aux questions</h3>
-            <h4 class="qtn">
+            <h4>
                 Cette page montre l'emboîtement des balises "div". La feuille de style définit une hauteur de 200 pixels pour la boîte "div2" avec adjonction de la spécification <b>overflow : auto</b>. On peut alors faire défiler le texte qu'elle contient par la barre de défilement qui apparaît sur la droite. La largeur de la boîte "div2" n'est pas spécifiée. Elle prend toute la largeur disponible compte tenu des marges. <br/>Les boîtes internes héritent des propriétés des boîtes qui les englobent : ce paragraphe de style "texte0" est dans la boîte "div2", elle même contenue dans la boîte "div1". Il hérite de la police de caractères de "div1". Ses marges sont annulées par son style "texte0"
             </h4>
 
-            <h5 class="rep">
+            <h5>
                 Ce paragraphe est dans la boîte "div2" et répond au style "texte1". Ce style modifie la couleur de la police de caractères héritée de "div1", annule les marges, puis fixe la marge haute à 20px
             </h5>
 
