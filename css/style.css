@@ -431,6 +431,8 @@ textarea {
     text-align: center;
 }
 .contact .div2{
+    flex:1 1 45rem;
+    padding:5rem 2rem;
     text-align: center;
 }
 
