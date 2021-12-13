@@ -12,10 +12,10 @@ try {
 if(!empty($_POST['prenom']) && !empty($_POST['codeP']) && !empty($_POST['codeF']) && !empty($_POST['mdp1']) == !empty($_POST['mdp2']) && isset($_POST['CGU']))
 {
     $prenom = $_POST['prenom']; 
-    $codeP = $_POST['codeP']; 
+    $codeProduit = $_POST['codeProduit']; 
     $codeF = $_POST['codeF']; 
-    $mdp1 = $_POST['mdp1']; 
-    $requete=$bdd->prepare('INSERT INTO profil(CodePersonne,CodeProduit, Mdp) VALUES(?, ?, ?)');
+    $mdp = $_POST['mdp']; 
+    $requete=$bdd->prepare('INSERT INTO profil(CodePersonne,CodeProduit, CodeFamille, id) VALUES(?, ?, ?)');
     $requete->execute(array($prenom, $codeP, $codeF, $mdp1, $mdp2));
 
     //Verification de la longueur du mot de passe et conditions
