@@ -217,7 +217,7 @@ $vDegCel = array_reverse($vDegCel);
             }
             ]
         },
-        options: {
+            options: {
             title: {
                 display: true,
                 text: 'Evolution des données en fonction des dernières 24h'
