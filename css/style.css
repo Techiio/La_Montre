@@ -107,6 +107,14 @@ textarea {
 
 .header a h3{
     color: var(--main-color);
+    font-size: 1.8rem;
+}
+
+.header a h3:hover{
+    color: red;
+    border: .1rem solid red;
+    border-radius: .5rem;
+    padding: .5rem;
 }
 
 .header .logo img{

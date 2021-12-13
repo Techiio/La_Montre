@@ -82,21 +82,24 @@ $vDegCel = array_reverse($vDegCel);
         <img src="images/EkoS.png" alt="">
     </a>
 
+
     <div class="icons">
         <nav class="navbar">
             <a href="user-gest-admin_menu.php">Mon Menu</a>
             <a href="user-gest-admin_ma-journee.php">Ma Journée</a>
+            <a href="user-gest-admin_statistiques.php">Mes Stats</a>
             <a href="user-gest-admin_conseils.php">Mes Conseils</a>
-            <a href="user-gest-admin_faq-contact.php">Contacts/FAQ</a>
+            <a href="user-gest-admin_faq-contact.php">Contact/FAQ</a>
         </nav>
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
-
 
     <a href="visiteur_accueil.php" class="logo">
         <img src="images/LaMontreS.png" alt="">
         <h3>Déconnexion</h3>
     </a>
+
+
 
 </header>
 
