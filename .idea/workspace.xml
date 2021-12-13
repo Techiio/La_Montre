@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6443c693-2361-4a57-96df-3b8d1f6bde7d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/LaMontre.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LaMontre.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-gest-admin_faq-contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-gest-admin_faq-contact.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,8 +55,16 @@
       <workItem from="1637578577678" duration="1570000" />
       <workItem from="1637673870653" duration="237000" />
       <workItem from="1638280947739" duration="1736000" />
-      <workItem from="1639382675205" duration="6019000" />
+      <workItem from="1639382675205" duration="6366000" />
     </task>
+    <task id="LOCAL-00001" summary="ajout texte déroulant">
+      <created>1639388784231</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1639388784233</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -76,6 +81,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="ajout texte déroulant" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout texte déroulant" />
   </component>
 </project>

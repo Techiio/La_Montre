@@ -41,9 +41,9 @@
 <!-- header section ends -->
 
 <!-- contact section starts  -->
-<div class="content">
+<section class="content">
     <h1 class="heading"> <span>contact</span> us </h1>
-</div>
+</section>
 
 <section class="contact" id="contact">
 
