@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6443c693-2361-4a57-96df-3b8d1f6bde7d" name="Changes" comment="" />
+    <list default="true" id="6443c693-2361-4a57-96df-3b8d1f6bde7d" name="Changes" comment="Modif style FAQ">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-gest-admin_faq-contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/user-gest-admin_faq-contact.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +56,7 @@
       <workItem from="1637578577678" duration="1570000" />
       <workItem from="1637673870653" duration="237000" />
       <workItem from="1638280947739" duration="1736000" />
-      <workItem from="1639382675205" duration="6654000" />
+      <workItem from="1639382675205" duration="8295000" />
     </task>
     <task id="LOCAL-00001" summary="ajout texte déroulant">
       <created>1639388784231</created>
@@ -75,7 +79,21 @@
       <option name="project" value="LOCAL" />
       <updated>1639389287862</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ajout texte déroulant">
+      <created>1639389483239</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1639389483239</updated>
+    </task>
+    <task id="LOCAL-00005" summary="ajout texte déroulant">
+      <created>1639389667387</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1639389667387</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,6 +111,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ajout texte déroulant" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout texte déroulant" />
+    <MESSAGE value="Modif style FAQ" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modif style FAQ" />
   </component>
 </project>
