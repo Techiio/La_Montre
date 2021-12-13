@@ -883,6 +883,7 @@ textarea {
 
     .data .box4{
         border: var(--border);
+        font-size: 3rem;
         grid-column-start: 1;
         grid-column-end: 3;
         grid-row-start: 1;

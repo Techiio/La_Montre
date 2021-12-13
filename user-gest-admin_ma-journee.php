@@ -17,7 +17,7 @@ $req = $db->query($sql);
 $data = $req->fetch();
 $codeproduit = $data['CodeProduit'];
 
-$sql = 'SELECT * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date ASC, Heure ASC LIMIT 24';
+$sql = 'SELECT * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date DESC, Heure DESC LIMIT 24';
 $req = $db->query($sql);
 
 $heure = [];
@@ -35,7 +35,6 @@ $vDegCel = [];
 $i = 0;
 
 while ($data = $req->fetch()) {
-
     $heure[$i] = $data['Heure'];
     $Bpm[$i] = $data['Bpm'];
     $dB[$i] = $data['dB'];
@@ -51,6 +50,11 @@ while ($data = $req->fetch()) {
     $i = $i + 1;
 
 }
+$vheure = array_reverse($vheure);
+$vBpm = array_reverse($vBpm);
+$vdB = array_reverse($vdB);
+$vNo2 = array_reverse($vNo2);
+$vDegCel = array_reverse($vDegCel);
 ?>
 
 <!DOCTYPE html>
@@ -80,7 +84,7 @@ while ($data = $req->fetch()) {
 <header class="header">
 
     <a class="logo">
-        <img src="images/EkoS.png" alt="">
+        <img src="images/LaMontreS.png" alt="">
     </a>
 
     <div class="icons">
@@ -88,13 +92,12 @@ while ($data = $req->fetch()) {
             <a href="user-gest-admin_menu.php">Mon Menu</a>
             <a href="user-gest-admin_statistiques.php">Mes Stats</a>
             <a href="user-gest-admin_conseils.php">Mes Conseils</a>
-            <a href="user-gest-admin_faq-contact.php">Contacts/FAQ</a>
+            <a href="user-gest-admin_faq-contact.php">Contact/FAQ</a>
         </nav>
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
     <a href="visiteur_accueil.php" class="logo">
-        <img src="images/LaMontreS.png" alt="">
         <h3>Déconnexion</h3>
     </a>
 
@@ -115,7 +118,7 @@ while ($data = $req->fetch()) {
 
         <div class="box1">
             <p class="textgraph" style="color: darkorange">Evolution des données en fonction des dernières 24h</p>
-            <canvas id="line-chart"></canvas>
+            <canvas id="line-chart-day"></canvas>
         </div>
         <div class="box2">
             <p class="text">Récupérer les données</p>
@@ -125,13 +128,13 @@ while ($data = $req->fetch()) {
             <p class="bigtext" style="color: darkorange">Infos du Jour</p>
             <p class="text">Durée d'activité : </p>
             <p class="score"><?php echo 'Insérer variable durée'?></p>
-            <p class="text">Pic de No2 : </p>
+            <p class="text" style="color: #3cba9f">Pic de No2 : </p>
             <p class="score"><?php echo max($No2).' insérer unité' ?></p>
-            <p class="text">Pic de poul : </p>
+            <p class="text" style="color: #3e95cd">Pic de poul : </p>
             <p class="score"><?php echo max($Bpm).' Bpm' ?></p>
-            <p class="text">Pic de température : </p>
+            <p class="text" style="color: #e8c3b9">Pic de température : </p>
             <p class="score"><?php echo max($DegCel).'°C' ?></p>
-            <p class="text">Pic de son : </p>
+            <p class="text" style="color: #8e5ea2">Pic de son : </p>
             <p class="score"><?php echo max($dB).' dB' ?></p>
             <p class="bigtext">Meilleur score : </p>
             <p class="score" style="font-size: 3.5rem"><?php echo 'Insérer variable meilleur score' ?></p>
@@ -151,7 +154,7 @@ while ($data = $req->fetch()) {
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
 <script>
-    new Chart(document.getElementById("line-chart"), {
+    new Chart(document.getElementById("line-chart-day"), {
         type: 'line',
         data: {
             labels: [

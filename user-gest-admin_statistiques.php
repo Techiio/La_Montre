@@ -1,3 +1,61 @@
+<?php
+try
+{
+    $db = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
+        'root',
+        '');
+}
+catch (Exception $e)
+{
+    die('Erreur : ' . $e->getMessage());
+}
+
+$id = "jean";
+
+$sql = "SELECT CodeProduit FROM profil WHERE Identifiant ='$id'";
+$req = $db->query($sql);
+$data = $req->fetch();
+$codeproduit = $data['CodeProduit'];
+
+$sql = 'SELECT * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date DESC, Heure DESC LIMIT 24';
+$req = $db->query($sql);
+
+$heure = [];
+$Bpm = [];
+$dB = [];
+$No2 = [];
+$DegCel = [];
+
+$vheure = [];
+$vBpm = [];
+$vdB = [];
+$vNo2 = [];
+$vDegCel = [];
+
+$i = 0;
+
+while ($data = $req->fetch()) {
+    $heure[$i] = $data['Heure'];
+    $Bpm[$i] = $data['Bpm'];
+    $dB[$i] = $data['dB'];
+    $No2[$i] = $data['No2'] ;
+    $DegCel[$i] = $data['DegréCelsius'];
+
+    $vheure[$i] = substr($data['Heure'], 0, 2).',';
+    $vBpm[$i] = $data['Bpm'].',' ;
+    $vdB[$i] = $data['dB'] .',';
+    $vNo2[$i] = $data['No2'].',' ;
+    $vDegCel[$i] = $data['DegréCelsius'].',' ;
+
+    $i = $i + 1;
+
+}
+$vheure = array_reverse($vheure);
+$vBpm = array_reverse($vBpm);
+$vdB = array_reverse($vdB);
+$vNo2 = array_reverse($vNo2);
+$vDegCel = array_reverse($vDegCel);
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -56,8 +114,8 @@
 <section class="data">
 
     <div class="box4">
-        <p>Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi
-            tomatillo melon azuki bean garlic.</p>
+        <p class="textgraph" style="color: darkorange">Evolution des données en fonction des 7 derniers jours</p>
+        <canvas id="line-chart-week"></canvas>
     </div>
     <div class="box5">
         <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi
@@ -91,5 +149,45 @@
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
-
+<script>
+    new Chart(document.getElementById("line-chart-week"), {
+        type: 'line',
+        data: {
+            labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],
+            datasets: [{
+                data: [86,114,106,106,107,111,133,221,783,2478],
+                label: "Africa",
+                borderColor: "#3e95cd",
+                fill: false
+            }, {
+                data: [282,350,411,502,635,809,947,1402,3700,5267],
+                label: "Asia",
+                borderColor: "#8e5ea2",
+                fill: false
+            }, {
+                data: [168,170,178,190,203,276,408,547,675,734],
+                label: "Europe",
+                borderColor: "#3cba9f",
+                fill: false
+            }, {
+                data: [40,20,10,16,24,38,74,167,508,784],
+                label: "Latin America",
+                borderColor: "#e8c3b9",
+                fill: false
+            }, {
+                data: [6,3,2,2,7,26,82,172,312,433],
+                label: "North America",
+                borderColor: "#c45850",
+                fill: false
+            }
+            ]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'World population per region (in millions)'
+            }
+        }
+    });
+</script>
 </html>
