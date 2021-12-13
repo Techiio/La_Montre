@@ -126,8 +126,6 @@ $vDegCel = array_reverse($vDegCel);
 
         <div class="box3">
             <p class="bigtext" style="color: darkorange">Infos du Jour</p>
-            <p class="text">Durée d'activité : </p>
-            <p class="score"><?php echo 'Insérer variable durée'?></p>
             <p class="text" style="color: #3cba9f">Pic de No2 : </p>
             <p class="score"><?php echo max($No2).' insérer unité' ?></p>
             <p class="text" style="color: #3e95cd">Pic de poul : </p>
