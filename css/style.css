@@ -107,6 +107,14 @@ textarea {
 
 .header a h3{
     color: var(--main-color);
+    font-size: 1.8rem;
+}
+
+.header a h3:hover{
+    color: red;
+    border: .1rem solid red;
+    border-radius: .5rem;
+    padding: .5rem;
 }
 
 .header .logo img{
@@ -637,11 +645,13 @@ textarea {
     font-size: 2.5rem;
     padding-top: 1rem;
 }
+
 .data .bigtext{
     font-size: 3.5rem;
     padding-bottom: 2rem;
     padding-top: 2rem;
 }
+
 .data .textgraph{
     padding-top: 0.2rem;
     padding-bottom: 0.2rem;
@@ -654,7 +664,6 @@ textarea {
     padding-bottom: 1rem;
 
 }
-
 
 .data .box1{
 
@@ -686,11 +695,11 @@ textarea {
 
 .data .box4{
     border: var(--border);
+    font-size: 3rem;
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 4;
-
 }
 
 .data .box5{
@@ -712,6 +721,7 @@ textarea {
 }
 
 .data .box7{
+    overflow: scroll;
     border: var(--border);
     grid-column-start: 3;
     grid-column-end: 4;
@@ -844,6 +854,7 @@ textarea {
     .home .content p{
         font-size: 1.5rem;
     }
+
     .data {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -854,6 +865,7 @@ textarea {
         text-align: center;
 
     }
+
     .data .box1{
 
         border: var(--border);
@@ -863,6 +875,7 @@ textarea {
         grid-row-start: 1;
         grid-row-end: 3;
     }
+
     .data .box2{
 
         border: var(--border);
@@ -883,37 +896,38 @@ textarea {
 
     .data .box4{
         border: var(--border);
+        font-size: 3rem;
         grid-column-start: 1;
-        grid-column-end: 3;
+        grid-column-end: 4;
         grid-row-start: 1;
-        grid-row-end: 4;
+        grid-row-end: 3;
 
     }
 
     .data .box5{
         border: var(--border);
         grid-column-start: 1;
-        grid-column-end: 3;
-        grid-row-start: 4;
-        grid-row-end: 5;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        grid-row-end: 4;
 
     }
 
     .data .box6{
         border: var(--border);
-        grid-column-start: 3;
+        grid-column-start: 1;
         grid-column-end: 4;
-        grid-row-start: 1;
-        grid-row-end: 2;
+        grid-row-start: 4;
+        grid-row-end: 8;
 
     }
 
     .data .box7{
         border: var(--border);
-        grid-column-start: 3;
+        grid-column-start: 1;
         grid-column-end: 4;
-        grid-row-start: 2;
-        grid-row-end: 5;
+        grid-row-start: 8;
+        grid-row-end: 10;
 
     }
 

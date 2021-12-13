@@ -1,3 +1,62 @@
+<?php
+try
+{
+    $db = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
+        'root',
+        '');
+}
+catch (Exception $e)
+{
+    die('Erreur : ' . $e->getMessage());
+}
+
+$id = "jean";
+
+$sql = "SELECT CodeProduit FROM profil WHERE Identifiant ='$id'";
+$req = $db->query($sql);
+$data = $req->fetch();
+$codeproduit = $data['CodeProduit'];
+
+$sql = 'SELECT * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date DESC, Heure DESC LIMIT 24';
+$req = $db->query($sql);
+
+$heure = [];
+$Bpm = [];
+$dB = [];
+$No2 = [];
+$DegCel = [];
+
+$vheure = [];
+$vBpm = [];
+$vdB = [];
+$vNo2 = [];
+$vDegCel = [];
+
+$i = 0;
+
+while ($data = $req->fetch()) {
+    $heure[$i] = $data['Heure'];
+    $Bpm[$i] = $data['Bpm'];
+    $dB[$i] = $data['dB'];
+    $No2[$i] = $data['No2'] ;
+    $DegCel[$i] = $data['DegréCelsius'];
+
+    $vheure[$i] = substr($data['Heure'], 0, 2).',';
+    $vBpm[$i] = $data['Bpm'].',' ;
+    $vdB[$i] = $data['dB'] .',';
+    $vNo2[$i] = $data['No2'].',' ;
+    $vDegCel[$i] = $data['DegréCelsius'].',' ;
+
+    $i = $i + 1;
+
+}
+$vheure = array_reverse($vheure);
+$vBpm = array_reverse($vBpm);
+$vdB = array_reverse($vdB);
+$vNo2 = array_reverse($vNo2);
+$vDegCel = array_reverse($vDegCel);
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,6 +72,10 @@
         <!-- custom css file link  -->
         <link rel="stylesheet" href="css/style.css">
 
+        <!-- js chart -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js" integrity="sha512-tMabqarPtykgDtdtSqCL3uLVM0gS1ZkUAVhRFu1vSEFgvB73niFQWJuvviDyBGBH22Lcau4rHB5p2K2T0Xvr6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
     </head>
 <body>
 
@@ -21,7 +84,7 @@
 <header class="header">
 
     <a class="logo">
-        <img src="images/EkoS.png" alt="">
+        <img src="images/LaMontreS.png" alt="">
     </a>
 
     <div class="icons">
@@ -29,14 +92,12 @@
             <a href="user-gest-admin_menu.php">Mon Menu</a>
             <a href="user-gest-admin_ma-journee.php">Ma Journée</a>
             <a href="user-gest-admin_conseils.php">Mes Conseils</a>
-            <a href="user-gest-admin_faq-contact.php">Contacts/FAQ</a>
+            <a href="user-gest-admin_faq-contact.php">Contact/FAQ</a>
         </nav>
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-
     <a href="visiteur_accueil.php" class="logo">
-        <img src="images/LaMontreS.png" alt="">
         <h3>Déconnexion</h3>
     </a>
 
@@ -44,7 +105,7 @@
 
 <!-- header section ends -->
 
-<!-- mes stats section starts  -->
+<!-- ma journée section starts  -->
 <section class="content">
     <h1 class="heading">.</h1>
 </section>
@@ -56,30 +117,35 @@
 <section class="data">
 
     <div class="box4">
-        <p>Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi
-            tomatillo melon azuki bean garlic.</p>
+        <p class="textgraph" style="color: darkorange">Evolution des données en fonction des dernières 168h</p>
+        <canvas id="line-chart-day"></canvas>
     </div>
     <div class="box5">
-        <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi
-            pea sprouts fava bean collard greens dandelion okra wakame tomato.
-            Dandelion cucumber earthnut pea peanut soko zucchini.</p>
+        <p class="text">Récupérer les données</p>
     </div>
 
     <div class="box6">
-        <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi
-            pea sprouts fava bean collard greens dandelion okra wakame tomato.
-            Dandelion cucumber earthnut pea peanut soko zucchini.</p>
+        <p class="text">Récupérer les données</p>
     </div>
 
     <div class="box7">
-        <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi
-            pea sprouts fava bean collard greens dandelion okra wakame tomato.
-            Dandelion cucumber earthnut pea peanut soko zucchini.</p>
+        <p class="bigtext" style="color: darkorange">Infos du Jour</p>
+        <p class="text">Durée d'activité : </p>
+        <p class="score"><?php echo 'Insérer variable durée'?></p>
+        <p class="text" style="color: #3cba9f">Pic de No2 : </p>
+        <p class="score"><?php echo max($No2).' insérer unité' ?></p>
+        <p class="text" style="color: #3e95cd">Pic de poul : </p>
+        <p class="score"><?php echo max($Bpm).' Bpm' ?></p>
+        <p class="text" style="color: #e8c3b9">Pic de température : </p>
+        <p class="score"><?php echo max($DegCel).'°C' ?></p>
+        <p class="text" style="color: #8e5ea2">Pic de son : </p>
+        <p class="score"><?php echo max($dB).' dB' ?></p>
+        <p class="bigtext">Meilleur score : </p>
+        <p class="score" style="font-size: 3.5rem"><?php echo 'Insérer variable meilleur score' ?></p>
     </div>
 
-
 </section>
-<!-- mes stats section ends -->
+<!-- ma journée section end-->
 
 <section class="footer">
 
@@ -91,5 +157,77 @@
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
+<script>
+    new Chart(document.getElementById("line-chart-day"), {
+        type: 'line',
+        data: {
+            labels: [
+                <?php
+                foreach($vheure as $var){
+                    echo $var;
+                }
+                ?>
+            ],
+            datasets: [{
+                data: [
+                    <?php
+                    foreach($vBpm as $var){
+                        echo $var;
+                    }
+                    ?>
+                ],
+                label: "Bpm",
+                borderColor: "#3e95cd",
+                fill: false
+            }, {
+                data: [
+                    <?php
 
+                    foreach ($vdB as $var) {
+                        echo $var;
+                    }
+
+                    ?>
+                ],
+                label: "dB",
+                borderColor: "#8e5ea2",
+                fill: false
+            }, {
+                data: [
+                    <?php
+
+                    foreach ($vNo2 as $var) {
+                        echo $var;
+                    }
+
+                    ?>
+                ],
+                label: "No2",
+                borderColor: "#3cba9f",
+                fill: false
+            }, {
+                data: [
+                    <?php
+
+                    foreach ($vDegCel as $var) {
+                        echo $var;
+                    }
+
+                    ?>
+                ],
+                label: "Degré Celsius",
+                borderColor: "#e8c3b9",
+                fill: false
+            }
+            ]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Evolution des données en fonction des dernières 24h'
+            }
+        }
+    });
+</script>
+</body>
 </html>

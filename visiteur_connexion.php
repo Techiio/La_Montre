@@ -60,7 +60,7 @@
                 <span class="fas fa-id-badge"></span>
                 <input type="text" placeholder="mot de passe">
             </div>
-            <input type="submit" value="se connecter" class="btn">
+            <input type="submit" value="Se connecter" class="btn">
 
         </form>
 
