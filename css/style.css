@@ -430,6 +430,9 @@ textarea {
     object-fit: cover;
     text-align: center;
 }
+.contact .row .div2{
+    text-align: center;
+}
 
 .contact .row .div1{
     background-color : rgb(0,0,0);
