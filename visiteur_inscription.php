@@ -79,7 +79,7 @@
                 <input type="checkbox" id="check" class="check" />
                 <label for="check">
                     <h4>
-                        J'accepte les CGU (Obligatoire)
+                        J'accepte les CGU (Obligatoire) 
                     </h4>
                 </label>
             </div>
