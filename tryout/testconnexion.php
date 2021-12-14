@@ -51,16 +51,16 @@
     <div class="row">
 
 
-        <form action="">
+        <form action="../log.php" method="post">
             <div class="inputBox">
                 <span class="fas fa-user"></span>
-                <input type="text" placeholder="pseudo">
+                <input type="text" name="Identifiant" placeholder="pseudo">
             </div>
             <div class="inputBox">
                 <span class="fas fa-id-badge"></span>
-                <input type="text" placeholder="mot de passe">
+                <input type="password" name="Mdp" placeholder="mot de passe">
             </div>
-            <input type="submit" value="Se connecter" class="btn">
+            <input type="submit" name="submit" value="Se connecter" class="btn">
 
         </form>
 

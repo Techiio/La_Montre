@@ -167,10 +167,10 @@ $vDegCel = array_reverse($vDegCel);
         <canvas id="line-chart-week"></canvas>
     </div>
     <div class="box5">
-        <p class="bigtext" style="color: darkorange">Records de la semaine</p>
+        <p class="bigtext" style="color: darkorange">Infos de la semaine</p>
         <p class="bigtext">Meilleur score : </p>
         <p class="score" style="font-size: 2.5rem"><?php echo 'Insérer variable meilleur score' ?></p>
-        <p class="text" style="color: #3cba9f">Pic de Dioxyde d'Azote : </p>
+        <p class="text" style="color: #3cba9f">Pic de No2 : </p>
         <p class="score"><?php echo round(max($sNo2)).' insérer unité' ?></p>
         <p class="text" style="color: #3e95cd">Pic de poul : </p>
         <p class="score"><?php echo round(max($sBpm)).' Bpm' ?></p>
@@ -260,22 +260,28 @@ $vDegCel = array_reverse($vDegCel);
 
                     ?>
                 ],
-                label: "°C",
+                label: "Degré Celsius",
                 borderColor: "#e8c3b9",
                 fill: false
             }
             ]
         },
+        options: {
+            title: {
+                display: true,
+                text: 'Evolution des données en fonction des dernières 24h'
+            }
+        }
     });
 </script>
 <script>
     new Chart(document.getElementById("radar-chart"), {
         type: 'radar',
         data: {
-            labels: ["Poul", "Son", "Dioxyde d'Azote", "Température"],
+            labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
             datasets: [
                 {
-                    label: "<?php echo $vardate[0] ?>",
+                    label: "1950",
                     fill: true,
                     backgroundColor: "rgba(179,181,198,0.2)",
                     borderColor: "rgba(179,181,198,1)",
@@ -283,16 +289,7 @@ $vDegCel = array_reverse($vDegCel);
                     pointBackgroundColor: "rgba(179,181,198,1)",
                     data: [8.77,55.61,21.69,6.62,6.82]
                 }, {
-                    label: "<?php echo $vardate[1] ?>",
-                    fill: true,
-                    backgroundColor: "rgba(255,99,132,0.2)",
-                    borderColor: "rgba(255,99,132,1)",
-                    pointBorderColor: "#fff",
-                    pointBackgroundColor: "rgba(255,99,132,1)",
-                    pointBorderColor: "#fff",
-                    data: [25.48,54.16,7.61,8.06,4.45]
-                }, {
-                    label: "<?php echo $vardate[2] ?>",
+                    label: "2050",
                     fill: true,
                     backgroundColor: "rgba(255,99,132,0.2)",
                     borderColor: "rgba(255,99,132,1)",
