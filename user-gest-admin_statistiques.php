@@ -17,44 +17,90 @@ $req = $db->query($sql);
 $data = $req->fetch();
 $codeproduit = $data['CodeProduit'];
 
-$sql = 'SELECT * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date DESC, Heure DESC LIMIT 24';
+$sql = 'SELECT * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date DESC, Heure DESC LIMIT 168';
 $req = $db->query($sql);
 
-$heure = [];
-$Bpm = [];
-$dB = [];
-$No2 = [];
-$DegCel = [];
-
-$vheure = [];
+$vdate = [];
 $vBpm = [];
 $vdB = [];
 $vNo2 = [];
 $vDegCel = [];
 
+$sdate = [];
+$sBpm = [];
+$sdB = [];
+$sNo2 = [];
+$sDegCel = [];
+
+$mheure = [];
+$mBpm = [];
+$mdB = [];
+$mNo2 = [];
+$mDegCel = [];
+
+for($var = 0; $var < 7; $var++){
+    $mBpm[$var] = 0;
+    $mdB[$var] = 0;
+    $mNo2[$var] = 0;
+    $mDegCel[$var] = 0;
+}
+
+
+
+$a = 0;
 $i = 0;
+$init = TRUE;
+$vardate = [];
 
 while ($data = $req->fetch()) {
-    $heure[$i] = $data['Heure'];
-    $Bpm[$i] = $data['Bpm'];
-    $dB[$i] = $data['dB'];
-    $No2[$i] = $data['No2'] ;
-    $DegCel[$i] = $data['DegréCelsius'];
+    $date = $data['Date'];
+    $heure = $data['Heure'];
+    $Bpm = $data['Bpm'];
+    $dB = $data['dB'];
+    $No2= $data['No2'] ;
+    $DegCel = $data['DegréCelsius'];
 
-    $vheure[$i] = substr($data['Heure'], 0, 2).',';
-    $vBpm[$i] = $data['Bpm'].',' ;
-    $vdB[$i] = $data['dB'] .',';
-    $vNo2[$i] = $data['No2'].',' ;
-    $vDegCel[$i] = $data['DegréCelsius'].',' ;
+    while($init){
+        $vardate[$a] = $date;
+        $vdate[$a] = substr($date, 8, 10).',';
+        $init = FALSE;
+    }
+
+    if($date != $vardate[$a]){
+        $sBpm[$a] = $mBpm[$a]/$i;
+        $sdB[$a] = $mdB[$a]/$i;
+        $sNo2[$a] = $mNo2[$a]/$i;
+        $sDegCel[$a] = $mDegCel[$a]/$i ;
+
+        $vBpm[$a] = ($mBpm[$a]/$i).',' ;
+        $vdB[$a] = ($mdB[$a]/$i).',';
+        $vNo2[$a] = ($mNo2[$a]/$i).',' ;
+        $vDegCel[$a] = ($mDegCel[$a]/$i).',' ;
+
+        $a = $a + 1;
+        $i = 0;
+
+        $init = TRUE;
+    }
 
     $i = $i + 1;
+    $mBpm[$a] = $mBpm[$a] + $Bpm;
+    $mdB[$a] = $mdB[$a] + $dB;
+    $mNo2[$a] = $mNo2[$a] + $No2;
+    $mDegCel[$a] = $mDegCel[$a] + $DegCel;
 
 }
-$vheure = array_reverse($vheure);
+$vBpm[$a] = ($mBpm[$a]/$i).',' ;
+$vdB[$a] = ($mdB[$a]/$i).',';
+$vNo2[$a] = ($mNo2[$a]/$i).',' ;
+$vDegCel[$a] = ($mDegCel[$a]/$i).',' ;
+
+$vdate = array_reverse($vdate);
 $vBpm = array_reverse($vBpm);
 $vdB = array_reverse($vdB);
 $vNo2 = array_reverse($vNo2);
 $vDegCel = array_reverse($vDegCel);
+
 ?>
 
 <!DOCTYPE html>
@@ -114,34 +160,33 @@ $vDegCel = array_reverse($vDegCel);
     <h1 class="heading"> Mes <span>Stats</span> </h1>
 </section>
 
-<section class="data">
+<section class="datastat">
 
     <div class="box4">
-        <p class="textgraph" style="color: darkorange">Evolution des données en fonction des dernières 168h</p>
-        <canvas id="line-chart-day"></canvas>
+        <p class="textgraph" style="color: darkorange">Evolution des données en fonction des 7 derniers jours</p>
+        <canvas id="line-chart-week"></canvas>
     </div>
     <div class="box5">
-        <p class="text">Récupérer les données</p>
-    </div>
+        <p class="bigtext" style="color: darkorange">Infos de la semaine</p>
+        <p class="bigtext">Meilleur score : </p>
+        <p class="score" style="font-size: 2.5rem"><?php echo 'Insérer variable meilleur score' ?></p>
+        <p class="text" style="color: #3cba9f">Pic de No2 : </p>
+        <p class="score"><?php echo round(max($sNo2)).' insérer unité' ?></p>
+        <p class="text" style="color: #3e95cd">Pic de poul : </p>
+        <p class="score"><?php echo round(max($sBpm)).' Bpm' ?></p>
+        <p class="text" style="color: #e8c3b9">Pic de température : </p>
+        <p class="score"><?php echo round(max($sDegCel)).'°C' ?></p>
+        <p class="text" style="color: #8e5ea2">Pic de son : </p>
+        <p class="score"><?php echo round(max($sdB)).' dB' ?></p>
 
+    </div>
     <div class="box6">
         <p class="text">Récupérer les données</p>
     </div>
 
-    <div class="box7">
-        <p class="bigtext" style="color: darkorange">Infos du Jour</p>
-        <p class="text">Durée d'activité : </p>
-        <p class="score"><?php echo 'Insérer variable durée'?></p>
-        <p class="text" style="color: #3cba9f">Pic de No2 : </p>
-        <p class="score"><?php echo max($No2).' insérer unité' ?></p>
-        <p class="text" style="color: #3e95cd">Pic de poul : </p>
-        <p class="score"><?php echo max($Bpm).' Bpm' ?></p>
-        <p class="text" style="color: #e8c3b9">Pic de température : </p>
-        <p class="score"><?php echo max($DegCel).'°C' ?></p>
-        <p class="text" style="color: #8e5ea2">Pic de son : </p>
-        <p class="score"><?php echo max($dB).' dB' ?></p>
-        <p class="bigtext">Meilleur score : </p>
-        <p class="score" style="font-size: 3.5rem"><?php echo 'Insérer variable meilleur score' ?></p>
+    <div class="box7" style="background-color: lightgrey">
+       <p class="textgraph">Score des 7 derniers jours</p>
+        <canvas id="radar-chart"></canvas>
     </div>
 
 </section>
@@ -158,12 +203,12 @@ $vDegCel = array_reverse($vDegCel);
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
 <script>
-    new Chart(document.getElementById("line-chart-day"), {
+    new Chart(document.getElementById("line-chart-week"), {
         type: 'line',
         data: {
             labels: [
                 <?php
-                foreach($vheure as $var){
+                foreach($vdate as $var){
                     echo $var;
                 }
                 ?>
@@ -226,6 +271,37 @@ $vDegCel = array_reverse($vDegCel);
                 display: true,
                 text: 'Evolution des données en fonction des dernières 24h'
             }
+        }
+    });
+</script>
+<script>
+    new Chart(document.getElementById("radar-chart"), {
+        type: 'radar',
+        data: {
+            labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+            datasets: [
+                {
+                    label: "1950",
+                    fill: true,
+                    backgroundColor: "rgba(179,181,198,0.2)",
+                    borderColor: "rgba(179,181,198,1)",
+                    pointBorderColor: "#fff",
+                    pointBackgroundColor: "rgba(179,181,198,1)",
+                    data: [8.77,55.61,21.69,6.62,6.82]
+                }, {
+                    label: "2050",
+                    fill: true,
+                    backgroundColor: "rgba(255,99,132,0.2)",
+                    borderColor: "rgba(255,99,132,1)",
+                    pointBorderColor: "#fff",
+                    pointBackgroundColor: "rgba(255,99,132,1)",
+                    pointBorderColor: "#fff",
+                    data: [25.48,54.16,7.61,8.06,4.45]
+                }
+            ]
+        },
+        options: {
+            scale: { angleLines: { color: "red" } }
         }
     });
 </script>

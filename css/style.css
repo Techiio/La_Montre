@@ -102,7 +102,7 @@ textarea {
 
 .header .logo h1{
     color:var(--main-color);
-    font-size: ;
+    font-size:  1.8rem;
 }
 
 .header a h3{
@@ -430,6 +430,41 @@ textarea {
     object-fit: cover;
     text-align: center;
 }
+.contact .div2{
+    flex:1 1 45rem;
+    padding:5rem 2rem;
+    text-align: center;
+}
+
+.contact .row .div2 .div1{
+    background-color : rgb(0,0,0);
+    height: 400px;
+    overflow: auto;
+    flex:1 1 45rem;
+    padding:5rem 2rem;
+    text-align: center;
+    border-width : 1px;
+    border-style : solid;
+    border-color : var(--border);
+    scrollbar-face-color : rgb(0,0,0);
+    scrollbar-track-color : rgb(255,255,255);
+    scrollbar-arrow-color : rgb(255,255,255);
+}
+.contact .row .div1 h4{
+    text-transform: none;
+    font-size: 2.0rem;
+    color:var(--main-color);
+}
+.contact .row .div1 h5{
+    text-transform: none;
+    font-size: 1.5rem;
+    color:#fff;
+}
+.contact .row h3{
+    text-transform: uppercase;
+    font-size: 3.5rem;
+    color:#fff;
+}
 
 .contact .row form{
     flex:1 1 45rem;
@@ -630,10 +665,10 @@ textarea {
     font-size: 2rem;
 }
 
-.data {
+.datajour {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 16rem;
+    grid-auto-rows: 18rem;
     color: white;
     padding: 1rem;
     gap:2rem;
@@ -641,31 +676,66 @@ textarea {
 
 }
 
-.data .text{
+.datastat {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 18rem;
+    color: white;
+    padding: 1rem;
+    gap:2rem;
+    text-align: center;
+
+}
+
+.datajour .text{
     font-size: 2.5rem;
     padding-top: 1rem;
 }
 
-.data .bigtext{
+.datajour .bigtext{
     font-size: 3.5rem;
     padding-bottom: 2rem;
     padding-top: 2rem;
 }
 
-.data .textgraph{
+.datajour .textgraph{
     padding-top: 0.2rem;
     padding-bottom: 0.2rem;
     font-size: 1.8rem;
 }
 
-.data .score{
+.datajour .score{
     font-size: 1.8rem;
     color: darkred;
     padding-bottom: 1rem;
 
 }
 
-.data .box1{
+.datastat .text{
+    font-size: 2rem;
+    padding-top: 0.5rem;
+    text-align: center;
+}
+
+.datastat .bigtext{
+    font-size: 3rem;
+    padding-top: 1rem;
+}
+
+.datastat .textgraph{
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    font-size: 1.8rem;
+}
+
+.datastat .score{
+    font-size: 1.8rem;
+    color: darkred;
+    padding-bottom: 1rem;
+
+}
+
+.datajour .box1{
 
     border: var(--border);
     font-size: 3rem;
@@ -675,7 +745,7 @@ textarea {
     grid-row-end: 4;
 }
 
-.data .box2{
+.datajour .box2{
 
     border: var(--border);
     grid-column-start: 1;
@@ -684,7 +754,7 @@ textarea {
     grid-row-end: 5;
 }
 
-.data .box3{
+.datajour .box3{
     border: var(--border);
     grid-column-start: 3;
     grid-column-end: 4;
@@ -693,7 +763,7 @@ textarea {
 
 }
 
-.data .box4{
+.datastat .box4{
     border: var(--border);
     font-size: 3rem;
     grid-column-start: 1;
@@ -702,16 +772,17 @@ textarea {
     grid-row-end: 4;
 }
 
-.data .box5{
+.datastat .box5{
     border: var(--border);
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 4;
     grid-row-end: 5;
+    column-count: 3;
 
 }
 
-.data .box6{
+.datastat .box6{
     border: var(--border);
     grid-column-start: 3;
     grid-column-end: 4;
@@ -720,8 +791,7 @@ textarea {
 
 }
 
-.data .box7{
-    overflow: scroll;
+.datastat .box7{
     border: var(--border);
     grid-column-start: 3;
     grid-column-end: 4;
@@ -855,10 +925,10 @@ textarea {
         font-size: 1.5rem;
     }
 
-    .data {
+    .datajour {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: 16rem;
+        grid-auto-rows: 12rem;
         color: white;
         padding: 1rem;
         gap:2rem;
@@ -866,7 +936,41 @@ textarea {
 
     }
 
-    .data .box1{
+    .datastat {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 12rem;
+        color: white;
+        padding: 1rem;
+        gap:1rem;
+        text-align: center;
+
+    }
+    .datastat .text{
+        font-size: 2rem;
+        padding-top: 0.5rem;
+        text-align: center;
+    }
+
+    .datastat .bigtext{
+        font-size: 3rem;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+    }
+
+    .datastat .textgraph{
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+        font-size: 1.8rem;
+    }
+
+    .datastat .score{
+        font-size: 1.8rem;
+        color: darkred;
+        padding-bottom: 1rem;
+
+    }
+    .datajour .box1{
 
         border: var(--border);
         font-size: 3rem;
@@ -876,7 +980,7 @@ textarea {
         grid-row-end: 3;
     }
 
-    .data .box2{
+    .datajour .box2{
 
         border: var(--border);
         grid-column-start: 1;
@@ -885,7 +989,7 @@ textarea {
         grid-row-end: 4;
     }
 
-    .data .box3{
+    .datajour .box3{
         border: var(--border);
         grid-column-start: 1;
         grid-column-end: 4;
@@ -894,7 +998,7 @@ textarea {
 
     }
 
-    .data .box4{
+    .datastat .box4{
         border: var(--border);
         font-size: 3rem;
         grid-column-start: 1;
@@ -904,32 +1008,35 @@ textarea {
 
     }
 
-    .data .box5{
+    .datastat .box5{
         border: var(--border);
         grid-column-start: 1;
         grid-column-end: 4;
         grid-row-start: 3;
-        grid-row-end: 4;
+        grid-row-end: 7;
+        column-count: 1;
 
     }
 
-    .data .box6{
+    .datastat .box6{
         border: var(--border);
         grid-column-start: 1;
         grid-column-end: 4;
-        grid-row-start: 4;
+        grid-row-start: 7;
         grid-row-end: 8;
 
     }
 
-    .data .box7{
+    .datastat .box7{
         border: var(--border);
         grid-column-start: 1;
         grid-column-end: 4;
         grid-row-start: 8;
-        grid-row-end: 10;
+        grid-row-end: 12;
 
     }
+
+
 }
 
 @media (max-width:450px){
