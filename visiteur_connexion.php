@@ -62,6 +62,14 @@
             </div>
             <input type="submit" name="submit" value="Se connecter" class="btn">
 
+            <?php
+            if(isset($_GET['erreur'])){
+                $err = $_GET['erreur'];
+                if($err==1 || $err==2)
+                    echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Utilisateur ou mot de passe incorrect</p>";
+            }
+            ?>
+
         </form>
 
     </div>

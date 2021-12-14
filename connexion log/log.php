@@ -31,9 +31,16 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
             $_SESSION['connect'] = 1;
             header('location: ../user-gest-admin_menu.php');
         }
+        else{
+            header('Location: ../visiteur_connexion.php?erreur=1');
+        }
     }
     if ($error == 1) {
 
-        header('location: ../inscription.php?error=1');
+        header('Location: ../visiteur_connexion.php?erreur=1');
     }
 }
+else{
+    header('Location: ../visiteur_connexion.php?erreur=1');
+}
+
