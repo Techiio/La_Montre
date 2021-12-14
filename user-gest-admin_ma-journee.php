@@ -114,7 +114,7 @@ $vDegCel = array_reverse($vDegCel);
     <h1 class="heading"> Ma <span>Journée</span> </h1>
 </section>
 
-<section class="data">
+<section class="datajour">
 
         <div class="box1">
             <p class="textgraph" style="color: darkorange">Evolution des données en fonction des dernières 24h</p>

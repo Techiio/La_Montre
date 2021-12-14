@@ -160,7 +160,7 @@ $vDegCel = array_reverse($vDegCel);
     <h1 class="heading"> Mes <span>Stats</span> </h1>
 </section>
 
-<section class="data">
+<section class="datastat">
 
     <div class="box4">
         <p class="textgraph" style="color: darkorange">Evolution des données en fonction des 7 derniers jours</p>
@@ -168,23 +168,24 @@ $vDegCel = array_reverse($vDegCel);
     </div>
     <div class="box5">
         <p class="bigtext" style="color: darkorange">Infos de la semaine</p>
-        <p class="text" style="color: #3cba9f">Pic de No2 : </p>
-        <p class="score"><?php echo max($sNo2).' insérer unité' ?></p>
-        <p class="text" style="color: #3e95cd">Pic de poul : </p>
-        <p class="score"><?php echo max($sBpm).' Bpm' ?></p>
-        <p class="text" style="color: #e8c3b9">Pic de température : </p>
-        <p class="score"><?php echo max($sDegCel).'°C' ?></p>
-        <p class="text" style="color: #8e5ea2">Pic de son : </p>
-        <p class="score"><?php echo max($sdB).' dB' ?></p>
         <p class="bigtext">Meilleur score : </p>
-        <p class="score" style="font-size: 3.5rem"><?php echo 'Insérer variable meilleur score' ?></p>
-    </div>
+        <p class="score" style="font-size: 2.5rem"><?php echo 'Insérer variable meilleur score' ?></p>
+        <p class="text" style="color: #3cba9f">Pic de No2 : </p>
+        <p class="score"><?php echo round(max($sNo2)).' insérer unité' ?></p>
+        <p class="text" style="color: #3e95cd">Pic de poul : </p>
+        <p class="score"><?php echo round(max($sBpm)).' Bpm' ?></p>
+        <p class="text" style="color: #e8c3b9">Pic de température : </p>
+        <p class="score"><?php echo round(max($sDegCel)).'°C' ?></p>
+        <p class="text" style="color: #8e5ea2">Pic de son : </p>
+        <p class="score"><?php echo round(max($sdB)).' dB' ?></p>
 
+    </div>
     <div class="box6">
         <p class="text">Récupérer les données</p>
     </div>
 
-    <div class="box7" style="background-color: white">
+    <div class="box7" style="background-color: lightgrey">
+       <p class="textgraph">Score des 7 derniers jours</p>
         <canvas id="radar-chart"></canvas>
     </div>
 
