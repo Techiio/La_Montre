@@ -50,9 +50,10 @@
     <h1 class="heading"> <span>contact</span> us </h1>
 
     <div class="row">
-
+        <div class="div2">
+        <h3 > Foire aux questions</h3>
         <div class="div1">
-            <h3 > Foire aux questions</h3>
+
             <br>
             <h4> Comment se connecter pour la première fois ? </h4>
             <br>
@@ -108,7 +109,7 @@
             <h5>Rendez-vous sur la page contact (la même que cette FAQ) et écrivez son message avec un objet et son mail.</h5>
 
         </div>
-
+        </div>
         <form action="">
             <h3>get in touch</h3>
             <div class="inputBox">

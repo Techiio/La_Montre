@@ -430,8 +430,13 @@ textarea {
     object-fit: cover;
     text-align: center;
 }
+.contact .div2{
+    flex:1 1 45rem;
+    padding:5rem 2rem;
+    text-align: center;
+}
 
-.contact .row .div1{
+.contact .row .div2 .div1{
     background-color : rgb(0,0,0);
     height: 400px;
     overflow: auto;
