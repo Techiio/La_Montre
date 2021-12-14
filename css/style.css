@@ -751,7 +751,6 @@ textarea {
 }
 
 .data .box7{
-    overflow: scroll;
     border: var(--border);
     grid-column-start: 3;
     grid-column-end: 4;

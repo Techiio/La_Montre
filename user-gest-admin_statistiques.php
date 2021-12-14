@@ -63,7 +63,6 @@ while ($data = $req->fetch()) {
     while($init){
         $vardate[$a] = $date;
         $vdate[$a] = substr($date, 8, 10).',';
-        echo $vdate[$a];
         $init = FALSE;
     }
 
@@ -168,14 +167,6 @@ $vDegCel = array_reverse($vDegCel);
         <canvas id="line-chart-week"></canvas>
     </div>
     <div class="box5">
-        <p class="text">Récupérer les données</p>
-    </div>
-
-    <div class="box6">
-        <p class="text">Récupérer les données</p>
-    </div>
-
-    <div class="box7">
         <p class="bigtext" style="color: darkorange">Infos de la semaine</p>
         <p class="text" style="color: #3cba9f">Pic de No2 : </p>
         <p class="score"><?php echo max($sNo2).' insérer unité' ?></p>
@@ -187,6 +178,14 @@ $vDegCel = array_reverse($vDegCel);
         <p class="score"><?php echo max($sdB).' dB' ?></p>
         <p class="bigtext">Meilleur score : </p>
         <p class="score" style="font-size: 3.5rem"><?php echo 'Insérer variable meilleur score' ?></p>
+    </div>
+
+    <div class="box6">
+        <p class="text">Récupérer les données</p>
+    </div>
+
+    <div class="box7" style="background-color: white">
+        <canvas id="radar-chart"></canvas>
     </div>
 
 </section>
@@ -271,6 +270,37 @@ $vDegCel = array_reverse($vDegCel);
                 display: true,
                 text: 'Evolution des données en fonction des dernières 24h'
             }
+        }
+    });
+</script>
+<script>
+    new Chart(document.getElementById("radar-chart"), {
+        type: 'radar',
+        data: {
+            labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+            datasets: [
+                {
+                    label: "1950",
+                    fill: true,
+                    backgroundColor: "rgba(179,181,198,0.2)",
+                    borderColor: "rgba(179,181,198,1)",
+                    pointBorderColor: "#fff",
+                    pointBackgroundColor: "rgba(179,181,198,1)",
+                    data: [8.77,55.61,21.69,6.62,6.82]
+                }, {
+                    label: "2050",
+                    fill: true,
+                    backgroundColor: "rgba(255,99,132,0.2)",
+                    borderColor: "rgba(255,99,132,1)",
+                    pointBorderColor: "#fff",
+                    pointBackgroundColor: "rgba(255,99,132,1)",
+                    pointBorderColor: "#fff",
+                    data: [25.48,54.16,7.61,8.06,4.45]
+                }
+            ]
+        },
+        options: {
+            scale: { angleLines: { color: "red" } }
         }
     });
 </script>
