@@ -51,7 +51,7 @@
     <div class="row">
 
 
-        <form action="../log.php" method="post">
+        <form action="../connexion%20log/log.php" method="post">
             <div class="inputBox">
                 <span class="fas fa-user"></span>
                 <input type="text" name="Identifiant" placeholder="pseudo">
