@@ -714,7 +714,6 @@ textarea {
 .datastat .text{
     font-size: 2rem;
     padding-top: 0.5rem;
-    text-align: center;
 }
 
 .datastat .bigtext{
@@ -726,6 +725,7 @@ textarea {
     padding-top: 0.2rem;
     padding-bottom: 0.2rem;
     font-size: 1.8rem;
+    color: black;
 }
 
 .datastat .score{
@@ -792,11 +792,13 @@ textarea {
 }
 
 .datastat .box7{
-    border: var(--border);
+    border: 0.5rem solid darkorange;
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 2;
     grid-row-end: 5;
+    border-radius: .1rem;
+    padding: .25rem;
 
 }
 
