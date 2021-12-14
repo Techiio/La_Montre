@@ -54,32 +54,32 @@
     <div class="box-container">
 
         <a class="box">
-            <img src="images/try-1.png" alt="">
+            <img src="images/assemblee.png" alt="">
             <h3>Nombre d'utilisateurs connectés</h3>
         </a>
 
         <a class="box">
-            <img src="images/try-1.png" alt="">
+            <img src="images/gerer.png" alt="">
             <h3>Gérer un utilisateur</h3>
         </a>
 
         <a class="box">
-            <img src="images/try-1.png" alt="">
+            <img src="images/reset.png" alt="">
             <h3>Reset les données</h3>
         </a>
 
         <a class="box">
-            <img src="images/try-1.png" alt="">
+            <img src="images/ajout.png" alt="">
             <h3>Ajouter un admin</h3>
         </a>
 
         <a class="box">
-            <img src="images/try-1.png" alt="">
+            <img src="images/equipe.png" alt="">
             <h3>Liste des admins</h3>
         </a>
 
         <a class="box">
-            <img src="images/try-1.png" alt="">
+            <img src="images/pas-de-foule.png" alt="">
             <h3>Supprimer un admin</h3>
         </a>
 
