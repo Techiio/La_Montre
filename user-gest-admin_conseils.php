@@ -1,6 +1,17 @@
+<?php
+try
+{
+    $db = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
+        'root',
+        '');
+}
+catch (Exception $e)
+{
+    die('Erreur : ' . $e->getMessage());
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
-<head>
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
