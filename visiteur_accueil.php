@@ -20,19 +20,22 @@
 
 <header class="header">
 
-    <a href="visiteur_accueil.php" class="logo">
+    <a class="logo">
         <img src="images/LaMontreS.png" alt="">
     </a>
 
-    <nav class="navbar">
-        <a href="visiteur_connexion.php">Connexion</a>
-        <a href="visiteur_inscription.php">Inscription</a>
-    </nav>
-
-
     <div class="icons">
+        <nav class="navbar">
+            <a href="visiteur_connexion.php">Connexion</a>
+            <a href="visiteur_inscription.php">Inscription</a>
+        </nav>
+
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
+
+    <a class="logo">
+        <img src="images/Eko.png" alt="">
+    </a>
 
 
 

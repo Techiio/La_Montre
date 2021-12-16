@@ -28,7 +28,17 @@
         <img src="images/LaMontreS.png" alt="">
     </a>
 
-    <a>
+    <div class="icons">
+        <nav class="navbar">
+            <a href="user-gest-admin_menu.php">Mon Menu</a>
+            <a href="user-gest-admin_statistiques.php">Mes Stats</a>
+            <a href="user-gest-admin_conseils.php">Mes Conseils</a>
+            <a href="user-gest-admin_faq-contact.php">Contact/FAQ</a>
+        </nav>
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </div>
+
+    <a href="visiteur_accueil.php" class="logo">
         <h2 style="color: antiquewhite; font-size: 2.5rem;">
             <?php
 
@@ -38,9 +48,6 @@
             ?>
 
         </h2>
-    </a>
-
-    <a href="visiteur_accueil.php" class="logo">
         <h3>
             Déconnexion
         </h3>
