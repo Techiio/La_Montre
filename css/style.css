@@ -381,7 +381,7 @@ textarea {
 
 .famille .box-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 3fr));
     gap:1.5rem;
 }
 
@@ -865,16 +865,6 @@ textarea {
 .footer .credit span{
     color:var(--main-color);
 }
-
-
-
-
-
-
-
-
-
-
 
 
 /* media queries  */
