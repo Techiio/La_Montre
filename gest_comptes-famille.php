@@ -20,7 +20,7 @@
 <header class="header">
 
     <a class="logo">
-        <img src="images/EkoS.png" alt="">
+        <img src="images/LaMontreS.png" alt="">
     </a>
 
 
@@ -36,7 +36,15 @@
     </div>
 
     <a href="visiteur_accueil.php" class="logo">
-        <img src="images/LaMontreS.png" alt="">
+        <h2 style="color: antiquewhite; font-size: 2.5rem;">
+            <?php
+
+            if(isset($_COOKIE['pseudo'])){
+                echo '' .$_COOKIE['pseudo'] ;
+            }
+            ?>
+
+        </h2>
         <h3>Déconnexion</h3>
     </a>
 
@@ -150,11 +158,12 @@
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.php">CGU</a>
+        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+        <a>Version: 1.0.12.201</a>
     </div>
 
-</section>
 
+</section>
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
 

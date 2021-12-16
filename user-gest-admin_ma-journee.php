@@ -98,7 +98,18 @@ $vDegCel = array_reverse($vDegCel);
     </div>
 
     <a href="visiteur_accueil.php" class="logo">
-        <h3>Déconnexion</h3>
+        <h2 style="color: antiquewhite; font-size: 2.5rem;">
+            <?php
+
+            if(isset($_COOKIE['pseudo'])){
+                echo '' .$_COOKIE['pseudo'] ;
+            }
+            ?>
+
+        </h2>
+        <h3>
+            Déconnexion
+        </h3>
     </a>
 
 </header>
@@ -144,8 +155,10 @@ $vDegCel = array_reverse($vDegCel);
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.php">CGU</a>
+        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+        <a>Version: 1.0.12.201</a>
     </div>
+
 
 </section>
 

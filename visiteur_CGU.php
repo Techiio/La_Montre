@@ -183,7 +183,8 @@ coordonnées inscrites à l’ARTICLE 1.
 <section class="footer">
 
     <div class="links">
-        <a href="#">Retour en Haut</a>
+        <a href="#" style="margin:0 4%;">Retour en Haut</a>
+        <a>Version: 1.0.12.201</a>
     </div>
 
 </section>
