@@ -65,18 +65,18 @@ catch (Exception $e)
     <div class="box-container">
         <a href="#" class="box">
             <h3>Meilleur donnée :</h3><br><br><br><br>
-            <p> </p>
+            <p>70 BPM </p>
         </a>
         <a href="#" class="box">
             <h3>Pire donnée :</h3><br><br><br><br>
-            <p> </p>
+            <p> 80 µg/m³</p>
         </a>
         
     </div><br><br>
     <div class="box-container">
         <a href="#" class="box">
             <h3>Score :</h3><br><br>
-            <h2>/20</h2><br><br>
+            <h2>15,72/20</h2><br><br>
             <h3>Conseils du jour :</h3><br><br>
             <p> </p>
         </a>
