@@ -10,7 +10,7 @@ catch (Exception $e)
     die('Erreur : ' . $e->getMessage());
 }
 
-$id = "jean";
+$id = $_COOKIE['pseudo'];
 
 $sql = "SELECT CodeProduit FROM profil WHERE Identifiant ='$id'";
 $req = $db->query($sql);
