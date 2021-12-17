@@ -199,8 +199,6 @@ $vDegCel = array_reverse($vDegCel);
     </div>
     <div class="box5">
         <p class="bigtext" style="color: darkorange">Infos de la semaine</p>
-        <p class="bigtext">Meilleur score : </p>
-        <p class="score" style="font-size: 2.5rem"><?php echo 'Insérer variable meilleur score' ?></p>
         <p class="text" style="color: #3cba9f">Pic de No2 : </p>
         <p class="score"><?php echo round(max($sNo2)).' insérer unité' ?></p>
         <p class="text" style="color: #3e95cd">Pic de poul : </p>

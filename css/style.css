@@ -724,12 +724,12 @@ textarea {
 
 .datastat .text{
     font-size: 2rem;
-    padding-top: 0.5rem;
+    padding-top: 0.8rem;
 }
 
 .datastat .bigtext{
     font-size: 3rem;
-    padding-top: 1rem;
+    padding-top: 2rem;
 }
 
 .datastat .textgraph{

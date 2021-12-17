@@ -145,8 +145,6 @@ $vDegCel = array_reverse($vDegCel);
             <p class="score"><?php echo max($DegCel).'°C' ?></p>
             <p class="text" style="color: #8e5ea2">Pic de son : </p>
             <p class="score"><?php echo max($dB).' dB' ?></p>
-            <p class="bigtext">Meilleur score : </p>
-            <p class="score" style="font-size: 3.5rem"><?php echo 'Insérer variable meilleur score' ?></p>
         </div>
 
 </section>
