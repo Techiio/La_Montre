@@ -117,7 +117,7 @@
             <br>
             <h5>Un utilisateur de La Montre peut télécharger ses données à partir de sa page statistique. Le gestionnaire peut télécharger toutes les données de la famille en allant sur sa page spécifique et cliquer sur le bouton prévu à cet effet</h5>
             <br>
-            <h4>Je désire supprimer mes données ou mon comptes, quelle procédure ?</h4>
+            <h4>Je désire supprimer mes données ou mon compte, quelle procédure ?</h4>
             <br>
             <h5>Pour répondre à ce besoin, veuillez contacter les administrateurs via le formulaire de contact.</h5>
             <br>
