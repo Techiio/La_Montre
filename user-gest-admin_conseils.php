@@ -9,6 +9,61 @@ catch (Exception $e)
 {
     die('Erreur : ' . $e->getMessage());
 }
+
+$id = $_COOKIE['pseudo'];
+
+$sql = "SELECT CodeProduit FROM profil WHERE Identifiant ='$id'";
+$req = $db->query($sql);
+$data = $req->fetch();
+$codeproduit = $data['CodeProduit'];
+
+$sql = 'SELECT * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date DESC, Heure DESC LIMIT 24';
+$req = $db->query($sql);
+
+$scoreBpm = [];
+$scoredB = [];
+$scoreNo2 = [];
+$scoreDegCel = [];
+
+$tabdonnees = array($scoreBpm, $scoredB, $scoreNo2, $scoreDegCel,); // Tableau pour déterminer la meilleure et la pire donnée
+
+$meilleurScore = max($tabdonnees);
+$pireScore = min($tabdonnees);
+
+$meilleurDonnee = 0;
+$pireDonnee = 0;
+
+switch ($meilleurDonnee)
+{
+case $meilleurScore == $scoreBpm:
+    $meilleurDonnee =  $data['Bpm'];
+    break;
+case $meilleurScore == $scoredB:
+    $meilleurDonnee =  $data['dB'];
+    break;
+case $meilleurScore == $scoreNo2:
+    $meilleurDonnee =  $data['No2'];
+    break;
+case $meilleurScore == $scoreDegCel:
+    $meilleurDonnee =  $data['DegréCelsius'];
+    break;
+    }
+switch ($pireDonnee)
+{
+    case $pireScore == $scoreBpm:
+        $pireDonnee = $data['Bpm'];
+        break;
+    case $pireScore == $scoredB:
+        $pireDonnee = $data['dB'];
+        break;
+    case $pireScore == $scoreNo2:
+        $pireDonnee = $data['No2'];
+        break;
+    case $pireScore == $scoreDegCel:
+        $pireDonnee = $data['DegréCelsius'];
+        break;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -75,18 +130,18 @@ catch (Exception $e)
     <div class="box-container">
         <a href="#" class="box">
             <h3>Meilleur donnée :</h3><br><br><br><br>
-            <p>70 BPM </p>
+            <p><?php echo $meilleurDonnee ?></p>
         </a>
         <a href="#" class="box">
             <h3>Pire donnée :</h3><br><br><br><br>
-            <p> 80 µg/m³</p>
+            <p> <?php echo $pireDonnee ?></p>
         </a>
         
     </div><br><br>
     <div class="box-container">
         <a href="#" class="box">
             <h3>Score :</h3><br><br>
-            <h2>15,72/20</h2><br><br>
+            <h2>/20</h2><br><br>
             <h3>Conseils du jour :</h3><br><br>
             <p> </p>
         </a>
