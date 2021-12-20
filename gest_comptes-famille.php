@@ -20,7 +20,7 @@
 <header class="header">
 
     <a class="logo">
-        <img src="images/EkoS.png" alt="">
+        <img src="images/LaMontreS.png" alt="">
     </a>
 
 
@@ -36,7 +36,15 @@
     </div>
 
     <a href="visiteur_accueil.php" class="logo">
-        <img src="images/LaMontreS.png" alt="">
+        <h2 style="color: antiquewhite; font-size: 2.5rem;">
+            <?php
+
+            if(isset($_COOKIE['pseudo'])){
+                echo '' .$_COOKIE['pseudo'] ;
+            }
+            ?>
+
+        </h2>
         <h3>Déconnexion</h3>
     </a>
 
@@ -57,87 +65,33 @@
     <div class="box-container">
 
         <a href="#" class="box">
-            <img src="images/quote-img.png" alt="" class="quote">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nulla sit libero nemo fuga sequi nobis? Necessitatibus aut laborum, nisi quas eaque laudantium consequuntur iste ex aliquam minus vel? Nemo.</p>
             <img src="images/pic-1.png" class="user" alt="">
             <h3>john deo</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-            </div>
         </a>
 
         <a href="#" class="box">
-            <img src="images/quote-img.png" alt="" class="quote">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nulla sit libero nemo fuga sequi nobis? Necessitatibus aut laborum, nisi quas eaque laudantium consequuntur iste ex aliquam minus vel? Nemo.</p>
             <img src="images/pic-2.png" class="user" alt="">
             <h3>john deo</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-            </div>
         </a>
 
         <a href="#" class="box">
-            <img src="images/quote-img.png" alt="" class="quote">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nulla sit libero nemo fuga sequi nobis? Necessitatibus aut laborum, nisi quas eaque laudantium consequuntur iste ex aliquam minus vel? Nemo.</p>
             <img src="images/pic-3.png" class="user" alt="">
             <h3>john deo</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-            </div>
         </a>
 
         <a href="#" class="box">
-            <img src="images/quote-img.png" alt="" class="quote">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nulla sit libero nemo fuga sequi nobis? Necessitatibus aut laborum, nisi quas eaque laudantium consequuntur iste ex aliquam minus vel? Nemo.</p>
             <img src="images/pic-3.png" class="user" alt="">
             <h3>john deo</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-            </div>
         </a>
 
         <a href="#" class="box">
-            <img src="images/quote-img.png" alt="" class="quote">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nulla sit libero nemo fuga sequi nobis? Necessitatibus aut laborum, nisi quas eaque laudantium consequuntur iste ex aliquam minus vel? Nemo.</p>
             <img src="images/pic-3.png" class="user" alt="">
             <h3>john deo</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-            </div>
         </a>
 
         <a href="#" class="box">
-            <img src="images/quote-img.png" alt="" class="quote">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nulla sit libero nemo fuga sequi nobis? Necessitatibus aut laborum, nisi quas eaque laudantium consequuntur iste ex aliquam minus vel? Nemo.</p>
             <img src="images/pic-3.png" class="user" alt="">
             <h3>john deo</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-            </div>
         </a>
 
     </div>
@@ -150,11 +104,12 @@
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.php">CGU</a>
+        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+        <a>Version: 1.0.12.201</a>
     </div>
 
-</section>
 
+</section>
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
 

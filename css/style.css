@@ -108,6 +108,7 @@ textarea {
 .header a h3{
     color: var(--main-color);
     font-size: 1.8rem;
+    line-height: 150%;
 }
 
 .header a h3:hover{
@@ -122,6 +123,12 @@ textarea {
 }
 
 .header .navbar a{
+    margin:0 1rem;
+    font-size: 1.6rem;
+    color:#fff;
+}
+
+.header .navbar a .id{
     margin:0 1rem;
     font-size: 1.6rem;
     color:#fff;
@@ -374,7 +381,7 @@ textarea {
 
 .famille .box-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 3fr));
     gap:1.5rem;
 }
 
@@ -430,6 +437,7 @@ textarea {
     object-fit: cover;
     text-align: center;
 }
+
 .contact .div2{
     flex:1 1 45rem;
     padding:5rem 2rem;
@@ -450,16 +458,19 @@ textarea {
     scrollbar-track-color : rgb(255,255,255);
     scrollbar-arrow-color : rgb(255,255,255);
 }
+
 .contact .row .div1 h4{
     text-transform: none;
     font-size: 2.0rem;
     color:var(--main-color);
 }
+
 .contact .row .div1 h5{
     text-transform: none;
     font-size: 1.5rem;
     color:#fff;
 }
+
 .contact .row h3{
     text-transform: uppercase;
     font-size: 3.5rem;
@@ -713,12 +724,12 @@ textarea {
 
 .datastat .text{
     font-size: 2rem;
-    padding-top: 0.5rem;
+    padding-top: 0.8rem;
 }
 
 .datastat .bigtext{
     font-size: 3rem;
-    padding-top: 1rem;
+    padding-top: 2rem;
 }
 
 .datastat .textgraph{
@@ -828,12 +839,13 @@ textarea {
 
 .footer .links{
     display: flex;
+    padding: 2rem;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .footer .links a{
-    padding:.7rem 2rem;
+    padding:.7rem 3rem;
     color:#fff;
     border:var(--border);
     font-size: 2rem;
@@ -853,16 +865,6 @@ textarea {
 .footer .credit span{
     color:var(--main-color);
 }
-
-
-
-
-
-
-
-
-
-
 
 
 /* media queries  */

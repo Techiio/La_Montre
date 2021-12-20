@@ -10,7 +10,7 @@ catch (Exception $e)
     die('Erreur : ' . $e->getMessage());
 }
 
-$id = "jean";
+$id = $_COOKIE['pseudo'];
 
 $sql = "SELECT CodeProduit FROM profil WHERE Identifiant ='$id'";
 $req = $db->query($sql);
@@ -26,11 +26,15 @@ $vdB = [];
 $vNo2 = [];
 $vDegCel = [];
 
-$sdate = [];
 $sBpm = [];
 $sdB = [];
 $sNo2 = [];
 $sDegCel = [];
+
+$scoreBpm = [];
+$scoredB = [];
+$scoreNo2 = [];
+$scoreDegCel = [];
 
 $mheure = [];
 $mBpm = [];
@@ -72,6 +76,11 @@ while ($data = $req->fetch()) {
         $sNo2[$a] = $mNo2[$a]/$i;
         $sDegCel[$a] = $mDegCel[$a]/$i ;
 
+        $scoreBpm[$a] = ((($sBpm[$a]-20)*100)/140).',';
+        $scoredB[$a] = (($sdB[$a]*100)/140).',';
+        $scoreDegCel[$a] = ((($sDegCel[$a]-20)*100)/20).',';
+        $scoreNo2[$a] = (($sNo2[$a]*100)/40).',';
+
         $vBpm[$a] = ($mBpm[$a]/$i).',' ;
         $vdB[$a] = ($mdB[$a]/$i).',';
         $vNo2[$a] = ($mNo2[$a]/$i).',' ;
@@ -90,6 +99,16 @@ while ($data = $req->fetch()) {
     $mDegCel[$a] = $mDegCel[$a] + $DegCel;
 
 }
+$sBpm[$a] = $mBpm[$a]/$i;
+$sdB[$a] = $mdB[$a]/$i;
+$sNo2[$a] = $mNo2[$a]/$i;
+$sDegCel[$a] = $mDegCel[$a]/$i ;
+
+$scoreBpm[$a] = ((($sBpm[$a]-20)*100)/140).',';
+$scoredB[$a] = (($sdB[$a]*100)/140).',';
+$scoreDegCel[$a] = ((($sDegCel[$a]-20)*100)/20).',';
+$scoreNo2[$a] = (($sNo2[$a]*100)/40).',';
+
 $vBpm[$a] = ($mBpm[$a]/$i).',' ;
 $vdB[$a] = ($mdB[$a]/$i).',';
 $vNo2[$a] = ($mNo2[$a]/$i).',' ;
@@ -100,6 +119,7 @@ $vBpm = array_reverse($vBpm);
 $vdB = array_reverse($vdB);
 $vNo2 = array_reverse($vNo2);
 $vDegCel = array_reverse($vDegCel);
+
 
 ?>
 
@@ -144,7 +164,18 @@ $vDegCel = array_reverse($vDegCel);
     </div>
 
     <a href="visiteur_accueil.php" class="logo">
-        <h3>Déconnexion</h3>
+        <h2 style="color: antiquewhite; font-size: 2.5rem;">
+            <?php
+
+            if(isset($_COOKIE['pseudo'])){
+                echo '' .$_COOKIE['pseudo'] ;
+            }
+            ?>
+
+        </h2>
+        <h3>
+            Déconnexion
+        </h3>
     </a>
 
 </header>
@@ -168,8 +199,6 @@ $vDegCel = array_reverse($vDegCel);
     </div>
     <div class="box5">
         <p class="bigtext" style="color: darkorange">Infos de la semaine</p>
-        <p class="bigtext">Meilleur score : </p>
-        <p class="score" style="font-size: 2.5rem"><?php echo 'Insérer variable meilleur score' ?></p>
         <p class="text" style="color: #3cba9f">Pic de No2 : </p>
         <p class="score"><?php echo round(max($sNo2)).' insérer unité' ?></p>
         <p class="text" style="color: #3e95cd">Pic de poul : </p>
@@ -195,8 +224,10 @@ $vDegCel = array_reverse($vDegCel);
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.php">CGU</a>
+        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+        <a>Version: 1.0.12.201</a>
     </div>
+
 
 </section>
 
@@ -265,12 +296,6 @@ $vDegCel = array_reverse($vDegCel);
                 fill: false
             }
             ]
-        },
-        options: {
-            title: {
-                display: true,
-                text: 'Evolution des données en fonction des dernières 24h'
-            }
         }
     });
 </script>
@@ -278,30 +303,100 @@ $vDegCel = array_reverse($vDegCel);
     new Chart(document.getElementById("radar-chart"), {
         type: 'radar',
         data: {
-            labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+            labels: ["Poul", "Son", "Dioxyde d'Azote", "Température"],
             datasets: [
                 {
-                    label: "1950",
+                    label: "<?php echo $vardate[0] ?>",
                     fill: true,
-                    backgroundColor: "rgba(179,181,198,0.2)",
-                    borderColor: "rgba(179,181,198,1)",
+                    backgroundColor: "rgba(62,62,64,0.2)",
+                    borderColor: "rgb(92,93,105)",
                     pointBorderColor: "#fff",
-                    pointBackgroundColor: "rgba(179,181,198,1)",
-                    data: [8.77,55.61,21.69,6.62,6.82]
+                    pointBackgroundColor: "rgb(94,94,107)",
+                    data: [
+                        <?php
+                        echo $scoreBpm[0],$scoredB[0],$scoreNo2[0],$scoreDegCel[0];
+                        ?>
+                    ]
                 }, {
-                    label: "2050",
+                    label: "<?php echo $vardate[1] ?>",
                     fill: true,
                     backgroundColor: "rgba(255,99,132,0.2)",
                     borderColor: "rgba(255,99,132,1)",
                     pointBorderColor: "#fff",
                     pointBackgroundColor: "rgba(255,99,132,1)",
                     pointBorderColor: "#fff",
-                    data: [25.48,54.16,7.61,8.06,4.45]
+                    data: [
+                        <?php
+                        echo $scoreBpm[1],$scoredB[1],$scoreNo2[1],$scoreDegCel[1];
+                        ?>
+                    ]
+                }, {
+                    label: "<?php echo $vardate[2] ?>",
+                    fill: true,
+                    backgroundColor: "rgba(193,59,238,0.2)",
+                    borderColor: "rgb(155,82,192)",
+                    pointBorderColor: "#fff",
+                    pointBackgroundColor: "rgb(195,99,243)",
+                    pointBorderColor: "#fff",
+                    data: [
+                        <?php
+                        echo $scoreBpm[2],$scoredB[2],$scoreNo2[2],$scoreDegCel[2];
+                        ?>
+                    ]
+                }, {
+                    label: "<?php echo $vardate[3] ?>",
+                    fill: true,
+                    backgroundColor: "rgb(248,242,32)",
+                    borderColor: "rgb(246,239,157)",
+                    pointBorderColor: "#fff",
+                    pointBackgroundColor: "rgb(211,192,126)",
+                    pointBorderColor: "#fff",
+                    data: [
+                        <?php
+                        echo $scoreBpm[3],$scoredB[3],$scoreNo2[3],$scoreDegCel[3];
+                        ?>
+                    ]
+                }, {
+                    label: "<?php echo $vardate[4] ?>",
+                    fill: true,
+                    backgroundColor: "rgba(37,185,22,0.2)",
+                    borderColor: "rgb(99,255,143)",
+                    pointBorderColor: "#fff",
+                    pointBackgroundColor: "rgb(99,255,112)",
+                    pointBorderColor: "#fff",
+                    data: [
+                        <?php
+                        echo $scoreBpm[4],$scoredB[4],$scoreNo2[4],$scoreDegCel[4];
+                        ?>
+                    ]
+                }, {
+                    label: "<?php echo $vardate[5] ?>",
+                    fill: true,
+                    backgroundColor: "rgba(30,86,148,0.2)",
+                    borderColor: "rgb(88,113,196)",
+                    pointBorderColor: "#fff",
+                    pointBackgroundColor: "rgb(99,154,255)",
+                    pointBorderColor: "#fff",
+                    data: [
+                        <?php
+                        echo $scoreBpm[5],$scoredB[5],$scoreNo2[5],$scoreDegCel[5];
+                        ?>
+                    ]
+                }, {
+                    label: "<?php echo $vardate[6] ?>",
+                    fill: true,
+                    backgroundColor: "rgba(169,70,52,0.2)",
+                    borderColor: "rgb(176,106,36)",
+                    pointBorderColor: "#fff",
+                    pointBackgroundColor: "rgb(201,142,34)",
+                    pointBorderColor: "#fff",
+                    data: [
+                        <?php
+                        echo $scoreBpm[6],$scoredB[6],$scoreNo2[6],$scoreDegCel[6];
+                        ?>
+                    ]
                 }
             ]
-        },
-        options: {
-            scale: { angleLines: { color: "red" } }
         }
     });
 </script>

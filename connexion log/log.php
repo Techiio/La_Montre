@@ -28,8 +28,12 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
         if ($c_mdp == $user['Mdp']) {
             $error = 0;
 
+            setcookie('pseudo', $user['Identifiant'], time()+364*24*3600, '/', null, false, true);
+
             $_SESSION['connect'] = 1;
+
             header('location: ../user-gest-admin_menu.php');
+
         }
         else{
             header('Location: ../visiteur_connexion.php?erreur=1');

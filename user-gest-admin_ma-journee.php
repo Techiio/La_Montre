@@ -10,7 +10,7 @@ catch (Exception $e)
     die('Erreur : ' . $e->getMessage());
 }
 
-$id = "jean";
+$id = $_COOKIE['pseudo'];
 
 $sql = "SELECT CodeProduit FROM profil WHERE Identifiant ='$id'";
 $req = $db->query($sql);
@@ -98,7 +98,18 @@ $vDegCel = array_reverse($vDegCel);
     </div>
 
     <a href="visiteur_accueil.php" class="logo">
-        <h3>Déconnexion</h3>
+        <h2 style="color: antiquewhite; font-size: 2.5rem;">
+            <?php
+
+            if(isset($_COOKIE['pseudo'])){
+                echo '' .$_COOKIE['pseudo'] ;
+            }
+            ?>
+
+        </h2>
+        <h3>
+            Déconnexion
+        </h3>
     </a>
 
 </header>
@@ -134,8 +145,6 @@ $vDegCel = array_reverse($vDegCel);
             <p class="score"><?php echo max($DegCel).'°C' ?></p>
             <p class="text" style="color: #8e5ea2">Pic de son : </p>
             <p class="score"><?php echo max($dB).' dB' ?></p>
-            <p class="bigtext">Meilleur score : </p>
-            <p class="score" style="font-size: 3.5rem"><?php echo 'Insérer variable meilleur score' ?></p>
         </div>
 
 </section>
@@ -144,8 +153,10 @@ $vDegCel = array_reverse($vDegCel);
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.php">CGU</a>
+        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+        <a>Version: 1.0.12.201</a>
     </div>
+
 
 </section>
 

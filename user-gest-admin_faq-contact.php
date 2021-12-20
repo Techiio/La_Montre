@@ -24,16 +24,33 @@
 
 <header class="header">
 
-    <a href="#" class="logo">
-        <img src="images/EkoS.png" alt="">
+    <a class="logo">
+        <img src="images/LaMontreS.png" alt="">
     </a>
 
-    <nav class="navbar">
-        <a href="#User">[USER.NAME.TBD]</a>
-    </nav>
+    <div class="icons">
+        <nav class="navbar">
+            <a href="user-gest-admin_menu.php">Mon Menu</a>
+            <a href="user-gest-admin_statistiques.php">Mes Stats</a>
+            <a href="user-gest-admin_conseils.php">Mes Conseils</a>
+            <a href="user-gest-admin_faq-contact.php">Contact/FAQ</a>
+        </nav>
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </div>
 
-    <a href="#" class="logo">
-        <img src="images/LaMontreS.png" alt="">
+    <a href="visiteur_accueil.php" class="logo">
+        <h2 style="color: antiquewhite; font-size: 2.5rem;">
+            <?php
+
+            if(isset($_COOKIE['pseudo'])){
+                echo '' .$_COOKIE['pseudo'] ;
+            }
+            ?>
+
+        </h2>
+        <h3>
+            Déconnexion
+        </h3>
     </a>
 
 </header>
@@ -100,7 +117,7 @@
             <br>
             <h5>Un utilisateur de La Montre peut télécharger ses données à partir de sa page statistique. Le gestionnaire peut télécharger toutes les données de la famille en allant sur sa page spécifique et cliquer sur le bouton prévu à cet effet</h5>
             <br>
-            <h4>Je désire supprimer mes données ou mon comptes, quelle procédure ?</h4>
+            <h4>Je désire supprimer mes données ou mon compte, quelle procédure ?</h4>
             <br>
             <h5>Pour répondre à ce besoin, veuillez contacter les administrateurs via le formulaire de contact.</h5>
             <br>
@@ -120,10 +137,6 @@
                 <span class="fas fa-envelope"></span>
                 <input type="email" placeholder="email">
             </div>
-            <div class="inputBox">
-                <span class="fas fa-phone"></span>
-                <input type="number" placeholder="number">
-            </div>
             <input type="submit" value="contact now" class="btn">
         </form>
 
@@ -135,7 +148,7 @@
 
 <!-- contact section ends -->
 
-</html>
+
 
 <!-- custom css file link  -->
 <link rel="stylesheet" href="css/style.css">
@@ -143,41 +156,16 @@
 </head>
 <body>
 
-<!-- header section starts  -->
-
-<header class="header">
-
-    <a class="logo">
-        <img src="images/EkoS.png" alt="">
-    </a>
-
-    <nav class="navbar">
-        <a href="user-gest-admin_menu.html">Mon Menu</a>
-        <a href="user-gest-admin_ma-journee.html">Ma Journée</a>
-        <a href="user-gest-admin_statistiques.html">Mes Stats</a>
-        <a href="user-gest-admin_conseils.html">Mes Conseils</a>
-        <a href="user-gest-admin_menu.php">Mon Menu</a>
-        <a href="user-gest-admin_ma-journee.php">Ma Journée</a>
-        <a href="user-gest-admin_statistiques.php">Mes Stats</a>
-        <a href="user-gest-admin_conseils.php">Mes Conseils</a>
-    </nav>
-
-    <a href="index.html" class="logo">
-        <a href="visiteur_accueil.php" class="logo">
-            <img src="images/LaMontreS.png" alt="">
-            <h3>Déconnexion</h3>
-        </a>
-
-</header>
-
-<!-- header section ends -->
 
 
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.html">CGU</a>
+        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+        <a>Version: 1.0.12.201</a>
     </div>
+
 
 </section>
 
+</html>

@@ -23,16 +23,25 @@
 <header class="header">
 
     <a class="logo">
-        <img src="images/EkoS.png" alt="">
+        <img src="images/LaMontreS.png" alt="">
     </a>
 
-    <nav class="navbar">
-        <a>[USER.NAME.TBD]</a>
-    </nav>
+    <a>
+        <h2 style="color: antiquewhite; font-size: 2.5rem;">
+            <?php
+
+            if(isset($_COOKIE['pseudo'])){
+                echo '' .$_COOKIE['pseudo'] ;
+            }
+            ?>
+
+        </h2>
+    </a>
 
     <a href="visiteur_accueil.php" class="logo">
-        <img src="images/LaMontreS.png" alt="">
-        <h3>Déconnexion</h3>
+        <h3>
+            Déconnexion
+        </h3>
     </a>
 
 
@@ -78,8 +87,10 @@
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.php">CGU</a>
+        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+        <a>Version: 1.0.12.201</a>
     </div>
+
 
 </section>
 
