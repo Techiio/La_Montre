@@ -30,25 +30,25 @@ $tabdonnees = array($scoreBpm, $scoredB, $scoreNo2, $scoreDegCel,); // Tableau p
 $meilleurScore = max($tabdonnees);
 $pireScore = min($tabdonnees);
 
-$meilleurDonnee = 0;
+$meilleureDonnee = 0;
 $pireDonnee = 0;
 
-switch ($meilleurDonnee)
+switch ($meilleurScore)
 {
 case $meilleurScore == $scoreBpm:
-    $meilleurDonnee =  $data['Bpm'];
+    $meilleureDonnee =  $data['Bpm'];
     break;
 case $meilleurScore == $scoredB:
-    $meilleurDonnee =  $data['dB'];
+    $meilleureDonnee =  $data['dB'];
     break;
 case $meilleurScore == $scoreNo2:
-    $meilleurDonnee =  $data['No2'];
+    $meilleureDonnee =  $data['No2'];
     break;
 case $meilleurScore == $scoreDegCel:
-    $meilleurDonnee =  $data['DegréCelsius'];
+    $meilleureDonnee =  $data['DegréCelsius'];
     break;
     }
-switch ($pireDonnee)
+switch ($pireScore)
 {
     case $pireScore == $scoreBpm:
         $pireDonnee = $data['Bpm'];
@@ -130,11 +130,45 @@ switch ($pireDonnee)
     <div class="box-container">
         <a href="#" class="box">
             <h3>Meilleur donnée :</h3><br><br><br><br>
-            <p><?php echo $meilleurDonnee ?></p>
+            <p><?php echo $meilleureDonnee;
+                if ($meilleurScore == $scoreBpm)
+                {
+                        echo "Bpm";
+                }
+                else if ($meilleurScore == $scoreNo2)
+                {
+                    echo "µg/m³";
+                }
+                else if ($meilleurScore == $scoreDegCel)
+                {
+                    echo "°C";
+                }
+                else if ($meilleurScore == $scoredB)
+                {
+                    echo "dB";
+                }
+                ?>
+            </p>
         </a>
         <a href="#" class="box">
             <h3>Pire donnée :</h3><br><br><br><br>
-            <p> <?php echo $pireDonnee ?></p>
+            <p> <?php echo $pireDonnee;
+                if ($pireScore == $scoreBpm)
+                {
+                    echo "Bpm";
+                }
+                else if ($pireScore == $scoreNo2)
+                {
+                    echo "µg/m³";
+                }
+                else if ($pireScore == $scoreDegCel)
+                {
+                    echo "°C";
+                }
+                else if ($pireScore == $scoredB)
+                {
+                    echo "dB";
+                }?></p>
         </a>
         
     </div><br><br>
