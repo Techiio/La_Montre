@@ -35,7 +35,7 @@
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="visiteur_accueil.php" class="logo">
+    <a href="index.php" class="logo">
         <h2 style="color: antiquewhite; font-size: 2.5rem;">
             <?php
 
