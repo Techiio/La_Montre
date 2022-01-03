@@ -20,6 +20,7 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
     //Variables
     $c_mail = $_POST['Identifiant'];
     $c_mdp = $_POST['Mdp'];
+    $c_code = $_POST['CodeStatut'];
     $error = 1;
 
     $req = $db->prepare('SELECT * FROM connexion WHERE Identifiant=?');
@@ -29,6 +30,7 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
             $error = 0;
 
             setcookie('pseudo', $user['Identifiant'], time()+364*24*3600, '/', null, false, true);
+            setcookie('codeS', $user['CodeStatut'], time()+364*24*3600, '/', null, false, true);
 
             $_SESSION['connect'] = 1;
 
