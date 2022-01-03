@@ -717,19 +717,19 @@ textarea {
 
 .datajour .score{
     font-size: 1.8rem;
-    color: darkred;
+    color: white;
     padding-bottom: 1rem;
 
 }
 
 .datastat .text{
     font-size: 2rem;
-    padding-top: 0.5rem;
+    padding-top: 0.8rem;
 }
 
 .datastat .bigtext{
     font-size: 3rem;
-    padding-top: 1rem;
+    padding-top: 2rem;
 }
 
 .datastat .textgraph{
@@ -741,7 +741,7 @@ textarea {
 
 .datastat .score{
     font-size: 1.8rem;
-    color: darkred;
+    color: white;
     padding-bottom: 1rem;
 
 }
@@ -749,6 +749,7 @@ textarea {
 .datajour .box1{
 
     border: var(--border);
+    border: 0.5rem solid darkorange;
     font-size: 3rem;
     grid-column-start: 1;
     grid-column-end: 3;
@@ -776,6 +777,7 @@ textarea {
 
 .datastat .box4{
     border: var(--border);
+    border: 0.5rem solid darkorange;
     font-size: 3rem;
     grid-column-start: 1;
     grid-column-end: 3;

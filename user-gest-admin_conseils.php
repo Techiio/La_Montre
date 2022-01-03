@@ -1,6 +1,72 @@
+<?php
+try
+{
+    $db = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
+        'root',
+        '');
+}
+catch (Exception $e)
+{
+    die('Erreur : ' . $e->getMessage());
+}
+
+$id = $_COOKIE['pseudo'];
+
+$sql = "SELECT CodeProduit FROM profil WHERE Identifiant ='$id'";
+$req = $db->query($sql);
+$data = $req->fetch();
+$codeproduit = $data['CodeProduit'];
+
+$sql = 'SELECT * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date DESC, Heure DESC LIMIT 24';
+$req = $db->query($sql);
+
+$scoreBpm = [];
+$scoredB = [];
+$scoreNo2 = [];
+$scoreDegCel = [];
+
+$tabScore = array($scoreBpm, $scoredB, $scoreNo2, $scoreDegCel,); // Tableau pour déterminer la meilleure et la pire donnée
+
+$meilleurScore = max($tabScore);
+$pireScore = min($tabScore);
+
+$meilleureDonnee = 0;
+$pireDonnee = 0;
+
+switch ($meilleurScore)
+{
+case $meilleurScore == $scoreBpm:
+    $meilleureDonnee =  $data['Bpm'];
+    break;
+case $meilleurScore == $scoredB:
+    $meilleureDonnee =  $data['dB'];
+    break;
+case $meilleurScore == $scoreNo2:
+    $meilleureDonnee =  $data['No2'];
+    break;
+case $meilleurScore == $scoreDegCel:
+    $meilleureDonnee =  $data['DegréCelsius'];
+    break;
+    }
+switch ($pireScore)
+{
+    case $pireScore == $scoreBpm:
+        $pireDonnee = $data['Bpm'];
+        break;
+    case $pireScore == $scoredB:
+        $pireDonnee = $data['dB'];
+        break;
+    case $pireScore == $scoreNo2:
+        $pireDonnee = $data['No2'];
+        break;
+    case $pireScore == $scoreDegCel:
+        $pireDonnee = $data['DegréCelsius'];
+        break;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
-<head>
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,7 +101,7 @@
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="visiteur_accueil.php" class="logo">
+    <a href="index.php" class="logo">
         <h2 style="color: antiquewhite; font-size: 2.5rem;">
             <?php
 
@@ -64,11 +130,45 @@
     <div class="box-container">
         <a href="#" class="box">
             <h3>Meilleur donnée :</h3><br><br><br><br>
-            <p> </p>
+            <p><?php echo $meilleureDonnee;
+                if ($meilleurScore == $scoreBpm)
+                {
+                        echo "Bpm";
+                }
+                else if ($meilleurScore == $scoreNo2)
+                {
+                    echo "µg/m³";
+                }
+                else if ($meilleurScore == $scoreDegCel)
+                {
+                    echo "°C";
+                }
+                else if ($meilleurScore == $scoredB)
+                {
+                    echo "dB";
+                }
+                ?>
+            </p>
         </a>
         <a href="#" class="box">
             <h3>Pire donnée :</h3><br><br><br><br>
-            <p> </p>
+            <p> <?php echo $pireDonnee;
+                if ($pireScore == $scoreBpm)
+                {
+                    echo "Bpm";
+                }
+                else if ($pireScore == $scoreNo2)
+                {
+                    echo "µg/m³";
+                }
+                else if ($pireScore == $scoreDegCel)
+                {
+                    echo "°C";
+                }
+                else if ($pireScore == $scoredB)
+                {
+                    echo "dB";
+                }?></p>
         </a>
         
     </div><br><br>

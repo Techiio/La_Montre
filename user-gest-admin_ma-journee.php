@@ -9,8 +9,7 @@ catch (Exception $e)
 {
     die('Erreur : ' . $e->getMessage());
 }
-
-$id = "jean";
+$id = $_COOKIE['pseudo'];
 
 $sql = "SELECT CodeProduit FROM profil WHERE Identifiant ='$id'";
 $req = $db->query($sql);
@@ -97,7 +96,7 @@ $vDegCel = array_reverse($vDegCel);
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="visiteur_accueil.php" class="logo">
+    <a href="index.php" class="logo">
         <h2 style="color: antiquewhite; font-size: 2.5rem;">
             <?php
 
@@ -127,7 +126,7 @@ $vDegCel = array_reverse($vDegCel);
 
 <section class="datajour">
 
-        <div class="box1">
+        <div class="box1" style="background-color: lightgrey">
             <p class="textgraph" style="color: darkorange">Evolution des données en fonction des dernières 24h</p>
             <canvas id="line-chart-day"></canvas>
         </div>
@@ -145,8 +144,6 @@ $vDegCel = array_reverse($vDegCel);
             <p class="score"><?php echo max($DegCel).'°C' ?></p>
             <p class="text" style="color: #8e5ea2">Pic de son : </p>
             <p class="score"><?php echo max($dB).' dB' ?></p>
-            <p class="bigtext">Meilleur score : </p>
-            <p class="score" style="font-size: 3.5rem"><?php echo 'Insérer variable meilleur score' ?></p>
         </div>
 
 </section>
