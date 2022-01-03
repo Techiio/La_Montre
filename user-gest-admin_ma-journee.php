@@ -127,7 +127,7 @@ $vDegCel = array_reverse($vDegCel);
 
 <section class="datajour">
 
-        <div class="box1">
+        <div class="box1" style="background-color: lightgrey">
             <p class="textgraph" style="color: darkorange">Evolution des données en fonction des dernières 24h</p>
             <canvas id="line-chart-day"></canvas>
         </div>

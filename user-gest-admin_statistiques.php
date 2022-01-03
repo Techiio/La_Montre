@@ -193,7 +193,7 @@ $vDegCel = array_reverse($vDegCel);
 
 <section class="datastat">
 
-    <div class="box4">
+    <div class="box4" style="background-color: lightgrey">
         <p class="textgraph" style="color: darkorange">Evolution des données en fonction des 7 derniers jours</p>
         <canvas id="line-chart-week"></canvas>
     </div>
