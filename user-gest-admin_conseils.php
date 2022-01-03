@@ -25,10 +25,10 @@ $scoredB = [];
 $scoreNo2 = [];
 $scoreDegCel = [];
 
-$tabdonnees = array($scoreBpm, $scoredB, $scoreNo2, $scoreDegCel,); // Tableau pour déterminer la meilleure et la pire donnée
+$tabScore = array($scoreBpm, $scoredB, $scoreNo2, $scoreDegCel,); // Tableau pour déterminer la meilleure et la pire donnée
 
-$meilleurScore = max($tabdonnees);
-$pireScore = min($tabdonnees);
+$meilleurScore = max($tabScore);
+$pireScore = min($tabScore);
 
 $meilleureDonnee = 0;
 $pireDonnee = 0;
