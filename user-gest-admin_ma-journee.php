@@ -9,7 +9,6 @@ catch (Exception $e)
 {
     die('Erreur : ' . $e->getMessage());
 }
-
 $id = $_COOKIE['pseudo'];
 
 $sql = "SELECT CodeProduit FROM profil WHERE Identifiant ='$id'";
