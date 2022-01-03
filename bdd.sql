@@ -41,8 +41,8 @@ INSERT INTO `connexion` (`CodeStatut`, `Identifiant`, `Mdp`) VALUES
 (0, 'jeangerard', 'jean'),
 (0, 'jacque', 'jacque'),
 (0, 'jean', 'jean'),
-(2, 'jesapel', 'groot');
-
+(2, 'jesapel', 'groot'),
+(1, 'gest', 'gest');
 -- --------------------------------------------------------
 
 --
