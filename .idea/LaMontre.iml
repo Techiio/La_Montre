@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="LaMontre_PHP-SQL" />
     <orderEntry type="module" module-name="stt" />
+    <orderEntry type="module" module-name="Eko-LaMontre" />
   </component>
 </module>
