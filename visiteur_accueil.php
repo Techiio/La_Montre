@@ -49,7 +49,7 @@
 
     <div class="content">
         <h3>Avec vous à chaque nouvelle journée</h3>
-        <p>Baptiste stp j'ai besoin de tes boutons connexion et inscription ^^</p>
+        <p></p>
         <a href="visiteur_contact.php" class="btn">Nous contacter</a>
     </div>
 
