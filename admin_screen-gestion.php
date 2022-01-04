@@ -56,6 +56,8 @@
         <a class="box">
             <img src="images/assemblee.png" alt="">
             <h3>Nombre d'utilisateurs connectés</h3>
+            <h3> Actuellement <?php echo $user_nbr; ?> utilisateur<?php if($user_nbr != 1) { echo "s"; } ?> en ligne<br />
+            </h3>
         </a>
 
         <a class="box">
