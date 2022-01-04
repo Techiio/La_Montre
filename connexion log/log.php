@@ -28,7 +28,7 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
     while ($user = $req->fetch()) {
 
 
-        if ( $c_code ==  2) {
+        if ( $user['CodeStatut'] == 2 ) {
         $error = 0;
 
         setcookie('pseudo', $user['Identifiant'], time()+364*24*3600, '/', null, false, true);
