@@ -23,9 +23,6 @@
     <a class="logo">
         <img src="images/EkoS.png" alt="">
     </a>
-    <nav class="navbar">
-        <a>[USER_NAME_TBD]</a>
-    </nav>
 
     <a href="index.php" class="logo">
         <img src="images/LaMontreS.png" alt="">

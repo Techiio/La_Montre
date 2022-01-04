@@ -43,18 +43,18 @@
         <h1 class="heading"><span>Je</span> m'inscris</h1>
 
         <div class="row">
-          <form method="post">
+          <form action="connexion log/register.php" method="post">
             <div class="inputBox">
               <span class="fas fa-user"></span>
-              <input type="text" name="prenom" placeholder="Prénom" />
+              <input type="text" name="Identifiant" placeholder="Prénom" />
             </div>
             <div class="inputBox">
               <span class="fas fa-fire"></span>
-              <input type="text" name="codeP" placeholder="Code produit" />
+              <input type="text" name="CodeProduit" placeholder="Code produit" />
             </div>
             <div class="inputBox">
               <span class="fas fa-house-user"></span>
-              <input type="number" name="codeF" placeholder="Code famille" />
+              <input type="number" name="CodeFamille" placeholder="Code famille" />
             </div>
             <div class="inputBox">
               <span class="fas fa-id-badge"></span>
@@ -69,14 +69,14 @@
               />
             </div>
             <div>
-              <input type="checkbox" id="check" class="check" />
+              <input type="checkbox" name="gest" value="check" class="check" />
               <label for="check">
                 <h4>
                   Cochez si vous souhaitez être le gestionnaire de votre famille
                 </h4>
               </label>
                 <br>
-                <input type="checkbox" id="check" class="check" />
+                <input type="checkbox" name="CGU" value="check" id="check" class="check" />
                 <label for="check">
                     <h4>
                         J'accepte les CGU (Obligatoire) 
