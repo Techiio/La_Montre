@@ -55,8 +55,8 @@
 
         <a class="box">
             <img src="images/assemblee.png" alt="">
-            <h3>Nombre d'utilisateurs connectés</h3>
-            <h4> Actuellement <?php
+            <h3>Nombre d'utilisateurs connectés :</h3>
+            <h3> <?php
                 $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8', "root", "");
                 $temps_session = 600;
                 $temps_actuel = date("U");
@@ -78,7 +78,7 @@
                 $user_nbr = $show_user_nbr->rowCount();
                 echo $user_nbr ;
                 ?> utilisateur<?php if($user_nbr != 1) { echo "s"; } ?> en ligne<br />
-            </h4>
+            </h3>
         </a>
 
         <a class="box">
