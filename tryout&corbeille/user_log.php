@@ -1,6 +1,6 @@
 <?php
 $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8', "root", "");
-$temps_session = 15;
+$temps_session = 1800;
 $temps_actuel = date("U");
 $user_ip = "11588";
 $req_ip_exist = $bdd->prepare('SELECT * FROM online WHERE user_ip = ?');
