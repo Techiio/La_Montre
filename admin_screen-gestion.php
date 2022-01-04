@@ -46,7 +46,7 @@
     <h1 class="heading">. </h1>
 </section>
 <!-- admin section starts  -->
-<?php include('user_log.php'); ?>
+
 <section class="admin" id="admin">
 
     <h1 class="heading"> Admin <span>Screen</span> </h1>
@@ -56,7 +56,28 @@
         <a class="box">
             <img src="images/assemblee.png" alt="">
             <h3>Nombre d'utilisateurs connectés</h3>
-            <h3> Actuellement <?php echo $user_nbr; ?> utilisateur<?php if($user_nbr != 1) { echo "s"; } ?> en ligne<br />
+            <h3> Actuellement <?php
+                $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8', "root", "");
+                $temps_session = 600;
+                $temps_actuel = date("U");
+                $user_ip = $_SERVER['REMOTE_ADDR'];
+                $req_ip_exist = $bdd->prepare('SELECT * FROM online WHERE user_ip = ?');
+                $req_ip_exist->execute(array($user_ip));
+                $ip_existe = $req_ip_exist->rowCount();
+                if($ip_existe == 0) {
+                    $add_ip = $bdd->prepare('INSERT INTO online(user_ip,time) VALUES(?,?)');
+                    $add_ip->execute(array($user_ip,$temps_actuel));
+                } else {
+                    $update_ip = $bdd->prepare('UPDATE online SET time = ? WHERE user_ip = ?');
+                    $update_ip->execute(array($temps_actuel,$user_ip));
+                }
+                $session_delete_time = $temps_actuel - $temps_session;
+                $del_ip = $bdd->prepare('DELETE FROM online WHERE time < ?');
+                $del_ip->execute(array($session_delete_time));
+                $show_user_nbr = $bdd->query('SELECT * FROM online');
+                $user_nbr = $show_user_nbr->rowCount();
+                echo $user_nbr ;
+                ?> utilisateur<?php if($user_nbr != 1) { echo "s"; } ?> en ligne<br />
             </h3>
         </a>
 
