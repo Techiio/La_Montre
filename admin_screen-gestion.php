@@ -46,7 +46,7 @@
     <h1 class="heading">. </h1>
 </section>
 <!-- admin section starts  -->
-
+<?php include('user_log.php'); ?>
 <section class="admin" id="admin">
 
     <h1 class="heading"> Admin <span>Screen</span> </h1>
