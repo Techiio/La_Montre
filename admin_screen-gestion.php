@@ -96,7 +96,7 @@
             <img src="images/ajout.png" alt="">
             <h3>Ajouter un admin</h3>
             <section class="admin" id="admin">
-                <form action="connexion log/add_admin.php" method="post">
+                <form action="admin_screen/add_admin.php" method="post">
                     <div class="inputBox">
                         <span class="fas fa-user"></span>
                         <input type="text" name="Idtf" placeholder="Prénom" />
@@ -121,7 +121,6 @@
                                 id="formsend"
                                 class="add"
                         />
-                        header('location: ../admin-screen-gestion.php');
                     </div>
             </section>
         </a>
