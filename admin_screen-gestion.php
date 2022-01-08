@@ -88,7 +88,7 @@
                 <form action="admin_screen/gestion_user.php" method="post">
                     <div class="inputBox">
                         <span class="fas fa-user"></span>
-                        <input type="text" name="Idt" placeholder="Prénom" />
+                        <input type="text" name="Identifiant" placeholder="Prénom" />
                     </div>
                     <div>
                         <input
@@ -99,6 +99,13 @@
                                 class="add"
                         />
                     </div>
+                    <?php
+                    if(isset($_GET['erreur'])){
+                        $err = $_GET['erreur'];
+                        if($err==4 || $err==5)
+                            echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Utilisateur non trouvé</p>";
+                    }
+                    ?>
 
                 </form>
             </section>
