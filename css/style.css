@@ -731,6 +731,23 @@ textarea {
     display: none;
 
 }
+
+.admin select{
+    width: 100%;
+    font-size: 1.0rem;
+    color:#fff;
+    text-transform: capitalize;
+    background:none;
+    height: 100px;
+    overflow: auto;
+    flex:1 1 45rem;
+    padding:8rem 2rem;
+    text-align: center;
+    border-width : 1px;
+    border-style : solid;
+    border-color : var(--border);
+}
+
 .datajour {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

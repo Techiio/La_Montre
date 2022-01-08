@@ -21,6 +21,7 @@ try {
         //Transmission de l'ajout vers la bdd
         $requete=$bdd->prepare('INSERT INTO connexion(CodeStatut, Identifiant, Mdp ) VALUES(?, ?, ?)');
         $requete->execute(array($CodeStatut, $Identifiant, $mdp));
-    header('location: ../admin_screen-gestion.php');
+        $erreur=2;
+    header('location: ../admin_screen-gestion.php?erreur=2');
 
 ?>

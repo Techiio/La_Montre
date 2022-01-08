@@ -11,14 +11,13 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 
-//Suppression de l'admin dans la base
 if (!empty($_POST["Idt"])) {
     $Idt = $_POST['Idt'];
-    $rq = $bdd->query("DELETE FROM connexion WHERE Identifiant= '$Idt'");
-    $erreur = 1;
-    header('location: ../admin_screen-gestion.php?erreur=1');
+    $Codeproduit = $bdd->query("SELECT Codeproduit  FROM profil WHERE Identifiant = 'Idt'");
+    $rq = $bdd->query("DELETE FROM donneesmontre WHERE CodeProduit= '$Codeproduit'");
+    $erreur = 3;
+    header('location: ../admin_screen-gestion.php?erreur=3');
 }
-
 
 
 

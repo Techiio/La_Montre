@@ -84,12 +84,53 @@
         <a class="box">
             <img src="images/gerer.png" alt="">
             <h3>Gérer un utilisateur</h3>
+            <section class="gu" id="gu">
+                <form action="admin_screen/gestion_user.php" method="post">
+                    <div class="inputBox">
+                        <span class="fas fa-user"></span>
+                        <input type="text" name="Idt" placeholder="Prénom" />
+                    </div>
+                    <div>
+                        <input
+                                type="submit"
+                                value="Accéder"
+                                name="formsend"
+                                id="formsend"
+                                class="add"
+                        />
+                    </div>
 
+                </form>
+            </section>
         </a>
 
         <a class="box">
             <img src="images/reset.png" alt="">
             <h3>Reset les données</h3>
+            <section class="rd" id="rd">
+                <form action="admin_screen/reset_data.php" method="post">
+                    <div class="inputBox">
+                        <span class="fas fa-user"></span>
+                        <input type="text" name="Idf" placeholder="Prénom" />
+                    </div>
+                    <div>
+                        <input
+                                type="submit"
+                                value="Reset"
+                                name="formsend"
+                                id="formsend"
+                                class="add"
+                        />
+                    </div>
+                    <?php
+                    if(isset($_GET['erreur'])){
+                        $err = $_GET['erreur'];
+                        if($err==3 || $err==5)
+                            echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Données de la montre reset</p>";
+                    }
+                    ?>
+                </form>
+            </section>
         </a>
 
         <a class="box">
@@ -122,6 +163,13 @@
                                 class="add"
                         />
                     </div>
+                    <?php
+                    if(isset($_GET['erreur'])){
+                        $err = $_GET['erreur'];
+                        if($err==2 || $err==5)
+                            echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Ajout réussi</p>";
+                    }
+                    ?>
                 </form>
             </section>
         </a>
@@ -129,6 +177,20 @@
         <a class="box">
             <img src="images/equipe.png" alt="">
             <h3>Liste des admins</h3>
+            <br>
+            <section id="liste">
+                <select multiple="yes" size="10">
+                    <?php $rep = $bdd->query('SELECT * FROM connexion WHERE CodeStatut=02');
+                    while ($donnees = $rep->fetch())
+                    {
+                        ?>
+                        <option value="<?php echo $donnees; ?>">
+                            <?php echo $donnees['Identifiant']; ?>
+                        </option>
+                    <?php } ?>
+                </select>
+            </section>
+
         </a>
 
         <a class="box">
@@ -138,7 +200,7 @@
                 <form action="admin_screen/del_admin.php" method="post">
                     <div class="inputBox">
                         <span class="fas fa-user"></span>
-                        <input type="text" name="Idtft" placeholder="Prénom" />
+                        <input type="text" name="Idt" placeholder="Prénom" />
                     </div>
                     <div>
                         <input
@@ -152,8 +214,8 @@
                     <?php
                     if(isset($_GET['erreur'])){
                         $err = $_GET['erreur'];
-                        if($err==1 || $err==2)
-                            echo "<p style='color:darkgreen; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Suppression réussie</p>";
+                        if($err==1 || $err==5)
+                            echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Suppression réussie</p>";
                     }
                     ?>
                 </form>
