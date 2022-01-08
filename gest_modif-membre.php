@@ -53,18 +53,23 @@
 <section class="modif" id="modif">
 
     <h1 class="heading"> our <span>blogs</span> </h1>
-
+    <br>
+    <br>
+    <br>
     <div class="box-container">
 
         <div class="box">
             <div class="image">
-                <img src="../images/blog-1.jpeg" alt="">
+                <img src="../images/nom-dutilisateur (1)-modified.png" alt="">
             </div>
             <div class="content">
                 <a class="title">Nom d'utilisateur</a>
                 <form action="">
                     <div class="inputBox">
-                        <input type="text" placeholder="Nouveau Nom">
+                        <input type="text" placeholder="Prénom actuel">
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" placeholder="Nouveau Prénom">
                     </div>
                 </form>
                 <a href="#" class="btn">Appliquer</a>
@@ -73,7 +78,7 @@
 
         <div class="box">
             <div class="image">
-                <img src="../images/blog-2.jpeg" alt="">
+                <img src="../images/nom-dutilisateur-modified.png" alt="">
             </div>
             <div class="content">
                 <a class="title">Modifier le Mot de Passe</a>
@@ -94,7 +99,7 @@
 
         <div class="box">
             <div class="image">
-                <img src="../images/blog-3.jpeg" alt="">
+                <img src="../images/palette-de-couleurs-modified.png" alt="">
             </div>
             <div class="content">
                 <a class="title">Changer la couleur</a>
