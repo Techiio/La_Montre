@@ -95,7 +95,7 @@
         <a class="box">
             <img src="images/ajout.png" alt="">
             <h3>Ajouter un admin</h3>
-            <section class="admin" id="admin">
+            <section class="addadmin" id="addadmin">
                 <form action="admin_screen/add_admin.php" method="post">
                     <div class="inputBox">
                         <span class="fas fa-user"></span>
@@ -134,6 +134,30 @@
         <a class="box">
             <img src="images/pas-de-foule.png" alt="">
             <h3>Supprimer un admin</h3>
+            <section class="deladmin" id="deladmin">
+                <form action="admin_screen/del_admin.php" method="post">
+                    <div class="inputBox">
+                        <span class="fas fa-user"></span>
+                        <input type="text" name="Idtft" placeholder="Prénom" />
+                    </div>
+                    <div>
+                        <input
+                                type="submit"
+                                value="Supprimer"
+                                name="formsend"
+                                id="formsend"
+                                class="add"
+                        />
+                    </div>
+                    <?php
+                    if(isset($_GET['erreur'])){
+                        $err = $_GET['erreur'];
+                        if($err==1 || $err==2)
+                            echo "<p style='color:darkgreen; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Suppression réussie</p>";
+                    }
+                    ?>
+                </form>
+            </section>
         </a>
 
     </div>

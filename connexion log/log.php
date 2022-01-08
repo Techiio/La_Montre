@@ -37,8 +37,7 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
         $_SESSION['connect'] = 1;
 
         header('location: ../admin_screen-gestion.php');
-
-    }
+        }
 
         elseif ($c_mdp == $user['Mdp']) {
             $error = 0;
