@@ -96,20 +96,20 @@
             <img src="images/ajout.png" alt="">
             <h3>Ajouter un admin</h3>
             <section class="admin" id="admin">
-                <form action="connexion log/register.php" method="post">
+                <form action="connexion log/add_admin.php" method="post">
                     <div class="inputBox">
                         <span class="fas fa-user"></span>
-                        <input type="text" name="Identifiant" placeholder="Prénom" />
+                        <input type="text" name="Idtf" placeholder="Prénom" />
                     </div>
                     <div class="inputBox">
                         <span class="fas fa-id-badge"></span>
-                        <input type="password" name="mdp1" placeholder="Mot de passe" />
+                        <input type="password" name="pwd1" placeholder="Mot de passe" />
                     </div>
                     <div class="inputBox">
                         <span class="fas fa-id-badge"></span>
                         <input
                                 type="password"
-                                name="mdp2"
+                                name="pwd2"
                                 placeholder="Confirmation mot de passe"
                         />
                         </div>
@@ -119,8 +119,9 @@
                                 value="Ajouter"
                                 name="formsend"
                                 id="formsend"
-                                class="btn"
+                                class="add"
                         />
+                        header('location: ../admin-screen-gestion.php');
                     </div>
             </section>
         </a>

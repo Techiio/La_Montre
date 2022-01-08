@@ -700,6 +700,24 @@ textarea {
     background:none;
 }
 
+.add{
+    margin-top: 1rem;
+    display: inline-block;
+    padding:.9rem 3rem;
+    font-size: 1.7rem;
+    color:#fff;
+    background: var(--main-color);
+    cursor: pointer;
+}
+
+.add:hover{
+    letter-spacing: .2rem;
+}
+
+#admin-add{
+    display: none;
+
+}
 .datajour {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
