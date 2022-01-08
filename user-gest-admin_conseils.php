@@ -20,10 +20,16 @@ $codeproduit = $data['CodeProduit'];
 $sql = 'SELECT * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date DESC, Heure DESC LIMIT 24';
 $req = $db->query($sql);
 
-$scoreBpm = [];
-$scoredB = [];
-$scoreNo2 = [];
-$scoreDegCel = [];
+$heure = [];
+$Bpm = [];
+$dB = [];
+$No2 = [];
+$DegCel = [];
+
+$scoreBpm = ($data['Bpm']-20)*100/40;
+$scoredB = $data['dB']*100/140;
+$scoreNo2 = $data['No2']*100/40;
+$scoreDegCel = ($data['DegCel']-20)*100/20;
 
 $tabScore = array($scoreBpm, $scoredB, $scoreNo2, $scoreDegCel,); // Tableau pour déterminer la meilleure et la pire donnée
 
@@ -133,19 +139,19 @@ switch ($pireScore)
             <p><?php echo $meilleureDonnee;
                 if ($meilleurScore == $scoreBpm)
                 {
-                        echo "Bpm";
+                        echo " Bpm";
                 }
                 else if ($meilleurScore == $scoreNo2)
                 {
-                    echo "µg/m³";
+                    echo " µg/m³";
                 }
                 else if ($meilleurScore == $scoreDegCel)
                 {
-                    echo "°C";
+                    echo " °C";
                 }
                 else if ($meilleurScore == $scoredB)
                 {
-                    echo "dB";
+                    echo " dB";
                 }
                 ?>
             </p>
@@ -155,19 +161,19 @@ switch ($pireScore)
             <p> <?php echo $pireDonnee;
                 if ($pireScore == $scoreBpm)
                 {
-                    echo "Bpm";
+                    echo " Bpm";
                 }
                 else if ($pireScore == $scoreNo2)
                 {
-                    echo "µg/m³";
+                    echo " µg/m³";
                 }
                 else if ($pireScore == $scoreDegCel)
                 {
-                    echo "°C";
+                    echo " °C";
                 }
                 else if ($pireScore == $scoredB)
                 {
-                    echo "dB";
+                    echo " dB";
                 }?></p>
         </a>
         
@@ -176,7 +182,25 @@ switch ($pireScore)
         <a href="#" class="box">
             <h3>Score :</h3><br><br>
             <h2>/20</h2><br><br>
-            <h3>Conseils du jour :</h3><br><br>
+            <h3>Conseils du jour :
+                <?php
+                    if ($pireScore == $scoredB)
+                    {
+                        echo "Vous êtes trop exposé au bruit. Allez dans des endroits calmes";
+                    }
+                    elseif ($pireScore == $scoreNo2)
+                    {
+                        echo "Attention! Vous absorbez un taux de dioxyde d'azote plus élevé que la moyenne. Éloignez-vous des engins à moteurs dès que possible";
+                    }
+                    elseif ($pireScore == $scoreBpm && $Bpm < )
+                    {
+                        echo "Vous êtes trop exposé au bruit. Allez dans des endroits calmes";
+                    }
+                    elseif ($pireScore == $scoreDegCel && $DegCel <  )
+                    {
+                        echo "Vous êtes trop exposé au bruit. Allez dans des endroits calmes";
+                    }
+                ?></h3><br><br>
             <p> </p>
         </a>
         
