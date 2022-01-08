@@ -122,6 +122,7 @@
                                 class="add"
                         />
                     </div>
+                </form>
             </section>
         </a>
 
