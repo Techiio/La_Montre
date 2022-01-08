@@ -84,6 +84,7 @@
         <a class="box">
             <img src="images/gerer.png" alt="">
             <h3>Gérer un utilisateur</h3>
+
         </a>
 
         <a class="box">
@@ -94,6 +95,34 @@
         <a class="box">
             <img src="images/ajout.png" alt="">
             <h3>Ajouter un admin</h3>
+            <section class="admin" id="admin">
+                <form action="connexion log/register.php" method="post">
+                    <div class="inputBox">
+                        <span class="fas fa-user"></span>
+                        <input type="text" name="Identifiant" placeholder="Prénom" />
+                    </div>
+                    <div class="inputBox">
+                        <span class="fas fa-id-badge"></span>
+                        <input type="password" name="mdp1" placeholder="Mot de passe" />
+                    </div>
+                    <div class="inputBox">
+                        <span class="fas fa-id-badge"></span>
+                        <input
+                                type="password"
+                                name="mdp2"
+                                placeholder="Confirmation mot de passe"
+                        />
+                        </div>
+                    <div>
+                        <input
+                                type="submit"
+                                value="Ajouter"
+                                name="formsend"
+                                id="formsend"
+                                class="btn"
+                        />
+                    </div>
+            </section>
         </a>
 
         <a class="box">
