@@ -56,6 +56,8 @@
         <a class="box">
             <img src="images/assemblee.png" alt="">
             <h3>Nombre d'utilisateurs connectés :</h3>
+            <br>
+            <br>
             <h3> <?php
                 $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8', "root", "");
                 $temps_session = 600;
