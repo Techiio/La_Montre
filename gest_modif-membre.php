@@ -103,11 +103,35 @@
             </div>
             <div class="content">
                 <a class="title">Changer la couleur</a>
+                <form action="admin_screen/color_gest.php" id="get_color" method="get" >
                 <div class="inputBox">
-                    <input type="text" placeholder="Entrer le code Hexadécimal de la couleur">
+                    <input type="text" name="Idt" placeholder="Prénom">
                 </div>
-                <a href="#" class="btn">Appliquer</a>
+                <br>
+                <select name="new_color" form="get_color"  size="10" required>
+                    <option >rouge </option>
+                    <option >saumon</option>
+                    <option >rose</option>
+                    <option >orange</option>
+                    <option >or</option>
+                    <option >violet</option>
+                    <option >vert</option>
+                    <option >cyan</option>
+                    <option >bleu</option>
+                    <option >marron</option>
+                </select>
+                    <a class="btn">
+                    <input
+                            type="submit"
+                            value="Appliquer"
+                            name="formsend"
+                            id="formsend"
+                            class="btn"
+                    />
+                    </a>
+                </form>
             </div>
+
         </div>
 
     </div>

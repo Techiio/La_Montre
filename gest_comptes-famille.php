@@ -75,22 +75,22 @@
         </a>
 
         <a href="#" class="box">
-            <img src="images/pic-3.png" class="user" alt="">
+            <img src="images/user.png" class="user" alt="">
             <h3>john deo</h3>
         </a>
 
         <a href="#" class="box">
-            <img src="images/pic-3.png" class="user" alt="">
+            <img src="images/user.png" class="user" alt="">
             <h3>john deo</h3>
         </a>
 
         <a href="#" class="box">
-            <img src="images/pic-3.png" class="user" alt="">
+            <img src="images/user.png" class="user" alt="">
             <h3>john deo</h3>
         </a>
 
         <a href="#" class="box">
-            <img src="images/pic-3.png" class="user" alt="">
+            <img src="images/user.png" class="user" alt="">
             <h3>john deo</h3>
         </a>
 

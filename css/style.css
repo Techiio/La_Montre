@@ -609,7 +609,7 @@ textarea {
     text-align: center;
     display: grid;
     gap: 2rem;
-    line-height: 1.5;
+    line-height: 0.5;
     color:#fff;
 }
 
@@ -653,6 +653,21 @@ textarea {
     color:#fff;
     text-transform: none;
     background:none;
+}
+
+.modif select{
+    width: 100%;
+    font-size: 1.5rem;
+    color:#fff;
+    text-transform: capitalize;
+    background:none;
+    height: 142px;
+    overflow: auto;
+    flex:1 1 45rem;
+    text-align: center;
+    border-width : 1px;
+    border-style : solid;
+    border-color : var(--border);
 }
 
 .admin .box-container{
