@@ -17,19 +17,108 @@ $req = $db->query($sql);
 $data = $req->fetch();
 $codeproduit = $data['CodeProduit'];
 
-$sql = 'SELECT * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date DESC, Heure DESC LIMIT 24';
+$sql = 'SELECT * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date DESC, Heure DESC LIMIT 168';
 $req = $db->query($sql);
 
-$heure = [];
-$Bpm = [];
-$dB = [];
-$No2 = [];
-$DegCel = [];
+$vdate = [];
+$vBpm = [];
+$vdB = [];
+$vNo2 = [];
+$vDegCel = [];
 
-$scoreBpm = ($data['Bpm']-20)*100/40;
-$scoredB = $data['dB']*100/140;
-$scoreNo2 = $data['No2']*100/40;
-$scoreDegCel = ($data['DegCel']-20)*100/20;
+$sBpm = [];
+$sdB = [];
+$sNo2 = [];
+$sDegCel = [];
+
+$scoreBpm = [];
+$scoredB = [];
+$scoreNo2 = [];
+$scoreDegCel = [];
+
+$mheure = [];
+$mBpm = [];
+$mdB = [];
+$mNo2 = [];
+$mDegCel = [];
+
+for($var = 0; $var < 7; $var++){
+    $mBpm[$var] = 0;
+    $mdB[$var] = 0;
+    $mNo2[$var] = 0;
+    $mDegCel[$var] = 0;
+}
+
+
+
+$a = 0;
+$i = 0;
+$init = TRUE;
+$vardate = [];
+
+while ($data = $req->fetch()) {
+$date = $data['Date'];
+$heure = $data['Heure'];
+$Bpm = $data['Bpm'];
+$dB = $data['dB'];
+$No2= $data['No2'] ;
+$DegCel = $data['DegréCelsius'];
+
+while($init){
+    $vardate[$a] = $date;
+    $vdate[$a] = substr($date, 8, 10).',';
+    $init = FALSE;
+}
+
+if($date != $vardate[$a]){
+    $sBpm[$a] = $mBpm[$a]/$i;
+    $sdB[$a] = $mdB[$a]/$i;
+    $sNo2[$a] = $mNo2[$a]/$i;
+    $sDegCel[$a] = $mDegCel[$a]/$i ;
+
+    $scoreBpm[$a] = ((($sBpm[$a]-20)*100)/140).',';
+    $scoredB[$a] = (($sdB[$a]*100)/140).',';
+    $scoreDegCel[$a] = ((($sDegCel[$a]-20)*100)/20).',';
+    $scoreNo2[$a] = (($sNo2[$a]*100)/40).',';
+
+    $vBpm[$a] = ($mBpm[$a]/$i).',' ;
+    $vdB[$a] = ($mdB[$a]/$i).',';
+    $vNo2[$a] = ($mNo2[$a]/$i).',' ;
+    $vDegCel[$a] = ($mDegCel[$a]/$i).',' ;
+
+    $a = $a + 1;
+    $i = 0;
+
+    $init = TRUE;
+}
+    $i = $i + 1;
+    $mBpm[$a] = $mBpm[$a] + $Bpm;
+    $mdB[$a] = $mdB[$a] + $dB;
+    $mNo2[$a] = $mNo2[$a] + $No2;
+    $mDegCel[$a] = $mDegCel[$a] + $DegCel;
+
+}
+
+$sBpm[$a] = $mBpm[$a]/$i;
+$sdB[$a] = $mdB[$a]/$i;
+$sNo2[$a] = $mNo2[$a]/$i;
+$sDegCel[$a] = $mDegCel[$a]/$i ;
+
+$scoreBpm[$a] = ((($sBpm[$a]-20)*100)/140).',';
+$scoredB[$a] = (($sdB[$a]*100)/140).',';
+$scoreDegCel[$a] = ((($sDegCel[$a]-20)*100)/20).',';
+$scoreNo2[$a] = (($sNo2[$a]*100)/40).',';
+
+$vBpm[$a] = ($mBpm[$a]/$i).',' ;
+$vdB[$a] = ($mdB[$a]/$i).',';
+$vNo2[$a] = ($mNo2[$a]/$i).',' ;
+$vDegCel[$a] = ($mDegCel[$a]/$i).',' ;
+
+$vdate = array_reverse($vdate);
+$vBpm = array_reverse($vBpm);
+$vdB = array_reverse($vdB);
+$vNo2 = array_reverse($vNo2);
+$vDegCel = array_reverse($vDegCel);
 
 $tabScore = array($scoreBpm, $scoredB, $scoreNo2, $scoreDegCel,); // Tableau pour déterminer la meilleure et la pire donnée
 
@@ -38,6 +127,10 @@ $pireScore = min($tabScore);
 
 $meilleureDonnee = 0;
 $pireDonnee = 0;
+
+$add_Score_dB_et_No²=$scoredB+$scoreNo2;
+$add_Score_Bpm_et_DegCel=$scoreBpm+$scoreDegCel;
+
 
 switch ($meilleurScore)
 {
@@ -139,18 +232,22 @@ switch ($pireScore)
             <p><?php echo $meilleureDonnee;
                 if ($meilleurScore == $scoreBpm)
                 {
+                        echo $Bpm;
                         echo " Bpm";
                 }
                 else if ($meilleurScore == $scoreNo2)
                 {
+                    echo $No2;
                     echo " µg/m³";
                 }
                 else if ($meilleurScore == $scoreDegCel)
                 {
+                    echo $DegCel;
                     echo " °C";
                 }
                 else if ($meilleurScore == $scoredB)
                 {
+                    echo $dB;
                     echo " dB";
                 }
                 ?>
@@ -161,18 +258,22 @@ switch ($pireScore)
             <p> <?php echo $pireDonnee;
                 if ($pireScore == $scoreBpm)
                 {
+                    echo $Bpm;
                     echo " Bpm";
                 }
                 else if ($pireScore == $scoreNo2)
                 {
+                    echo $No2;
                     echo " µg/m³";
                 }
                 else if ($pireScore == $scoreDegCel)
                 {
+                    echo $DegCel;
                     echo " °C";
                 }
                 else if ($pireScore == $scoredB)
                 {
+                    echo $dB;
                     echo " dB";
                 }?></p>
         </a>
@@ -182,7 +283,7 @@ switch ($pireScore)
         <a href="#" class="box">
             <h3>Score :</h3><br><br>
             <h2>/20</h2><br><br>
-            <h3>Conseils du jour :
+            <h3>Conseil du jour :
                 <?php
                     if ($pireScore == $scoredB)
                     {
@@ -192,13 +293,21 @@ switch ($pireScore)
                     {
                         echo "Attention! Vous absorbez un taux de dioxyde d'azote plus élevé que la moyenne. Éloignez-vous des engins à moteurs dès que possible";
                     }
-                    elseif ($pireScore == $scoreBpm && $Bpm < )
+                    elseif ($pireScore == $scoreBpm && $Bpm < 70 )
                     {
-                        echo "Vous êtes trop exposé au bruit. Allez dans des endroits calmes";
+                        echo "Votre pouls est trop faible (Normal pour un athlète). Allez voir un médecin.";
                     }
-                    elseif ($pireScore == $scoreDegCel && $DegCel <  )
+                    elseif ($pireScore == $scoreBpm && $Bpm > 70 )
                     {
-                        echo "Vous êtes trop exposé au bruit. Allez dans des endroits calmes";
+                        echo "Votre pouls est trop élevé. En parlez à son médecin.";
+                    }
+                    elseif ($pireScore == $scoreDegCel && $DegCel < 30 )
+                    {
+                        echo "Vous êtes en hypothermie. Réchauffez-vous à l’aide d’une couverture de survie isothermique et placer vous dans un coin chaud.";
+                    }
+                    elseif ($pireScore == $scoreDegCel && $DegCel > 30 )
+                    {
+                        echo "Vous êtes en hypothermie. Vous avez une insolation,un coup de chaleur ou peut-être de la fièvre.";
                     }
                 ?></h3><br><br>
             <p> </p>
