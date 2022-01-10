@@ -28,7 +28,7 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
     while ($user = $req->fetch()) {
 
 
-        if ( $c_mail == 'jesapel' && $c_mdp == 'groot' ) {
+        if ( $user['CodeStatut'] == 2 && $c_mdp == $user['Mdp']) {
         $error = 0;
 
         setcookie('pseudo', $user['Identifiant'], time()+364*24*3600, '/', null, false, true);
@@ -37,8 +37,7 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
         $_SESSION['connect'] = 1;
 
         header('location: ../admin_screen-gestion.php');
-
-    }
+        }
 
         elseif ($c_mdp == $user['Mdp']) {
             $error = 0;

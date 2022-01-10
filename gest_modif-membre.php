@@ -53,27 +53,40 @@
 <section class="modif" id="modif">
 
     <h1 class="heading"> our <span>blogs</span> </h1>
-
+    <br>
+    <br>
+    <br>
     <div class="box-container">
 
         <div class="box">
             <div class="image">
-                <img src="../images/blog-1.jpeg" alt="">
+                <img src="../images/nom-dutilisateur (1)-modified.png" alt="">
             </div>
             <div class="content">
                 <a class="title">Nom d'utilisateur</a>
                 <form action="">
                     <div class="inputBox">
-                        <input type="text" placeholder="Nouveau Nom">
+                        <input type="text" placeholder="Prénom actuel">
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" placeholder="Nouveau Prénom">
                     </div>
                 </form>
-                <a href="#" class="btn">Appliquer</a>
+                <a class="btn">
+                    <input
+                            type="submit"
+                            value="Appliquer"
+                            name="formsend"
+                            id="formsend"
+                            class="btn"
+                    />
+                </a>
             </div>
         </div>
 
         <div class="box">
             <div class="image">
-                <img src="../images/blog-2.jpeg" alt="">
+                <img src="../images/nom-dutilisateur-modified.png" alt="">
             </div>
             <div class="content">
                 <a class="title">Modifier le Mot de Passe</a>
@@ -88,21 +101,53 @@
                         <input type="text" placeholder="Confirmation Nouveau Mot de Passe">
                     </div>
                 </form>
-                <a href="#" class="btn">Appliquer</a>
+                <a class="btn">
+                    <input
+                            type="submit"
+                            value="Appliquer"
+                            name="formsend"
+                            id="formsend"
+                            class="btn"
+                    />
+                </a>
             </div>
         </div>
 
         <div class="box">
             <div class="image">
-                <img src="../images/blog-3.jpeg" alt="">
+                <img src="../images/palette-de-couleurs-modified.png" alt="">
             </div>
             <div class="content">
                 <a class="title">Changer la couleur</a>
+                <form action="admin_screen/color_gest.php" id="get_color" method="post" >
                 <div class="inputBox">
-                    <input type="text" placeholder="Entrer le code Hexadécimal de la couleur">
+                    <input type="text" name="Idt" placeholder="Prénom">
                 </div>
-                <a href="#" class="btn">Appliquer</a>
+                <br>
+                <select id="new_color" name="new_color" size="10" required>
+                    <option value="red" >rouge  </option>
+                    <option value="salmon">saumon</option>
+                    <option value="hotpink">rose</option>
+                    <option value="darkorange">orange</option>
+                    <option value="gold">or</option>
+                    <option value="blueviolet">violet</option>
+                    <option value="limegreen">vert</option>
+                    <option value="cyan" >cyan</option>
+                    <option value="blue">bleu</option>
+                    <option value="peru">marron</option>
+                </select>
+                    <a class="btn">
+                    <input
+                            type="submit"
+                            value="Appliquer"
+                            name="formsend"
+                            id="formsend"
+                            class="btn"
+                    />
+                    </a>
+                </form>
             </div>
+
         </div>
 
     </div>
