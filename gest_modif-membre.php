@@ -40,13 +40,6 @@
             if(isset($_COOKIE['pseudo'])){
                 echo '' .$_COOKIE['pseudo'] ;
             }
-
-            if (isset($_GET['erreur'])) {
-                $err = $_GET['erreur'];
-                if ($err == 10)
-                    echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Vous n'êtes pas gestionnaire</p>";
-            }
-
             ?>
 
         </h2>
@@ -88,6 +81,18 @@
                             class="btn"
                     />
                 </a>
+                    <?php
+                    if(isset($_GET['message'])){
+                        $mes = $_GET['message'];
+                        if($mes==1)
+                            echo "<p style='color:limegreen; padding: 1rem; font-size: 2rem; transition: 1s; '>Changement réussie</p>";
+                        elseif ($mes==2)
+                            echo "<p style='color:red; padding: 1rem; font-size: 2rem; transition: 1s; '>Nom d'utilisateur déjà utilisé</p>";
+                        elseif ($mes==3)
+                            echo "<p style='color:red; padding: 1rem; font-size: 2rem; transition: 1s; '>Erreur d'orthographe sur le prénom actuel</p>";
+                    }
+                    ?>
+
                 </form>
             </div>
         </div>
