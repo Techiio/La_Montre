@@ -11,15 +11,32 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 
-//Changement de mot de passe
-if (!empty($_POST["Idt"] && $_POST["New_Idt"])) {
-    $Idt= $_POST['Idt'];
-    $Newidt = $_POST['New_Idt'];
-    $rq = $bdd->query("UPDATE  profil SET Identifiant='$Newidt' WHERE Identifiant= '$Idt'");
-    $requete = $bdd->query("UPDATE  connexion SET Identifiant='$Newidt' WHERE Identifiant= '$Idt'");
-    header('location: ../gest_modif-membre.php');
-}
+//Données du formulaire
+$Idt= $_POST['Idt'];
+$Newpwd1 = $_POST['pwd1'];
+$Newpwd2 = $_POST['pwd2'];
 
+//Variable de vérification d'accès
+$Code_Famille_Idt=$bdd->query("SELECT  CodeFamille FROM profil WHERE Identifiant= '$Idt'");
+$Code_Statut = $_COOKIE['codeS'];
+$Code_Famille_gest =$_COOKIE['CodeFamille'];
+
+//Changement de mot de passe
+if ($Code_Statut == 1 && $Code_Famille_gest == $Code_Famille_Idt ) {
+    //Les mots de passe correspondent le changement peut s'effectuer
+    if ($Newpwd1 == $Newpwd2) {
+        $rq = $bdd->query("UPDATE  connexion SET Mdp='$Newpwd1' WHERE Identifiant= '$Idt'");
+        header('location: ../gest_modif-membre.php?erreur=0');
+    }
+    //Les mots de passe ne correspondent pas, un message d'erreur s'affiche
+    else{
+        header('location: ../gest_modif-membre.php?erreur=2');
+    }
+}
+//Le gestionnaire essaie de changer le mot de passe d'un utilisateur qui n'est pas dans sa famille, affichage d'une erreur
+else{
+    header('location: ../gest_modif-membre.php?erreur=1');
+}
 
 
 

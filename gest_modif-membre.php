@@ -93,7 +93,7 @@
                 <a class="title">Modifier le Mot de Passe</a>
                 <form action="gest/pwd_gest.php" method="post">
                     <div class="inputBox">
-                        <input name="pwd" type="text" placeholder="Mot de Passe actuel">
+                        <input name="Idt" type="text" placeholder="Prénom">
                     </div>
                     <div class="inputBox">
                         <input name="pwd1" type="text" placeholder="Nouveau Mot de Passe">
@@ -111,6 +111,18 @@
                             class="btn"
                     />
                 </a>
+                    <?php
+                    if(isset($_GET['erreur'])){
+                        $err = $_GET['erreur'];
+                        if($err==1 || $err==5)
+                            echo "$_COOKIE['pseudo']"
+                            echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Vous n'êtes pas autorisé à changer ce mot de passe</p>";
+                        elseif ($err==2 || $err==5)
+                            echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Les mots de passes ne correspondent pas</p>";
+                        elseif ($err==0 || $err==5)
+                            echo "<p style='color:lightgreen; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Changement de mot de passe réussi</p>";
+                    }
+                    ?>
                 </form>
             </div>
         </div>
