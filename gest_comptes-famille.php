@@ -1,3 +1,15 @@
+<?php
+session_start();
+//connexion à la base de données
+try {
+    $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
+        'root',
+        '');
+} catch (Exception $e) {
+    die('Erreur : ' . $e->getMessage());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -48,8 +60,6 @@
         <h3>Déconnexion</h3>
     </a>
 
-
-
 </header>
 
 <section class="content">
@@ -63,14 +73,25 @@
     <h1 class="heading"> Ma <span>Famille</span> </h1>
 
     <div class="box-container">
+        <?php
+        $CodeFamille=$_COOKIE['famille'];
+        $Identifiant=$_COOKIE['pseudo'];
+        $CodeStatut=$_COOKIE['statut'];
+        $rep = $bdd->query("SELECT Couleur,Identifiant, FROM profil WHERE '$CodeFamille'= CodeFamille");
+        while ($donnees = $rep->fetch())
+        {
+            if($donnees['Identifiant']!= $Identifiant){
+            echo '<a href="#" class="box">
+            <img src="images/user.png" class="user" alt="">
+            <h3 > <?php echo $donnees["Identifiant"]; ?>  </h3>
+        </a>';
+        }
+            ?>
+        }
+
 
         <a href="#" class="box">
-            <img src="images/pic-1.png" class="user" alt="">
-            <h3>john deo</h3>
-        </a>
-
-        <a href="#" class="box">
-            <img src="images/pic-2.png" class="user" alt="">
+            <img src="images/user.png" class="user" alt="">
             <h3>john deo</h3>
         </a>
 
