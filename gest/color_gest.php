@@ -12,11 +12,12 @@ try {
 }
 
 //Changement de la couleur
-if (!empty($_GET["new_color"])) {
-    $Idt= $_GET['Idt'];
-    $Newcolor = $_GET['new_color'];
-    $Trad_color = $bdd->query("SELECT color FROM couleur WHERE couleur='$Newcolor'");
-    $rq = $bdd->query("UPDATE  profil SET Couleur='$Trad_color' WHERE Identifiant= '$Idt'");
+if (!empty($_POST["new_color"])) {
+    $Idt= $_POST['Idt'];
+    $Newcolor = $_POST['new_color'];
+    echo "post marche";
+    $rq = //$bdd->query("SELECT color FROM couleur WHERE couleur='$Newcolor'");
+    $rq = $bdd->query("UPDATE  profil SET Couleur='$Newcolor' WHERE Identifiant= '$Idt'");
 
     header('location: ../gest_modif-membre.php');
 }

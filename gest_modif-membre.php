@@ -72,7 +72,15 @@
                         <input type="text" placeholder="Nouveau Prénom">
                     </div>
                 </form>
-                <a href="#" class="btn">Appliquer</a>
+                <a class="btn">
+                    <input
+                            type="submit"
+                            value="Appliquer"
+                            name="formsend"
+                            id="formsend"
+                            class="btn"
+                    />
+                </a>
             </div>
         </div>
 
@@ -93,7 +101,15 @@
                         <input type="text" placeholder="Confirmation Nouveau Mot de Passe">
                     </div>
                 </form>
-                <a href="#" class="btn">Appliquer</a>
+                <a class="btn">
+                    <input
+                            type="submit"
+                            value="Appliquer"
+                            name="formsend"
+                            id="formsend"
+                            class="btn"
+                    />
+                </a>
             </div>
         </div>
 
@@ -103,22 +119,22 @@
             </div>
             <div class="content">
                 <a class="title">Changer la couleur</a>
-                <form action="admin_screen/color_gest.php" id="get_color" method="get" >
+                <form action="admin_screen/color_gest.php" id="get_color" method="post" >
                 <div class="inputBox">
                     <input type="text" name="Idt" placeholder="Prénom">
                 </div>
                 <br>
-                <select name="new_color" form="get_color"  size="10" required>
-                    <option >rouge </option>
-                    <option >saumon</option>
-                    <option >rose</option>
-                    <option >orange</option>
-                    <option >or</option>
-                    <option >violet</option>
-                    <option >vert</option>
-                    <option >cyan</option>
-                    <option >bleu</option>
-                    <option >marron</option>
+                <select id="new_color" name="new_color" size="10" required>
+                    <option value="red" >rouge  </option>
+                    <option value="salmon">saumon</option>
+                    <option value="hotpink">rose</option>
+                    <option value="darkorange">orange</option>
+                    <option value="gold">or</option>
+                    <option value="blueviolet">violet</option>
+                    <option value="limegreen">vert</option>
+                    <option value="cyan" >cyan</option>
+                    <option value="blue">bleu</option>
+                    <option value="peru">marron</option>
                 </select>
                     <a class="btn">
                     <input
