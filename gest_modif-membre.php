@@ -119,7 +119,7 @@
             </div>
             <div class="content">
                 <a class="title">Changer la couleur</a>
-                <form action="admin_screen/color_gest.php" id="get_color" method="post" >
+                <form action="gest/color_gest.php" id="get_color" method="post" >
                 <div class="inputBox">
                     <input type="text" name="Idt" placeholder="Prénom">
                 </div>
