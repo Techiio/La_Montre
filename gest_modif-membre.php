@@ -40,6 +40,13 @@
             if(isset($_COOKIE['pseudo'])){
                 echo '' .$_COOKIE['pseudo'] ;
             }
+
+            if (isset($_GET['erreur'])) {
+                $err = $_GET['erreur'];
+                if ($err == 10)
+                    echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Vous n'êtes pas gestionnaire</p>";
+            }
+
             ?>
 
         </h2>
