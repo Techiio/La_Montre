@@ -64,14 +64,14 @@
             </div>
             <div class="content">
                 <a class="title">Nom d'utilisateur</a>
-                <form action="">
+                <form action="gest/idt_gest.php" method="post">
                     <div class="inputBox">
-                        <input type="text" placeholder="Prénom actuel">
+                        <input name="Idt" type="text" placeholder="Prénom actuel">
                     </div>
                     <div class="inputBox">
-                        <input type="text" placeholder="Nouveau Prénom">
+                        <input name="New_Idt"type="text" placeholder="Nouveau Prénom">
                     </div>
-                </form>
+
                 <a class="btn">
                     <input
                             type="submit"
@@ -81,6 +81,7 @@
                             class="btn"
                     />
                 </a>
+                </form>
             </div>
         </div>
 
@@ -90,17 +91,17 @@
             </div>
             <div class="content">
                 <a class="title">Modifier le Mot de Passe</a>
-                <form action="">
+                <form action="gest/pwd_gest.php" method="post">
                     <div class="inputBox">
-                        <input type="text" placeholder="Mot de Passe actuel">
+                        <input name="pwd" type="text" placeholder="Mot de Passe actuel">
                     </div>
                     <div class="inputBox">
-                        <input type="text" placeholder="Nouveau Mot de Passe">
+                        <input name="pwd1" type="text" placeholder="Nouveau Mot de Passe">
                     </div>
                     <div class="inputBox">
-                        <input type="text" placeholder="Confirmation Nouveau Mot de Passe">
+                        <input name="pwd2"type="text" placeholder="Confirmation Nouveau Mot de Passe">
                     </div>
-                </form>
+
                 <a class="btn">
                     <input
                             type="submit"
@@ -110,6 +111,7 @@
                             class="btn"
                     />
                 </a>
+                </form>
             </div>
         </div>
 

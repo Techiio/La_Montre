@@ -11,12 +11,14 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 
-//Suppression de l'admin dans la base
-if (!empty($_POST["Idt"])) {
-    $Idt = $_POST['Idt'];
-    $rq = $bdd->query("DELETE FROM connexion WHERE Identifiant= '$Idt'");
-    $erreur = 1;
-    header('location: ../admin_screen-gestion.php?erreur=1');
+//Changement du nom de l'utilisateur
+if (!empty($_POST["Idt"] && $_POST["pwd"])) {
+
+    $Idt= $_POST['Idt'];
+    $Newidt = $_POST['New_Idt'];
+    $rq = $bdd->query("UPDATE  profil SET Identifiant='$Newidt' WHERE Identifiant= '$Idt'");
+    $requete = $bdd->query("UPDATE  connexion SET Identifiant='$Newidt' WHERE Identifiant= '$Idt'");
+    header('location: ../gest_modif-membre.php');
 }
 
 
