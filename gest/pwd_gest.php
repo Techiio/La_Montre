@@ -19,7 +19,7 @@ $Newpwd2 = $_POST['pwd2'];
 //Variable de vérification d'accès
 $Code_Famille_Idt=$bdd->query("SELECT  CodeFamille FROM profil WHERE Identifiant= '$Idt'");
 $Code_Statut = $_COOKIE['codeS'];
-$Code_Famille_gest =$_COOKIE['CodeFamille'];
+$Code_Famille_gest =$_COOKIE['codeF'];
 
 //Changement de mot de passe
 if ($Code_Statut == 1 && $Code_Famille_gest == $Code_Famille_Idt ) {

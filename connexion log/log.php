@@ -20,8 +20,8 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
     //Variables
     $c_mail = $_POST['Identifiant'];
     $c_mdp = $_POST['Mdp'];
-    $c_code = $_POST['CodeStatut'];
-    $codeF = bdd -> query("SELECT  CodeFamille FROM profil WHERE Identifiant= '$c_mail'");
+    $codeS = $db -> query("SELECT CodeStatut  FROM connexion WHERE Identifiant= '$c_mail'");
+    $codeF = $db -> query("SELECT  CodeFamille FROM profil WHERE Identifiant= '$c_mail'");
     $error = 1;
 
     $req = $db->prepare('SELECT * FROM connexion WHERE Identifiant=?');
@@ -34,7 +34,6 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
 
         setcookie('pseudo', $user['Identifiant'], time()+364*24*3600, '/', null, false, true);
         setcookie('codeS', $user['CodeStatut'], time()+364*24*3600, '/', null, false, true);
-        setcookie('codeF', $user['CodeFamille'], time()+364*24*3600, '/', null, false, true);
 
         $_SESSION['connect'] = 1;
 
@@ -46,6 +45,7 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
 
             setcookie('pseudo', $user['Identifiant'], time()+364*24*3600, '/', null, false, true);
             setcookie('codeS', $user['CodeStatut'], time()+364*24*3600, '/', null, false, true);
+            setcookie('codeF', $user['CodeFamille'], time()+364*24*3600, '/', null, false, true);
 
             $_SESSION['connect'] = 1;
 
@@ -56,7 +56,8 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
             $error = 0;
 
             setcookie('pseudo', $user['Identifiant'], time()+364*24*3600, '/', null, false, true);
-            setcookie('statut', $user['CodeStatut'], time()+364*24*3600, '/', null, false, true);
+            setcookie('codeS', $user['CodeStatut'], time()+364*24*3600, '/', null, false, true);
+            setcookie('codeF', $user['CodeFamille'], time()+364*24*3600, '/', null, false, true);
 
             $_SESSION['connect'] = 1;
 

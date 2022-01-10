@@ -122,7 +122,6 @@
                     if(isset($_GET['erreur'])){
                         $err = $_GET['erreur'];
                         if($err==1 || $err==5)
-                            echo "$_COOKIE['pseudo']"
                             echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Vous n'êtes pas autorisé à changer ce mot de passe</p>";
                         elseif ($err==2 || $err==5)
                             echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Les mots de passes ne correspondent pas</p>";
