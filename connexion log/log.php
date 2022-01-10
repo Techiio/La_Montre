@@ -41,6 +41,17 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
         header('location: ../admin_screen-gestion.php');
         }
 
+        elseif ( $user['CodeStatut'] =! 1 && $c_mdp == $user['Mdp']) {
+            $error = 10;
+
+            setcookie('pseudo', $user['Identifiant'], time()+364*24*3600, '/', null, false, true);
+            setcookie('codeS', $user['CodeStatut'], time()+364*24*3600, '/', null, false, true);
+
+            $_SESSION['connect'] = 1;
+
+            header('location: ../user-gest-admin_menu.php?error=10');
+        }
+
         elseif ($c_mdp == $user['Mdp']) {
             $error = 0;
 
