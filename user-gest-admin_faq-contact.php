@@ -127,20 +127,61 @@
 
         </div>
         </div>
-        <form action="">
+        <?php
+        // define variables and set to empty values
+        $nameErr = $emailErr = $genderErr = $websiteErr = "";
+        $name = $email= "";
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (empty($_POST["name"])) {
+                $nameErr = "Name is required";
+            } else {
+                $name = test_input($_POST["name"]);
+                // check if name only contains letters and whitespace
+                if (!preg_match("/^[a-zA-Z-' ]*$/", $name)) {
+                    $nameErr = "Only letters and white space allowed";
+                }
+            }
+
+            if (empty($_POST["email"])) {
+                $emailErr = "Email is required";
+            } else {
+                $email = test_input($_POST["email"]);
+                // check if e-mail address is well-formed
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $emailErr = "Invalid email format";
+                }
+            }
+        }
+        function test_input($data) {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+        ?>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             <h3>get in touch</h3>
             <div class="inputBox">
-                <span class="fas fa-user"></span>
-                <input type="text" placeholder="name">
+                Name: <input type="text" placeholder="name">
+                <span class="error"> <?php echo $nameErr;?></span>
+
             </div>
             <div class="inputBox">
-                <span class="fas fa-envelope"></span>
-                <input type="email" placeholder="email">
+                E-mail: <input type="email" placeholder="email">
+                <span class="error"> <?php echo $nameErr;?></span>
             </div>
             <input type="submit" value="contact now" class="btn">
         </form>
+        <?php
+        echo $name;
+        echo "<br>";
+        echo $email;
+        ?>
+
 
     </div>
+//début du code pour les e-mails sous linux
 
 </section>
 
