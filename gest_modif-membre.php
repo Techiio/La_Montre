@@ -154,10 +154,10 @@
                     <option value="red" >rouge  </option>
                     <option value="salmon">saumon</option>
                     <option value="hotpink">rose</option>
-                    <option value="darkorange">orange</option>
+                    <option value="orange">orange</option>
                     <option value="gold">or</option>
-                    <option value="blueviolet">violet</option>
-                    <option value="limegreen">vert</option>
+                    <option value="purple">violet</option>
+                    <option value="lime">vert</option>
                     <option value="cyan" >cyan</option>
                     <option value="blue">bleu</option>
                     <option value="peru">marron</option>
@@ -171,6 +171,15 @@
                             class="btn"
                     />
                     </a>
+                    <?php
+                    if(isset($_GET['message'])){
+                        $mes = $_GET['message'];
+                        if($mes==4)
+                            echo "<p style='color:limegreen; padding: 1rem; font-size: 2rem; transition: 1s; '>Changement effectué</p>";
+                        elseif ($mes == 5)
+                            echo "<p style='color:red; padding: 1rem; font-size: 2rem; transition: 1s; '>Erreur d'orthographe sur le prénom</p>";
+                    }
+                    ?>
                 </form>
             </div>
 
