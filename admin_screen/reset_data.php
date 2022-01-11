@@ -13,7 +13,7 @@ try {
 
 if (!empty($_POST["Idt"])) {
     $Idt = $_POST['Idt'];
-    $Codeproduit = $bdd->query("SELECT Codeproduit  FROM profil WHERE Identifiant = 'Idt'");
+    $Codeproduit = $bdd->query("SELECT CodeProduit  FROM profil WHERE Identifiant = 'Idt'");
     $rq = $bdd->query("DELETE FROM donneesmontre WHERE CodeProduit= '$Codeproduit'");
     $erreur = 3;
     header('location: ../admin_screen-gestion.php?erreur=3');

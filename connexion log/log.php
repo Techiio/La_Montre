@@ -58,7 +58,7 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
 
             setcookie('pseudo', $user['Identifiant'], time()+364*24*3600, '/', null, false, true);
             setcookie('statut', $user['CodeStatut'], time()+364*24*3600, '/', null, false, true);
-            setcookie('famille', $CodeFamille['CodeFamille'], time()+364*24*3600, '/', null, false, true);
+            //setcookie('famille', $CodeFamille['CodeFamille'], time()+364*24*3600, '/', null, false, true);
 
             $_SESSION['connect'] = 1;
 

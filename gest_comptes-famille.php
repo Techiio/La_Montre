@@ -89,9 +89,6 @@ try {
 
 
         <?php
-        //Variable de redirection utilisateur
-        $nb = 0;
-
         if($nb_utilisateurs['compte'] > 1){
         $rq = $bdd->query("SELECT Identifiant,Couleur  FROM profil WHERE '$CodeFamille'= CodeFamille");
         while ($donnees = $rq->fetch()){
@@ -137,3 +134,10 @@ try {
 <script src="js/script.js"></script>
 
 </html>
+<?php
+//Redirection vers l'utilisateur
+if(isset($_GET['user'])){
+
+}
+
+    ?>
