@@ -96,11 +96,16 @@ try {
             <a href="#" class="box">
                 <img src="images/user.png" class="user" alt="">
                 <h3 style="color: <?php echo $donnees['Couleur']; ?> ;"> <?php echo $donnees['Identifiant']; ?> </h3>
-
             </a>
+
         <?php
             }
-        }
+        } ?>
+        <a href="gest_modif-membre.php" class="box">
+                <img src="images/user.png" class="user" alt="">
+                <h3> <?php echo $donnees['Identifiant']; ?> </h3>
+            </a>
+            <?php
         }
         else{
         ?>
