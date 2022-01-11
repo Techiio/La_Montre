@@ -104,7 +104,7 @@
                     <?php
                     if(isset($_GET['erreur'])){
                         $err = $_GET['erreur'];
-                        if($err==4 || $err==5)
+                        if($err==4)
                             echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Utilisateur non trouvé</p>";
                     }
                     ?>
@@ -120,7 +120,7 @@
                 <form action="admin_screen/reset_data.php" method="post">
                     <div class="inputBox">
                         <span class="fas fa-user"></span>
-                        <input type="text" name="Idf" placeholder="Prénom" />
+                        <input type="text" name="Idt" placeholder="Prénom" />
                     </div>
                     <div>
                         <input
@@ -134,8 +134,10 @@
                     <?php
                     if(isset($_GET['erreur'])){
                         $err = $_GET['erreur'];
-                        if($err==3 || $err==5)
+                        if($err==3)
                             echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Données de la montre reset</p>";
+                        elseif($err==5)
+                            echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Utilisateur non trouvé</p>";
                     }
                     ?>
                 </form>
@@ -175,7 +177,7 @@
                     <?php
                     if(isset($_GET['erreur'])){
                         $err = $_GET['erreur'];
-                        if($err==2 || $err==5)
+                        if($err==2)
                             echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Ajout réussi</p>";
                     }
                     ?>
@@ -223,7 +225,7 @@
                     <?php
                     if(isset($_GET['erreur'])){
                         $err = $_GET['erreur'];
-                        if($err==1 || $err==5)
+                        if($err==1 )
                             echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Suppression réussie</p>";
                     }
                     ?>
