@@ -83,7 +83,7 @@
         if(isset($_GET['error'])){
             $err = $_GET['error'];
             if($err==3)
-                echo '<a  href="gest_modif-membre.php" class="box">
+                echo '<a  href="gest_comptes-famille.php" class="box">
             <span class="fas fa-users"></span>
             <h3>Ma Famille</h3>
         </a>' ;

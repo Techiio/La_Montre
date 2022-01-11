@@ -29,6 +29,7 @@
             <a href="user-gest-admin_statistiques.php">Mes Stats</a>
             <a href="user-gest-admin_conseils.php">Mes Conseils</a>
             <a href="user-gest-admin_faq-contact.php">Contact/FAQ</a>
+            <a href="gest_comptes-famille.php">Comptes Famille</a>
         </nav>
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
@@ -40,13 +41,6 @@
             if(isset($_COOKIE['pseudo'])){
                 echo '' .$_COOKIE['pseudo'] ;
             }
-
-            if (isset($_GET['erreur'])) {
-                $err = $_GET['erreur'];
-                if ($err == 10)
-                    echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Vous n'êtes pas gestionnaire</p>";
-            }
-
             ?>
 
         </h2>
@@ -88,6 +82,18 @@
                             class="btn"
                     />
                 </a>
+                    <?php
+                    if(isset($_GET['message'])){
+                        $mes = $_GET['message'];
+                        if($mes==1)
+                            echo "<p style='color:limegreen; padding: 1rem; font-size: 2rem; transition: 1s; '>Changement réussie</p>";
+                        elseif ($mes==2)
+                            echo "<p style='color:red; padding: 1rem; font-size: 2rem; transition: 1s; '>Nom d'utilisateur déjà utilisé</p>";
+                        elseif ($mes==3)
+                            echo "<p style='color:red; padding: 1rem; font-size: 2rem; transition: 1s; '>Erreur d'orthographe sur le prénom actuel</p>";
+                    }
+                    ?>
+
                 </form>
             </div>
         </div>
@@ -124,7 +130,7 @@
                         if($err==1 || $err==5)
                             echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Vous n'êtes pas autorisé à changer ce mot de passe</p>";
                         elseif ($err==2 || $err==5)
-                            echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Les mots de passes ne correspondent pas</p>";
+                            echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Les mots de passe ne correspondent pas</p>";
                         elseif ($err==0 || $err==5)
                             echo "<p style='color:lightgreen; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Changement de mot de passe réussi</p>";
                     }
@@ -148,10 +154,10 @@
                     <option value="red" >rouge  </option>
                     <option value="salmon">saumon</option>
                     <option value="hotpink">rose</option>
-                    <option value="darkorange">orange</option>
+                    <option value="orange">orange</option>
                     <option value="gold">or</option>
-                    <option value="blueviolet">violet</option>
-                    <option value="limegreen">vert</option>
+                    <option value="purple">violet</option>
+                    <option value="lime">vert</option>
                     <option value="cyan" >cyan</option>
                     <option value="blue">bleu</option>
                     <option value="peru">marron</option>
@@ -165,6 +171,15 @@
                             class="btn"
                     />
                     </a>
+                    <?php
+                    if(isset($_GET['message'])){
+                        $mes = $_GET['message'];
+                        if($mes==4)
+                            echo "<p style='color:limegreen; padding: 1rem; font-size: 2rem; transition: 1s; '>Changement effectué</p>";
+                        elseif ($mes == 5)
+                            echo "<p style='color:red; padding: 1rem; font-size: 2rem; transition: 1s; '>Erreur d'orthographe sur le prénom</p>";
+                    }
+                    ?>
                 </form>
             </div>
 
