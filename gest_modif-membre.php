@@ -174,9 +174,11 @@
                     <?php
                     if(isset($_GET['message'])){
                         $mes = $_GET['message'];
-                        if($mes==2)
+                        if($mes==4)
                             echo "<p style='color:limegreen; padding: 1rem; font-size: 2rem; transition: 1s; '>Changement effectué</p>";
-                        }
+                        elseif ($mes == 5)
+                            echo "<p style='color:red; padding: 1rem; font-size: 2rem; transition: 1s; '>Erreur d'orthographe sur le prénom</p>";
+                    }
                     ?>
                 </form>
             </div>
