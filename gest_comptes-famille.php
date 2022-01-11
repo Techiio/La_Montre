@@ -73,48 +73,41 @@ try {
     <h1 class="heading"> Ma <span>Famille</span> </h1>
 
     <div class="box-container">
+
+
         <?php
+        //Variables
         $CodeFamille=$_COOKIE['famille'];
         $Identifiant=$_COOKIE['pseudo'];
         $CodeStatut=$_COOKIE['statut'];
-        $rep = $bdd->query("SELECT Couleur,Identifiant, FROM profil WHERE '$CodeFamille'= CodeFamille");
-        while ($donnees = $rep->fetch())
-        {
-            if($donnees['Identifiant']!= $Identifiant){
-            echo '<a href="#" class="box">
-            <img src="images/user.png" class="user" alt="">
-            <h3 > <?php echo $donnees["Identifiant"]; ?>  </h3>
-        </a>';
-        }
+
+        $compte_utilisateur_famille=$bdd->query("SELECT count(Identifiant) as compte FROM profil WHERE '$CodeFamille'= CodeFamille");
+        $nb_utilisateurs=$compte_utilisateur_famille->fetch();
+        $compte_utilisateur_famille->closeCursor();
+        ?>
+
+
+        <?php
+        if($nb_utilisateurs['compte'] > 1){
+        $rq = $bdd->query("SELECT Identifiant,Couleur  FROM profil WHERE '$CodeFamille'= CodeFamille");
+        while ($donnees = $rq->fetch()){
+            if($donnees['Identifiant']!=$Identifiant){
             ?>
+            <a href="#" class="box">
+                <img src="images/user.png" class="user" alt="">
+                <h3 style="color: <?php echo $donnees['Couleur']; ?> ;"> <?php echo $donnees['Identifiant']; ?> </h3>
+
+            </a>
+        <?php
+            }
         }
+        }
+        else{
+        ?>
+        <a href="#" class="box"> <img src="images/utilisateur-modified.png" class="user" alt="">
+                <h3>Aucun compte dans la famille</h3> </a>
 
-
-        <a href="#" class="box">
-            <img src="images/user.png" class="user" alt="">
-            <h3>john deo</h3>
-        </a>
-
-        <a href="#" class="box">
-            <img src="images/user.png" class="user" alt="">
-            <h3>john deo</h3>
-        </a>
-
-        <a href="#" class="box">
-            <img src="images/user.png" class="user" alt="">
-            <h3>john deo</h3>
-        </a>
-
-        <a href="#" class="box">
-            <img src="images/user.png" class="user" alt="">
-            <h3>john deo</h3>
-        </a>
-
-        <a href="#" class="box">
-            <img src="images/user.png" class="user" alt="">
-            <h3>john deo</h3>
-        </a>
-
+        <?php } ?>
     </div>
 
 </section>
