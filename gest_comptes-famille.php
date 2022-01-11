@@ -102,8 +102,8 @@ try {
             }
         } ?>
         <a href="gest_modif-membre.php" class="box">
-                <img src="images/user.png" class="user" alt="">
-                <h3> <?php echo $donnees['Identifiant']; ?> </h3>
+                <img src="images/mod.jpg" class="user" alt="">
+                <h3>Paramètres membre</h3>
             </a>
             <?php
         }
