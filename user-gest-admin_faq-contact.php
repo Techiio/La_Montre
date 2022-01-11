@@ -130,7 +130,7 @@
         <?php
         // define variables and set to empty values
         $nameErr = $emailErr = $genderErr = $websiteErr = "";
-        $name = $email= "";
+        $name = $email= $message="";
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (empty($_POST["name"])) {
@@ -171,12 +171,19 @@
                 E-mail: <input type="email" placeholder="email">
                 <span class="error"> <?php echo $nameErr;?></span>
             </div>
+            <div class="inputBox">
+                Name: <input type="text" placeholder="Votre message">
+                <span class="error"> <?php echo $nameErr;?></span>
+
+            </div>
             <input type="submit" value="contact now" class="btn">
         </form>
         <?php
         echo $name;
         echo "<br>";
         echo $email;
+        echo "<br>";
+        echo "$message";
         ?>
 
 
