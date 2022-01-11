@@ -29,6 +29,7 @@
             <a href="user-gest-admin_statistiques.php">Mes Stats</a>
             <a href="user-gest-admin_conseils.php">Mes Conseils</a>
             <a href="user-gest-admin_faq-contact.php">Contact/FAQ</a>
+            <a href="gest_comptes-famille.php">Comptes Famille</a>
         </nav>
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
