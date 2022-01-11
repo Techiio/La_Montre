@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 //connexion à la base de données
 try {
     $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
@@ -121,25 +121,11 @@ try {
 //Redirection vers l'utilisateur
 if(isset($_GET['user'])){
 
-
-    //suppression des cookies admin
-    setcookie('pseudo');
-    setcookie('statut');
-    setcookie('famille');
-    $_SESSION['connect'] = 0;
-
-
-    if (isset($_SESSION['connect'])) {
-        header('location: ../');
-    }
-
     //connexion au profil de l'utilisateur
     $Identifiant=$_GET['user'];
-    $CodeS=0;
     setcookie('pseudo', $Identifiant, time()+364*24*3600, '/', null, false, true);
-    setcookie('statut', $CodeS, time()+364*24*3600, '/', null, false, true);
-    $_SESSION['connect'] = 1;
-    header('location: ../user-gest-admin_menu.php');
+    setcookie('statut', 0, time()+364*24*3600, '/', null, false, true);
+    header('location: ../LaMontre/user-gest-admin_menu.php');
 }
 ?>
 
