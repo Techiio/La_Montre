@@ -76,10 +76,28 @@ if($date != $vardate[$a]){
     $sNo2[$a] = $mNo2[$a]/$i;
     $sDegCel[$a] = $mDegCel[$a]/$i ;
 
-    $scoreBpm[$a] = ((($sBpm[$a]-20)*100)/140).',';
-    $scoredB[$a] = (($sdB[$a]*100)/140).',';
-    $scoreDegCel[$a] = ((($sDegCel[$a]-20)*100)/20).',';
-    $scoreNo2[$a] = (($sNo2[$a]*100)/40).',';
+    $scoreBpm[$a] = ((-(abs($sBpm[$a]-70))+70)*100/70);
+    $scoredB[$a] = (($sdB[$a]*100)/140);
+    $scoreDegCel[$a] = ((-(abs($sDegCel[$a]-30))+10)*100/10);
+    $scoreNo2[$a] = (($sNo2[$a]*100)/40);
+
+    $xCalcScore[$a]=((-$scoredB[$a]+100)+(-$scoreNo2[$a]+100))/2;
+    $yCalcScore[$a]=($scoreDegCel[$a]+$scoreBpm[$a])/2;
+
+    if($xCalcScore[$a] >= 100)
+    {
+        $xCalcScore[$a]=100;
+    }
+    if($xCalcScore[$a] < 0)
+    {
+        $xCalcScore[$a]=0;
+    }
+    elseif($yCalcScore[$a] <= 0)
+    {
+        $yCalcScore[$a]=0;
+    }
+
+    $scoreTotal[$a]=($xCalcScore[$a]+$yCalcScore[$a])/2;
 
     $vBpm[$a] = ($mBpm[$a]/$i).',' ;
     $vdB[$a] = ($mdB[$a]/$i).',';
@@ -104,10 +122,10 @@ $sdB[$a] = $mdB[$a]/$i;
 $sNo2[$a] = $mNo2[$a]/$i;
 $sDegCel[$a] = $mDegCel[$a]/$i ;
 
-$scoreBpm[$a] = ((($sBpm[$a]-20)*100)/140).',';
-$scoredB[$a] = (($sdB[$a]*100)/140).',';
-$scoreDegCel[$a] = ((($sDegCel[$a]-20)*100)/20).',';
-$scoreNo2[$a] = (($sNo2[$a]*100)/40).',';
+$scoreBpm[$a] = ((-(abs($sBpm[$a]-70))+70)*100/70);
+$scoredB[$a] = (($sdB[$a]*100)/140);
+$scoreDegCel[$a] = ((-(abs($sDegCel[$a]-30))+10)*100/10);
+$scoreNo2[$a] = (($sNo2[$a]*100)/40);
 
 $vBpm[$a] = ($mBpm[$a]/$i).',' ;
 $vdB[$a] = ($mdB[$a]/$i).',';
@@ -127,39 +145,39 @@ $pireScore = min($tabScore);
 
 $meilleureDonnee = 0;
 $pireDonnee = 0;
+$a = $a - 1;
 
-$add_Score_dB_et_No²=$scoredB+$scoreNo2;
-$add_Score_Bpm_et_DegCel=$scoreBpm+$scoreDegCel;
+
 
 
 switch ($meilleurScore)
 {
 case $meilleurScore == $scoreBpm:
-    $meilleureDonnee =  $data['Bpm'];
+    $meilleureDonnee =  $sBpm[$a];
     break;
 case $meilleurScore == $scoredB:
-    $meilleureDonnee =  $data['dB'];
+    $meilleureDonnee =  $sdB[$a];
     break;
 case $meilleurScore == $scoreNo2:
-    $meilleureDonnee =  $data['No2'];
+    $meilleureDonnee =  $sNo2[$a];
     break;
 case $meilleurScore == $scoreDegCel:
-    $meilleureDonnee =  $data['DegréCelsius'];
+    $meilleureDonnee =  $sDegCel[$a];
     break;
     }
 switch ($pireScore)
 {
     case $pireScore == $scoreBpm:
-        $pireDonnee = $data['Bpm'];
+        $pireDonnee = $sBpm[$a];
         break;
     case $pireScore == $scoredB:
-        $pireDonnee = $data['dB'];
+        $pireDonnee = $sdB[$a];
         break;
     case $pireScore == $scoreNo2:
-        $pireDonnee = $data['No2'];
+        $pireDonnee = $sNo2[$a];
         break;
     case $pireScore == $scoreDegCel:
-        $pireDonnee = $data['DegréCelsius'];
+        $pireDonnee = $sDegCel[$a];
         break;
 }
 
@@ -229,25 +247,25 @@ switch ($pireScore)
     <div class="box-container">
         <a href="#" class="box">
             <h3>Meilleur donnée :</h3><br><br><br><br>
-            <p><?php echo $meilleureDonnee;
+            <p><?php
                 if ($meilleurScore == $scoreBpm)
                 {
-                        echo $Bpm;
-                        echo " Bpm";
+                    echo $sBpm[$a];
+                    echo " Bpm";
                 }
                 else if ($meilleurScore == $scoreNo2)
                 {
-                    echo $No2;
+                    echo $sNo2[$a];
                     echo " µg/m³";
                 }
                 else if ($meilleurScore == $scoreDegCel)
                 {
-                    echo $DegCel;
+                    echo $sDegCel[$a];
                     echo " °C";
                 }
                 else if ($meilleurScore == $scoredB)
                 {
-                    echo $dB;
+                    echo $sdB[$a];
                     echo " dB";
                 }
                 ?>
@@ -255,25 +273,25 @@ switch ($pireScore)
         </a>
         <a href="#" class="box">
             <h3>Pire donnée :</h3><br><br><br><br>
-            <p> <?php echo $pireDonnee;
+            <p> <?php
                 if ($pireScore == $scoreBpm)
                 {
-                    echo $Bpm;
+                    echo $sBpm[$a];
                     echo " Bpm";
                 }
                 else if ($pireScore == $scoreNo2)
                 {
-                    echo $No2;
+                    echo $sNo2[$a];
                     echo " µg/m³";
                 }
                 else if ($pireScore == $scoreDegCel)
                 {
-                    echo $DegCel;
+                    echo $sDegCel[$a];
                     echo " °C";
                 }
                 else if ($pireScore == $scoredB)
                 {
-                    echo $dB;
+                    echo $sdB[$a];
                     echo " dB";
                 }?></p>
         </a>
@@ -281,8 +299,8 @@ switch ($pireScore)
     </div><br><br>
     <div class="box-container">
         <a href="#" class="box">
-            <h3>Score :</h3><br><br>
-            <h2>/20</h2><br><br>
+            <h3>Score : <?php echo intval($scoreTotal[$a]); ?></h3><br><br>
+            <h2>/100</h2><br><br>
             <h3>Conseil du jour :
                 <?php
                     if ($pireScore == $scoredB)
