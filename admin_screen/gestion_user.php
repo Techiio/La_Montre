@@ -30,7 +30,6 @@ if (!empty($_POST["Identifiant"])) {
     $req->execute(array($Identifiant));
     while ($user = $req->fetch()) {
 
-
         if ($Identifiant == $user['Identifiant']) {
             $error = 0;
 
@@ -40,7 +39,6 @@ if (!empty($_POST["Identifiant"])) {
             $_SESSION['connect'] = 1;
 
             header('location: ../user-gest-admin_menu.php');
-
         }
         else{
             header('Location: ../admin_screen-gestion.php?erreur=4');
