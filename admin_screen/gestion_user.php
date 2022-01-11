@@ -3,7 +3,8 @@
 session_start();
 
 //suppression des cookies admin
-setcookie('pseudo', '', time() - 364 * 24 * 3600, '/', null, false, true);
+setcookie('pseudo');
+setcookie('statut');
 $_SESSION['connect'] = 0;
 
 //connexion bdd

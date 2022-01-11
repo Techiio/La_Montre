@@ -85,21 +85,19 @@ try {
         $compte_utilisateur_famille=$bdd->query("SELECT count(Identifiant) as compte FROM profil WHERE '$CodeFamille'= CodeFamille");
         $nb_utilisateurs=$compte_utilisateur_famille->fetch();
         $compte_utilisateur_famille->closeCursor();
-        ?>
 
-
-        <?php
         if($nb_utilisateurs['compte'] > 1){
         $rq = $bdd->query("SELECT Identifiant,Couleur  FROM profil WHERE '$CodeFamille'= CodeFamille");
         while ($donnees = $rq->fetch()){
             if($donnees['Identifiant']!=$Identifiant){
+                $donnees['Identifiant']=str_replace("$", "",$donnees['Identifiant'])
             ?>
-            <a href="gest_comptes-famille.php?user= <?php echo $nb ?>" class="box">
+            <a href="gest_comptes-famille.php?user=<?php echo $donnees['Identifiant'] ?>" class="box">
                 <img src="images/user.png" class="user" alt="">
                 <h3 style="color: <?php echo $donnees['Couleur']; ?> ;"> <?php echo $donnees['Identifiant']; ?> </h3>
             </a>
 
-        <?php $nb = $nb + 1 ;
+        <?php
             }
         } ?>
         <a href="gest_modif-membre.php" class="box">
@@ -137,7 +135,16 @@ try {
 <?php
 //Redirection vers l'utilisateur
 if(isset($_GET['user'])){
+    //suppression des cookies admin
+    setcookie('pseudo');
+    setcookie('statut');
+    setcookie('famille');
+    $_SESSION['connect'] = 0;
 
+    //connexion au profil de l'utilisateur
+    $Identifiant=$_GET['user'];
+    setcookie('pseudo', $Identifiant, time()+364*24*3600, '/', null, false, true);
+    setcookie('statut', 0, time()+364*24*3600, '/', null, false, true);
+    header('location: ../user-gest-admin_menu.php');
 }
-
     ?>
