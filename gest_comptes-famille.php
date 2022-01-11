@@ -89,17 +89,20 @@ try {
 
 
         <?php
+        //Variable de redirection utilisateur
+        $nb = 0;
+
         if($nb_utilisateurs['compte'] > 1){
         $rq = $bdd->query("SELECT Identifiant,Couleur  FROM profil WHERE '$CodeFamille'= CodeFamille");
         while ($donnees = $rq->fetch()){
             if($donnees['Identifiant']!=$Identifiant){
             ?>
-            <a href="#" class="box">
+            <a href="gest_comptes-famille.php?user= <?php echo $nb ?>" class="box">
                 <img src="images/user.png" class="user" alt="">
                 <h3 style="color: <?php echo $donnees['Couleur']; ?> ;"> <?php echo $donnees['Identifiant']; ?> </h3>
             </a>
 
-        <?php
+        <?php $nb = $nb + 1 ;
             }
         } ?>
         <a href="gest_modif-membre.php" class="box">
