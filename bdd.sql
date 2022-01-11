@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 10 jan. 2022 à 09:24
+-- Généré le : mar. 11 jan. 2022 à 11:56
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -45,8 +45,13 @@ INSERT INTO `connexion` (`CodeStatut`, `Identifiant`, `Mdp`) VALUES
 (0, 'jean', 'jean'),
 (2, 'jesapel', 'groot'),
 (1, 'gest', 'gest'),
-(2, 'Diego', 'kiloua'),
-(2, 'Jason', 'Gap');
+(2, 'Diego', 'ko'),
+(2, 'Jason', 'Gap'),
+(0, 'greg', 'ciao'),
+(0, 'mike', 'mike'),
+(0, 'chloé', 'chloé'),
+(0, 'henri', 'henri'),
+(1, 'alexandre', 'alex');
 
 -- --------------------------------------------------------
 
@@ -244,7 +249,7 @@ CREATE TABLE IF NOT EXISTS `online` (
 --
 
 INSERT INTO `online` (`id`, `time`, `user_ip`) VALUES
-(2, 1641802454, '127.0.0.1');
+(2, 1641836820, '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -254,7 +259,6 @@ INSERT INTO `online` (`id`, `time`, `user_ip`) VALUES
 
 DROP TABLE IF EXISTS `profil`;
 CREATE TABLE IF NOT EXISTS `profil` (
-  `CodePersonne` int(11) NOT NULL,
   `CodeProduit` int(11) NOT NULL,
   `Couleur` varchar(7) NOT NULL,
   `CodeFamille` varchar(10) DEFAULT NULL,
@@ -267,13 +271,19 @@ CREATE TABLE IF NOT EXISTS `profil` (
 -- Déchargement des données de la table `profil`
 --
 
-INSERT INTO `profil` (`CodePersonne`, `CodeProduit`, `Couleur`, `CodeFamille`, `Identifiant`) VALUES
-(0, 0, 'green', NULL, 'jeangerard'),
-(1, 1, 'blue', NULL, 'jacque'),
-(1, 2, 'cyan', NULL, 'jean'),
-(1, 3, 'red', NULL, 'Techio'),
-(26104, 4753464, 'white', '3', 'jean-christophe'),
-(10000, 4753463, 'white', '1176707671', 'jc');
+INSERT INTO `profil` (`CodeProduit`, `Couleur`, `CodeFamille`, `Identifiant`) VALUES
+(0, 'green', NULL, 'jeangerard'),
+(1, 'blue', NULL, 'jacque'),
+(2, 'cyan', NULL, 'jean'),
+(3, 'red', NULL, 'Techio'),
+(4753464, 'white', '3', 'jean-christophe'),
+(4753463, 'white', '1176707671', 'jc'),
+(4, 'red', '4', 'gest'),
+(5, 'red', '4', 'greg'),
+(6, 'hotpink', '4', 'mike'),
+(7, 'red', '4', 'chloé'),
+(8, 'cyan', '4', 'henri'),
+(9, 'blue', '5', 'alexandre');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
