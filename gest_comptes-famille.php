@@ -145,6 +145,7 @@ if(isset($_GET['user'])){
     $Identifiant=$_GET['user'];
     setcookie('pseudo', $Identifiant, time()+364*24*3600, '/', null, false, true);
     setcookie('statut', 0, time()+364*24*3600, '/', null, false, true);
+    $_SESSION['connect'] = 1;
     header('location: ../user-gest-admin_menu.php');
 }
     ?>
