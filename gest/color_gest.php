@@ -12,11 +12,14 @@ try {
 }
 
 //Changement de la couleur
+
+if()
+
 if (!empty($_POST["Idt"])) {
     $Idt= $_POST['Idt'];
     $Newcolor = $_POST['new_color'];
-    $rq = $bdd->query("UPDATE  profil SET Couleur='$Newcolor' WHERE Identifiant= '$Idt'");
-    header('location: ../gest_modif-membre.php');
+    $rq = $bdd->query("UPDATE  profil SET Couleur='$Newcolor' WHERE Identifiant='$Idt'");
+    header('location: ../gest_modif-membre.php?message=2');
 }
 
 

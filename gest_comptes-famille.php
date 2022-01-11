@@ -81,6 +81,7 @@ try {
         $Identifiant=$_COOKIE['pseudo'];
         $CodeStatut=$_COOKIE['statut'];
 
+        //Vérification de la présence d'utilisateur dans la famille en plus du gestionnaire
         $compte_utilisateur_famille=$bdd->query("SELECT count(Identifiant) as compte FROM profil WHERE '$CodeFamille'= CodeFamille");
         $nb_utilisateurs=$compte_utilisateur_famille->fetch();
         $compte_utilisateur_famille->closeCursor();
