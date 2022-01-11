@@ -1,4 +1,5 @@
 <?php
+// Connexion à la base de données
 try
 {
     $db = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
@@ -10,8 +11,10 @@ catch (Exception $e)
     die('Erreur : ' . $e->getMessage());
 }
 
+// Récupération de l'ID de connexion
 $id = $_COOKIE['pseudo'];
 
+// Récupération des données liées à l'utilisateur sur la semaine
 $sql = "SELECT CodeProduit FROM profil WHERE Identifiant ='$id'";
 $req = $db->query($sql);
 $data = $req->fetch();
@@ -20,6 +23,7 @@ $codeproduit = $data['CodeProduit'];
 $sql = 'SELECT * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date DESC, Heure DESC LIMIT 168';
 $req = $db->query($sql);
 
+// Initialisation des valeurs initiales
 $vdate = [];
 $vBpm = [];
 $vdB = [];
@@ -56,7 +60,9 @@ $i = 0;
 $init = TRUE;
 $vardate = [];
 
-while ($data = $req->fetch()) {
+//Trie des données dans les différentes variables et calcul des différents scores/ moyennes
+while ($data = $req->fetch()) { // Tant qu'il y a des données à traiter
+    // Prise en compte des données
     $date = $data['Date'];
     $heure = $data['Heure'];
     $Bpm = $data['Bpm'];
@@ -64,23 +70,26 @@ while ($data = $req->fetch()) {
     $No2= $data['No2'] ;
     $DegCel = $data['DegréCelsius'];
 
-    while($init){
+    while($init){ //Prise en compte des changements de date
         $vardate[$a] = $date;
         $vdate[$a] = substr($date, 8, 10).',';
         $init = FALSE;
     }
 
-    if($date != $vardate[$a]){
+    if($date != $vardate[$a]){ // Synthèse de la journée lorsque la date change
+        // Moyenne des données jour après jour
         $sBpm[$a] = $mBpm[$a]/$i;
         $sdB[$a] = $mdB[$a]/$i;
         $sNo2[$a] = $mNo2[$a]/$i;
         $sDegCel[$a] = $mDegCel[$a]/$i ;
 
+        // Calcul du score
         $scoreBpm[$a] = ((($sBpm[$a]-20)*100)/140).',';
         $scoredB[$a] = (($sdB[$a]*100)/140).',';
         $scoreDegCel[$a] = ((($sDegCel[$a]-20)*100)/20).',';
         $scoreNo2[$a] = (($sNo2[$a]*100)/40).',';
 
+        // Moyenne des données jour après jour, formaté pour Javascript
         $vBpm[$a] = ($mBpm[$a]/$i).',' ;
         $vdB[$a] = ($mdB[$a]/$i).',';
         $vNo2[$a] = ($mNo2[$a]/$i).',' ;
@@ -91,7 +100,7 @@ while ($data = $req->fetch()) {
 
         $init = TRUE;
     }
-
+    // Somme des données dans la journée
     $i = $i + 1;
     $mBpm[$a] = $mBpm[$a] + $Bpm;
     $mdB[$a] = $mdB[$a] + $dB;
@@ -99,6 +108,8 @@ while ($data = $req->fetch()) {
     $mDegCel[$a] = $mDegCel[$a] + $DegCel;
 
 }
+
+// Dernières valeurs traitées
 $sBpm[$a] = $mBpm[$a]/$i;
 $sdB[$a] = $mdB[$a]/$i;
 $sNo2[$a] = $mNo2[$a]/$i;
@@ -114,6 +125,7 @@ $vdB[$a] = ($mdB[$a]/$i).',';
 $vNo2[$a] = ($mNo2[$a]/$i).',' ;
 $vDegCel[$a] = ($mDegCel[$a]/$i).',' ;
 
+// Inversion des tableaux pour avoir des graphiques chronologiques
 $vdate = array_reverse($vdate);
 $vBpm = array_reverse($vBpm);
 $vdB = array_reverse($vdB);
@@ -130,6 +142,7 @@ $vDegCel = array_reverse($vDegCel);
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Titre de la page -->
         <title>Mes Stats</title>
 
         <!-- font awesome cdn link  -->
@@ -152,7 +165,7 @@ $vDegCel = array_reverse($vDegCel);
     <a class="logo">
         <img src="images/LaMontreS.png" alt="">
     </a>
-
+    <!-- Menu -->
     <div class="icons">
         <nav class="navbar">
             <a href="user-gest-admin_menu.php">Mon Menu</a>
@@ -163,6 +176,7 @@ $vDegCel = array_reverse($vDegCel);
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
+    <!--Bouton déconnexion -->
     <a href="index.php" class="logo">
         <h2 style="color: antiquewhite; font-size: 2.5rem;">
             <?php
@@ -187,16 +201,19 @@ $vDegCel = array_reverse($vDegCel);
     <h1 class="heading">.</h1>
 </section>
 
+<!-- Titre de la page -->
 <section class="content">
     <h1 class="heading"> Mes <span>Stats</span> </h1>
 </section>
 
 <section class="datastat">
-
+    <!-- Graphiques de données sur la semaine -->
     <div class="box4" style="background-color: lightgrey">
         <p class="textgraph" style="color: darkorange">Evolution des données en fonction des 7 derniers jours</p>
         <canvas id="line-chart-week"></canvas>
     </div>
+
+    <!-- Données maximales atteintes sur la semaine -->
     <div class="box5">
         <p class="bigtext" style="color: darkorange">Infos de la semaine</p>
         <p class="text" style="color: #3cba9f">Pic de No2 : </p>
@@ -209,10 +226,13 @@ $vDegCel = array_reverse($vDegCel);
         <p class="score"><?php echo round(max($sdB)).' dB' ?></p>
 
     </div>
+
+    <!-- Récupération des données -->
     <div class="box6">
         <p class="text">Récupérer les données</p>
     </div>
 
+    <!-- Graphique en toile d'araignées sur les données des derniers jours -->
     <div class="box7" style="background-color: lightgrey">
        <p class="textgraph">Score des 7 derniers jours</p>
         <canvas id="radar-chart"></canvas>
@@ -233,11 +253,12 @@ $vDegCel = array_reverse($vDegCel);
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
+<!-- Script pour la création du graphique en lignes -->
 <script>
     new Chart(document.getElementById("line-chart-week"), {
         type: 'line',
         data: {
-            labels: [
+            labels: [ <!-- Valeurs en abscisses: la date -->
                 <?php
                 foreach($vdate as $var){
                     echo $var;
@@ -245,6 +266,7 @@ $vDegCel = array_reverse($vDegCel);
                 ?>
             ],
             datasets: [{
+                <!-- Données sur le poul -->
                 data: [
                     <?php
                     foreach($vBpm as $var){
@@ -256,6 +278,7 @@ $vDegCel = array_reverse($vDegCel);
                 borderColor: "#3e95cd",
                 fill: false
             }, {
+                <!-- Données sur le son -->
                 data: [
                     <?php
 
@@ -269,6 +292,7 @@ $vDegCel = array_reverse($vDegCel);
                 borderColor: "#8e5ea2",
                 fill: false
             }, {
+                <!-- Données sur le Dioxyde d'Azote -->
                 data: [
                     <?php
 
@@ -282,6 +306,7 @@ $vDegCel = array_reverse($vDegCel);
                 borderColor: "#3cba9f",
                 fill: false
             }, {
+                <!-- Données sur la température -->
                 data: [
                     <?php
 
@@ -299,22 +324,24 @@ $vDegCel = array_reverse($vDegCel);
         }
     });
 </script>
+<!-- Script du graphique en toile d'araignée -->
 <script>
     new Chart(document.getElementById("radar-chart"), {
         type: 'radar',
         data: {
-            labels: ["Poul", "Son", "Dioxyde d'Azote", "Température"],
+            labels: ["Poul", "Son", "Dioxyde d'Azote", "Température"], <!-- Le nom des données -->
             datasets: [
+                <!-- Pour chaque journée -->
                 {
-                    label: "<?php echo $vardate[0] ?>",
+                    label: "<?php echo $vardate[0] ?>", <!-- On affiche le jour traité -->
                     fill: true,
                     backgroundColor: "rgba(62,62,64,0.2)",
                     borderColor: "rgb(92,93,105)",
                     pointBorderColor: "#fff",
                     pointBackgroundColor: "rgb(94,94,107)",
-                    data: [
+                    data: [ <!-- Données a afficher dans la toile -->
                         <?php
-                        echo $scoreBpm[0],$scoredB[0],$scoreNo2[0],$scoreDegCel[0];
+                        echo $scoreBpm[0], $scoredB[0], $scoreNo2[0], $scoreDegCel[0];
                         ?>
                     ]
                 }, {
@@ -327,7 +354,7 @@ $vDegCel = array_reverse($vDegCel);
                     pointBorderColor: "#fff",
                     data: [
                         <?php
-                        echo $scoreBpm[1],$scoredB[1],$scoreNo2[1],$scoreDegCel[1];
+                        echo $scoreBpm[1], $scoredB[1], $scoreNo2[1], $scoreDegCel[1];
                         ?>
                     ]
                 }, {
@@ -340,7 +367,7 @@ $vDegCel = array_reverse($vDegCel);
                     pointBorderColor: "#fff",
                     data: [
                         <?php
-                        echo $scoreBpm[2],$scoredB[2],$scoreNo2[2],$scoreDegCel[2];
+                        echo $scoreBpm[2], $scoredB[2], $scoreNo2[2], $scoreDegCel[2];
                         ?>
                     ]
                 }, {
@@ -353,7 +380,7 @@ $vDegCel = array_reverse($vDegCel);
                     pointBorderColor: "#fff",
                     data: [
                         <?php
-                        echo $scoreBpm[3],$scoredB[3],$scoreNo2[3],$scoreDegCel[3];
+                        echo $scoreBpm[3], $scoredB[3], $scoreNo2[3], $scoreDegCel[3];
                         ?>
                     ]
                 }, {
@@ -366,7 +393,7 @@ $vDegCel = array_reverse($vDegCel);
                     pointBorderColor: "#fff",
                     data: [
                         <?php
-                        echo $scoreBpm[4],$scoredB[4],$scoreNo2[4],$scoreDegCel[4];
+                        echo $scoreBpm[4], $scoredB[4], $scoreNo2[4], $scoreDegCel[4];
                         ?>
                     ]
                 }, {
@@ -379,7 +406,7 @@ $vDegCel = array_reverse($vDegCel);
                     pointBorderColor: "#fff",
                     data: [
                         <?php
-                        echo $scoreBpm[5],$scoredB[5],$scoreNo2[5],$scoreDegCel[5];
+                        echo $scoreBpm[5], $scoredB[5], $scoreNo2[5], $scoreDegCel[5];
                         ?>
                     ]
                 }, {
@@ -392,7 +419,7 @@ $vDegCel = array_reverse($vDegCel);
                     pointBorderColor: "#fff",
                     data: [
                         <?php
-                        echo $scoreBpm[6],$scoredB[6],$scoreNo2[6],$scoreDegCel[6];
+                        echo $scoreBpm[6], $scoredB[6], $scoreNo2[6], $scoreDegCel[6];
                         ?>
                     ]
                 }
