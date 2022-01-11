@@ -79,19 +79,14 @@
             <h3>FAQ / Contact</h3>
         </a>
 
-
-
-
-        <a  href="gest_modif-membre.php" class="box">
+        <?php
+        if(isset($_GET['error'])){
+            $err = $_GET['error'];
+            if($err==3)
+                echo '<a  href="gest_modif-membre.php" class="box">
             <span class="fas fa-users"></span>
             <h3>Ma Famille</h3>
-        </a>
-
-        <?php
-        if(isset($_GET['erreur'])){
-            $err = $_GET['erreur'];
-            if($err==10)
-                echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Vous n'êtes pas gestionnaire</p>";
+        </a>' ;
         }
         ?>
 
