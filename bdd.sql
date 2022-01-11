@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mar. 11 jan. 2022 à 11:56
--- Version du serveur : 5.7.36
--- Version de PHP : 7.4.26
+-- Hôte : 127.0.0.1
+-- Généré le : mar. 11 jan. 2022 à 13:59
+-- Version du serveur : 10.4.21-MariaDB
+-- Version de PHP : 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,12 +27,10 @@ SET time_zone = "+00:00";
 -- Structure de la table `connexion`
 --
 
-DROP TABLE IF EXISTS `connexion`;
-CREATE TABLE IF NOT EXISTS `connexion` (
+CREATE TABLE `connexion` (
   `CodeStatut` int(11) NOT NULL,
   `Identifiant` varchar(60) NOT NULL,
-  `Mdp` varchar(60) DEFAULT NULL,
-  PRIMARY KEY (`Identifiant`)
+  `Mdp` varchar(60) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -45,13 +43,6 @@ INSERT INTO `connexion` (`CodeStatut`, `Identifiant`, `Mdp`) VALUES
 (0, 'jean', 'jean'),
 (2, 'jesapel', 'groot'),
 (1, 'gest', 'gest'),
-(2, 'Diego', 'ko'),
-(2, 'Jason', 'Gap'),
-(0, 'greg', 'ciao'),
-(0, 'mike', 'mike'),
-(0, 'chloé', 'chloé'),
-(0, 'henri', 'henri'),
-(1, 'alexandre', 'alex');
 (2, 'Diego', 'kiloua'),
 (2, 'Jason', 'Gap'),
 (10000, 'temp', 'temp');
@@ -62,14 +53,11 @@ INSERT INTO `connexion` (`CodeStatut`, `Identifiant`, `Mdp`) VALUES
 -- Structure de la table `conseil`
 --
 
-DROP TABLE IF EXISTS `conseil`;
-CREATE TABLE IF NOT EXISTS `conseil` (
+CREATE TABLE `conseil` (
   `Score` int(11) NOT NULL,
   `CodeProduit` varchar(50) DEFAULT NULL,
   `pirescore` int(11) DEFAULT NULL,
-  `Conseil` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`Score`),
-  KEY `CodeProduit` (`CodeProduit`)
+  `Conseil` varchar(50) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -78,16 +66,14 @@ CREATE TABLE IF NOT EXISTS `conseil` (
 -- Structure de la table `donneesmontre`
 --
 
-DROP TABLE IF EXISTS `donneesmontre`;
-CREATE TABLE IF NOT EXISTS `donneesmontre` (
+CREATE TABLE `donneesmontre` (
   `Bpm` int(11) NOT NULL,
   `Date` date NOT NULL,
   `Heure` time NOT NULL,
   `dB` int(11) NOT NULL,
   `No2` int(11) NOT NULL,
   `DegréCelsius` int(11) NOT NULL,
-  `CodeProduit` int(11) DEFAULT NULL,
-  KEY `CodeProduit` (`CodeProduit`)
+  `CodeProduit` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -220,7 +206,133 @@ INSERT INTO `donneesmontre` (`Bpm`, `Date`, `Heure`, `dB`, `No2`, `DegréCelsius
 (50, '2010-12-26', '05:00:00', 40, 10, 20, 2),
 (50, '2010-12-26', '07:00:00', 20, 50, 20, 2),
 (60, '2010-12-26', '09:00:00', 50, 20, 18, 2),
-(60, '2010-12-26', '10:00:00', 50, 20, 15, 2);
+(60, '2010-12-26', '10:00:00', 50, 20, 15, 2),
+(60, '2010-12-21', '08:00:00', 20, 30, 20, 67),
+(50, '2010-12-21', '06:00:00', 20, 40, 20, 67),
+(50, '2010-12-21', '00:00:00', 20, 30, 20, 67),
+(50, '2010-12-21', '01:00:00', 20, 20, 20, 67),
+(50, '2010-12-21', '04:00:00', 40, 20, 20, 67),
+(50, '2010-12-21', '03:00:00', 20, 30, 20, 67),
+(50, '2010-12-21', '02:00:00', 20, 40, 20, 67),
+(50, '2010-12-21', '05:00:00', 40, 10, 20, 67),
+(50, '2010-12-21', '07:00:00', 20, 50, 20, 67),
+(60, '2010-12-21', '09:00:00', 50, 20, 18, 67),
+(60, '2010-12-21', '10:00:00', 50, 20, 15, 67),
+(70, '2010-12-21', '11:00:00', 40, 40, 13, 67),
+(60, '2010-12-21', '12:00:00', 80, 15, 10, 67),
+(60, '2010-12-21', '13:00:00', 60, 30, 12, 67),
+(90, '2010-12-21', '14:00:00', 20, 10, 12, 67),
+(90, '2010-12-21', '15:00:00', 40, 40, 15, 67),
+(50, '2010-12-21', '16:00:00', 60, 40, 20, 67),
+(60, '2010-12-21', '17:00:00', 60, 50, 20, 67),
+(70, '2010-12-21', '18:00:00', 60, 30, 25, 67),
+(65, '2010-12-21', '19:00:00', 40, 20, 20, 67),
+(70, '2010-12-21', '20:00:00', 40, 20, 18, 67),
+(60, '2010-12-21', '21:00:00', 20, 20, 15, 67),
+(50, '2010-12-21', '22:00:00', 20, 10, 20, 67),
+(50, '2010-12-21', '23:00:00', 20, 10, 20, 67),
+(50, '2010-12-22', '23:00:00', 20, 10, 20, 67),
+(50, '2010-12-22', '22:00:00', 20, 10, 20, 67),
+(70, '2010-12-22', '21:00:00', 20, 20, 20, 67),
+(70, '2010-12-22', '20:00:00', 40, 20, 20, 67),
+(70, '2010-12-22', '19:00:00', 40, 20, 20, 67),
+(70, '2010-12-22', '18:00:00', 60, 30, 20, 67),
+(60, '2010-12-22', '17:00:00', 60, 30, 20, 67),
+(50, '2010-12-22', '16:00:00', 60, 30, 20, 67),
+(90, '2010-12-22', '15:00:00', 60, 30, 20, 67),
+(90, '2010-12-22', '14:00:00', 60, 10, 20, 67),
+(90, '2010-12-22', '13:00:00', 60, 30, 20, 67),
+(90, '2010-12-22', '12:00:00', 80, 15, 20, 67),
+(70, '2010-12-22', '11:00:00', 90, 30, 20, 67),
+(60, '2010-12-22', '10:00:00', 50, 20, 20, 67),
+(60, '2010-12-22', '09:00:00', 50, 20, 20, 67),
+(60, '2010-12-22', '08:00:00', 20, 30, 20, 67),
+(60, '2010-12-22', '07:00:00', 30, 30, 20, 67),
+(50, '2010-12-22', '06:00:00', 20, 30, 20, 67),
+(50, '2010-12-22', '05:00:00', 40, 10, 20, 67),
+(50, '2010-12-22', '04:00:00', 40, 20, 20, 67),
+(50, '2010-12-22', '03:00:00', 20, 30, 20, 67),
+(50, '2010-12-22', '02:00:00', 20, 30, 20, 67),
+(50, '2010-12-22', '01:00:00', 20, 20, 20, 67),
+(50, '2010-12-22', '00:00:00', 20, 30, 20, 67),
+(60, '2010-12-23', '23:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '22:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '21:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '20:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '19:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '18:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '17:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '16:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '15:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '14:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '13:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '12:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '11:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '10:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '09:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '08:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '07:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '06:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '05:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '04:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '03:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '02:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '01:00:00', 40, 10, 20, 67),
+(60, '2010-12-23', '00:00:00', 40, 10, 20, 67),
+(50, '2010-12-24', '02:00:00', 20, 20, 20, 67),
+(50, '2010-12-24', '02:00:00', 20, 20, 20, 67),
+(50, '2010-12-24', '02:00:00', 20, 20, 20, 67),
+(50, '2010-12-27', '02:00:00', 20, 20, 20, 67),
+(60, '2010-12-24', '09:00:00', 50, 20, 20, 67),
+(40, '2010-12-27', '03:00:00', 20, 20, 18, 67),
+(60, '2010-12-25', '08:00:00', 20, 30, 20, 67),
+(90, '2010-12-25', '14:00:00', 20, 10, 12, 67),
+(90, '2010-12-25', '15:00:00', 40, 40, 15, 67),
+(50, '2010-12-25', '16:00:00', 60, 40, 20, 67),
+(60, '2010-12-25', '17:00:00', 60, 50, 20, 67),
+(70, '2010-12-25', '18:00:00', 60, 30, 25, 67),
+(65, '2010-12-25', '19:00:00', 40, 20, 20, 67),
+(70, '2010-12-25', '20:00:00', 40, 20, 18, 67),
+(60, '2010-12-25', '21:00:00', 20, 20, 15, 67),
+(50, '2010-12-25', '22:00:00', 20, 10, 20, 67),
+(50, '2010-12-25', '23:00:00', 20, 10, 20, 67),
+(60, '2010-12-25', '13:00:00', 60, 30, 12, 67),
+(60, '2010-12-25', '12:00:00', 80, 15, 10, 67),
+(70, '2010-12-25', '11:00:00', 40, 40, 13, 67),
+(50, '2010-12-25', '06:00:00', 20, 40, 20, 67),
+(50, '2010-12-25', '00:00:00', 20, 30, 20, 67),
+(50, '2010-12-25', '01:00:00', 20, 20, 20, 67),
+(50, '2010-12-25', '04:00:00', 40, 20, 20, 67),
+(50, '2010-12-25', '03:00:00', 20, 30, 20, 67),
+(50, '2010-12-25', '02:00:00', 20, 40, 20, 67),
+(50, '2010-12-25', '05:00:00', 40, 10, 20, 67),
+(50, '2010-12-25', '07:00:00', 20, 50, 20, 67),
+(60, '2010-12-25', '09:00:00', 50, 20, 18, 67),
+(60, '2010-12-25', '10:00:00', 50, 20, 15, 67),
+(60, '2010-12-26', '08:00:00', 20, 30, 20, 67),
+(90, '2010-12-26', '14:00:00', 20, 10, 12, 67),
+(90, '2010-12-26', '15:00:00', 40, 40, 15, 67),
+(50, '2010-12-26', '16:00:00', 60, 40, 20, 67),
+(60, '2010-12-26', '17:00:00', 60, 50, 20, 67),
+(70, '2010-12-26', '18:00:00', 60, 30, 25, 67),
+(65, '2010-12-26', '19:00:00', 40, 20, 20, 67),
+(70, '2010-12-26', '20:00:00', 40, 20, 18, 67),
+(60, '2010-12-26', '21:00:00', 20, 20, 15, 67),
+(50, '2010-12-26', '22:00:00', 20, 10, 20, 67),
+(50, '2010-12-26', '23:00:00', 20, 10, 20, 67),
+(60, '2010-12-26', '13:00:00', 60, 30, 12, 67),
+(60, '2010-12-26', '12:00:00', 80, 15, 10, 67),
+(70, '2010-12-26', '11:00:00', 40, 40, 13, 67),
+(50, '2010-12-26', '06:00:00', 20, 40, 20, 67),
+(50, '2010-12-26', '00:00:00', 20, 30, 20, 67),
+(50, '2010-12-26', '01:00:00', 20, 20, 20, 67),
+(50, '2010-12-26', '04:00:00', 40, 20, 20, 67),
+(50, '2010-12-26', '03:00:00', 20, 30, 20, 67),
+(50, '2010-12-26', '02:00:00', 20, 40, 20, 67),
+(50, '2010-12-26', '05:00:00', 40, 10, 20, 67),
+(50, '2010-12-26', '07:00:00', 20, 50, 20, 67),
+(60, '2010-12-26', '09:00:00', 50, 20, 18, 67),
+(60, '2010-12-26', '10:00:00', 50, 20, 15, 67);
 
 -- --------------------------------------------------------
 
@@ -228,8 +340,7 @@ INSERT INTO `donneesmontre` (`Bpm`, `Date`, `Heure`, `dB`, `No2`, `DegréCelsius
 -- Structure de la table `listeconseil`
 --
 
-DROP TABLE IF EXISTS `listeconseil`;
-CREATE TABLE IF NOT EXISTS `listeconseil` (
+CREATE TABLE `listeconseil` (
   `Conseil` varchar(300) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -239,20 +350,18 @@ CREATE TABLE IF NOT EXISTS `listeconseil` (
 -- Structure de la table `online`
 --
 
-DROP TABLE IF EXISTS `online`;
-CREATE TABLE IF NOT EXISTS `online` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `online` (
+  `id` int(11) NOT NULL,
   `time` int(11) NOT NULL,
-  `user_ip` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `user_ip` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `online`
 --
 
 INSERT INTO `online` (`id`, `time`, `user_ip`) VALUES
-(2, 1641802454, '127.0.0.1');
+(2, 1641892353, '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -260,34 +369,72 @@ INSERT INTO `online` (`id`, `time`, `user_ip`) VALUES
 -- Structure de la table `profil`
 --
 
-DROP TABLE IF EXISTS `profil`;
-CREATE TABLE IF NOT EXISTS `profil` (
+CREATE TABLE `profil` (
   `CodePersonne` int(11) NOT NULL,
   `CodeProduit` int(11) NOT NULL,
   `Couleur` varchar(7) NOT NULL,
   `CodeFamille` varchar(10) DEFAULT NULL,
-  `Identifiant` varchar(60) DEFAULT NULL,
-  PRIMARY KEY (`CodeProduit`),
-  KEY `Identifiant` (`Identifiant`)
+  `Identifiant` varchar(60) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `profil`
 --
 
-INSERT INTO `profil` (`CodeProduit`, `Couleur`, `CodeFamille`, `Identifiant`) VALUES
-(0, 'green', NULL, 'jeangerard'),
-(1, 'blue', NULL, 'jacque'),
-(2, 'cyan', NULL, 'jean'),
-(3, 'red', NULL, 'Techio'),
-(4753464, 'white', '3', 'jean-christophe'),
-(4753463, 'white', '1176707671', 'jc'),
-(4, 'red', '4', 'gest'),
-(5, 'red', '4', 'greg'),
-(6, 'hotpink', '4', 'mike'),
-(7, 'red', '4', 'chloé'),
-(8, 'cyan', '4', 'henri'),
-(9, 'blue', '5', 'alexandre');
+INSERT INTO `profil` (`CodePersonne`, `CodeProduit`, `Couleur`, `CodeFamille`, `Identifiant`) VALUES
+(0, 0, 'green', NULL, 'jeangerard'),
+(1, 1, 'blue', NULL, 'jacque'),
+(1, 2, 'cyan', NULL, 'jean'),
+(1, 3, 'red', NULL, 'Techio'),
+(26104, 4753464, 'white', '3', 'jean-christophe'),
+(10000, 4753463, 'white', '1176707671', 'jc'),
+(10000, 67, 'white', '9410477622', 'temp');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `connexion`
+--
+ALTER TABLE `connexion`
+  ADD PRIMARY KEY (`Identifiant`);
+
+--
+-- Index pour la table `conseil`
+--
+ALTER TABLE `conseil`
+  ADD PRIMARY KEY (`Score`),
+  ADD KEY `CodeProduit` (`CodeProduit`);
+
+--
+-- Index pour la table `donneesmontre`
+--
+ALTER TABLE `donneesmontre`
+  ADD KEY `CodeProduit` (`CodeProduit`);
+
+--
+-- Index pour la table `online`
+--
+ALTER TABLE `online`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `profil`
+--
+ALTER TABLE `profil`
+  ADD PRIMARY KEY (`CodeProduit`),
+  ADD KEY `Identifiant` (`Identifiant`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `online`
+--
+ALTER TABLE `online`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
