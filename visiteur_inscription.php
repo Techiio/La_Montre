@@ -16,7 +16,7 @@
       <!-- custom css file link  -->
       <link rel="stylesheet" href="css/style.css" />
     </head>
-    <body>
+    <body style="background: black">
       <!-- header section starts  -->
 
       <header class="header">
