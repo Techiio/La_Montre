@@ -1,3 +1,19 @@
+<script>
+    function afficher(){
+
+        if(document.getElementById('gest').checked){
+            codefamille = document.getElementById('codefamille');
+            codefamille.style.display = 'none';
+            codefamille
+        }
+        else{
+            codefamille = document.getElementById('codefamille');
+            codefamille.style.display = 'flex';
+            codefamille
+        }
+    }
+</script>
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -46,15 +62,15 @@
           <form action="connexion log/register.php" method="post">
             <div class="inputBox">
               <span class="fas fa-user"></span>
-              <input type="text" name="Identifiant" placeholder="Prénom" />
+              <input type="text" name="Identifiant" placeholder="Identifiant" />
             </div>
             <div class="inputBox">
               <span class="fas fa-fire"></span>
               <input type="text" name="CodeProduit" placeholder="Code produit" />
             </div>
-            <div class="inputBox">
-              <span class="fas fa-house-user"></span>
-              <input type="number" name="CodeFamille" placeholder="Code famille" />
+            <div class="inputBox" id="codefamille">
+               <span class="fas fa-house-user"></span>
+               <input type="number" name="CodeFamille" placeholder="Code famille" />
             </div>
             <div class="inputBox">
               <span class="fas fa-id-badge"></span>
@@ -69,7 +85,7 @@
               />
             </div>
             <div>
-              <input type="checkbox" name="gest" value="check" class="check" />
+              <input type="checkbox" onclick="afficher()" id="gest" value="check" class="check" />
               <label for="check">
                 <h4>
                   Cochez si vous souhaitez être le gestionnaire de votre famille
@@ -105,5 +121,7 @@
 
 
   </section>
+
+
 
 </html>
