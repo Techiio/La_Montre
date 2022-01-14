@@ -406,7 +406,7 @@ INSERT INTO `profil` (`CodeProduit`, `Couleur`, `CodeFamille`, `Identifiant`) VA
 (67, 'white', '9410477622', 'temp'),
 (4, 'red', '4', 'henri'),
 (5, 'red', '4', 'chloe'),
-(6, 'red', '4', 'greg');
+(6, 'red', '4', 'greg'),
 (7, 'red', '4', 'gest');
 
 COMMIT;
