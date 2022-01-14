@@ -35,7 +35,7 @@
     </div>
 
     <a href="index.php" class="logo">
-        <h2 style="color: antiquewhite; font-size: 2.5rem;">
+        <h2>
             <?php
 
             if(isset($_COOKIE['pseudo'])){
