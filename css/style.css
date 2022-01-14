@@ -561,8 +561,13 @@ textarea {
     padding-left: 2rem;
 }
 
+.inscri .row form .inputBox a{
+    color:#fff;
+    font-size: 2.2rem;
+}
+
 .inscri .row form .inputBox input{
-    width: 100%;
+    width: 95%;
     padding:2rem;
     font-size: 1.7rem;
     color:#fff;
