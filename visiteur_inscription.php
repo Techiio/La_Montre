@@ -1,19 +1,3 @@
-<script>
-    function afficher(){
-
-        if(document.getElementById('gest').checked){
-            codefamille = document.getElementById('codefamille');
-            codefamille.style.display = 'none';
-            codefamille
-        }
-        else{
-            codefamille = document.getElementById('codefamille');
-            codefamille.style.display = 'flex';
-            codefamille
-        }
-    }
-</script>
-
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -63,6 +47,13 @@
             <div class="inputBox">
               <span class="fas fa-user"></span>
               <input type="text" name="Identifiant" placeholder="Identifiant" />
+                <?php
+                if(isset($_GET['erreur'])){
+                    $err = $_GET['erreur'];
+                    if($err==1 || $err ==2)
+                        echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Identifiant déjà pris</p>";
+                }
+                ?>
             </div>
             <div class="inputBox">
               <span class="fas fa-fire"></span>
@@ -74,15 +65,12 @@
             </div>
             <div class="inputBox">
               <span class="fas fa-id-badge"></span>
-              <input type="password" name="mdp1" placeholder="Mot de passe" />
+              <input type="password" name="mdp1" id="light" placeholder="Mot de passe" />
+              <a id="eye" onclick="eyeclick()" class="fas fa-eye"></a>
             </div>
             <div class="inputBox">
               <span class="fas fa-id-badge"></span>
-              <input
-                type="password"
-                name="mdp2"
-                placeholder="Confirmation mot de passe"
-              />
+              <input type="password" name="mdp2" id="light" placeholder="Confirmation mot de passe"/>
             </div>
             <div>
               <input type="checkbox" onclick="afficher()" id="gest" value="check" class="check" />
@@ -121,7 +109,5 @@
 
 
   </section>
-
-
-
+  <script src="js/script.js"></script>
 </html>
