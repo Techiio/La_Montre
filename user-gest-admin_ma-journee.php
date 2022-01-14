@@ -153,8 +153,12 @@ $vDegCel = array_reverse($vDegCel);
                             if($err==3) {
                                 echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Données de la montre reset</p>";
                             }
-                            if($err==5) {
+
+                            elseif($err==5) {
                                 echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Erreur, veuillez contacter le service client</p>";
+                            }
+                            elseif($err==6) {
+                                echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Mettez votre identifiant pour supprimer vos données</p>";
                             }
                         }
                         ?>

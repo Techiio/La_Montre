@@ -16,6 +16,13 @@ $Id=$bdd->query("SELECT count(Identifiant) as compte FROM profil WHERE '$Idt'= I
 $nb_utilisateur=$Id->fetch();
 $Id->closeCursor();
 
+if ($_POST['Idt'] !== $_COOKIE['pseudo']){
+    $erreur = 6;
+    header('location: user-gest-admin_ma-journee.php?erreur=6');
+
+}
+
+
 if ($nb_utilisateur['compte']==1) {
     $CodeP_search= $bdd->query("SELECT CodeProduit  FROM profil WHERE  '$Idt'= Identifiant ");
     $Codeproduit=$CodeP_search->fetch();
