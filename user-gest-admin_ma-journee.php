@@ -130,24 +130,32 @@ $vDegCel = array_reverse($vDegCel);
             <p class="textgraph" style="color: darkorange">Evolution des données en fonction des dernières 24h</p>
             <canvas id="line-chart-day"></canvas>
         </div>
-        <div class="box2">
+        <div class="boxsupr">
             <a class="box">
                 <section class="rd" id="rd">
-                    <form action="admin_screen/reset_data.php" method="post">
+                    <form action="reset_data_user-gest-admin_ma-journee.php" method="post">
+                        <<div class="inputBox">
+                            <input type="text" name="Idt" placeholder="Identifiant" />
+                        </div>
                         <div>
                             <input
                                     type="submit"
-                                    value="Suppression des données"
+                                    value="Pour supprimer vos données, saisissez votre identifiant puis cliquez sur le bouton"
                                     name="formsend"
                                     id="formsend"
                                     class="add"
                             />
                         </div>
+
                         <?php
                         if(isset($_GET['erreur'])){
                             $err = $_GET['erreur'];
-                            if($err==3 || $err==5)
+                            if($err==3) {
                                 echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Données de la montre reset</p>";
+                            }
+                            if($err==5) {
+                                echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Erreur, veuillez contacter le service client</p>";
+                            }
                         }
                         ?>
                     </form>
