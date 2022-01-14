@@ -409,6 +409,7 @@ textarea {
     padding:1rem 0;
     font-size: 2rem;
     color:#fff;
+    text-transform: capitalize;
 }
 
 .famille .box-container .box .stars i{
@@ -587,7 +588,7 @@ textarea {
 
 .modif .box-container .box .image img{
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     width: 100%;
 }
 
@@ -609,7 +610,7 @@ textarea {
     text-align: center;
     display: grid;
     gap: 2rem;
-    line-height: 1.5;
+    line-height: 0.5;
     color:#fff;
 }
 
@@ -655,6 +656,21 @@ textarea {
     background:none;
 }
 
+.modif select{
+    width: 100%;
+    font-size: 1.5rem;
+    color:#fff;
+    text-transform: capitalize;
+    background:none;
+    height: 142px;
+    overflow: auto;
+    flex:1 1 45rem;
+    text-align: center;
+    border-width : 1px;
+    border-style : solid;
+    border-color : var(--border);
+}
+
 .admin .box-container{
     display: grid;
     grid-template-columns:32% 32% 32%;
@@ -674,6 +690,78 @@ textarea {
 .admin .box-container .box h3{
     color: #fff;
     font-size: 2rem;
+}
+
+.admin .form h3{
+    text-transform: uppercase;
+    font-size: 3.5rem;
+    color:#fff;
+}
+
+.admin .form h4{
+    text-transform: uppercase;
+    font-size: 1rem;
+    color:#fff;
+}
+
+
+.admin .inputBox{
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1.4rem;
+    background:var(--bg);
+    border:var(--border);
+}
+
+.admin .inputBox span{
+    color:#fff;
+    font-size: 1rem;
+    padding-left: 1rem;
+}
+
+.admin .inputBox input{
+    width: 100%;
+    padding:1rem;
+    font-size: 1.0rem;
+    color:#fff;
+    text-transform: none;
+    background:none;
+}
+
+.add{
+    margin-top: 1rem;
+    display: inline-block;
+    padding:.9rem 3rem;
+    font-size: 1.7rem;
+    color:#fff;
+    background: var(--main-color);
+    cursor: pointer;
+}
+
+.add:hover{
+    letter-spacing: .2rem;
+}
+
+#admin-add{
+    display: none;
+
+}
+
+.admin select{
+    width: 100%;
+    font-size: 1.0rem;
+    color:#fff;
+    text-transform: capitalize;
+    background:none;
+    height: 100px;
+    overflow: auto;
+    flex:1 1 45rem;
+    padding:8rem 2rem;
+    text-align: center;
+    border-width : 1px;
+    border-style : solid;
+    border-color : var(--border);
 }
 
 .datajour {

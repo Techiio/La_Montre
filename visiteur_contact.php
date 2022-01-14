@@ -115,10 +115,16 @@
                 <span class="fas fa-envelope"></span>
                 <input type="email" placeholder="email">
             </div>
+
+
+
+            <div class="inputBox">
+                Name: <input type="text" placeholder="Votre message">
+
+
+            </div>
             <input type="submit" value="contact now" class="btn">
         </form>
-
-    </div>
 
 </section>
 

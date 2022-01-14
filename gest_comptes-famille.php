@@ -1,3 +1,15 @@
+<?php
+
+//connexion à la base de données
+try {
+    $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
+        'root',
+        '');
+} catch (Exception $e) {
+    die('Erreur : ' . $e->getMessage());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -48,8 +60,6 @@
         <h3>Déconnexion</h3>
     </a>
 
-
-
 </header>
 
 <section class="content">
@@ -64,39 +74,60 @@
 
     <div class="box-container">
 
-        <a href="#" class="box">
-            <img src="images/pic-1.png" class="user" alt="">
-            <h3>john deo</h3>
-        </a>
 
-        <a href="#" class="box">
-            <img src="images/pic-2.png" class="user" alt="">
-            <h3>john deo</h3>
-        </a>
+        <?php
+        //Variables
+        $CodeFamille=$_COOKIE['famille'];
+        $Identifiant=$_COOKIE['pseudo'];
+        $CodeStatut=$_COOKIE['statut'];
 
-        <a href="#" class="box">
-            <img src="images/pic-3.png" class="user" alt="">
-            <h3>john deo</h3>
-        </a>
+        //Vérification de la présence d'utilisateur dans la famille en plus du gestionnaire
+        $compte_utilisateur_famille=$bdd->query("SELECT count(Identifiant) as compte FROM profil WHERE '$CodeFamille'= CodeFamille");
+        $nb_utilisateurs=$compte_utilisateur_famille->fetch();
+        $compte_utilisateur_famille->closeCursor();
 
-        <a href="#" class="box">
-            <img src="images/pic-3.png" class="user" alt="">
-            <h3>john deo</h3>
-        </a>
+        if($nb_utilisateurs['compte'] > 1){
+        $rq = $bdd->query("SELECT Identifiant,Couleur  FROM profil WHERE '$CodeFamille'= CodeFamille");
+        while ($donnees = $rq->fetch()){
+            if($donnees['Identifiant']!=$Identifiant){
+                $donnees['Identifiant']=str_replace("$", "",$donnees['Identifiant'])
+            ?>
+            <a href="gest_comptes-famille.php?user=<?php echo $donnees['Identifiant'] ?>" class="box">
+                <img src="images/user.png" class="user" alt="">
+                <h3 style="color: <?php echo $donnees['Couleur']; ?> ;"> <?php echo $donnees['Identifiant']; ?> </h3>
+            </a>
 
-        <a href="#" class="box">
-            <img src="images/pic-3.png" class="user" alt="">
-            <h3>john deo</h3>
-        </a>
+        <?php
+            }
+        } ?>
+        <a href="gest_modif-membre.php" class="box">
+                <img src="images/mod.jpg" class="user" alt="">
+                <h3>Paramètres membre</h3>
+            </a>
+            <?php
+        }
+        else{
+        ?>
+        <a href="#" class="box"> <img src="images/utilisateur-modified.png" class="user" alt="">
+                <h3>Aucun compte dans la famille</h3> </a>
 
-        <a href="#" class="box">
-            <img src="images/pic-3.png" class="user" alt="">
-            <h3>john deo</h3>
-        </a>
-
+        <?php } ?>
     </div>
 
 </section>
+
+<?php
+
+//Redirection vers l'utilisateur
+if(isset($_GET['user'])){
+
+    //connexion au profil de l'utilisateur
+    $Identifiant=$_GET['user'];
+    setcookie('pseudo', $Identifiant, time()+364*24*3600, '/', null, false, true);
+    setcookie('statut', 0, time()+364*24*3600, '/', null, false, true);
+    header('location: ../LaMontre/user-gest-admin_menu.php');
+}
+?>
 
 <!-- ma famille section ends -->
 </body>

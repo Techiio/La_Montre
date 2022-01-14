@@ -130,27 +130,30 @@ $vDegCel = array_reverse($vDegCel);
             <p class="textgraph" style="color: darkorange">Evolution des données en fonction des dernières 24h</p>
             <canvas id="line-chart-day"></canvas>
         </div>
-        <?php
-        if (isset($_POST['button1'])) {
-            if ($_COOKIE['statut'] == 1 or $_COOKIE['statut'] == 0) {
-                $download='SELECT * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date DESC, Heure DESC LIMIT 24';
-                $resul=array($db->query($download));
-
-            }
-            else {
-                $deletion='DELETE * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date DESC, Heure DESC LIMIT 24';
-                $resul=array($db->query($deletion));
-            }
-            $final=json_encode($resul);
-
-        }
-
-        ?>
-    <div>
-    <form method="post">
-        <input type="submit" name="button1"
-               value="Gestion des données"/>
-    </div>
+        <div class="box2">
+            <a class="box">
+                <section class="rd" id="rd">
+                    <form action="admin_screen/reset_data.php" method="post">
+                        <div>
+                            <input
+                                    type="submit"
+                                    value="Suppression des données"
+                                    name="formsend"
+                                    id="formsend"
+                                    class="add"
+                            />
+                        </div>
+                        <?php
+                        if(isset($_GET['erreur'])){
+                            $err = $_GET['erreur'];
+                            if($err==3 || $err==5)
+                                echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Données de la montre reset</p>";
+                        }
+                        ?>
+                    </form>
+                </section>
+            </a>
+        </div>
         <div class="box3">
             <p class="bigtext" style="color: darkorange">Infos du Jour</p>
             <p class="text" style="color: #3cba9f">Pic de Dioxyde d'Azote : </p>
