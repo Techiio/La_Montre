@@ -43,8 +43,8 @@ else {
             //Envoi des coordonnées à mySQL
 
 
-            $requete=$bdd->prepare('INSERT INTO profil(CodePersonne, CodeProduit, Couleur, CodeFamille, Identifiant ) VALUES(?, ?, ?, ?, ?)');
-            $requete->execute(array($CodePersonne, $CodeProduit, $Couleur, $CodeFamille, $Identifiant));
+            $requete=$bdd->prepare('INSERT INTO profil(CodeProduit, Couleur, CodeFamille, Identifiant ) VALUES(?, ?, ?, ?)');
+            $requete->execute(array($CodeProduit, $Couleur, $CodeFamille, $Identifiant));
 
             $requete=$bdd->prepare('INSERT INTO connexion(CodeStatut, Identifiant, Mdp ) VALUES(?, ?, ?)');
             $requete->execute(array($CodePersonne, $Identifiant, $mdp));
