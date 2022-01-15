@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 //connexion à la base de données
 try {
     $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
@@ -8,13 +8,19 @@ try {
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }
-
-$Idt=$_SESSION['pseudo'];
+//Donnée du formulaire
+$Idt = $_POST['Idt'];
 
 //Vérification de la présence d'utilisateur dans la famille en plus du gestionnaire
 $Id=$bdd->query("SELECT count(Identifiant) as compte FROM profil WHERE '$Idt'= Identifiant");
 $nb_utilisateur=$Id->fetch();
 $Id->closeCursor();
+
+if ($_POST['Idt'] !== $_COOKIE['pseudo']){
+    $erreur = 6;
+    header('location: user-gest-admin_ma-journee.php?erreur=6');
+
+}
 
 
 if ($nb_utilisateur['compte']==1) {
@@ -24,7 +30,7 @@ if ($nb_utilisateur['compte']==1) {
     $rq = $bdd->query("DELETE FROM donneesmontre WHERE  '$CodeP'= CodeProduit");
 
     $erreur = 3;
-    header('location: user-gest-admin_ma-journee.php?suppression');
+    header('location: user-gest-admin_ma-journee.php?erreur=3');
 }
 
 else {

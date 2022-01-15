@@ -1,5 +1,4 @@
 <?php
-session_start();
 try
 {
     $db = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
@@ -10,7 +9,7 @@ catch (Exception $e)
 {
     die('Erreur : ' . $e->getMessage());
 }
-$id = $_SESSION['pseudo'];
+$id = $_COOKIE['pseudo'];
 
 $sql = "SELECT CodeProduit FROM profil WHERE Identifiant ='$id'";
 $req = $db->query($sql);
@@ -101,8 +100,8 @@ $vDegCel = array_reverse($vDegCel);
         <h2>
             <?php
 
-            if(isset($_SESSION['pseudo'])){
-                echo '' .$_SESSION['pseudo'] ;
+            if(isset($_COOKIE['pseudo'])){
+                echo '' .$_COOKIE['pseudo'] ;
             }
             ?>
 
@@ -135,10 +134,13 @@ $vDegCel = array_reverse($vDegCel);
             <a class="box">
                 <section class="rd" id="rd">
                     <form action="reset_data_user-gest-admin_ma-journee.php" method="post">
+                        <<div class="inputBox">
+                            <input type="text" name="Idt" placeholder="Identifiant" />
+                        </div>
                         <div>
                             <input
                                     type="submit"
-                                    value="Pour supprimer vos données, cliquez sur le bouton"
+                                    value="Pour supprimer vos données, saisissez votre identifiant puis cliquez sur le bouton"
                                     name="formsend"
                                     id="formsend"
                                     class="add"
@@ -149,7 +151,7 @@ $vDegCel = array_reverse($vDegCel);
                         if(isset($_GET['erreur'])){
                             $err = $_GET['erreur'];
                             if($err==3) {
-                                echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Données de la montre supprimées</p>";
+                                echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Données de la montre reset</p>";
                             }
 
                             elseif($err==5) {
