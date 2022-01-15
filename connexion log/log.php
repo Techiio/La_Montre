@@ -33,9 +33,8 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
         if ( $user['CodeStatut'] == 2 && $c_mdp == $user['Mdp']) {
         $error = 0;
 
-        setcookie('pseudo', $user['Identifiant'], time()+364*24*3600, '/', null, false, true);
-        setcookie('statut', $user['CodeStatut'], time()+364*24*3600, '/', null, false, true);
-
+        $_SESSION['pseudo']=$user['Identifiant'];
+        $_SESSION['statut']=$user['CodeStatut'];
         $_SESSION['connect'] = 1;
 
         header('location: ../admin_screen-gestion.php');
@@ -44,8 +43,8 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
         elseif ( $user['CodeStatut'] == 1 && $c_mdp == $user['Mdp']) {
             $error = 3;
 
-            setcookie('pseudo', $user['Identifiant'], time()+364*24*3600, '/', null, false, true);
-            setcookie('statut', $user['CodeStatut'], time()+364*24*3600, '/', null, false, true);
+            $_SESSION['pseudo']=$user['Identifiant'];
+            $_SESSION['statut']=$user['CodeStatut'];
             setcookie('famille', $CodeFamille['CodeFamille'], time()+364*24*3600, '/', null, false, true);
 
             $_SESSION['connect'] = 1;
@@ -56,8 +55,8 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
         elseif ($c_mdp == $user['Mdp']) {
             $error = 0;
 
-            setcookie('pseudo', $user['Identifiant'], time()+364*24*3600, '/', null, false, true);
-            setcookie('statut', $user['CodeStatut'], time()+364*24*3600, '/', null, false, true);
+            $_SESSION['pseudo']=$user['Identifiant'];
+            $_SESSION['statut']=$user['CodeStatut'];
 
 
             $_SESSION['connect'] = 1;
