@@ -133,23 +133,15 @@ $vDegCel = array_reverse($vDegCel);
         <?php
         if (isset($_POST['button1'])) {
             if ($_COOKIE['statut'] == 1 or $_COOKIE['statut'] == 0) {
-                $download='SELECT * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date DESC, Heure DESC LIMIT 24';
-                $resul=array($db->query($download));
-
-            }
-            else {
-                $deletion='DELETE * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date DESC, Heure DESC LIMIT 24';
-                $resul=array($db->query($deletion));
-            }
-            $final=json_encode($resul);
-
+                header('Location: Téléchargement.php?code=' . $codeproduit);
+                die();
         }
-
+    }
         ?>
     <div>
     <form method="post">
-        <input type="submit" name="button1"
-               value="Gestion des données"/>
+        <input type="submit" name="button1" class='btn'
+               value="Télécharger"/>
     </div>
         <div class="box3">
             <p class="bigtext" style="color: darkorange">Infos du Jour</p>
