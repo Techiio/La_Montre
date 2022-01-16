@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 //connexion à la base de données
 try {
     $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',

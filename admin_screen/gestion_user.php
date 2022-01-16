@@ -1,10 +1,9 @@
 <?php
 
-session_start();
-
 //suppression des cookies admin
-setcookie('pseudo', '', time() - 364 * 24 * 3600, '/', null, false, true);
-$_SESSION['connect'] = 0;
+setcookie('pseudo');
+setcookie('statut');
+
 
 //connexion bdd
 try {
@@ -13,10 +12,6 @@ try {
         '');
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
-}
-
-if (isset($_SESSION['connect'])) {
-    header('location: ../');
 }
 
 ///connexion au profil utilisateur
@@ -30,17 +25,13 @@ if (!empty($_POST["Identifiant"])) {
     $req->execute(array($Identifiant));
     while ($user = $req->fetch()) {
 
-
         if ($Identifiant == $user['Identifiant']) {
             $error = 0;
 
             setcookie('pseudo', $user['Identifiant'], time()+364*24*3600, '/', null, false, true);
             setcookie('statut', $user['CodeStatut'], time()+364*24*3600, '/', null, false, true);
 
-            $_SESSION['connect'] = 1;
-
             header('location: ../user-gest-admin_menu.php');
-
         }
         else{
             header('Location: ../admin_screen-gestion.php?erreur=4');

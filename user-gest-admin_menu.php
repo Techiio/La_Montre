@@ -7,10 +7,7 @@
     <title>Home Menu</title>
 
     <!-- font awesome cdn link  -->
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css">
@@ -27,7 +24,7 @@
     </a>
 
     <a>
-        <h2 style="color: antiquewhite; font-size: 2.5rem;">
+        <h2>
             <?php
 
             if(isset($_COOKIE['pseudo'])){
@@ -78,6 +75,17 @@
             <span class="fas fa-comments"></span>
             <h3>FAQ / Contact</h3>
         </a>
+
+        <?php
+        if(isset($_GET['error'])){
+            $err = $_GET['error'];
+            if($err==3)
+                echo '<a  href="gest_comptes-famille.php" class="box">
+            <span class="fas fa-users"></span>
+            <h3>Ma Famille</h3>
+        </a>' ;
+        }
+        ?>
 
     </div>
 

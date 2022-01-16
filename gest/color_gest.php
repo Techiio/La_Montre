@@ -10,16 +10,26 @@ try {
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }
+//Données du formulaire + cookie
+$Idt= $_POST['Idt'];
+$Newcolor = $_POST['new_color'];
+$CodeF= $_COOKIE['famille'];
+
+//vérification de l'existence de l'identifiant
+$existence_identifiant_famille=$bdd->query("SELECT count(Identifiant) as compte FROM profil WHERE '$Idt'= Identifiant AND '$CodeF' = CodeFamille ");
+$Valeur_test=$existence_identifiant_famille->fetch();
+$existence_identifiant_famille->closeCursor();
+
 
 //Changement de la couleur
-if (!empty($_POST["new_color"])) {
-    $Idt= $_POST['Idt'];
-    $Newcolor = $_POST['new_color'];
-    echo "post marche";
-    $rq = //$bdd->query("SELECT color FROM couleur WHERE couleur='$Newcolor'");
-    $rq = $bdd->query("UPDATE  profil SET Couleur='$Newcolor' WHERE Identifiant= '$Idt'");
+if($Valeur_test['compte']==1){
 
-    header('location: ../gest_modif-membre.php');
+if (!empty($_POST["Idt"])) {
+    $rq = $bdd->query("UPDATE  profil SET Couleur='$Newcolor' WHERE Identifiant='$Idt'");
+    header('location: ../gest_modif-membre.php?message=4');
+}}
+else{
+    header('location: ../gest_modif-membre.php?message=5');
 }
 
 

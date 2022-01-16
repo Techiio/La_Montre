@@ -11,14 +11,35 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 
-//Suppression de l'admin dans la base
-if (!empty($_POST["Idt"])) {
-    $Idt = $_POST['Idt'];
-    $rq = $bdd->query("DELETE FROM connexion WHERE Identifiant= '$Idt'");
-    $erreur = 1;
-    header('location: ../admin_screen-gestion.php?erreur=1');
-}
+//Données du formulaire
+$Idt= $_POST['Idt'];
+$Newpwd1 = $_POST['pwd1'];
+$Newpwd2 = $_POST['pwd2'];
 
+//Variable de vérification d'accès
+
+$rq=$bdd->query("SELECT  CodeFamille FROM profil WHERE Identifiant= '$Idt'");
+$requete=$rq->fetch();
+$Code_Famille_Idt=$requete['CodeFamille'];
+$Code_Statut = $_COOKIE['statut'];
+$Code_Famille_gest =$_COOKIE['famille'];
+
+//Changement de mot de passe
+if ($Code_Statut == 1 && $Code_Famille_gest == $Code_Famille_Idt ) {
+    //Les mots de passe correspondent le changement peut s'effectuer
+    if ($Newpwd1 == $Newpwd2) {
+        $rq = $bdd->query("UPDATE  connexion SET Mdp='$Newpwd1' WHERE Identifiant= '$Idt'");
+        header('location: ../gest_modif-membre.php?erreur=0');
+    }
+    //Les mots de passe ne correspondent pas, un message d'erreur s'affiche
+    else{
+        header('location: ../gest_modif-membre.php?erreur=2');
+    }
+}
+//Le gestionnaire essaie de changer le mot de passe d'un utilisateur qui n'est pas dans sa famille, affichage d'une erreur
+else{
+    header('location: ../gest_modif-membre.php?erreur=1');
+}
 
 
 

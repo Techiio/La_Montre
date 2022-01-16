@@ -102,7 +102,7 @@ switch ($pireScore)
     </div>
 
     <a href="index.php" class="logo">
-        <h2 style="color: antiquewhite; font-size: 2.5rem;">
+        <h2>
             <?php
 
             if(isset($_COOKIE['pseudo'])){
@@ -128,7 +128,7 @@ switch ($pireScore)
 <section class="famille" id="famille">
     <h1 class="heading"> Ma <span>Famille</span> </h1>
     <div class="box-container">
-        <a href="#" class="box">
+        <a class="box">
             <h3>Meilleur donnée :</h3><br><br><br><br>
             <p><?php echo $meilleureDonnee;
                 if ($meilleurScore == $scoreBpm)
@@ -150,7 +150,7 @@ switch ($pireScore)
                 ?>
             </p>
         </a>
-        <a href="#" class="box">
+        <a class="box">
             <h3>Pire donnée :</h3><br><br><br><br>
             <p> <?php echo $pireDonnee;
                 if ($pireScore == $scoreBpm)
@@ -173,7 +173,7 @@ switch ($pireScore)
         
     </div><br><br>
     <div class="box-container">
-        <a href="#" class="box">
+        <a class="box">
             <h3>Score :</h3><br><br>
             <h2>/20</h2><br><br>
             <h3>Conseils du jour :</h3><br><br>

@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="css/style.css">
 
     </head>
-<body>
+<body style="background: black">
 
 <!-- header section starts  -->
 
@@ -58,7 +58,8 @@
             </div>
             <div class="inputBox">
                 <span class="fas fa-id-badge"></span>
-                <input type="password" name="Mdp" placeholder="mot de passe">
+                <input type="password" id="light" name="Mdp" placeholder="mot de passe">
+                <a id="eye" onclick="eyeclick()" class="fas fa-eye"></a>
             </div>
             <input type="submit" name="submit" value="Se connecter" class="btn">
 

@@ -39,7 +39,7 @@
     </div>
 
     <a href="index.php" class="logo">
-        <h2 style="color: antiquewhite; font-size: 2.5rem;">
+        <h2>
             <?php
 
             if(isset($_COOKIE['pseudo'])){
@@ -59,12 +59,12 @@
 
 <!-- contact section starts  -->
 <section class="content">
-    <h1 class="heading"> <span>contact</span> us </h1>
+    <h1 class="heading">. </h1>
 </section>
 
 <section class="contact" id="contact">
 
-    <h1 class="heading"> <span>contact</span> us </h1>
+    <h1 class="heading"> <span>Nous</span> Contacter</h1>
 
     <div class="row">
         <div class="div2">
@@ -130,7 +130,7 @@
         <?php
         // define variables and set to empty values
         $nameErr = $emailErr = $genderErr = $websiteErr = "";
-        $name = $email= "";
+        $name = $email= $message="";
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (empty($_POST["name"])) {
@@ -161,15 +161,20 @@
         }
         ?>
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-            <h3>get in touch</h3>
+            <h3>Nous Joindre</h3>
             <div class="inputBox">
-                Name: <input type="text" placeholder="name">
+                <input type="text" placeholder="Nom">
                 <span class="error"> <?php echo $nameErr;?></span>
 
             </div>
             <div class="inputBox">
-                E-mail: <input type="email" placeholder="email">
+                <input type="email" placeholder="email">
                 <span class="error"> <?php echo $nameErr;?></span>
+            </div>
+            <div class="inputBox">
+                <input type="text" placeholder="Votre message">
+                <span class="error"> <?php echo $nameErr;?></span>
+
             </div>
             <input type="submit" value="contact now" class="btn">
         </form>
@@ -177,6 +182,8 @@
         echo $name;
         echo "<br>";
         echo $email;
+        echo "<br>";
+        echo "$message";
         ?>
 
 

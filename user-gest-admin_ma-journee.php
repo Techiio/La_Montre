@@ -97,7 +97,7 @@ $vDegCel = array_reverse($vDegCel);
     </div>
 
     <a href="index.php" class="logo">
-        <h2 style="color: antiquewhite; font-size: 2.5rem;">
+        <h2>
             <?php
 
             if(isset($_COOKIE['pseudo'])){
@@ -130,6 +130,7 @@ $vDegCel = array_reverse($vDegCel);
             <p class="textgraph" style="color: darkorange">Evolution des données en fonction des dernières 24h</p>
             <canvas id="line-chart-day"></canvas>
         </div>
+
         <?php
         if (isset($_POST['button1'])) {
             if ($_COOKIE['statut'] == 1 or $_COOKIE['statut'] == 0) {
@@ -143,6 +144,44 @@ $vDegCel = array_reverse($vDegCel);
         <input type="submit" name="button1" class='btn'
                value="Télécharger"/>
     </div>
+
+        <div class="boxsupr">
+            <a class="box">
+                <section class="rd" id="rd">
+                    <form action="reset_data_user-gest-admin_ma-journee.php" method="post">
+                        <<div class="inputBox">
+                            <input type="text" name="Idt" placeholder="Identifiant" />
+                        </div>
+                        <div>
+                            <input
+                                    type="submit"
+                                    value="Pour supprimer vos données, saisissez votre identifiant puis cliquez sur le bouton"
+                                    name="formsend"
+                                    id="formsend"
+                                    class="add"
+                            />
+                        </div>
+
+                        <?php
+                        if(isset($_GET['erreur'])){
+                            $err = $_GET['erreur'];
+                            if($err==3) {
+                                echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Données de la montre reset</p>";
+                            }
+
+                            elseif($err==5) {
+                                echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Erreur, veuillez contacter le service client</p>";
+                            }
+                            elseif($err==6) {
+                                echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Mettez votre identifiant pour supprimer vos données</p>";
+                            }
+                        }
+                        ?>
+                    </form>
+                </section>
+            </a>
+        </div>
+
         <div class="box3">
             <p class="bigtext" style="color: darkorange">Infos du Jour</p>
             <p class="text" style="color: #3cba9f">Pic de Dioxyde d'Azote : </p>
