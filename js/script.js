@@ -27,26 +27,3 @@ window.onscroll = () =>{
     searchForm.classList.remove('active');
     cartItem.classList.remove('active');
 }
-
-function afficher(){
-
-    if(document.getElementById('gest').checked){
-        codefamille = document.getElementById('codefamille');
-        codefamille.style.display = 'none';
-        codefamille
-    }
-    else{
-        codefamille = document.getElementById('codefamille');
-        codefamille.style.display = 'flex';
-        codefamille
-    }
-}
-function eyeclick(){
-    if(document.getElementById('light').type=='text'){
-        document.getElementById('light').type='password';
-    }
-    else{
-        document.getElementById('light').type='text';
-    }
-
-}
