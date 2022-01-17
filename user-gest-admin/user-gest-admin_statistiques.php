@@ -76,11 +76,10 @@ while ($data = $req->fetch()) {
         $sNo2[$a] = $mNo2[$a]/$i;
         $sDegCel[$a] = $mDegCel[$a]/$i ;
 
-        $scoreBpm[$a] = ((-(abs($sBpm[$a]-70))+70)*100/70).',';
+        $scoreBpm[$a] = ((($sBpm[$a]-20)*100)/140).',';
         $scoredB[$a] = (($sdB[$a]*100)/140).',';
-        $scoreDegCel[$a] = ((-(abs($sDegCel[$a]-30))+10)*100/10).',';
+        $scoreDegCel[$a] = ((($sDegCel[$a]-20)*100)/20).',';
         $scoreNo2[$a] = (($sNo2[$a]*100)/40).',';
-
 
         $vBpm[$a] = ($mBpm[$a]/$i).',' ;
         $vdB[$a] = ($mdB[$a]/$i).',';
@@ -105,9 +104,9 @@ $sdB[$a] = $mdB[$a]/$i;
 $sNo2[$a] = $mNo2[$a]/$i;
 $sDegCel[$a] = $mDegCel[$a]/$i ;
 
-$scoreBpm[$a] = ((-(abs($sBpm[$a]-70))+70)*100/70).',';
+$scoreBpm[$a] = ((($sBpm[$a]-20)*100)/140).',';
 $scoredB[$a] = (($sdB[$a]*100)/140).',';
-$scoreDegCel[$a] = ((-(abs($sDegCel[$a]-30))+10)*100/10).',';
+$scoreDegCel[$a] = ((($sDegCel[$a]-20)*100)/20).',';
 $scoreNo2[$a] = (($sNo2[$a]*100)/40).',';
 
 $vBpm[$a] = ($mBpm[$a]/$i).',' ;

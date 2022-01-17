@@ -11,17 +11,17 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
         <!-- custom css file link  -->
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
 
     </head>
-<body>
+<body style="background: black">
 
 <!-- header section starts  -->
 
 <header class="header">
 
     <a class="logo">
-        <img src="images/EkoS.png" alt="">
+        <img src="../images/EkoS.png" alt="">
     </a>
 
     <div class="icons">
@@ -32,7 +32,7 @@
     </div>
 
     <a href="index.php" class="logo">
-        <img src="images/LaMontreS.png" alt="">
+        <img src="../images/LaMontreS.png" alt="">
     </a>
 
 </header>
@@ -51,14 +51,15 @@
     <div class="row">
 
 
-        <form action="connexion log/log.php" method="post">
+        <form action="../connexion%20log/log.php" method="post">
             <div class="inputBox">
                 <span class="fas fa-user"></span>
                 <input type="text" name="Identifiant" placeholder="pseudo">
             </div>
             <div class="inputBox">
                 <span class="fas fa-id-badge"></span>
-                <input type="password" name="Mdp" placeholder="mot de passe">
+                <input type="password" id="light" name="Mdp" placeholder="mot de passe">
+                <a id="eye" onclick="eyeclick()" class="fas fa-eye"></a>
             </div>
             <input type="submit" name="submit" value="Se connecter" class="btn">
 
@@ -83,13 +84,13 @@
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+        <a href="visiteur_CGU.php" style="margin:0 4%;">CGU</a>
         <a>Version: 1.0.12.201</a>
     </div>
 
 
 </section>
 <!-- custom js file link  -->
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 
 </html>

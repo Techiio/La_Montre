@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>LaMontre - Contact</title>
 </head>
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 
 </head>
 <body>
@@ -25,7 +25,7 @@
 <header class="header">
 
     <a class="logo">
-        <img src="images/LaMontreS.png" alt="">
+        <img src="../images/LaMontreS.png" alt="">
     </a>
 
     <div class="icons">
@@ -38,8 +38,8 @@
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="index.php" class="logo">
-        <h2 style="color: antiquewhite; font-size: 2.5rem;">
+    <a href="../visiteur/index.php" class="logo">
+        <h2>
             <?php
 
             if(isset($_COOKIE['pseudo'])){
@@ -59,12 +59,12 @@
 
 <!-- contact section starts  -->
 <section class="content">
-    <h1 class="heading"> <span>contact</span> us </h1>
+    <h1 class="heading">. </h1>
 </section>
 
 <section class="contact" id="contact">
 
-    <h1 class="heading"> <span>contact</span> us </h1>
+    <h1 class="heading"> <span>Nous</span> Contacter</h1>
 
     <div class="row">
         <div class="div2">
@@ -127,20 +127,71 @@
 
         </div>
         </div>
-        <form action="">
-            <h3>get in touch</h3>
+        <?php
+        // define variables and set to empty values
+        $nameErr = $emailErr = $genderErr = $websiteErr = "";
+        $name = $email= $message="";
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (empty($_POST["name"])) {
+                $nameErr = "Name is required";
+            } else {
+                $name = test_input($_POST["name"]);
+                // check if name only contains letters and whitespace
+                if (!preg_match("/^[a-zA-Z-' ]*$/", $name)) {
+                    $nameErr = "Only letters and white space allowed";
+                }
+            }
+
+            if (empty($_POST["email"])) {
+                $emailErr = "Email is required";
+            } else {
+                $email = test_input($_POST["email"]);
+                // check if e-mail address is well-formed
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $emailErr = "Invalid email format";
+                }
+            }
+        }
+        function test_input($data) {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+        ?>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+            <h3>Nous Joindre</h3>
             <div class="inputBox">
                 <span class="fas fa-user"></span>
-                <input type="text" placeholder="name">
+                <input type="text" placeholder="Nom">
+                <span class="error"> <?php echo $nameErr;?></span>
+
             </div>
             <div class="inputBox">
                 <span class="fas fa-envelope"></span>
                 <input type="email" placeholder="email">
+                <span class="error"> <?php echo $nameErr;?></span>
             </div>
-            <input type="submit" value="contact now" class="btn">
+            <div class="inputBox">
+                <span class="fas fa-comment"></span>
+                <input type="text" placeholder="Votre message">
+                <span class="error"> <?php echo $nameErr;?></span>
+
+            </div>
+            <input type="submit" value="Envoyer" class="btn">
         </form>
+        <?php
+        echo $name;
+        echo "<br>";
+        echo $email;
+        echo "<br>";
+        echo "$message";
+        ?>
+
 
     </div>
+//début du code pour les e-mails sous linux
 
 </section>
 
@@ -151,7 +202,7 @@
 
 
 <!-- custom css file link  -->
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 
 </head>
 <body>
@@ -161,7 +212,7 @@
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+        <a href="../visiteur/visiteur_CGU.php" style="margin:0 4%;">CGU</a>
         <a>Version: 1.0.12.201</a>
     </div>
 

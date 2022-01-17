@@ -7,13 +7,10 @@
     <title>Home Menu</title>
 
     <!-- font awesome cdn link  -->
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 
 </head>
 <body>
@@ -23,11 +20,11 @@
 <header class="header">
 
     <a class="logo">
-        <img src="images/LaMontreS.png" alt="">
+        <img src="../images/LaMontreS.png" alt="">
     </a>
 
     <a>
-        <h2 style="color: antiquewhite; font-size: 2.5rem;">
+        <h2>
             <?php
 
             if(isset($_COOKIE['pseudo'])){
@@ -38,7 +35,7 @@
         </h2>
     </a>
 
-    <a href="index.php" class="logo">
+    <a href="../visiteur/index.php" class="logo">
         <h3>
             Déconnexion
         </h3>
@@ -79,6 +76,17 @@
             <h3>FAQ / Contact</h3>
         </a>
 
+        <?php
+        if(isset($_GET['error'])){
+            $err = $_GET['error'];
+            if($err==3)
+                echo '<a  href="gest_comptes-famille.php" class="box">
+            <span class="fas fa-users"></span>
+            <h3>Ma Famille</h3>
+        </a>';
+        }
+        ?>
+
     </div>
 
 </section>
@@ -87,7 +95,7 @@
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+        <a href="../visiteur/visiteur_CGU.php" style="margin:0 4%;">CGU</a>
         <a>Version: 1.0.12.201</a>
     </div>
 

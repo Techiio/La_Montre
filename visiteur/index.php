@@ -7,7 +7,7 @@
     <title>Home Visiteur</title>
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 
 
     <!-- font awesome cdn link  -->
@@ -21,7 +21,7 @@
 <header class="header">
 
     <a class="logo">
-        <img src="images/LaMontreS.png" alt="">
+        <img src="../images/LaMontreS.png" alt="">
     </a>
 
     <div class="icons">
@@ -34,7 +34,7 @@
     </div>
 
     <a class="logo">
-        <img src="images/Eko.png" alt="">
+        <img src="../images/Eko.png" alt="">
     </a>
 
 
@@ -60,7 +60,7 @@
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+        <a href="visiteur_CGU.php" style="margin:0 4%;">CGU</a>
         <a>Version: 1.0.12.201</a>
     </div>
 
@@ -68,7 +68,7 @@
 </section>
 
 <!-- custom js file link  -->
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 
 </body>
 </html>

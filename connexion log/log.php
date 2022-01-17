@@ -20,7 +20,9 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
     //Variables
     $c_mail = $_POST['Identifiant'];
     $c_mdp = $_POST['Mdp'];
-    $c_code = $_POST['CodeStatut'];
+    $codeS = $db -> query("SELECT CodeStatut  FROM connexion WHERE Identifiant= '$c_mail'");
+    $rq= $db -> query("SELECT  CodeFamille FROM profil WHERE Identifiant= '$c_mail'");
+    $CodeFamille=$rq->fetch();
     $error = 1;
 
     $req = $db->prepare('SELECT * FROM connexion WHERE Identifiant=?');
@@ -28,39 +30,51 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
     while ($user = $req->fetch()) {
 
 
-        if ( $user['CodeStatut'] == 2 ) {
-        $error = 0;
+        if ( $user['CodeStatut'] == 2 && $c_mdp == $user['Mdp']) {
+            $error = 0;
 
-        setcookie('pseudo', $user['Identifiant'], time()+364*24*3600, '/', null, false, true);
-        setcookie('codeS', $user['CodeStatut'], time()+364*24*3600, '/', null, false, true);
+            $_SESSION['pseudo']=$user['Identifiant'];
+            $_SESSION['statut']=$user['CodeStatut'];
+            $_SESSION['connect'] = 1;
 
-        $_SESSION['connect'] = 1;
 
-        header('location: ../admin_screen-gestion.php');
+            header('location: ../user-gest-admin/admin_screen-gestion.php');
+        }
 
-    }
+        elseif ( $user['CodeStatut'] == 1 && $c_mdp == $user['Mdp']) {
+            $error = 3;
+
+            $_SESSION['pseudo']=$user['Identifiant'];
+            $_SESSION['statut']=$user['CodeStatut'];
+            setcookie('famille', $CodeFamille['CodeFamille'], time()+364*24*3600, '/', null, false, true);
+
+            $_SESSION['connect'] = 1;
+
+            header('location: ../user-gest-admin/user-gest-admin_menu.php?error=3');
+        }
 
         elseif ($c_mdp == $user['Mdp']) {
             $error = 0;
 
-            setcookie('pseudo', $user['Identifiant'], time()+364*24*3600, '/', null, false, true);
-            setcookie('statut', $user['CodeStatut'], time()+364*24*3600, '/', null, false, true);
+            $_SESSION['pseudo']=$user['Identifiant'];
+            $_SESSION['statut']=$user['CodeStatut'];
+
 
             $_SESSION['connect'] = 1;
 
-            header('location: ../user-gest-admin_menu.php');
+            header('location: ../user-gest-admin/user-gest-admin_menu.php');
 
         }
         else{
-            header('Location: ../visiteur_connexion.php?erreur=1');
+            header('Location: ../visiteur/visiteur_connexion.php?erreur=1');
         }
     }
     if ($error == 1) {
 
-        header('Location: ../visiteur_connexion.php?erreur=1');
+        header('Location: ../visiteur/visiteur_connexion.php?erreur=1');
     }
 }
 else{
-    header('Location: ../visiteur_connexion.php?erreur=1');
+    header('Location: ../visiteur/visiteur_connexion.php?erreur=1');
 }
 
