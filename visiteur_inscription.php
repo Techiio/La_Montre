@@ -16,7 +16,7 @@
       <!-- custom css file link  -->
       <link rel="stylesheet" href="css/style.css" />
     </head>
-    <body>
+    <body style="background: black">
       <!-- header section starts  -->
 
       <header class="header">
@@ -46,30 +46,34 @@
           <form action="connexion log/register.php" method="post">
             <div class="inputBox">
               <span class="fas fa-user"></span>
-              <input type="text" name="Identifiant" placeholder="Prénom" />
+              <input type="text" name="Identifiant" placeholder="Identifiant" />
+                <?php
+                if(isset($_GET['erreur'])){
+                    $err = $_GET['erreur'];
+                    if($err==1 || $err ==2)
+                        echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Identifiant déjà pris</p>";
+                }
+                ?>
             </div>
             <div class="inputBox">
               <span class="fas fa-fire"></span>
               <input type="text" name="CodeProduit" placeholder="Code produit" />
             </div>
-            <div class="inputBox">
-              <span class="fas fa-house-user"></span>
-              <input type="number" name="CodeFamille" placeholder="Code famille" />
+            <div class="inputBox" id="codefamille">
+               <span class="fas fa-house-user"></span>
+               <input type="number" name="CodeFamille" placeholder="Code famille" />
             </div>
             <div class="inputBox">
               <span class="fas fa-id-badge"></span>
-              <input type="password" name="mdp1" placeholder="Mot de passe" />
+              <input type="password" name="mdp1" id="light" placeholder="Mot de passe" />
+              <a id="eye" onclick="eyeclick()" class="fas fa-eye"></a>
             </div>
             <div class="inputBox">
               <span class="fas fa-id-badge"></span>
-              <input
-                type="password"
-                name="mdp2"
-                placeholder="Confirmation mot de passe"
-              />
+              <input type="password" name="mdp2" id="light" placeholder="Confirmation mot de passe"/>
             </div>
             <div>
-              <input type="checkbox" name="gest" value="check" class="check" />
+              <input type="checkbox" onclick="afficher()" id="gest" value="check" class="check" />
               <label for="check">
                 <h4>
                   Cochez si vous souhaitez être le gestionnaire de votre famille
@@ -105,5 +109,5 @@
 
 
   </section>
-
+  <script src="js/script.js"></script>
 </html>
