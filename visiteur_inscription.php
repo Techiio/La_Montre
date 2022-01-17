@@ -50,7 +50,7 @@
                 <?php
                 if(isset($_GET['erreur'])){
                     $err = $_GET['erreur'];
-                    if($err==1 || $err ==2)
+                    if($err==1)
                         echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Identifiant déjà pris</p>";
                 }
                 ?>
@@ -62,6 +62,13 @@
             <div class="inputBox" id="codefamille">
                <span class="fas fa-house-user"></span>
                <input type="number" name="CodeFamille" placeholder="Code famille" />
+                <?php
+                if(isset($_GET['erreur'])){
+                    $err = $_GET['erreur'];
+                    if($err==2)
+                        echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Code famille inexistant</p>";
+                }
+                ?>
             </div>
             <div class="inputBox">
               <span class="fas fa-id-badge"></span>
@@ -71,6 +78,13 @@
             <div class="inputBox">
               <span class="fas fa-id-badge"></span>
               <input type="password" name="mdp2" id="light" placeholder="Confirmation mot de passe"/>
+                <?php
+                if(isset($_GET['erreur'])){
+                    $err = $_GET['erreur'];
+                    if($err==2)
+                        echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Les mots de passe ne correspondent pas </p>";
+                }
+                ?>
             </div>
             <div>
               <input type="checkbox" onclick="afficher()" id="gest" value="check" class="check" />

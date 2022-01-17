@@ -22,7 +22,8 @@ if ($user) {
 else {
     //Ajout d'un utilisateur lors de l'inscription
     if(isset($_POST['CGU'])){
-        if(!empty($_POST['Identifiant']) && !empty($_POST['CodeProduit']) && !empty($_POST['mdp1']) && $_POST['mdp1']==$_POST['mdp2']){
+        if(!empty($_POST['mdp1']) && $_POST['mdp1']==$_POST['mdp2']){
+        if(!empty($_POST['Identifiant']) && !empty($_POST['CodeProduit']) ){
             $CodeProduit=$_POST['CodeProduit'];
             if(isset($_POST['gest'])){
                 $CodeStatut=01;
@@ -53,9 +54,14 @@ else {
 
             header('location: ../user-gest-admin_menu.php');
         }
+
+    }
+        else{
+            header('Location: ../visiteur_inscription.php?erreur=2');
+        }
     }
     else{
-        header('location: ../visiteur_inscription.php?miss=1');
+        header('location: ../visiteur_inscription.php?mis=1');
     }
 }
 
