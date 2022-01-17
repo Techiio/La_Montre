@@ -62,6 +62,13 @@
             <div class="inputBox" id="codefamille">
                <span class="fas fa-house-user"></span>
                <input type="number" name="CodeFamille" placeholder="Code famille" />
+                <?php
+                if(isset($_GET['erreur'])){
+                    $err = $_GET['erreur'];
+                    if($err==3)
+                        echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Code famille inexistant</p>";
+                }
+                ?>
             </div>
             <div class="inputBox">
               <span class="fas fa-id-badge"></span>
@@ -73,7 +80,7 @@
               <input type="password" name="mdp2" id="light" placeholder="Confirmation mot de passe"/>
             </div>
             <div>
-              <input type="checkbox" onclick="afficher()" id="gest" value="check" class="check" />
+              <input type="checkbox" onclick="afficher()" name="gest" id="gest" value="check" class="check" />
               <label for="check">
                 <h4>
                   Cochez si vous souhaitez être le gestionnaire de votre famille
@@ -85,6 +92,13 @@
                     <h4>
                         J'accepte les CGU (Obligatoire) 
                     </h4>
+                    <?php
+                    if(isset($_GET['miss'])){
+                        $ms = $_GET['miss'];
+                        if($ms==1 || $ms==2)
+                            echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Vous devez cocher les CGU</p>";
+                    }
+                    ?>
                 </label>
             </div>
             <input

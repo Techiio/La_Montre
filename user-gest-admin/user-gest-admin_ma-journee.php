@@ -126,7 +126,7 @@ $vDegCel = array_reverse($vDegCel);
 
 <section class="datajour">
 
-        <div class="box1" style="background-color: lightgrey">
+        <div class="box1" style="background-color: whitesmoke">
             <p class="textgraph" style="color: darkorange">Evolution des données en fonction des dernières 24h</p>
             <canvas id="line-chart-day"></canvas>
         </div>
@@ -136,20 +136,18 @@ $vDegCel = array_reverse($vDegCel);
             if ($_COOKIE['statut'] == 1 or $_COOKIE['statut'] == 0) {
                 header('Location: Téléchargement.php?code=' . $codeproduit);
                 die();
-        }
-    }
+            }
+         }
         ?>
-    <div>
-    <form method="post">
-        <input type="submit" name="button1" class='btn'
-               value="Télécharger"/>
-    </div>
+        <div>
 
-        <div class="boxsupr">
-            <a class="box">
+        <div class="box2">
+            <form method="post">
+                <input type="submit" name="button1" class='btn' value="Télécharger"/>
+            <a>
                 <section class="rd" id="rd">
                     <form action="reset_data_user-gest-admin_ma-journee.php" method="post">
-                        <<div class="inputBox">
+                        <div class="inputBox">
                             <input type="text" name="Idt" placeholder="Identifiant" />
                         </div>
                         <div>
@@ -180,6 +178,7 @@ $vDegCel = array_reverse($vDegCel);
                     </form>
                 </section>
             </a>
+
         </div>
 
         <div class="box3">

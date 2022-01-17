@@ -66,15 +66,15 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
 
         }
         else{
-            header('Location: ../visiteur_connexion.php?erreur=1');
+            header('Location: ../visiteur/visiteur_connexion.php?erreur=1');
         }
     }
     if ($error == 1) {
 
-        header('Location: ../visiteur_connexion.php?erreur=1');
+        header('Location: ../visiteur/visiteur_connexion.php?erreur=1');
     }
 }
 else{
-    header('Location: ../visiteur_connexion.php?erreur=1');
+    header('Location: ../visiteur/visiteur_connexion.php?erreur=1');
 }
 

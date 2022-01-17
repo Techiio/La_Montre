@@ -215,13 +215,15 @@ $vDegCel = array_reverse($vDegCel);
 
     <!-- Données maximales atteintes sur la semaine -->
     <div class="box5">
-        <p class="bigtext" style="color: darkorange">Infos de la semaine</p>
         <p class="text" style="color: #3cba9f">Pic de No2 : </p>
         <p class="score"><?php echo round(max($sNo2)).' insérer unité' ?></p>
+        <br>
         <p class="text" style="color: #3e95cd">Pic de poul : </p>
         <p class="score"><?php echo round(max($sBpm)).' Bpm' ?></p>
+        <br>
         <p class="text" style="color: #e8c3b9">Pic de température : </p>
         <p class="score"><?php echo round(max($sDegCel)).'°C' ?></p>
+        <br>
         <p class="text" style="color: #8e5ea2">Pic de son : </p>
         <p class="score"><?php echo round(max($sdB)).' dB' ?></p>
 
@@ -230,6 +232,11 @@ $vDegCel = array_reverse($vDegCel);
     <!-- Récupération des données -->
     <div class="box6">
         <p class="text">Récupérer les données</p>
+        <br>
+        <br>
+        <br>
+        <form method="post">
+            <input type="submit" name="button1" class='btn' value="Télécharger"/>
     </div>
 
     <!-- Graphique en toile d'araignées sur les données des derniers jours -->
