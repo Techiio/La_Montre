@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
         <!-- custom css file link  -->
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
 
     </head>
 <body>
@@ -21,11 +21,11 @@
 <header class="header">
 
     <a class="logo">
-        <img src="images/EkoS.png" alt="">
+        <img src="../images/EkoS.png" alt="">
     </a>
 
     <a href="index.php" class="logo">
-        <img src="images/LaMontreS.png" alt="">
+        <img src="../images/LaMontreS.png" alt="">
     </a>
 
 </header>

@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
         <!-- custom css file link  -->
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
 
     </head>
 <body>
@@ -19,7 +19,7 @@
 <header class="header">
 
     <a class="logo">
-        <img src="images/LaMontreS.png" alt="">
+        <img src="../images/LaMontreS.png" alt="">
     </a>
 
     <div class="icons">
@@ -34,12 +34,12 @@
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="index.php" class="logo">
+    <a href="../visiteur/index.php" class="logo">
         <h2>
             <?php
 
-            if(isset($_COOKIE['pseudo'])){
-                echo '' .$_COOKIE['pseudo'] ;
+            if(isset($_SESSION['pseudo'])){
+                echo '' .$_SESSION['pseudo'] ;
             }
             ?>
 
@@ -65,7 +65,7 @@
             </div>
             <div class="content">
                 <a class="title">Nom d'utilisateur</a>
-                <form action="gest/idt_gest.php" method="post">
+                <form action="../gest/idt_gest.php" method="post">
                     <div class="inputBox">
                         <input name="Idt" type="text" placeholder="Prénom actuel">
                     </div>
@@ -104,7 +104,7 @@
             </div>
             <div class="content">
                 <a class="title">Modifier le Mot de Passe</a>
-                <form action="gest/pwd_gest.php" method="post">
+                <form action="../gest/pwd_gest.php" method="post">
                     <div class="inputBox">
                         <input name="Idt" type="text" placeholder="Prénom">
                     </div>
@@ -145,7 +145,7 @@
             </div>
             <div class="content">
                 <a class="title">Changer la couleur</a>
-                <form action="gest/color_gest.php" id="get_color" method="post" >
+                <form action="../gest/color_gest.php" id="get_color" method="post" >
                 <div class="inputBox">
                     <input type="text" name="Idt" placeholder="Prénom">
                 </div>
@@ -193,14 +193,14 @@
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+        <a href="../visiteur/visiteur_CGU.php" style="margin:0 4%;">CGU</a>
         <a>Version: 1.0.12.201</a>
     </div>
 
 
 </section>
 <!-- custom js file link  -->
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 
 </body>
 </html>

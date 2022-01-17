@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>LaMontre - Contact</title>
 </head>
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 
 </head>
 <body>
@@ -25,7 +25,7 @@
 <header class="header">
 
     <a class="logo">
-        <img src="images/LaMontreS.png" alt="">
+        <img src="../images/LaMontreS.png" alt="">
     </a>
 
     <div class="icons">
@@ -38,7 +38,7 @@
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="index.php" class="logo">
+    <a href="../visiteur/index.php" class="logo">
         <h2>
             <?php
 
@@ -163,20 +163,23 @@
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             <h3>Nous Joindre</h3>
             <div class="inputBox">
+                <span class="fas fa-user"></span>
                 <input type="text" placeholder="Nom">
                 <span class="error"> <?php echo $nameErr;?></span>
 
             </div>
             <div class="inputBox">
+                <span class="fas fa-envelope"></span>
                 <input type="email" placeholder="email">
                 <span class="error"> <?php echo $nameErr;?></span>
             </div>
             <div class="inputBox">
+                <span class="fas fa-comment"></span>
                 <input type="text" placeholder="Votre message">
                 <span class="error"> <?php echo $nameErr;?></span>
 
             </div>
-            <input type="submit" value="contact now" class="btn">
+            <input type="submit" value="Envoyer" class="btn">
         </form>
         <?php
         echo $name;
@@ -199,7 +202,7 @@
 
 
 <!-- custom css file link  -->
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 
 </head>
 <body>
@@ -209,7 +212,7 @@
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+        <a href="../visiteur/visiteur_CGU.php" style="margin:0 4%;">CGU</a>
         <a>Version: 1.0.12.201</a>
     </div>
 

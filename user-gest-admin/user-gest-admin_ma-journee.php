@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 try
 {
     $db = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
@@ -9,7 +11,7 @@ catch (Exception $e)
 {
     die('Erreur : ' . $e->getMessage());
 }
-$id = $_COOKIE['pseudo'];
+$id = $_SESSION['pseudo'];
 
 $sql = "SELECT CodeProduit FROM profil WHERE Identifiant ='$id'";
 $req = $db->query($sql);
@@ -69,7 +71,7 @@ $vDegCel = array_reverse($vDegCel);
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
         <!-- custom css file link  -->
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
 
         <!-- js chart -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js" integrity="sha512-tMabqarPtykgDtdtSqCL3uLVM0gS1ZkUAVhRFu1vSEFgvB73niFQWJuvviDyBGBH22Lcau4rHB5p2K2T0Xvr6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -83,7 +85,7 @@ $vDegCel = array_reverse($vDegCel);
 <header class="header">
 
     <a class="logo">
-        <img src="images/LaMontreS.png" alt="">
+        <img src="../images/LaMontreS.png" alt="">
     </a>
 
     <div class="icons">
@@ -96,12 +98,12 @@ $vDegCel = array_reverse($vDegCel);
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="index.php" class="logo">
+    <a href="../visiteur/index.php" class="logo">
         <h2>
             <?php
 
-            if(isset($_COOKIE['pseudo'])){
-                echo '' .$_COOKIE['pseudo'] ;
+            if(isset($_SESSION['pseudo'])){
+                echo '' .$_SESSION['pseudo'] ;
             }
             ?>
 
@@ -126,7 +128,7 @@ $vDegCel = array_reverse($vDegCel);
 
 <section class="datajour">
 
-        <div class="box1" style="background-color: lightgrey">
+        <div class="box1" style="background-color: whitesmoke">
             <p class="textgraph" style="color: darkorange">Evolution des données en fonction des dernières 24h</p>
             <canvas id="line-chart-day"></canvas>
         </div>
@@ -136,50 +138,46 @@ $vDegCel = array_reverse($vDegCel);
             if ($_COOKIE['statut'] == 1 or $_COOKIE['statut'] == 0) {
                 header('Location: Téléchargement.php?code=' . $codeproduit);
                 die();
-        }
-    }
+            }
+         }
         ?>
-    <div>
-    <form method="post">
-        <input type="submit" name="button1" class='btn'
-               value="Télécharger"/>
-    </div>
+        <div>
 
-        <div class="boxsupr">
-            <a class="box">
-                <section class="rd" id="rd">
-                    <form action="reset_data_user-gest-admin_ma-journee.php" method="post">
-                        <<div class="inputBox">
-                            <input type="text" name="Idt" placeholder="Identifiant" />
-                        </div>
-                        <div>
-                            <input
-                                    type="submit"
-                                    value="Pour supprimer vos données, saisissez votre identifiant puis cliquez sur le bouton"
-                                    name="formsend"
-                                    id="formsend"
-                                    class="add"
-                            />
-                        </div>
+        <div class="box2">
+            <form method="post">
+                <input type="submit" name="button1" class='btn' value="Télécharger"/>
+                <a class="box">
+                    <section class="rd" id="rd">
+                        <form action="reset_data_user-gest-admin_ma-journee.php" method="post">
+                            <div>
+                                <input
+                                        type="submit"
+                                        value="Pour supprimer vos données, cliquez sur le bouton"
+                                        name="formsend"
+                                        id="formsend"
+                                        class="add"
+                                />
+                            </div>
 
-                        <?php
-                        if(isset($_GET['erreur'])){
-                            $err = $_GET['erreur'];
-                            if($err==3) {
-                                echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Données de la montre reset</p>";
-                            }
+                            <?php
+                            if(isset($_GET['erreur'])){
+                                $err = $_GET['erreur'];
+                                if($err==3) {
+                                    echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Données de la montre supprimées</p>";
+                                }
 
-                            elseif($err==5) {
-                                echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Erreur, veuillez contacter le service client</p>";
+                                elseif($err==5) {
+                                    echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Erreur, veuillez contacter le service client</p>";
+                                }
+                                elseif($err==6) {
+                                    echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Mettez votre identifiant pour supprimer vos données</p>";
+                                }
                             }
-                            elseif($err==6) {
-                                echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Mettez votre identifiant pour supprimer vos données</p>";
-                            }
-                        }
-                        ?>
-                    </form>
-                </section>
-            </a>
+                            ?>
+                        </form>
+                    </section>
+                </a>
+
         </div>
 
         <div class="box3">
@@ -200,7 +198,7 @@ $vDegCel = array_reverse($vDegCel);
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+        <a href="../visiteur/visiteur_CGU.php" style="margin:0 4%;">CGU</a>
         <a>Version: 1.0.12.201</a>
     </div>
 
@@ -208,7 +206,7 @@ $vDegCel = array_reverse($vDegCel);
 </section>
 
 <!-- custom js file link  -->
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 <script>
     new Chart(document.getElementById("line-chart-day"), {
         type: 'line',

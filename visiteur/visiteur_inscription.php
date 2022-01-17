@@ -14,21 +14,21 @@
       />
 
       <!-- custom css file link  -->
-      <link rel="stylesheet" href="css/style.css" />
+      <link rel="stylesheet" href="../css/style.css" />
     </head>
     <body style="background: black">
       <!-- header section starts  -->
 
       <header class="header">
         <a class="logo">
-          <img src="images/EkoS.png" alt="" />
+          <img src="../images/EkoS.png" alt="" />
         </a>
         <nav class="navbar">
           <a href="visiteur_connexion.php">Connexion</a>
         </nav>
 
         <a href="index.php" class="logo">
-          <img src="images/LaMontreS.png" alt="" />
+          <img src="../images/LaMontreS.png" alt="" />
         </a>
       </header>
 
@@ -43,14 +43,14 @@
         <h1 class="heading"><span>Je</span> m'inscris</h1>
 
         <div class="row">
-          <form action="connexion log/register.php" method="post">
+          <form action="../connexion%20log/register.php" method="post">
             <div class="inputBox">
               <span class="fas fa-user"></span>
               <input type="text" name="Identifiant" placeholder="Identifiant" />
                 <?php
                 if(isset($_GET['erreur'])){
                     $err = $_GET['erreur'];
-                    if($err==1)
+                    if($err==1 || $err ==2)
                         echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Identifiant déjà pris</p>";
                 }
                 ?>
@@ -63,9 +63,9 @@
                <span class="fas fa-house-user"></span>
                <input type="number" name="CodeFamille" placeholder="Code famille" />
                 <?php
-                if(isset($_GET['erreur'])){
-                    $err = $_GET['erreur'];
-                    if($err==2)
+                if(isset($_GET['code'])){
+                    $cdef = $_GET['code'];
+                    if($cdef==3)
                         echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Code famille inexistant</p>";
                 }
                 ?>
@@ -78,16 +78,9 @@
             <div class="inputBox">
               <span class="fas fa-id-badge"></span>
               <input type="password" name="mdp2" id="light" placeholder="Confirmation mot de passe"/>
-                <?php
-                if(isset($_GET['erreur'])){
-                    $err = $_GET['erreur'];
-                    if($err==2)
-                        echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Les mots de passe ne correspondent pas </p>";
-                }
-                ?>
             </div>
             <div>
-              <input type="checkbox" onclick="afficher()" id="gest" value="check" class="check" />
+              <input type="checkbox" onclick="afficher()" name="gest" id="gest" value="check" class="check" />
               <label for="check">
                 <h4>
                   Cochez si vous souhaitez être le gestionnaire de votre famille
@@ -99,6 +92,13 @@
                     <h4>
                         J'accepte les CGU (Obligatoire) 
                     </h4>
+                    <?php
+                    if(isset($_GET['miss'])){
+                        $ms = $_GET['miss'];
+                        if($ms==1 || $ms==2)
+                            echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Vous devez cocher les CGU</p>";
+                    }
+                    ?>
                 </label>
             </div>
             <input
@@ -117,11 +117,11 @@
   <section class="footer">
 
       <div class="links">
-          <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+          <a href="visiteur_CGU.php" style="margin:0 4%;">CGU</a>
           <a>Version: 1.0.12.201</a>
       </div>
 
 
   </section>
-  <script src="js/script.js"></script>
+  <script src="../js/script.js"></script>
 </html>
