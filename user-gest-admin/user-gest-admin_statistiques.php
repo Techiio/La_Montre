@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // Connexion à la base de données
 try
 {
@@ -12,7 +14,7 @@ catch (Exception $e)
 }
 
 // Récupération de l'ID de connexion
-$id = $_COOKIE['pseudo'];
+$id = $_SESSION['pseudo'];
 
 // Récupération des données liées à l'utilisateur sur la semaine
 $sql = "SELECT CodeProduit FROM profil WHERE Identifiant ='$id'";
