@@ -63,9 +63,9 @@
                <span class="fas fa-house-user"></span>
                <input type="number" name="CodeFamille" placeholder="Code famille" />
                 <?php
-                if(isset($_GET['erreur'])){
-                    $err = $_GET['erreur'];
-                    if($err==3)
+                if(isset($_GET['code'])){
+                    $cdef = $_GET['code'];
+                    if($cdef==3)
                         echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Code famille inexistant</p>";
                 }
                 ?>
