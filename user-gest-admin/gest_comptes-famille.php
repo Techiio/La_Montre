@@ -22,7 +22,7 @@ try {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 
 </head>
 <body>
@@ -32,7 +32,7 @@ try {
 <header class="header">
 
     <a class="logo">
-        <img src="images/LaMontreS.png" alt="">
+        <img src="../images/LaMontreS.png" alt="">
     </a>
 
 
@@ -47,7 +47,7 @@ try {
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="index.php" class="logo">
+    <a href="../visiteur/index.php" class="logo">
         <h2>
             <?php
 
@@ -93,7 +93,7 @@ try {
                 $donnees['Identifiant']=str_replace("$", "",$donnees['Identifiant'])
             ?>
             <a href="gest_comptes-famille.php?user=<?php echo $donnees['Identifiant'] ?>" class="box">
-                <img src="images/user.png" class="user" alt="">
+                <img src="../images/user.png" class="user" alt="">
                 <h3 style="color: <?php echo $donnees['Couleur']; ?> ;"> <?php echo $donnees['Identifiant']; ?> </h3>
             </a>
 
@@ -101,14 +101,14 @@ try {
             }
         } ?>
         <a href="gest_modif-membre.php" class="box">
-                <img src="images/mod.jpg" class="user" alt="">
+                <img src="../images/mod.jpg" class="user" alt="">
                 <h3>Paramètres membre</h3>
             </a>
             <?php
         }
         else{
         ?>
-        <a href="#" class="box"> <img src="images/utilisateur-modified.png" class="user" alt="">
+        <a href="#" class="box"> <img src="../images/utilisateur-modified.png" class="user" alt="">
                 <h3>Aucun compte dans la famille</h3> </a>
 
         <?php } ?>
@@ -135,13 +135,13 @@ if(isset($_GET['user'])){
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+        <a href="../visiteur/visiteur_CGU.php" style="margin:0 4%;">CGU</a>
         <a>Version: 1.0.12.201</a>
     </div>
 
 
 </section>
 <!-- custom js file link  -->
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 
 </html>

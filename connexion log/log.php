@@ -50,7 +50,7 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
 
             $_SESSION['connect'] = 1;
 
-            header('location: ../user-gest-admin_menu.php?error=3');
+            header('location: ../user-gest-admin/user-gest-admin_menu.php?error=3');
         }
 
         elseif ($c_mdp == $user['Mdp']) {
@@ -62,7 +62,7 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
 
             $_SESSION['connect'] = 1;
 
-            header('location: ../user-gest-admin_menu.php');
+            header('location: ../user-gest-admin/user-gest-admin_menu.php');
 
         }
         else{

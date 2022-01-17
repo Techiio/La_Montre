@@ -14,21 +14,21 @@
       />
 
       <!-- custom css file link  -->
-      <link rel="stylesheet" href="css/style.css" />
+      <link rel="stylesheet" href="../css/style.css" />
     </head>
     <body style="background: black">
       <!-- header section starts  -->
 
       <header class="header">
         <a class="logo">
-          <img src="images/EkoS.png" alt="" />
+          <img src="../images/EkoS.png" alt="" />
         </a>
         <nav class="navbar">
           <a href="visiteur_connexion.php">Connexion</a>
         </nav>
 
         <a href="index.php" class="logo">
-          <img src="images/LaMontreS.png" alt="" />
+          <img src="../images/LaMontreS.png" alt="" />
         </a>
       </header>
 
@@ -43,7 +43,7 @@
         <h1 class="heading"><span>Je</span> m'inscris</h1>
 
         <div class="row">
-          <form action="connexion log/register.php" method="post">
+          <form action="../connexion%20log/register.php" method="post">
             <div class="inputBox">
               <span class="fas fa-user"></span>
               <input type="text" name="Identifiant" placeholder="Identifiant" />
@@ -103,11 +103,11 @@
   <section class="footer">
 
       <div class="links">
-          <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+          <a href="visiteur_CGU.php" style="margin:0 4%;">CGU</a>
           <a>Version: 1.0.12.201</a>
       </div>
 
 
   </section>
-  <script src="js/script.js"></script>
+  <script src="../js/script.js"></script>
 </html>

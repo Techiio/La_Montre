@@ -51,7 +51,7 @@ else {
 
 
 
-            header('location: ../user-gest-admin_menu.php');
+            header('location: ../user-gest-admin/user-gest-admin_menu.php');
         }
     }
     else{

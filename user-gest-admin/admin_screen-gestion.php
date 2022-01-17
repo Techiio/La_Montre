@@ -7,7 +7,7 @@
     <title>~Admin~ Screen Gestion</title>
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -20,7 +20,7 @@
 <header class="header">
 
     <a class="logo">
-        <img src="images/EkoS.png" alt="">
+        <img src="../images/EkoS.png" alt="">
     </a>
 
 
@@ -34,8 +34,8 @@
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="index.php" class="logo">
-        <img src="images/LaMontreS.png" alt="">
+    <a href="../visiteur/index.php" class="logo">
+        <img src="../images/LaMontreS.png" alt="">
         <h3>Déconnexion</h3>
     </a>
 
@@ -54,7 +54,7 @@
     <div class="box-container">
 
         <a class="box">
-            <img src="images/assemblee.png" alt="">
+            <img src="../images/assemblee.png" alt="">
             <h3>Nombre d'utilisateurs connectés :</h3>
             <br>
             <br>
@@ -84,10 +84,10 @@
         </a>
 
         <a class="box">
-            <img src="images/gerer.png" alt="">
+            <img src="../images/gerer.png" alt="">
             <h3>Gérer un utilisateur</h3>
             <section class="gu" id="gu">
-                <form action="admin_screen/gestion_user.php" method="post">
+                <form action="../admin_screen/gestion_user.php" method="post">
                     <div class="inputBox">
                         <span class="fas fa-user"></span>
                         <input type="text" name="Identifiant" placeholder="Prénom" />
@@ -114,10 +114,10 @@
         </a>
 
         <a class="box">
-            <img src="images/reset.png" alt="">
+            <img src="../images/reset.png" alt="">
             <h3>Reset les données</h3>
             <section class="rd" id="rd">
-                <form action="admin_screen/reset_data.php" method="post">
+                <form action="../admin_screen/reset_data.php" method="post">
                     <div class="inputBox">
                         <span class="fas fa-user"></span>
                         <input type="text" name="Idt" placeholder="Prénom" />
@@ -145,10 +145,10 @@
         </a>
 
         <a class="box">
-            <img src="images/ajout.png" alt="">
+            <img src="../images/ajout.png" alt="">
             <h3>Ajouter un admin</h3>
             <section class="addadmin" id="addadmin">
-                <form action="admin_screen/add_admin.php" method="post">
+                <form action="../admin_screen/add_admin.php" method="post">
                     <div class="inputBox">
                         <span class="fas fa-user"></span>
                         <input type="text" name="Idtf" placeholder="Prénom" />
@@ -186,7 +186,7 @@
         </a>
 
         <a class="box">
-            <img src="images/equipe.png" alt="">
+            <img src="../images/equipe.png" alt="">
             <h3>Liste des admins</h3>
             <br>
             <section id="liste">
@@ -205,10 +205,10 @@
         </a>
 
         <a class="box">
-            <img src="images/pas-de-foule.png" alt="">
+            <img src="../images/pas-de-foule.png" alt="">
             <h3>Supprimer un admin</h3>
             <section class="deladmin" id="deladmin">
-                <form action="admin_screen/del_admin.php" method="post">
+                <form action="../admin_screen/del_admin.php" method="post">
                     <div class="inputBox">
                         <span class="fas fa-user"></span>
                         <input type="text" name="Idt" placeholder="Prénom" />
@@ -241,13 +241,13 @@
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.php">CGU</a>
+        <a href="../visiteur/visiteur_CGU.php">CGU</a>
     </div>
 
 </section>
 
 <!-- custom js file link  -->
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 
 </body>
 </html>

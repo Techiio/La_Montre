@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
         <!-- custom css file link  -->
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
 
     </head>
 <body style="background: black">
@@ -21,7 +21,7 @@
 <header class="header">
 
     <a class="logo">
-        <img src="images/EkoS.png" alt="">
+        <img src="../images/EkoS.png" alt="">
     </a>
 
     <div class="icons">
@@ -32,7 +32,7 @@
     </div>
 
     <a href="index.php" class="logo">
-        <img src="images/LaMontreS.png" alt="">
+        <img src="../images/LaMontreS.png" alt="">
     </a>
 
 </header>
@@ -51,7 +51,7 @@
     <div class="row">
 
 
-        <form action="connexion log/log.php" method="post">
+        <form action="../connexion%20log/log.php" method="post">
             <div class="inputBox">
                 <span class="fas fa-user"></span>
                 <input type="text" name="Identifiant" placeholder="pseudo">
@@ -84,13 +84,13 @@
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+        <a href="visiteur_CGU.php" style="margin:0 4%;">CGU</a>
         <a>Version: 1.0.12.201</a>
     </div>
 
 
 </section>
 <!-- custom js file link  -->
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 
 </html>
