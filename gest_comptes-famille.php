@@ -78,8 +78,8 @@ try {
         <?php
         //Variables
         $CodeFamille=$_COOKIE['famille'];
-        $Identifiant=$_COOKIE['pseudo'];
-        $CodeStatut=$_COOKIE['statut'];
+        $Identifiant=$_SESSION['pseudo'];
+        $CodeStatut=$_SESSION['statut'];
 
         //Vérification de la présence d'utilisateur dans la famille en plus du gestionnaire
         $compte_utilisateur_famille=$bdd->query("SELECT count(Identifiant) as compte FROM profil WHERE '$CodeFamille'= CodeFamille");
