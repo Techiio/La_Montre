@@ -169,9 +169,6 @@ $vDegCel = array_reverse($vDegCel);
                                 elseif($err==5) {
                                     echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Erreur, veuillez contacter le service client</p>";
                                 }
-                                elseif($err==6) {
-                                    echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Mettez votre identifiant pour supprimer vos données</p>";
-                                }
                             }
                             ?>
                         </form>
