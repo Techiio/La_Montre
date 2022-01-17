@@ -384,7 +384,7 @@ INSERT INTO `online` (`id`, `time`, `user_ip`) VALUES
 
 DROP TABLE IF EXISTS `profil`;
 CREATE TABLE IF NOT EXISTS `profil` (
-  `CodeProduit` int(11) NOT NULL,
+  `CodeProduit` varchar(24) NOT NULL,
   `Couleur` varchar(7) NOT NULL,
   `CodeFamille` varchar(10) DEFAULT NULL,
   `Identifiant` varchar(60) DEFAULT NULL,

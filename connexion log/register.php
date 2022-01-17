@@ -29,13 +29,11 @@ if(isset($_Post['gest'])){
                 if(isset($_POST['gest'])){
                     $CodeStatut=01;
                     $CodeFamille=rand(1000000001,9999999999);
-                    $CodePersonne=10000;
                 }
                 else{
                     if(!empty($_POST['CodeFamille'])) {
                         $CodeStatut=00;
                         $CodeFamille = $_POST['CodeFamille'];
-                        $CodePersonne = rand(10001, 99999);
                     }
                 }
                 $Couleur="white";
@@ -45,11 +43,11 @@ if(isset($_Post['gest'])){
                 //Envoi des coordonnées à mySQL
 
 
-                $requete=$bdd->prepare('INSERT INTO profil(CodePersonne, CodeProduit, Couleur, CodeFamille, Identifiant ) VALUES(?, ?, ?, ?, ?)');
-                $requete->execute(array($CodePersonne, $CodeProduit, $Couleur, $CodeFamille, $Identifiant));
+                $requete=$bdd->prepare('INSERT INTO profil(CodeProduit, Couleur, CodeFamille, Identifiant ) VALUES(?, ?, ?, ?)');
+                $requete->execute(array($CodeProduit, $Couleur, $CodeFamille, $Identifiant));
 
                 $requete=$bdd->prepare('INSERT INTO connexion(CodeStatut, Identifiant, Mdp ) VALUES(?, ?, ?)');
-                $requete->execute(array($CodePersonne, $Identifiant, $mdp));
+                $requete->execute(array($Identifiant, $mdp));
 
 
 
@@ -73,13 +71,11 @@ else{
                     if(isset($_POST['gest'])){
                         $CodeStatut=01;
                         $CodeFamille=rand(1000000001,9999999999);
-                        $CodePersonne=10000;
                     }
                     else{
                         if(!empty($_POST['CodeFamille'])) {
                             $CodeStatut=00;
                             $CodeFamille = $_POST['CodeFamille'];
-                            $CodePersonne = rand(10001, 99999);
                         }
                     }
                     $Couleur="white";
@@ -89,11 +85,11 @@ else{
                     //Envoi des coordonnées à mySQL
 
 
-                    $requete=$bdd->prepare('INSERT INTO profil(CodePersonne, CodeProduit, Couleur, CodeFamille, Identifiant ) VALUES(?, ?, ?, ?, ?)');
-                    $requete->execute(array($CodePersonne, $CodeProduit, $Couleur, $CodeFamille, $Identifiant));
+                    $requete=$bdd->prepare('INSERT INTO profil(CodeProduit, Couleur, CodeFamille, Identifiant ) VALUES(?, ?, ?, ?)');
+                    $requete->execute(array($CodeProduit, $Couleur, $CodeFamille, $Identifiant));
 
                     $requete=$bdd->prepare('INSERT INTO connexion(CodeStatut, Identifiant, Mdp ) VALUES(?, ?, ?)');
-                    $requete->execute(array($CodePersonne, $Identifiant, $mdp));
+                    $requete->execute(array($CodeStatut, $Identifiant, $mdp));
 
 
 
@@ -105,7 +101,7 @@ else{
             }
         }
         else{
-            header('Location: ../visiteur/visiteur_inscription.php?erreur=3');
+            header('Location: ../visiteur/visiteur_inscription.php?code=1');
         }
 
     }
