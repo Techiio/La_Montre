@@ -128,10 +128,10 @@ $vDegCel = array_reverse($vDegCel);
 
 <section class="datajour">
 
-        <div class="box1" style="background-color: whitesmoke">
-            <p class="textgraph" style="color: darkorange">Evolution des données en fonction des dernières 24h</p>
-            <canvas id="line-chart-day"></canvas>
-        </div>
+    <div class="box1" style="background-color: lightgrey">
+        <p class="textgraph" style="color: darkorange">Evolution des données en fonction des dernières 24h</p>
+        <canvas id="line-chart-day"></canvas>
+    </div>
 
         <?php
         if (isset($_POST['button1'])) {
@@ -146,34 +146,34 @@ $vDegCel = array_reverse($vDegCel);
         <div class="box2">
             <form method="post">
                 <input type="submit" name="button1" class='btn' value="Télécharger"/>
-                <a class="box">
-                    <section class="rd" id="rd">
-                        <form action="reset_data_user-gest-admin_ma-journee.php" method="post">
-                            <div>
-                                <input
-                                        type="submit"
-                                        value="Pour supprimer vos données, cliquez sur le bouton"
-                                        name="formsend"
-                                        id="formsend"
-                                        class="add"
-                                />
-                            </div>
+            <a class="box">
+                <section class="rd" id="rd">
+                    <form action="user-gest-admin/reset_data_user-gest-admin_ma-journee.php" method="post">
+                        <div>
+                            <input
+                                    type="submit"
+                                    value="Pour supprimer vos données, cliquez sur le bouton"
+                                    name="formsend"
+                                    id="formsend"
+                                    class="add"
+                            />
+                        </div>
 
-                            <?php
-                            if(isset($_GET['erreur'])){
-                                $err = $_GET['erreur'];
-                                if($err==3) {
-                                    echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Données de la montre supprimées</p>";
-                                }
-
-                                elseif($err==5) {
-                                    echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Erreur, veuillez contacter le service client</p>";
-                                }
+                        <?php
+                        if(isset($_GET['erreur'])){
+                            $err = $_GET['erreur'];
+                            if($err==3) {
+                                echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Données de la montre supprimées</p>";
                             }
-                            ?>
-                        </form>
-                    </section>
-                </a>
+
+                            elseif($err==5) {
+                                echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Erreur, veuillez contacter le service client</p>";
+                            }
+                        }
+                        ?>
+                    </form>
+                </section>
+            </a>
 
         </div>
 
