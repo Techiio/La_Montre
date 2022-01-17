@@ -59,6 +59,10 @@
             <br>
             <br>
             <h3> <?php
+                //if($_SESSION['statut'] !== 2){
+
+                    //header("Location: /LaMontre/visiteur_connexion.php");
+                //}
                 $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8', "root", "");
                 $temps_session = 600;
                 $temps_actuel = date("U");
