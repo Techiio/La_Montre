@@ -38,7 +38,7 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
             $_SESSION['connect'] = 1;
 
 
-            header('location: ../admin_screen-gestion.php');
+            header('location: ../user-gest-admin/admin_screen-gestion.php');
         }
 
         elseif ( $user['CodeStatut'] == 1 && $c_mdp == $user['Mdp']) {
