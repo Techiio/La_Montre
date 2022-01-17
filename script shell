@@ -3,3 +3,4 @@ chdir('/my/path/');
 $output = shell_exec('./script.sh var1 var2');
 chdir($old_path);
 echo "<pre>$output</pre>"
+echo -e "Subject: Test Mail\r\n\r\nThis is a test mail" |msmtp --debug --from=default -t guigui.ker@free.fr
