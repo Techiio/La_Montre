@@ -9,7 +9,7 @@ $request = $bdd->query($download);
 $resul = $request->fetch(PDO::FETCH_ASSOC);
 
 $final = json_encode($resul, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-$filename = './tmp/Mesdonnées.json';
+$filename = '../tmp/Mesdonnées.json';
 $file = fopen($filename,'w'); 
 fwrite($file,$final);
 fclose($file);
