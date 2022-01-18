@@ -21,7 +21,7 @@ $Newpwd2 = $_POST['pwd2'];
 $rq=$bdd->query("SELECT  CodeFamille FROM profil WHERE Identifiant= '$Idt'");
 $requete=$rq->fetch();
 $Code_Famille_Idt=$requete['CodeFamille'];
-$Code_Statut = $_COOKIE['statut'];
+$Code_Statut = $_SESSION['statut'];
 $Code_Famille_gest =$_COOKIE['famille'];
 
 //Changement de mot de passe

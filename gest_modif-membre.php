@@ -37,6 +37,7 @@
     <a href="fin_de_session.php" class="logo">
         <h2>
             <?php
+            session_start();
 
             if(isset($_SESSION['pseudo'])) {
                 echo '' . $_SESSION['pseudo'];
@@ -61,7 +62,7 @@
 
         <div class="box">
             <div class="image">
-                <img src="../images/nom-dutilisateur (1)-modified.png" alt="">
+                <img src="images/nom-dutilisateur (1)-modified.png" alt="">
             </div>
             <div class="content">
                 <a class="title">Nom d'utilisateur</a>
@@ -100,7 +101,7 @@
 
         <div class="box">
             <div class="image">
-                <img src="../images/nom-dutilisateur-modified.png" alt="">
+                <img src="images/nom-dutilisateur-modified.png" alt="">
             </div>
             <div class="content">
                 <a class="title">Modifier le Mot de Passe</a>
@@ -141,7 +142,7 @@
 
         <div class="box">
             <div class="image">
-                <img src="../images/palette-de-couleurs-modified.png" alt="">
+                <img src="images/palette-de-couleurs-modified.png" alt="">
             </div>
             <div class="content">
                 <a class="title">Changer la couleur</a>
