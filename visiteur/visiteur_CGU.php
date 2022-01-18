@@ -24,7 +24,7 @@
         <img src="../images/EkoS.png" alt="">
     </a>
 
-    <a href="index.php" class="logo">
+    <a href="../index.php" class="logo">
         <img src="../images/LaMontreS.png" alt="">
     </a>
 

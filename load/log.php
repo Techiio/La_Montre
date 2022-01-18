@@ -38,7 +38,7 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
 
         $_SESSION['connect'] = 1;
 
-        header('location: ../admin_screen-gestion.php');
+        header('Location: ../user-gest-admin/admin_screen-gestion.php');
         }
 
         elseif ( $user['CodeStatut'] == 1 && $c_mdp == $user['Mdp']) {
@@ -50,7 +50,7 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
 
             $_SESSION['connect'] = 1;
 
-            header('location: ../user-gest-admin_menu.php?error=3');
+            header('Location: ../user-gest-admin/user-gest-admin_menu.php?error=3');
         }
 
         elseif ($c_mdp == $user['Mdp']) {
@@ -62,19 +62,19 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
 
             $_SESSION['connect'] = 1;
 
-            header('location: ../user-gest-admin_menu.php');
+            header('Location: ../user-gest-admin/user-gest-admin_menu.php');
 
         }
         else{
-            header('Location: ../visiteur_connexion.php?erreur=1');
+            header('Location: ../visiteur/visiteur_connexion.php?erreur=1');
         }
     }
     if ($error == 1) {
 
-        header('Location: ../visiteur_connexion.php?erreur=1');
+        header('Location: ../visiteur/visiteur_connexion.php?erreur=1');
     }
 }
 else{
-    header('Location: ../visiteur_connexion.php?erreur=1');
+    header('Location: ../visiteur/visiteur_connexion.php?erreur=1');
 }
 

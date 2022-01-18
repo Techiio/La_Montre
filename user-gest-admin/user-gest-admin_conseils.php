@@ -101,7 +101,7 @@ switch ($pireScore)
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="../visiteur/index.php" class="logo">
+    <a href="../index.php" class="logo">
         <h2>
             <?php
 

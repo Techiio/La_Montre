@@ -179,7 +179,7 @@ $vDegCel = array_reverse($vDegCel);
     </div>
 
     <!--Bouton déconnexion -->
-    <a href="../visiteur/index.php" class="logo">
+    <a href="../index.php" class="logo">
         <h2>
             <?php
 
