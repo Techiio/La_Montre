@@ -1,4 +1,5 @@
 <?php
+session_start();
 try
 {
     $db = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
@@ -10,7 +11,7 @@ catch (Exception $e)
     die('Erreur : ' . $e->getMessage());
 }
 
-$id = $_COOKIE['pseudo'];
+$id = $_SESSION['pseudo'];
 
 $sql = "SELECT CodeProduit FROM profil WHERE Identifiant ='$id'";
 $req = $db->query($sql);
@@ -104,9 +105,10 @@ switch ($pireScore)
     <a href="fin_de_session.php" class="logo">
         <h2>
             <?php
+            session_start();
 
-            if(isset($_COOKIE['pseudo'])){
-                echo '' .$_COOKIE['pseudo'] ;
+            if(isset($_SESSION['pseudo'])) {
+                echo '' . $_SESSION['pseudo'];
             }
             ?>
 

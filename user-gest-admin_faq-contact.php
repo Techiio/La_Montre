@@ -41,9 +41,10 @@
     <a href="fin_de_session.php" class="logo">
         <h2>
             <?php
+            session_start();
 
-            if(isset($_COOKIE['pseudo'])){
-                echo '' .$_COOKIE['pseudo'] ;
+            if(isset($_SESSION['pseudo'])) {
+                echo '' . $_SESSION['pseudo'];
             }
             ?>
 
@@ -176,7 +177,7 @@
                 <span class="error"> <?php echo $nameErr;?></span>
 
             </div>
-            <input type="submit" value="contact now" class="btn">
+            <input type="submit" value="Envoi de votre message" class="btn">
         </form>
         <?php
         echo $name;
