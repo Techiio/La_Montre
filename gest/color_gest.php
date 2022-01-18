@@ -11,9 +11,9 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 //Données du formulaire + cookie
-$Idt= $_POST['Idt'];
-$Newcolor = $_POST['new_color'];
-$CodeF= $_COOKIE['famille'];
+$Idt= htmlentities($_POST['Idt']);
+$Newcolor = htmlentities($_POST['new_color']);
+$CodeF= htmlentities($_COOKIE['famille']);
 
 //vérification de l'existence de l'identifiant
 $existence_identifiant_famille=$bdd->query("SELECT count(Identifiant) as compte FROM profil WHERE '$Idt'= Identifiant AND '$CodeF' = CodeFamille ");

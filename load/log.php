@@ -18,8 +18,8 @@ if (isset($_SESSION['connect'])) {
 
 if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
     //Variables
-    $c_mail = $_POST['Identifiant'];
-    $c_mdp = $_POST['Mdp'];
+    $c_mail = htmlentities($_POST['Identifiant']);
+    $c_mdp = htmlentities($_POST['Mdp']);
     $codeS = $db -> query("SELECT CodeStatut  FROM connexion WHERE Identifiant= '$c_mail'");
     $rq= $db -> query("SELECT  CodeFamille FROM profil WHERE Identifiant= '$c_mail'");
     $CodeFamille=$rq->fetch();
@@ -31,38 +31,38 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
 
 
         if ( $user['CodeStatut'] == 2 && $c_mdp == $user['Mdp']) {
-            $error = 0;
+        $error = 0;
 
-            $_SESSION['pseudo']=$user['Identifiant'];
-            $_SESSION['statut']=$user['CodeStatut'];
-            $_SESSION['connect'] = 1;
+        $_SESSION['pseudo']= $user['Identifiant'];
+        $_SESSION['statut']= $user['CodeStatut'];
 
+        $_SESSION['connect'] = 1;
 
-            header('location: ../user-gest-admin/admin_screen-gestion.php');
+        header('Location: ../user-gest-admin/admin_screen-gestion.php');
         }
 
         elseif ( $user['CodeStatut'] == 1 && $c_mdp == $user['Mdp']) {
             $error = 3;
 
-            $_SESSION['pseudo']=$user['Identifiant'];
-            $_SESSION['statut']=$user['CodeStatut'];
+            $_SESSION['pseudo']= $user['Identifiant'];
+            $_SESSION['statut']= $user['CodeStatut'];
             setcookie('famille', $CodeFamille['CodeFamille'], time()+364*24*3600, '/', null, false, true);
 
             $_SESSION['connect'] = 1;
 
-            header('location: ../user-gest-admin/user-gest-admin_menu.php?error=3');
+            header('Location: ../user-gest-admin/user-gest-admin_menu.php?error=3');
         }
 
         elseif ($c_mdp == $user['Mdp']) {
             $error = 0;
 
-            $_SESSION['pseudo']=$user['Identifiant'];
-            $_SESSION['statut']=$user['CodeStatut'];
+            $_SESSION['pseudo']= $user['Identifiant'];
+            $_SESSION['statut']= $user['CodeStatut'];
 
 
             $_SESSION['connect'] = 1;
 
-            header('location: ../user-gest-admin/user-gest-admin_menu.php');
+            header('Location: ../user-gest-admin/user-gest-admin_menu.php');
 
         }
         else{

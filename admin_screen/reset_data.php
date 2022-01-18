@@ -9,9 +9,9 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 //Donnée du formulaire
-$Idt = $_POST['Idt'];
+$Idt = htmlentities($_POST['Idt']);
 
-//Vérification de la présence d'utilisateur dans la base
+//Vérification de la présence d'utilisateur dans la famille en plus du gestionnaire
 $Id=$bdd->query("SELECT count(Identifiant) as compte FROM profil WHERE '$Idt'= Identifiant");
 $nb_utilisateur=$Id->fetch();
 $Id->closeCursor();

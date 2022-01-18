@@ -31,7 +31,7 @@
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="index.php" class="logo">
+    <a href="../index.php" class="logo">
         <img src="../images/LaMontreS.png" alt="">
     </a>
 
@@ -51,7 +51,7 @@
     <div class="row">
 
 
-        <form action="../connexion%20log/log.php" method="post">
+        <form action="../load/log.php" method="post">
             <div class="inputBox">
                 <span class="fas fa-user"></span>
                 <input type="text" name="Identifiant" placeholder="pseudo">

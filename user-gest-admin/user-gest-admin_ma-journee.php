@@ -98,7 +98,7 @@ $vDegCel = array_reverse($vDegCel);
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="../visiteur/index.php" class="logo">
+    <a href="../index.php" class="logo">
         <h2>
             <?php
 
@@ -136,7 +136,7 @@ $vDegCel = array_reverse($vDegCel);
         <?php
         if (isset($_POST['button1'])) {
             if ($_SESSION['statut'] == 1 or $_SESSION['statut'] == 0) {
-                header('Location: Téléchargement.php?code=' . $codeproduit);
+                header('Location: ../load/Téléchargement.php?code=' . $codeproduit);//redirection 
                 die();
             }
          }
@@ -152,6 +152,7 @@ $vDegCel = array_reverse($vDegCel);
                         <div>
                             <input
                                     type="submit"
+                                    style="letter-spacing: 0;"
                                     value="Pour supprimer vos données, cliquez sur le bouton"
                                     name="formsend"
                                     id="formsend"
