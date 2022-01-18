@@ -238,7 +238,7 @@ $vDegCel = array_reverse($vDegCel);
         <br>
         <br>
         <form method="post">
-            <input type="submit" name="button1" class='btn' value="Télécharger"/>
+            <input type="submit" name="button1" class='btn' style="background: seagreen; font-weight: bold;" value="Télécharger"/>
     </div>
 
     <!-- Graphique en toile d'araignées sur les données des derniers jours -->

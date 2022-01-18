@@ -145,14 +145,14 @@ $vDegCel = array_reverse($vDegCel);
 
         <div class="box2">
             <form method="post">
-                <input type="submit" name="button1" class='btn' value="Télécharger"/>
+                <input type="submit" name="button1" class='btn' style="background: seagreen; font-weight: bold;" value="Télécharger"/>
             <a class="box">
                 <section class="rd" id="rd">
                     <form action="user-gest-admin/reset_data_user-gest-admin_ma-journee.php" method="post">
                         <div>
                             <input
                                     type="submit"
-                                    style="letter-spacing: 0;"
+                                    style="background: brown; font-weight: bold; letter-spacing: 0;"
                                     value="Pour supprimer vos données, cliquez sur le bouton"
                                     name="formsend"
                                     id="formsend"

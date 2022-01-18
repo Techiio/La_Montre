@@ -7,6 +7,7 @@ if(!isset($_GET['code'])){// Méthode get
 $code = $_GET['code'];
 $download='SELECT * FROM donneesmontre WHERE CodeProduit ='. $code .' ORDER BY Date DESC, Heure DESC LIMIT 24';
 $request = $bdd->query($download);
+//Affiche un tableau
 $resul = $request->fetch(PDO::FETCH_ASSOC);
 
 // Transformer en json le résultat

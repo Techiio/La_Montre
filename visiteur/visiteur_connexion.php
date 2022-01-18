@@ -54,14 +54,14 @@
         <form action="../load/log.php" method="post">
             <div class="inputBox">
                 <span class="fas fa-user"></span>
-                <input type="text" name="Identifiant" placeholder="pseudo">
+                <input type="text" name="Identifiant" placeholder="Prénom">
             </div>
             <div class="inputBox">
                 <span class="fas fa-id-badge"></span>
                 <input type="password" id="light" name="Mdp" placeholder="mot de passe">
                 <a id="eye" onclick="eyeclick()" class="fas fa-eye"></a>
             </div>
-            <input type="submit" name="submit" value="Se connecter" class="btn">
+            <input style="background: brown; font-weight: bold;" type="submit" name="submit" value="Se connecter" class="btn">
 
             <?php
             if(isset($_GET['erreur'])){

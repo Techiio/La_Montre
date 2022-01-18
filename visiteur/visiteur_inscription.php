@@ -46,12 +46,12 @@
           <form action="../load/formuser.php" method="post">
             <div class="inputBox">
               <span class="fas fa-user"></span>
-              <input type="text" name="Identifiant" placeholder="Identifiant" />
+              <input type="text" name="Identifiant" placeholder="Prénom" />
                 <?php
                 if(isset($_GET['erreur'])){
                     $err = $_GET['erreur'];
                     if($err==1 || $err ==2)
-                        echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Identifiant déjà pris</p>";
+                        echo "<p style='color:red; padding: 1rem; font-weight: bold; font-size: 1.5rem; transition: 1s; '>Identifiant déjà pris</p>";
                 }
                 ?>
             </div>
@@ -66,7 +66,7 @@
                 if(isset($_GET['code'])){
                     $cdef = $_GET['code'];
                     if($cdef==1)
-                        echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Code famille inexistant</p>";
+                        echo "<p style='color:red; padding: 1rem; font-weight: bold; font-size: 1.5rem; transition: 1s; '>Code famille inexistant</p>";
                 }
                 ?>
             </div>
@@ -97,12 +97,13 @@
                     if(isset($_GET['miss'])){
                         $ms = $_GET['miss'];
                         if($ms==1 || $ms==2)
-                            echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Vous devez cocher les CGU</p>";
+                            echo "<p style='color:red; padding: 1rem; font-weight: bold; font-size: 1.5rem; transition: 1s; '>Vous devez cocher les CGU</p>";
                     }
                     ?>
                 </label>
             </div>
             <input
+              style="background: brown; font-weight: bold;"
               type="submit"
               value="S'inscrire"
               name="formsend"
