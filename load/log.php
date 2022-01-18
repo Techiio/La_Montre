@@ -18,8 +18,8 @@ if (isset($_SESSION['connect'])) {
 
 if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
     //Variables
-    $c_mail = $_POST['Identifiant'];
-    $c_mdp = $_POST['Mdp'];
+    $c_mail = htmlentities($_POST['Identifiant']);
+    $c_mdp = htmlentities($_POST['Mdp']);
     $codeS = $db -> query("SELECT CodeStatut  FROM connexion WHERE Identifiant= '$c_mail'");
     $rq= $db -> query("SELECT  CodeFamille FROM profil WHERE Identifiant= '$c_mail'");
     $CodeFamille=$rq->fetch();

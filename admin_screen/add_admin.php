@@ -14,9 +14,9 @@ try {
 //Ajout d'un admin par un autre admin
 
     if(!empty($_POST['Idtf']) && !empty($_POST['pwd1']) && $_POST['pwd1']==$_POST['pwd2']){
-        $Identifiant=$_POST['Idtf'];
+        $Identifiant=htmlentities($_POST['Idtf']);
         $CodeStatut=02;
-        $mdp=$_POST['pwd1'];}
+        $mdp=htmlentities($_POST['pwd1']);}
 
         //Transmission de l'ajout vers la bdd
         $requete=$bdd->prepare('INSERT INTO connexion(CodeStatut, Identifiant, Mdp ) VALUES(?, ?, ?)');

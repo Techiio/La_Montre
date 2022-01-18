@@ -16,7 +16,7 @@ $color ="white";
 if(isset($_POST["gest"])){
     if(isset($_POST["CGU"])){
         if(!empty($_POST["Identifiant"])&&!empty($_POST['CodeProduit'])&&!empty($_POST["mdp1"])&&$_POST["mdp1"]==$_POST["mdp2"]){
-            $Identifiant = $_POST["Identifiant"];
+            $Identifiant = htmlentities($_POST["Identifiant"]);
             $stmt = $bdd->prepare("SELECT * FROM profil WHERE Identifiant=?");
             $stmt->execute([$Identifiant]);
             $user = $stmt->fetch();
@@ -26,9 +26,9 @@ if(isset($_POST["gest"])){
             }
             else{
                 $cdestatut = 1;
-                $cdeproduit = $_POST["CodeProduit"];
+                $cdeproduit = htmlentities($_POST["CodeProduit"]);
                 $cdefamille = rand(1000000001,9999999999);
-                $mdp = $_POST['mdp1'];
+                $mdp = htmlentities($_POST['mdp1']);
 //Envoi des coordonnées à mySQL
 
 
@@ -50,12 +50,12 @@ if(isset($_POST["gest"])){
 else{
     if(isset($_POST['CGU'])){
         if(!empty($_POST["Identifiant"])&&!empty($_POST['CodeProduit'])&&!empty($_POST["mdp1"])&&$_POST["mdp1"]==$_POST["mdp2"]){
-            $Identifiant = $_POST["Identifiant"];
+            $Identifiant = htmlentities($_POST["Identifiant"]);
             $stmt = $bdd->prepare("SELECT * FROM profil WHERE Identifiant=?");
             $stmt->execute([$Identifiant]);
             $user = $stmt->fetch();
 
-            $cdefamille = $_POST["CodeFamille"];
+            $cdefamille = htmlentities($_POST["CodeFamille"]);
             $stmt = $bdd->prepare("SELECT * FROM profil WHERE CodeFamille=?");
             $stmt->execute([$cdefamille]);
             $cdf = $stmt->fetch();
@@ -67,9 +67,9 @@ else{
 
                 if($cdf){
                     $cdestatut = 0;
-                    $cdeproduit = $_POST["CodeProduit"];
-                    $cdefamille = $_POST["CodeFamille"];
-                    $mdp = $_POST['mdp1'];
+                    $cdeproduit = htmlentities($_POST["CodeProduit"]);
+                    $cdefamille = htmlentities($_POST["CodeFamille"]);
+                    $mdp = htmlentities($_POST['mdp1']);
 //Envoi des coordonnées à mySQL
 
 
