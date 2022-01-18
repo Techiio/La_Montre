@@ -73,8 +73,9 @@
                         <input name="New_Idt"type="text" placeholder="Nouveau Prénom">
                     </div>
 
-                <a class="btn">
+                <a style="background: brown; font-weight: bold;" class="btn">
                     <input
+                            style="background: brown; font-weight: bold;"
                             type="submit"
                             value="Appliquer"
                             name="formsend"
@@ -115,8 +116,9 @@
                         <input name="pwd2"type="text" placeholder="Confirmation Nouveau Mot de Passe">
                     </div>
 
-                <a class="btn">
+                <a style="background: brown; font-weight: bold;" class="btn">
                     <input
+                            style="background: brown; font-weight: bold;"
                             type="submit"
                             value="Appliquer"
                             name="formsend"
@@ -162,8 +164,9 @@
                     <option value="blue">bleu</option>
                     <option value="peru">marron</option>
                 </select>
-                    <a class="btn">
+                    <a style="background: brown; font-weight: bold;" class="btn">
                     <input
+                            style="background: brown; font-weight: bold;"
                             type="submit"
                             value="Appliquer"
                             name="formsend"

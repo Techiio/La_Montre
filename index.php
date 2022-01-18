@@ -50,7 +50,7 @@
     <div class="content">
         <h3>Avec vous à chaque nouvelle journée</h3>
         <p></p>
-        <a href="visiteur/visiteur_contact.php" class="btn">Nous contacter</a>
+        <a href="visiteur/visiteur_contact.php" class="btn" style="background: brown; font-weight: bold;">Nous contacter</a>
     </div>
 
 </section>

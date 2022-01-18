@@ -31,9 +31,9 @@
     <div class="icons">
         <nav class="navbar">
             <a href="user-gest-admin_menu.php">Mon Menu</a>
+            <a href="user-gest-admin_ma-journee.php">Ma journée</a>
             <a href="user-gest-admin_statistiques.php">Mes Stats</a>
             <a href="user-gest-admin_conseils.php">Mes Conseils</a>
-            <a href="user-gest-admin_faq-contact.php">Contact/FAQ</a>
         </nav>
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
@@ -179,7 +179,7 @@
                 <span class="error"> <?php echo $nameErr;?></span>
 
             </div>
-            <input type="submit" value="Envoyer" class="btn">
+            <input type="submit" style="background: brown; font-weight: bold;" value="Envoyer" class="btn">
         </form>
         <?php
         echo $name;
@@ -191,7 +191,7 @@
 
 
     </div>
-//début du code pour les e-mails sous linux
+<!--début du code pour les e-mails sous linux-->
 
 </section>
 

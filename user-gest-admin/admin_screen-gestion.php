@@ -190,7 +190,7 @@
             <h3>Liste des admins</h3>
             <br>
             <section id="liste">
-                <select multiple="yes" size="10">
+                <select style="font-size: 2rem;" multiple="yes" size="10">
                     <?php $rep = $bdd->query('SELECT * FROM connexion WHERE CodeStatut=02');
                     while ($donnees = $rep->fetch())
                     {

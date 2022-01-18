@@ -129,7 +129,7 @@ switch ($pireScore)
     <h1 class="heading"> Ma <span>Famille</span> </h1>
     <div class="box-container">
         <a class="box">
-            <h3>Meilleur donnée :</h3><br><br><br><br>
+            <h3>Meilleur donnée :</h3><br><br><br>
             <p><?php echo $meilleureDonnee;
                 if ($meilleurScore == $scoreBpm)
                 {
@@ -151,7 +151,7 @@ switch ($pireScore)
             </p>
         </a>
         <a class="box">
-            <h3>Pire donnée :</h3><br><br><br><br>
+            <h3>Pire donnée :</h3><br><br><br>
             <p> <?php echo $pireDonnee;
                 if ($pireScore == $scoreBpm)
                 {
@@ -175,7 +175,7 @@ switch ($pireScore)
     <div class="box-container">
         <a class="box">
             <h3>Score :</h3><br><br>
-            <h2>/20</h2><br><br>
+            <p>/20</p><br><br>
             <h3>Conseils du jour :</h3><br><br>
             <p> </p>
         </a>

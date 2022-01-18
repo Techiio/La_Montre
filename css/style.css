@@ -3,7 +3,7 @@
 :root{
     --main-color:#FFDDA2;
     --black:#292929;
-    --bg:#CF3F00;
+    --bg:#C47F07;
     --border:.1rem solid rgba(255,255,255,.3);
 }
 
@@ -34,6 +34,11 @@ html::-webkit-scrollbar-track{
 html::-webkit-scrollbar-thumb{
     background: #fff;
     border-radius: 5rem;
+}
+
+input::placeholder{
+    color:antiquewhite;
+    font-weight: bold;
 }
 
 body{
@@ -107,13 +112,13 @@ textarea {
 
 .header a h2{
     color: lightyellow;
-    font-size: 2.2rem;
+    font-size: 3rem;
     line-height: 150%;
 }
 
 .header a h3{
-    color: var(--main-color);
-    font-size: 1.8rem;
+    color: saddlebrown;
+    font-size: 2rem;
     line-height: 150%;
 }
 
@@ -130,7 +135,7 @@ textarea {
 
 .header .navbar a{
     margin:0 1rem;
-    font-size: 1.6rem;
+    font-size: 2.2rem;
     color:#fff;
 }
 
@@ -141,8 +146,8 @@ textarea {
 }
 
 .header .navbar a:hover{
-    color:var(--main-color);
-    border-bottom: .1rem solid var(--main-color);
+    color:brown;
+    border-bottom: .1rem solid brown;
     padding-bottom: .5rem;
 }
 
@@ -398,7 +403,7 @@ textarea {
 }
 
 .famille .box-container .box p{
-    font-size: 1.5rem;
+    font-size: 2.8rem;
     line-height: 1.8;
     color:#ccc;
     padding:2rem 0;
@@ -413,7 +418,7 @@ textarea {
 
 .famille .box-container .box h3{
     padding:1rem 0;
-    font-size: 2rem;
+    font-size: 4rem;
     color:#fff;
     text-transform: capitalize;
 }
@@ -553,7 +558,7 @@ textarea {
 
 .inscri .row form h4{
     text-transform: uppercase;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color:#fff;
 }
 
@@ -715,7 +720,6 @@ textarea {
     color:#fff;
 }
 
-
 .admin .inputBox{
     display: flex;
     align-items: center;
@@ -746,7 +750,7 @@ textarea {
     padding:.9rem 3rem;
     font-size: 1.7rem;
     color:#fff;
-    background: var(--main-color);
+    background: brown;
     cursor: pointer;
 }
 
@@ -937,6 +941,7 @@ textarea {
 
 .footer .share a:hover{
     background-color: var(--main-color);
+    color: brown;
 }
 
 .footer .links{
@@ -955,6 +960,7 @@ textarea {
 
 .footer .links a:hover{
     background:var(--main-color);
+    color: brown;
 }
 
 .footer .credit{

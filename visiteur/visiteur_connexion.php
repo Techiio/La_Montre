@@ -61,7 +61,7 @@
                 <input type="password" id="light" name="Mdp" placeholder="mot de passe">
                 <a id="eye" onclick="eyeclick()" class="fas fa-eye"></a>
             </div>
-            <input type="submit" name="submit" value="Se connecter" class="btn">
+            <input style="background: brown; font-weight: bold;" type="submit" name="submit" value="Se connecter" class="btn">
 
             <?php
             if(isset($_GET['erreur'])){
