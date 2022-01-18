@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 
 //Connexion à la base de données
 //CONNEXION A LA BDD
@@ -25,15 +24,13 @@ else {
         if(!empty($_POST['Identifiant']) && !empty($_POST['CodeProduit']) && !empty($_POST['mdp1']) && $_POST['mdp1']==$_POST['mdp2']){
             $CodeProduit=$_POST['CodeProduit'];
             if(isset($_POST['gest'])){
-                $CodeStatut=01;
+                $CodeStatut=1;
                 $CodeFamille=rand(1000000001,9999999999);
-                $CodePersonne=10000;
             }
             else{
                 if(!empty($_POST['CodeFamille'])) {
-                    $CodeStatut=00;
+                    $CodeStatut=0;
                     $CodeFamille = $_POST['CodeFamille'];
-                    $CodePersonne = rand(10001, 99999);
                 }
             }
             $Couleur="white";
@@ -43,11 +40,11 @@ else {
             //Envoi des coordonnées à mySQL
 
 
+            $requete=$bdd->prepare('INSERT INTO connexion(CodeStatut, Identifiant, Mdp ) VALUES(?, ?, ?)');
+            $requete->execute(array($CodeStatut, $Identifiant, $mdp));
+
             $requete=$bdd->prepare('INSERT INTO profil(CodeProduit, Couleur, CodeFamille, Identifiant ) VALUES(?, ?, ?, ?)');
             $requete->execute(array($CodeProduit, $Couleur, $CodeFamille, $Identifiant));
-
-            $requete=$bdd->prepare('INSERT INTO connexion(CodeStatut, Identifiant, Mdp ) VALUES(?, ?, ?)');
-            $requete->execute(array($CodePersonne, $Identifiant, $mdp));
 
 
 

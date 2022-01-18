@@ -61,7 +61,7 @@
             </div>
             <div class="inputBox" id="codefamille">
                <span class="fas fa-house-user"></span>
-               <input type="number" name="CodeFamille" placeholder="Code famille" />
+               <input type="text" name="CodeFamille" placeholder="Code famille" />
             </div>
             <div class="inputBox">
               <span class="fas fa-id-badge"></span>
@@ -73,7 +73,7 @@
               <input type="password" name="mdp2" id="light" placeholder="Confirmation mot de passe"/>
             </div>
             <div>
-              <input type="checkbox" onclick="afficher()" id="gest" value="check" class="check" />
+              <input type="checkbox" onclick="afficher()" name="gest" id="gest" value="check" class="check" />
               <label for="check">
                 <h4>
                   Cochez si vous souhaitez être le gestionnaire de votre famille
