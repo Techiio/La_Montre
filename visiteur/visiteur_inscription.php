@@ -85,6 +85,7 @@
                 <h4>
                   Cochez si vous souhaitez être le gestionnaire de votre famille
                 </h4>
+
               </label>
                 <br>
                 <input type="checkbox" name="CGU" value="check" id="check" class="check" />
