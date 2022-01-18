@@ -58,7 +58,7 @@ for($var = 0; $var < 7; $var++){
 
 
 $a = 0;
-$i = 0;
+$i = 1;
 $init = TRUE;
 $vardate = [];
 
