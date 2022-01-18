@@ -43,7 +43,7 @@
         <h1 class="heading"><span>Je</span> m'inscris</h1>
 
         <div class="row">
-          <form action="../connexion log/register.php" method="post">
+          <form action="../load/formuser.php" method="post">
             <div class="inputBox">
               <span class="fas fa-user"></span>
               <input type="text" name="Identifiant" placeholder="Identifiant" />
