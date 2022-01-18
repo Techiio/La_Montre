@@ -246,7 +246,7 @@ switch ($pireScore)
     <h1 class="heading"> Ma <span>Famille</span> </h1>
     <div class="box-container">
         <a class="box">
-            <h3 style="text-transform: none">Meilleur donnée :</h3><br><br><br><br>
+            <h3 style="text-transform: none; font-size: x-large">Meilleur donnée :</h3><br><br><br><br>
             <p><?php
                 if ($meilleurScore == $scoreBpm)                                        // Permet d'afficher la meilleure valeur grâce au pire score observé
                 {
@@ -272,7 +272,7 @@ switch ($pireScore)
             </p>
         </a>
         <a class="box">
-            <h3 style="text-transform: none">Pire donnée :</h3><br><br><br><br>
+            <h3 style="text-transform: none; font-size: x-large">Pire donnée :</h3><br><br><br><br>
             <p> <?php
                 if ($pireScore == $scoreBpm)                                            // Permet d'afficher la pire valeur grâce au pire score observé
                 {
@@ -299,7 +299,7 @@ switch ($pireScore)
     </div><br><br>
     <div class="box-container">
         <a href="#" class="box">
-            <h3>Score : <?php echo intval($scoreTotal[$a]) ?> <span style="padding: 0 0 0 10%; text-transform: none" >Score précédent :</span> <?php echo intval($scoreTotal[$a-1])?></h3><br><br>  <!-- Affiche le score du jour et le score d'hier -->
+            <h3 style="font-size: x-large">Score : <?php echo intval($scoreTotal[$a]) ?> <span style="padding: 0 0 0 10%; text-transform: none" >Score précédent :</span> <?php echo intval($scoreTotal[$a-1])?></h3><br><br>  <!-- Affiche le score du jour et le score d'hier -->
             <h2>/100</h2><br><br>
             <h2 style="color: darkgoldenrod; font-size: large">
                 <?php                                                                         // Compare le score du jour et le score d'hier et donne un conseil en fonction du résultat
@@ -317,7 +317,7 @@ switch ($pireScore)
                     }
                     ?>
             </h2><br><br>
-            <h3 style="text-transform: none">Conseil du jour :
+            <h3 style="text-transform: none; font-size: x-large">Conseil du jour :
                 <?php
                     if ($pireScore == $scoredB)                                 // Donne un conseil en fonction de la pire donnée
                     {
