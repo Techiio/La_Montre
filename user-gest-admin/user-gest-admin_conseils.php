@@ -337,11 +337,11 @@ switch ($pireScore)
                     }
                     elseif ($pireScore == $scoreDegCel && $DegCel < 30 )
                     {
-                        echo "Vous êtes en hypothermie. Réchauffez-vous à l’aide d’une couverture de survie isothermique et placer vous dans un coin chaud.";
+                        echo "Vous êtes exposé au froid. Réchauffez-vous à l’aide d’une couverture de survie isothermique et placer vous dans un coin chaud.";
                     }
                     elseif ($pireScore == $scoreDegCel && $DegCel > 30 )
                     {
-                        echo "Vous êtes en hypothermie. Vous avez une insolation,un coup de chaleur ou peut-être de la fièvre.";
+                        echo "Vous êtes exposé à la chaleur. Vous avez une insolation,un coup de chaleur ou peut-être de la fièvre.";
                     }
                 ?></h3><br><br>
 
