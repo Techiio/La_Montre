@@ -27,7 +27,7 @@
           <a href="visiteur_connexion.php">Connexion</a>
         </nav>
 
-        <a href="index.php" class="logo">
+        <a href="../index.php" class="logo">
           <img src="../images/LaMontreS.png" alt="" />
         </a>
       </header>
@@ -43,7 +43,7 @@
         <h1 class="heading"><span>Je</span> m'inscris</h1>
 
         <div class="row">
-          <form action="../connexion%20log/register.php" method="post">
+          <form action="../load/formuser.php" method="post">
             <div class="inputBox">
               <span class="fas fa-user"></span>
               <input type="text" name="Identifiant" placeholder="Identifiant" />
@@ -65,7 +65,7 @@
                 <?php
                 if(isset($_GET['code'])){
                     $cdef = $_GET['code'];
-                    if($cdef==3)
+                    if($cdef==1)
                         echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Code famille inexistant</p>";
                 }
                 ?>
@@ -80,11 +80,12 @@
               <input type="password" name="mdp2" id="light" placeholder="Confirmation mot de passe"/>
             </div>
             <div>
-              <input type="checkbox" onclick="afficher()" name="gest" id="gest" value="check" class="check" />
-              <label for="check">
+                <input type="checkbox" name="gest" id="gest" onclick="afficher()"  value="check" class="check" />
+                <label for="check">
                 <h4>
                   Cochez si vous souhaitez être le gestionnaire de votre famille
                 </h4>
+
               </label>
                 <br>
                 <input type="checkbox" name="CGU" value="check" id="check" class="check" />

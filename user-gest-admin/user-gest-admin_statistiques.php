@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // Connexion à la base de données
 try
 {
@@ -12,7 +14,7 @@ catch (Exception $e)
 }
 
 // Récupération de l'ID de connexion
-$id = $_COOKIE['pseudo'];
+$id = $_SESSION['pseudo'];
 
 // Récupération des données liées à l'utilisateur sur la semaine
 $sql = "SELECT CodeProduit FROM profil WHERE Identifiant ='$id'";
@@ -56,7 +58,7 @@ for($var = 0; $var < 7; $var++){
 
 
 $a = 0;
-$i = 0;
+$i = 1;
 $init = TRUE;
 $vardate = [];
 
@@ -177,7 +179,7 @@ $vDegCel = array_reverse($vDegCel);
     </div>
 
     <!--Bouton déconnexion -->
-    <a href="../visiteur/index.php" class="logo">
+    <a href="../index.php" class="logo">
         <h2>
             <?php
 
