@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 // Connexion à la base de données
 try
 {
@@ -14,7 +12,7 @@ catch (Exception $e)
 }
 
 // Récupération de l'ID de connexion
-$id = $_SESSION['pseudo'];
+$id = $_COOKIE['pseudo'];
 
 // Récupération des données liées à l'utilisateur sur la semaine
 $sql = "SELECT CodeProduit FROM profil WHERE Identifiant ='$id'";
@@ -151,7 +149,7 @@ $vDegCel = array_reverse($vDegCel);
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
         <!-- custom css file link  -->
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="css/style.css">
 
         <!-- js chart -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js" integrity="sha512-tMabqarPtykgDtdtSqCL3uLVM0gS1ZkUAVhRFu1vSEFgvB73niFQWJuvviDyBGBH22Lcau4rHB5p2K2T0Xvr6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -165,7 +163,7 @@ $vDegCel = array_reverse($vDegCel);
 <header class="header">
 
     <a class="logo">
-        <img src="../images/LaMontreS.png" alt="">
+        <img src="images/LaMontreS.png" alt="">
     </a>
     <!-- Menu -->
     <div class="icons">
@@ -179,8 +177,8 @@ $vDegCel = array_reverse($vDegCel);
     </div>
 
     <!--Bouton déconnexion -->
-    <a href="../visiteur/index.php" class="logo">
-        <h2>
+    <a href="index.php" class="logo">
+        <h2 style="color: antiquewhite; font-size: 2.5rem;">
             <?php
 
             if(isset($_COOKIE['pseudo'])){
@@ -217,15 +215,13 @@ $vDegCel = array_reverse($vDegCel);
 
     <!-- Données maximales atteintes sur la semaine -->
     <div class="box5">
+        <p class="bigtext" style="color: darkorange">Infos de la semaine</p>
         <p class="text" style="color: #3cba9f">Pic de No2 : </p>
         <p class="score"><?php echo round(max($sNo2)).' insérer unité' ?></p>
-        <br>
         <p class="text" style="color: #3e95cd">Pic de poul : </p>
         <p class="score"><?php echo round(max($sBpm)).' Bpm' ?></p>
-        <br>
         <p class="text" style="color: #e8c3b9">Pic de température : </p>
         <p class="score"><?php echo round(max($sDegCel)).'°C' ?></p>
-        <br>
         <p class="text" style="color: #8e5ea2">Pic de son : </p>
         <p class="score"><?php echo round(max($sdB)).' dB' ?></p>
 
@@ -234,11 +230,6 @@ $vDegCel = array_reverse($vDegCel);
     <!-- Récupération des données -->
     <div class="box6">
         <p class="text">Récupérer les données</p>
-        <br>
-        <br>
-        <br>
-        <form method="post">
-            <input type="submit" name="button1" class='btn' value="Télécharger"/>
     </div>
 
     <!-- Graphique en toile d'araignées sur les données des derniers jours -->
@@ -253,7 +244,7 @@ $vDegCel = array_reverse($vDegCel);
 <section class="footer">
 
     <div class="links">
-        <a href="../visiteur/visiteur_CGU.php" style="margin:0 4%;">CGU</a>
+        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
         <a>Version: 1.0.12.201</a>
     </div>
 
@@ -261,7 +252,7 @@ $vDegCel = array_reverse($vDegCel);
 </section>
 
 <!-- custom js file link  -->
-<script src="../js/script.js"></script>
+<script src="js/script.js"></script>
 <!-- Script pour la création du graphique en lignes -->
 <script>
     new Chart(document.getElementById("line-chart-week"), {

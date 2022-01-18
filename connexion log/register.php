@@ -11,31 +11,22 @@ try {
 } catch (Exception $e) {
     die('Erreur : ' . $e->getMessage());
 }
-$Identifiant = $_POST['Identifiant'];
-$stmt = $bdd->prepare("SELECT * FROM profil WHERE Identifiant=?");
-$stmt->execute([$Identifiant]);
-$user = $stmt->fetch();
 
+<<<<<<< HEAD
 $CodeFamille = $_POST['CodeFamille'];
 $stmt = $bdd->prepare("SELECT * FROM profil WHERE CodeFamille=?");
 $stmt->execute([$CodeFamille]);
 $cdf = $stmt->fetch();
 
-if(isset($_Post['gest'])){
+if(isset($_POST['gest'])){
         //Ajout d'un utilisateur lors de l'inscription
         if(isset($_POST['CGU'])){
             if(!empty($_POST['Identifiant']) && !empty($_POST['CodeProduit']) && !empty($_POST['mdp1']) && $_POST['mdp1']==$_POST['mdp2']){
                 $CodeProduit=$_POST['CodeProduit'];
-                if(isset($_POST['gest'])){
-                    $CodeStatut=01;
-                    $CodeFamille=rand(1000000001,9999999999);
-                }
-                else{
-                    if(!empty($_POST['CodeFamille'])) {
-                        $CodeStatut=00;
-                        $CodeFamille = $_POST['CodeFamille'];
-                    }
-                }
+
+                $CodeStatut=01;
+                $CodeFamille=rand(1000000001,9999999999);
+
                 $Couleur="white";
                 $mdp=$_POST['mdp1'];
 
@@ -53,10 +44,26 @@ if(isset($_Post['gest'])){
 
                 header('location: ../user-gest-admin/user-gest-admin_menu.php');
             }
+=======
+//Ajout d'un utilisateur lors de l'inscription
+if(isset($_POST['CGU'])){
+    if(!empty($_POST['Identifiant']) && !empty($_POST['CodeProduit']) && !empty($_POST['mdp1']) && $_POST['mdp1']==$_POST['mdp2']){
+        $Identifiant=$_POST['Identifiant'];
+        $CodeProduit=$_POST['CodeProduit'];
+        if(isset($_POST['gest'])){
+            $CodeStatut=01;
+            $CodeFamille=rand(1000000001,9999999999);
+            $CodePersonne=10000;
+>>>>>>> 73b8775212f3da508d9f4c050ac1e0efab43ae4b
         }
         else{
-            header('location: ../visiteur/visiteur_inscription.php?miss=1');
+            if(!empty($_POST['CodeFamille'])) {
+                $CodeStatut=00;
+                $CodeFamille = $_POST['CodeFamille'];
+                $CodePersonne = rand(10001, 99999);
+            }
         }
+<<<<<<< HEAD
 }
 else{
     if ($user) {
@@ -68,45 +75,46 @@ else{
             if(isset($_POST['CGU'])){
                 if(!empty($_POST['Identifiant']) && !empty($_POST['CodeProduit']) && !empty($_POST['mdp1']) && $_POST['mdp1']==$_POST['mdp2']){
                     $CodeProduit=$_POST['CodeProduit'];
-                    if(isset($_POST['gest'])){
-                        $CodeStatut=01;
-                        $CodeFamille=rand(1000000001,9999999999);
+
+                    if(!empty($_POST['CodeFamille'])) {
+                        $CodeStatut=00;
+                        $CodeFamille = 9878987;
+
                     }
-                    else{
-                        if(!empty($_POST['CodeFamille'])) {
-                            $CodeStatut=00;
-                            $CodeFamille = $_POST['CodeFamille'];
-                        }
+                    else {
+                        $CodeFamille = 987654567;
                     }
+
                     $Couleur="white";
                     $mdp=$_POST['mdp1'];
 
+=======
+        $Couleur="white";
+        $mdp=$_POST['mdp1'];
+>>>>>>> 73b8775212f3da508d9f4c050ac1e0efab43ae4b
 
-                    //Envoi des coordonnées à mySQL
 
+        //Envoi des coordonnées à mySQL
 
+<<<<<<< HEAD
                     $requete=$bdd->prepare('INSERT INTO profil(CodeProduit, Couleur, CodeFamille, Identifiant ) VALUES(?, ?, ?, ?)');
-                    $requete->execute(array($CodeProduit, $Couleur, $CodeFamille, $Identifiant));
+                    $CodeFami = 98768;
+                    $requete->execute(array($CodeProduit, $Couleur, $CodeFami, $Identifiant));
+=======
+>>>>>>> 73b8775212f3da508d9f4c050ac1e0efab43ae4b
 
-                    $requete=$bdd->prepare('INSERT INTO connexion(CodeStatut, Identifiant, Mdp ) VALUES(?, ?, ?)');
-                    $requete->execute(array($CodeStatut, $Identifiant, $mdp));
+        $requete=$bdd->prepare('INSERT INTO profil(CodePersonne, CodeProduit, Couleur, CodeFamille, Identifiant ) VALUES(?, ?, ?, ?, ?)');
+        $requete->execute(array($CodePersonne, $CodeProduit, $Couleur, $CodeFamille, $Identifiant));
+
+        $requete=$bdd->prepare('INSERT INTO connexion(CodeStatut, Identifiant, Mdp ) VALUES(?, ?, ?)');
+        $requete->execute(array($CodePersonne, $Identifiant, $mdp));
 
 
 
-                    header('location: ../user-gest-admin/user-gest-admin_menu.php');
-                }
-            }
-            else{
-                header('location: ../visiteur/visiteur_inscription.php?miss=1');
-            }
-        }
-        else{
-            header('Location: ../visiteur/visiteur_inscription.php?code=1');
-        }
-
+        header('location: ../user-gest-admin_menu.php');
     }
 }
-
-
-
+else{
+    header('location: ../index.php');
+}
 ?>
