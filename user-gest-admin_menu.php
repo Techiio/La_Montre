@@ -35,7 +35,7 @@
         </h2>
     </a>
 
-    <a href="index.php" class="logo">
+    <a href="fin_de_session.php" class="logo">
         <h3>
             Déconnexion
         </h3>

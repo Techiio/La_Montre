@@ -34,7 +34,7 @@
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="index.php" class="logo">
+    <a href="fin_de_session.php" class="logo">
         <img src="images/LaMontreS.png" alt="">
         <h3>Déconnexion</h3>
     </a>

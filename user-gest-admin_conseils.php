@@ -101,7 +101,7 @@ switch ($pireScore)
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="index.php" class="logo">
+    <a href="fin_de_session.php" class="logo">
         <h2>
             <?php
 
