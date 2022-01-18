@@ -54,7 +54,7 @@
         <form action="../load/log.php" method="post">
             <div class="inputBox">
                 <span class="fas fa-user"></span>
-                <input type="text" name="Identifiant" placeholder="pseudo">
+                <input type="text" name="Identifiant" placeholder="Prénom">
             </div>
             <div class="inputBox">
                 <span class="fas fa-id-badge"></span>

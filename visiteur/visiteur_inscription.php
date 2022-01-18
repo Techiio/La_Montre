@@ -46,7 +46,7 @@
           <form action="../load/formuser.php" method="post">
             <div class="inputBox">
               <span class="fas fa-user"></span>
-              <input type="text" name="Identifiant" placeholder="Identifiant" />
+              <input type="text" name="Identifiant" placeholder="Prénom" />
                 <?php
                 if(isset($_GET['erreur'])){
                     $err = $_GET['erreur'];
