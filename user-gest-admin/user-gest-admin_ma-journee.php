@@ -152,6 +152,7 @@ $vDegCel = array_reverse($vDegCel);
                         <div>
                             <input
                                     type="submit"
+                                    style="letter-spacing: 0;"
                                     value="Pour supprimer vos données, cliquez sur le bouton"
                                     name="formsend"
                                     id="formsend"
