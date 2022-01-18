@@ -16,9 +16,9 @@ try {
 
 ///connexion au profil utilisateur
 if (!empty($_POST["Identifiant"])) {
-    $Identifiant = $_POST['Identifiant'];
-    $Mdp = $_POST['Mdp'];
-    $Code = $_POST['CodeStatut'];
+    $Identifiant = htmlentities($_POST['Identifiant']);
+    $Mdp = htmlentities($_POST['Mdp']);
+    $Code = htmlentities($_POST['CodeStatut']);
     $error = 4;
 
     $req = $bdd->prepare('SELECT * FROM connexion WHERE Identifiant=?');

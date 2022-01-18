@@ -136,7 +136,7 @@ $vDegCel = array_reverse($vDegCel);
         <?php
         if (isset($_POST['button1'])) {
             if ($_SESSION['statut'] == 1 or $_SESSION['statut'] == 0) {
-                header('Location: Téléchargement.php?code=' . $codeproduit);
+                header('Location: ../load/Téléchargement.php?code=' . $codeproduit);//redirection 
                 die();
             }
          }

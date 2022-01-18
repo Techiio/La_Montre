@@ -12,9 +12,9 @@ try {
 }
 
 //Données du formulaire
-$Idt= $_POST['Idt'];
-$Newpwd1 = $_POST['pwd1'];
-$Newpwd2 = $_POST['pwd2'];
+$Idt= htmlentities($_POST['Idt']);
+$Newpwd1 = htmlentities($_POST['pwd1']);
+$Newpwd2 = htmlentities($_POST['pwd2']);
 
 //Variable de vérification d'accès
 
