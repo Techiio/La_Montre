@@ -115,6 +115,7 @@
                     }
                     ?>
 
+
                 </form>
             </section>
         </a>
@@ -185,6 +186,11 @@
                         $err = $_GET['erreur'];
                         if($err==2)
                             echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Ajout réussi</p>";
+                        elseif($err==6)
+                            echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Identifiant déja utilisé</p>";
+                        elseif ($err==7)
+                            echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Les mots de passe ne correspondent pas</p>";
+
                     }
                     ?>
                 </form>

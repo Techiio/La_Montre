@@ -33,7 +33,7 @@ if (!empty($_POST["Idt"] && $Code_Famille_Idt==$Code_Famille_gest)) {
     if($Valeur_test['compte']==0){
     $rq = $bdd->query("UPDATE  profil SET Identifiant='$Newidt' WHERE Identifiant= '$Idt'");
     $requete = $bdd->query("UPDATE  connexion SET Identifiant='$Newidt' WHERE Identifiant= '$Idt'");
-    header('location: ../gest_modif-membre.php?message=1');}
+    header('location: ../user-gest-admin/gest_modif-membre.php?message=1');}
 
     //"nom d'utilisateur déjà pris"
     else{header('location: ../user-gest-admin/gest_modif-membre.php?message=2');}
