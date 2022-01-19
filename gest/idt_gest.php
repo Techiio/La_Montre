@@ -36,11 +36,11 @@ if (!empty($_POST["Idt"] && $Code_Famille_Idt==$Code_Famille_gest)) {
     header('location: ../gest_modif-membre.php?message=1');}
 
     //"nom d'utilisateur déjà pris"
-    else{header('location: ../gest_modif-membre.php?message=2');}
+    else{header('location: ../user-gest-admin/gest_modif-membre.php?message=2');}
 }
     //"Pas d'utilisateur dans la famille avec ce prénom"
 else{
-    header('location: ../gest_modif-membre.php?message=3');}
+    header('location: ../user-gest-admin/gest_modif-membre.php?message=3');}
 
 
 

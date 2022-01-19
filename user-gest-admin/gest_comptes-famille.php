@@ -50,6 +50,12 @@ try {
     <a href="../fin_de_session.php" class="logo">
         <h2>
             <?php
+            session_start();
+            if(isset($_SESSION['pseudotemporaire'])){
+                $_SESSION['pseudo']=$_SESSION['pseudotemporaire'];
+                $_SESSION['statut']=$_SESSION['statuttemporaire'];
+
+            }
 
             if(isset($_SESSION['pseudo'])){
                 echo '' .$_SESSION['pseudo'] ;
@@ -81,10 +87,17 @@ try {
         $Identifiant=$_SESSION['pseudo'];
         $CodeStatut=$_SESSION['statut'];
 
+        if(isset($_SESSION['pseudotemporaire'])){
+            $_SESSION['pseudo']=$_SESSION['pseudotemporaire'];
+            $_SESSION['statut']=$_SESSION['statuttemporaire'];
+
+        }
+
         //Vérification de la présence d'utilisateur dans la famille en plus du gestionnaire
         $compte_utilisateur_famille=$bdd->query("SELECT count(Identifiant) as compte FROM profil WHERE '$CodeFamille'= CodeFamille");
         $nb_utilisateurs=$compte_utilisateur_famille->fetch();
         $compte_utilisateur_famille->closeCursor();
+
 
         if($nb_utilisateurs['compte'] > 1){
         $rq = $bdd->query("SELECT Identifiant,Couleur  FROM profil WHERE '$CodeFamille'= CodeFamille");
@@ -123,9 +136,11 @@ if(isset($_GET['user'])){
 
     //connexion au profil de l'utilisateur
     $Identifiant=$_GET['user'];
-    setcookie('pseudo', $Identifiant, time()+364*24*3600, '/', null, false, true);
-    setcookie('statut', 0, time()+364*24*3600, '/', null, false, true);
-    header('location: ../LaMontre/user-gest-admin_menu.php');
+    $_SESSION['pseudotemporaire']=$_SESSION['pseudo'];
+    $_SESSION['statuttemporaire']=$_SESSION['statut'];
+    $_SESSION['pseudo']=$Identifiant;
+    $_SESSION['statut']=0;
+    header('location: ./user-gest-admin_menu.php');
 }
 ?>
 

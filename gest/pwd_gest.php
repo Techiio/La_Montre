@@ -29,16 +29,16 @@ if ($Code_Statut == 1 && $Code_Famille_gest == $Code_Famille_Idt ) {
     //Les mots de passe correspondent le changement peut s'effectuer
     if ($Newpwd1 == $Newpwd2) {
         $rq = $bdd->query("UPDATE  connexion SET Mdp='$Newpwd1' WHERE Identifiant= '$Idt'");
-        header('location: ../gest_modif-membre.php?erreur=0');
+        header('location: ../user-gest-admin/gest_modif-membre.php?erreur=0');
     }
     //Les mots de passe ne correspondent pas, un message d'erreur s'affiche
     else{
-        header('location: ../gest_modif-membre.php?erreur=2');
+        header('location: ../user-gest-admin/gest_modif-membre.php?erreur=2');
     }
 }
 //Le gestionnaire essaie de changer le mot de passe d'un utilisateur qui n'est pas dans sa famille, affichage d'une erreur
 else{
-    header('location: ../gest_modif-membre.php?erreur=1');
+    header('location: ../user-gest-admin/gest_modif-membre.php?erreur=1');
 }
 
 

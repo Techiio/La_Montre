@@ -26,10 +26,10 @@ if($Valeur_test['compte']==1){
 
 if (!empty($_POST["Idt"])) {
     $rq = $bdd->query("UPDATE  profil SET Couleur='$Newcolor' WHERE Identifiant='$Idt'");
-    header('location: ../gest_modif-membre.php?message=4');
+    header('location: ../user-gest-admin/gest_modif-membre.php?message=4');
 }}
 else{
-    header('location: ../gest_modif-membre.php?message=5');
+    header('location: ../user-gest-admin/gest_modif-membre.php?message=5');
 }
 
 
