@@ -237,8 +237,11 @@ $vDegCel = array_reverse($vDegCel);
         <br>
         <br>
         <br>
-        <form method="post">
+        <form method="GET" action="../load/septjours.php">
+            <input type ="hidden" name="code" class='btn' value=" <?= $codeproduit ?>" />
             <input type="submit" name="button1" class='btn' style="background: seagreen; font-weight: bold;" value="Télécharger"/>
+            
+        </form>
     </div>
 
     <!-- Graphique en toile d'araignées sur les données des derniers jours -->
