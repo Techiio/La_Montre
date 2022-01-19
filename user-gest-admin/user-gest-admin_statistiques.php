@@ -179,12 +179,12 @@ $vDegCel = array_reverse($vDegCel);
     </div>
 
     <!--Bouton déconnexion -->
-    <a href="../visiteur/index.php" class="logo">
+    <a href="../fin_de_session.php" class="logo">
         <h2>
             <?php
 
-            if(isset($_COOKIE['pseudo'])){
-                echo '' .$_COOKIE['pseudo'] ;
+            if(isset($_SESSION['pseudo'])){
+                echo '' .$_SESSION['pseudo'] ;
             }
             ?>
 

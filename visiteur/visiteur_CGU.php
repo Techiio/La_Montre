@@ -23,10 +23,23 @@
     <a class="logo">
         <img src="../images/EkoS.png" alt="">
     </a>
-
+    <?php
+    session_start();
+    if(isset($_SESSION['statut'])){
+    ?>
+        <a href="../user-gest-admin/user-gest-admin_menu.php" class="logo">
+            <img src="../images/LaMontreS.png" alt="">
+        </a>
+    <?php
+    }else {
+    ?>
     <a href="../index.php" class="logo">
         <img src="../images/LaMontreS.png" alt="">
     </a>
+    <?php
+
+    }
+    ?>
 
 </header>
 

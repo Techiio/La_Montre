@@ -98,7 +98,7 @@ $vDegCel = array_reverse($vDegCel);
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="../index.php" class="logo">
+    <a href="../fin_de_session.php" class="logo">
         <h2>
             <?php
 
@@ -144,11 +144,9 @@ $vDegCel = array_reverse($vDegCel);
         <div>
 
         <div class="box2">
-            <form method="post">
-                <input type="submit" name="button1" class='btn' style="background: seagreen; font-weight: bold;" value="Télécharger"/>
             <a class="box">
                 <section class="rd" id="rd">
-                    <form action="user-gest-admin/reset_data_user-gest-admin_ma-journee.php" method="post">
+                    <form action="reset_data_user-gest-admin_ma-journee.php" method="post">
                         <div>
                             <input
                                     type="submit"
@@ -175,7 +173,10 @@ $vDegCel = array_reverse($vDegCel);
                     </form>
                 </section>
             </a>
-
+            <section class="rd" id="rd">
+            <form method="post">
+                <input type="submit" name="button1" class='btn' style="background: seagreen; font-weight: bold;" value="Télécharger"/>
+            </section>
         </div>
 
         <div class="box3">
