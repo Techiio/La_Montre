@@ -21,11 +21,12 @@ try {
         $mdp=htmlentities($_POST['pwd1']);
 
         //vérifier l'unicité d'un identifiant
-        $test_doublon=$bdd->query("SELECT count(Identifiant) as compte FROM profil WHERE '$Identifiant'= Identifiant");
+        $test_doublon=$bdd->query("SELECT count(Identifiant) as compte FROM connexion WHERE '$Identifiant'= Identifiant");
         $Valeur_test=$test_doublon->fetch();
         $test_doublon->closeCursor();
 
         //$Valeur_test=1;
+        print_r($Valeur_test["compte"]);
 
         //ajout de l'admin
         if($Valeur_test["compte"]==0){

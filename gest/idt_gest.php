@@ -25,7 +25,7 @@ $Code_Famille_gest=$_COOKIE['famille'];
 if (!empty($_POST["Idt"] && $Code_Famille_Idt==$Code_Famille_gest)) {
 
     //vérifier l'unicité d'un identifiant
-    $test_doublon=$bdd->query("SELECT count(Identifiant) as compte FROM profil WHERE '$Newidt'= Identifiant");
+    $test_doublon=$bdd->query("SELECT count(Identifiant) as compte FROM connexion WHERE '$Newidt'= Identifiant");
     $Valeur_test=$test_doublon->fetch();
     $test_doublon->closeCursor();
 
