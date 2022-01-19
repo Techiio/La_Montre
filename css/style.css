@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
 :root{
-    --main-color:#CF3F00;
-    --black:#2E1303;
-    --bg:#F9B360;
+    --main-color:#FFDDA2;
+    --black:#292929;
+    --bg:#C47F07;
     --border:.1rem solid rgba(255,255,255,.3);
 }
 
@@ -34,6 +34,11 @@ html::-webkit-scrollbar-track{
 html::-webkit-scrollbar-thumb{
     background: #fff;
     border-radius: 5rem;
+}
+
+input::placeholder{
+    color:antiquewhite;
+    font-weight: bold;
 }
 
 body{
@@ -106,19 +111,20 @@ textarea {
 }
 
 .header a h2{
-    color: black;
-    font-size: 2.5rem;
+    color: lightyellow;
+    font-size: 3rem;
+    line-height: 150%;
 }
 
 .header a h3{
-    color: var(--main-color);
-    font-size: 1.8rem;
+    color: saddlebrown;
+    font-size: 2rem;
     line-height: 150%;
 }
 
 .header a h3:hover{
-    color: red;
-    border: .1rem solid red;
+    color: black;
+    border: .1rem solid black;
     border-radius: .5rem;
     padding: .5rem;
 }
@@ -129,24 +135,24 @@ textarea {
 
 .header .navbar a{
     margin:0 1rem;
-    font-size: 1.6rem;
-    color:black;
+    font-size: 2.2rem;
+    color:#fff;
 }
 
 .header .navbar a .id{
     margin:0 1rem;
     font-size: 1.6rem;
-    color:black;
+    color:#fff;
 }
 
 .header .navbar a:hover{
-    color:var(--main-color);
-    border-bottom: .1rem solid var(--main-color);
+    color:brown;
+    border-bottom: .1rem solid brown;
     padding-bottom: .5rem;
 }
 
 .header .icons div{
-    color:black;
+    color:#fff;
     cursor: pointer;
     font-size: 2.5rem;
 }
@@ -194,6 +200,11 @@ textarea {
 
 .header .search-form label:hover{
     color:var(--main-color);
+}
+
+.header .cart-items-container .btn{
+    width: 100%;
+    text-align: center;
 }
 
 .line{
@@ -300,6 +311,18 @@ textarea {
     padding:1rem 0;
 }
 
+.menu .box-container .box .price{
+    color: #fff;
+    font-size: 2.5rem;
+    padding:.5rem 0;
+}
+
+.menu .box-container .box .price span{
+    font-size: 1.5rem;
+    text-decoration: line-through;
+    font-weight: lighter;
+}
+
 .menu .box-container .box:hover{
     background:#fff;
 }
@@ -347,6 +370,26 @@ textarea {
     font-size: 2.5rem;
 }
 
+.products .box-container .box .content .stars{
+    padding: 1.5rem;
+}
+
+.products .box-container .box .content .stars i{
+    font-size: 1.7rem;
+    color: var(--main-color);
+}
+
+.products .box-container .box .content .price{
+    color:#fff;
+    font-size: 2.5rem;
+}
+
+.products .box-container .box .content .price span{
+    text-decoration: line-through;
+    font-weight: lighter;
+    font-size: 1.5rem;
+}
+
 .famille .box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 3fr));
@@ -360,7 +403,7 @@ textarea {
 }
 
 .famille .box-container .box p{
-    font-size: 1.5rem;
+    font-size: 2.8rem;
     line-height: 1.8;
     color:#ccc;
     padding:2rem 0;
@@ -375,9 +418,14 @@ textarea {
 
 .famille .box-container .box h3{
     padding:1rem 0;
-    font-size: 2rem;
+    font-size: 4rem;
     color:#fff;
     text-transform: capitalize;
+}
+
+.famille .box-container .box .stars i{
+    font-size: 1.5rem;
+    color:var(--main-color);
 }
 
 .famille .box-container .box:hover{
@@ -497,6 +545,11 @@ textarea {
     text-align: center;
 }
 
+.inscri .row form a{
+    color: white;
+    font-size: 2rem;
+}
+
 .inscri .row form h3{
     text-transform: uppercase;
     font-size: 3.5rem;
@@ -505,7 +558,7 @@ textarea {
 
 .inscri .row form h4{
     text-transform: uppercase;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color:#fff;
 }
 
@@ -524,13 +577,8 @@ textarea {
     padding-left: 2rem;
 }
 
-.inscri .row form .inputBox a{
-    color:#fff;
-    font-size: 2.2rem;
-}
-
 .inscri .row form .inputBox input{
-    width: 95%;
+    width: 93%;
     padding:2rem;
     font-size: 1.7rem;
     color:#fff;
@@ -672,7 +720,6 @@ textarea {
     color:#fff;
 }
 
-
 .admin .inputBox{
     display: flex;
     align-items: center;
@@ -703,7 +750,7 @@ textarea {
     padding:.9rem 3rem;
     font-size: 1.7rem;
     color:#fff;
-    background: var(--main-color);
+    background: brown;
     cursor: pointer;
 }
 
@@ -894,6 +941,7 @@ textarea {
 
 .footer .share a:hover{
     background-color: var(--main-color);
+    color: brown;
 }
 
 .footer .links{
@@ -912,6 +960,7 @@ textarea {
 
 .footer .links a:hover{
     background:var(--main-color);
+    color: brown;
 }
 
 .footer .credit{
@@ -1009,7 +1058,6 @@ textarea {
         text-align: center;
 
     }
-
     .datastat .text{
         font-size: 2rem;
         padding-top: 0.5rem;
@@ -1034,7 +1082,6 @@ textarea {
         padding-bottom: 1rem;
 
     }
-
     .datajour .box1{
 
         border: var(--border);

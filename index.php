@@ -26,8 +26,8 @@
 
     <div class="icons">
         <nav class="navbar">
-            <a href="visiteur_connexion.php">Connexion</a>
-            <a href="visiteur_inscription.php">Inscription</a>
+            <a href="visiteur/visiteur_connexion.php">Connexion</a>
+            <a href="visiteur/visiteur_inscription.php">Inscription</a>
         </nav>
 
         <div class="fas fa-bars" id="menu-btn"></div>
@@ -50,7 +50,7 @@
     <div class="content">
         <h3>Avec vous à chaque nouvelle journée</h3>
         <p></p>
-        <a href="visiteur_contact.php" class="btn">Nous contacter</a>
+        <a href="visiteur/visiteur_contact.php" class="btn" style="background: brown; font-weight: bold;">Nous contacter</a>
     </div>
 
 </section>
@@ -60,7 +60,7 @@
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+        <a href="visiteur/visiteur_CGU.php" style="margin:0 4%;">CGU</a>
         <a>Version: 1.0.12.201</a>
     </div>
 

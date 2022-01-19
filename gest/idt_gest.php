@@ -11,8 +11,8 @@ try {
     die('Erreur : ' . $e->getMessage());
 }
 //Données du formulaire
-$Idt= $_POST['Idt'];
-$Newidt = $_POST['New_Idt'];
+$Idt= htmlentities($_POST['Idt']);
+$Newidt = htmlentities($_POST['New_Idt']);
 
 //Variable de vérification des droits
 $rq=$bdd->query("SELECT  CodeFamille FROM profil WHERE Identifiant= '$Idt'");
