@@ -34,12 +34,13 @@
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="../index.php" class="logo">
+    <a href="../fin_de_session.php" class="logo">
         <h2>
             <?php
+            session_start();
 
-            if(isset($_SESSION['pseudo'])){
-                echo '' .$_SESSION['pseudo'] ;
+            if(isset($_SESSION['pseudo'])) {
+                echo '' . $_SESSION['pseudo'];
             }
             ?>
 

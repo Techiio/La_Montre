@@ -1,61 +1,6 @@
 <?php
-
 session_start();
-try
-{
-    $db = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
-        'root',
-        '');
-}
-catch (Exception $e)
-{
-    die('Erreur : ' . $e->getMessage());
-}
-$id = $_SESSION['pseudo'];
-
-$sql = "SELECT CodeProduit FROM profil WHERE Identifiant ='$id'";
-$req = $db->query($sql);
-$data = $req->fetch();
-$codeproduit = $data['CodeProduit'];
-
-$sql = 'SELECT * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date DESC, Heure DESC LIMIT 24';
-$req = $db->query($sql);
-
-$heure = [];
-$Bpm = [];
-$dB = [];
-$No2 = [];
-$DegCel = [];
-
-$vheure = [];
-$vBpm = [];
-$vdB = [];
-$vNo2 = [];
-$vDegCel = [];
-
-$i = 0;
-
-while ($data = $req->fetch()) {
-    $heure[$i] = $data['Heure'];
-    $Bpm[$i] = $data['Bpm'];
-    $dB[$i] = $data['dB'];
-    $No2[$i] = $data['No2'] ;
-    $DegCel[$i] = $data['DegréCelsius'];
-
-    $vheure[$i] = substr($data['Heure'], 0, 2).',';
-    $vBpm[$i] = $data['Bpm'].',' ;
-    $vdB[$i] = $data['dB'] .',';
-    $vNo2[$i] = $data['No2'].',' ;
-    $vDegCel[$i] = $data['DegréCelsius'].',' ;
-
-    $i = $i + 1;
-
-}
-$vheure = array_reverse($vheure);
-$vBpm = array_reverse($vBpm);
-$vdB = array_reverse($vdB);
-$vNo2 = array_reverse($vNo2);
-$vDegCel = array_reverse($vDegCel);
+require_once("../load/data_journee.php");
 ?>
 
 <!DOCTYPE html>
@@ -65,6 +10,7 @@ $vDegCel = array_reverse($vDegCel);
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Titre de la page  -->
         <title>Ma Journée</title>
 
         <!-- font awesome cdn link  -->
@@ -88,6 +34,7 @@ $vDegCel = array_reverse($vDegCel);
         <img src="../images/LaMontreS.png" alt="">
     </a>
 
+    <!-- Menu  -->
     <div class="icons">
         <nav class="navbar">
             <a href="user-gest-admin_menu.php">Mon Menu</a>
@@ -98,8 +45,9 @@ $vDegCel = array_reverse($vDegCel);
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="../index.php" class="logo">
-        <h2>
+    <!-- Bouton déconnexion  -->
+    <a href="index.php" class="logo">
+        <h2 style="color: antiquewhite; font-size: 2.5rem;">
             <?php
 
             if(isset($_SESSION['pseudo'])){
@@ -128,24 +76,20 @@ $vDegCel = array_reverse($vDegCel);
 
 <section class="datajour">
 
+    <!-- Graphique des données sur la journée  -->
     <div class="box1" style="background-color: lightgrey">
         <p class="textgraph" style="color: darkorange">Evolution des données en fonction des dernières 24h</p>
         <canvas id="line-chart-day"></canvas>
     </div>
 
-        <?php
-        if (isset($_POST['button1'])) {
-            if ($_SESSION['statut'] == 1 or $_SESSION['statut'] == 0) {
-                header('Location: ../load/Telechargement.php?code=' . $codeproduit);//redirection 
-                die();
-            }
-         }
-        ?>
-        <div>
+    <!-- Suppression et téléchargement des données -->
+    <div class="box2">
+        <form method="GET" action="../load/download_journee.php">
+            <input type ="hidden" name="code" class='btn' value=" <?php echo $codeproduit ?>" />
+            <input type="submit" name="button1" class='btn' style="background: seagreen; font-weight: bold;" value="Télécharger ma journée"/>
 
-        <div class="box2">
-            <form method="post">
-                <input type="submit" name="button1" class='btn' style="background: seagreen; font-weight: bold;" value="Télécharger"/>
+        </form>
+        <form method="post">
             <a class="box">
                 <section class="rd" id="rd">
                     <form action="user-gest-admin/reset_data_user-gest-admin_ma-journee.php" method="post">
@@ -153,42 +97,30 @@ $vDegCel = array_reverse($vDegCel);
                             <input
                                     type="submit"
                                     style="background: brown; font-weight: bold; letter-spacing: 0;"
-                                    value="Pour supprimer vos données, cliquez sur le bouton"
+                                    value="Supprimer les données"
                                     name="formsend"
                                     id="formsend"
                                     class="add"
                             />
                         </div>
-
-                        <?php
-                        if(isset($_GET['erreur'])){
-                            $err = $_GET['erreur'];
-                            if($err==3) {
-                                echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Données de la montre supprimées</p>";
-                            }
-
-                            elseif($err==5) {
-                                echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Erreur, veuillez contacter le service client</p>";
-                            }
-                        }
-                        ?>
                     </form>
                 </section>
             </a>
+        </form>
+    </div>
 
-        </div>
-
-        <div class="box3">
-            <p class="bigtext" style="color: darkorange">Infos du Jour</p>
-            <p class="text" style="color: #3cba9f">Pic de Dioxyde d'Azote : </p>
-            <p class="score"><?php echo max($No2).' insérer unité' ?></p>
-            <p class="text" style="color: #3e95cd">Pic de poul : </p>
-            <p class="score"><?php echo max($Bpm).' Bpm' ?></p>
-            <p class="text" style="color: #e8c3b9">Pic de température du corps : </p>
-            <p class="score"><?php echo max($DegCel).'°C' ?></p>
-            <p class="text" style="color: #8e5ea2">Pic de son : </p>
-            <p class="score"><?php echo max($dB).' dB' ?></p>
-        </div>
+    <!-- Infos de la journée  -->
+    <div class="box3">
+        <p class="bigtext" style="color: darkorange">Infos du Jour</p>
+        <p class="text" style="color: #3cba9f">Pic de Dioxyde d'Azote : </p>
+        <p class="score"><?php echo max($No2).' insérer unité' ?></p>
+        <p class="text" style="color: #3e95cd">Pic de poul : </p>
+        <p class="score"><?php echo max($Bpm).' Bpm' ?></p>
+        <p class="text" style="color: #e8c3b9">Pic de température du corps : </p>
+        <p class="score"><?php echo max($DegCel).'°C' ?></p>
+        <p class="text" style="color: #8e5ea2">Pic de son : </p>
+        <p class="score"><?php echo max($dB).' dB' ?></p>
+    </div>
 
 </section>
 <!-- ma journée section end-->
@@ -196,7 +128,7 @@ $vDegCel = array_reverse($vDegCel);
 <section class="footer">
 
     <div class="links">
-        <a href="../visiteur/visiteur_CGU.php" style="margin:0 4%;">CGU</a>
+        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
         <a>Version: 1.0.12.201</a>
     </div>
 
@@ -204,12 +136,13 @@ $vDegCel = array_reverse($vDegCel);
 </section>
 
 <!-- custom js file link  -->
-<script src="../js/script.js"></script>
+<script src="js/script.js"></script>
+<!-- Script pour le graphique des données de la journée  -->
 <script>
     new Chart(document.getElementById("line-chart-day"), {
         type: 'line',
         data: {
-            labels: [
+            labels: [ <!-- Données en abscisse: heure  -->
                 <?php
                 foreach($vheure as $var){
                     echo $var;
@@ -217,7 +150,7 @@ $vDegCel = array_reverse($vDegCel);
                 ?>
             ],
             datasets: [{
-                data: [
+                data: [ <!-- Données: poul  -->
                     <?php
                     foreach($vBpm as $var){
                         echo $var;
@@ -228,7 +161,7 @@ $vDegCel = array_reverse($vDegCel);
                 borderColor: "#3e95cd",
                 fill: false
             }, {
-                data: [
+                data: [ <!-- Données: son  -->
                     <?php
 
                     foreach ($vdB as $var) {
@@ -241,7 +174,7 @@ $vDegCel = array_reverse($vDegCel);
                 borderColor: "#8e5ea2",
                 fill: false
             }, {
-                data: [
+                data: [ <!-- Données: Dioxyde d'Azote  -->
                     <?php
 
                     foreach ($vNo2 as $var) {
@@ -254,7 +187,7 @@ $vDegCel = array_reverse($vDegCel);
                 borderColor: "#3cba9f",
                 fill: false
             }, {
-                data: [
+                data: [ <!-- Données: Température  -->
                     <?php
 
                     foreach ($vDegCel as $var) {
@@ -269,7 +202,7 @@ $vDegCel = array_reverse($vDegCel);
             }
             ]
         },
-            options: {
+        options: {
             title: {
                 display: true,
                 text: 'Evolution des données en fonction des dernières 24h'

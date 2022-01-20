@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once("../load/config_PDO.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +39,7 @@
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="../index.php" class="logo">
+    <a href="../fin_de_session.php" class="logo">
         <img src="../images/LaMontreS.png" alt="">
         <h3>Déconnexion</h3>
     </a>
@@ -58,8 +63,12 @@
             <h3>Nombre d'utilisateurs connectés :</h3>
             <br>
             <br>
-            <h3> <?php
-                $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8', "root", "");
+            <h3>
+                <?php
+                if($_SESSION['statut'] == 0 or $_SESSION['statut'] == 1){
+
+                    header("Location: /LaMontre/user-gest-admin_menu.php");
+                }
                 $temps_session = 600;
                 $temps_actuel = date("U");
                 $user_ip = $_SERVER['REMOTE_ADDR'];
@@ -108,6 +117,7 @@
                             echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Utilisateur non trouvé</p>";
                     }
                     ?>
+
 
                 </form>
             </section>
@@ -179,6 +189,11 @@
                         $err = $_GET['erreur'];
                         if($err==2)
                             echo "<p style='color:white; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Ajout réussi</p>";
+                        elseif($err==6)
+                            echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Identifiant déja utilisé</p>";
+                        elseif ($err==7)
+                            echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Les mots de passe ne correspondent pas</p>";
+
                     }
                     ?>
                 </form>
