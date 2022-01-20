@@ -1,140 +1,5 @@
 <?php
-session_start();
-
-// Connexion à la base de données
-try
-{
-    $db = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
-        'root',
-        '');
-}
-catch (Exception $e)
-{
-    die('Erreur : ' . $e->getMessage());
-}
-
-// Récupération de l'ID de connexion
-$id = $_SESSION['pseudo'];
-
-// Récupération des données liées à l'utilisateur sur la semaine
-$sql = "SELECT CodeProduit FROM profil WHERE Identifiant ='$id'";
-$req = $db->query($sql);
-$data = $req->fetch();
-$codeproduit = $data['CodeProduit'];
-
-$sql = 'SELECT * FROM donneesmontre WHERE CodeProduit ='. $codeproduit .' ORDER BY Date DESC, Heure DESC LIMIT 168';
-$req = $db->query($sql);
-
-// Initialisation des valeurs initiales
-$vdate = [];
-$vBpm = [];
-$vdB = [];
-$vNo2 = [];
-$vDegCel = [];
-
-$sBpm = [];
-$sdB = [];
-$sNo2 = [];
-$sDegCel = [];
-
-$scoreBpm = [];
-$scoredB = [];
-$scoreNo2 = [];
-$scoreDegCel = [];
-
-$mheure = [];
-$mBpm = [];
-$mdB = [];
-$mNo2 = [];
-$mDegCel = [];
-
-for($var = 0; $var < 7; $var++){
-    $mBpm[$var] = 0;
-    $mdB[$var] = 0;
-    $mNo2[$var] = 0;
-    $mDegCel[$var] = 0;
-}
-
-
-
-$a = 0;
-$i = 0;
-$init = TRUE;
-$vardate = [];
-
-//Trie des données dans les différentes variables et calcul des différents scores/ moyennes
-while ($data = $req->fetch()) { // Tant qu'il y a des données à traiter
-    // Prise en compte des données
-    $date = $data['Date'];
-    $heure = $data['Heure'];
-    $Bpm = $data['Bpm'];
-    $dB = $data['dB'];
-    $No2= $data['No2'] ;
-    $DegCel = $data['DegréCelsius'];
-
-    while($init){ //Prise en compte des changements de date
-        $vardate[$a] = $date;
-        $vdate[$a] = substr($date, 8, 10).',';
-        $init = FALSE;
-    }
-
-    if($date != $vardate[$a]){ // Synthèse de la journée lorsque la date change
-        // Moyenne des données jour après jour
-        $sBpm[$a] = $mBpm[$a]/$i;
-        $sdB[$a] = $mdB[$a]/$i;
-        $sNo2[$a] = $mNo2[$a]/$i;
-        $sDegCel[$a] = $mDegCel[$a]/$i ;
-
-        // Calcul du score
-        $scoreBpm[$a] = ((($sBpm[$a]-20)*100)/140).',';
-        $scoredB[$a] = (($sdB[$a]*100)/140).',';
-        $scoreDegCel[$a] = ((($sDegCel[$a]-20)*100)/20).',';
-        $scoreNo2[$a] = (($sNo2[$a]*100)/40).',';
-
-        // Moyenne des données jour après jour, formaté pour Javascript
-        $vBpm[$a] = ($mBpm[$a]/$i).',' ;
-        $vdB[$a] = ($mdB[$a]/$i).',';
-        $vNo2[$a] = ($mNo2[$a]/$i).',' ;
-        $vDegCel[$a] = ($mDegCel[$a]/$i).',' ;
-
-        $a = $a + 1;
-        $i = 0;
-
-        $init = TRUE;
-    }
-    // Somme des données dans la journée
-    $i = $i + 1;
-    $mBpm[$a] = $mBpm[$a] + $Bpm;
-    $mdB[$a] = $mdB[$a] + $dB;
-    $mNo2[$a] = $mNo2[$a] + $No2;
-    $mDegCel[$a] = $mDegCel[$a] + $DegCel;
-
-}
-
-// Dernières valeurs traitées
-$sBpm[$a] = $mBpm[$a]/$i;
-$sdB[$a] = $mdB[$a]/$i;
-$sNo2[$a] = $mNo2[$a]/$i;
-$sDegCel[$a] = $mDegCel[$a]/$i ;
-
-$scoreBpm[$a] = ((($sBpm[$a]-20)*100)/140).',';
-$scoredB[$a] = (($sdB[$a]*100)/140).',';
-$scoreDegCel[$a] = ((($sDegCel[$a]-20)*100)/20).',';
-$scoreNo2[$a] = (($sNo2[$a]*100)/40).',';
-
-$vBpm[$a] = ($mBpm[$a]/$i).',' ;
-$vdB[$a] = ($mdB[$a]/$i).',';
-$vNo2[$a] = ($mNo2[$a]/$i).',' ;
-$vDegCel[$a] = ($mDegCel[$a]/$i).',' ;
-
-// Inversion des tableaux pour avoir des graphiques chronologiques
-$vdate = array_reverse($vdate);
-$vBpm = array_reverse($vBpm);
-$vdB = array_reverse($vdB);
-$vNo2 = array_reverse($vNo2);
-$vDegCel = array_reverse($vDegCel);
-
-
+require_once("../load/data_stat.php");
 ?>
 
 <!DOCTYPE html>
@@ -233,13 +98,9 @@ $vDegCel = array_reverse($vDegCel);
 
     <!-- Récupération des données -->
     <div class="box6">
-        <p class="text">Récupérer les données</p>
-        <br>
-        <br>
-        <br>
-        <form method="GET" action="../load/septjours.php">
-            <input type ="hidden" name="code" class='btn' value=" <?= $codeproduit ?>" />
-            <input type="submit" name="button1" class='btn' style="background: seagreen; font-weight: bold;" value="Télécharger"/>
+        <form method="GET" action="../load/download_stat.php">
+            <input type ="hidden" name="code" class='btn' value=" <?php echo $codeproduit ?>" />
+            <input type="submit" name="button1" class='btn' style="background: seagreen; font-weight: bold;" value="Télécharger ma semaine"/>
             
         </form>
     </div>

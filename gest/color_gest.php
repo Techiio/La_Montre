@@ -1,15 +1,8 @@
 <?php
 
 session_start();
+require_once("../load/config_PDO.php");
 
-//connexion à la base de données
-try {
-    $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
-        'root',
-        '');
-} catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
-}
 //Données du formulaire + cookie
 $Idt= htmlentities($_POST['Idt']);
 $Newcolor = htmlentities($_POST['new_color']);

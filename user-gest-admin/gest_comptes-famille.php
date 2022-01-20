@@ -1,13 +1,6 @@
 <?php
-
-//connexion à la base de données
-try {
-    $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
-        'root',
-        '');
-} catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
-}
+session_start();
+require_once("../load/config_PDO.php");
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +43,6 @@ try {
     <a href="../fin_de_session.php" class="logo">
         <h2>
             <?php
-            session_start();
             if(isset($_SESSION['pseudotemporaire'])){
                 $_SESSION['pseudo']=$_SESSION['pseudotemporaire'];
                 $_SESSION['statut']=$_SESSION['statuttemporaire'];

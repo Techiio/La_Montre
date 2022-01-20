@@ -1,16 +1,8 @@
 <?php
 
 session_start();
+require_once("config_PDO.php");
 
-//Connexion à la base de données
-//CONNEXION A LA BDD
-try {
-    $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
-        'root',
-        '');
-} catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
-}
 $color ="white";
 
 if(isset($_POST["gest"])){

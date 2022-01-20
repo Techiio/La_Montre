@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -24,7 +27,6 @@
         <img src="../images/EkoS.png" alt="">
     </a>
     <?php
-    session_start();
     if(isset($_SESSION['statut'])){
     ?>
         <a href="../user-gest-admin/user-gest-admin_menu.php" class="logo">

@@ -1,12 +1,13 @@
 <?php
-require_once('config.php');
+require_once('config_PDO.php');
+
 if(!isset($_GET['code'])){// Méthode get
     die();
 }
 // relation avec bdd
 $code = $_GET['code'];
 $today = date("Y-m-d", time());
-$download='SELECT * FROM donneesmontre WHERE CodeProduit ='. $code .' AND DATEDIFF(Date, "' . $today . '" ) >= -7 ORDER BY Date DESC, Heure DESC LIMIT 24';
+$download='SELECT * FROM donneesmontre WHERE CodeProduit ='. $code .' AND DATEDIFF(Date, "' . $today . '" ) >= -1 ORDER BY Date DESC, Heure DESC LIMIT 24';
 $request = $bdd->query($download);
 
 //Affiche un tableau
@@ -37,5 +38,5 @@ header('Pragma: public');
 
 // Permet de télécharger le fichier
 readfile($filename);
-
+?>
 

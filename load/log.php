@@ -3,14 +3,7 @@
 
 
 session_start();
-
-try {
-    $db = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
-        'root',
-        '');
-} catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
-}
+require_once("config_PDO.php");
 
 if (isset($_SESSION['connect'])) {
     header('location: ../');
@@ -20,12 +13,12 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
     //Variables
     $c_mail = htmlentities($_POST['Identifiant']);
     $c_mdp = htmlentities($_POST['Mdp']);
-    $codeS = $db -> query("SELECT CodeStatut  FROM connexion WHERE Identifiant= '$c_mail'");
-    $rq= $db -> query("SELECT  CodeFamille FROM profil WHERE Identifiant= '$c_mail'");
+    $codeS = $bdd -> query("SELECT CodeStatut  FROM connexion WHERE Identifiant= '$c_mail'");
+    $rq= $bdd -> query("SELECT  CodeFamille FROM profil WHERE Identifiant= '$c_mail'");
     $CodeFamille=$rq->fetch();
     $error = 1;
 
-    $req = $db->prepare('SELECT * FROM connexion WHERE Identifiant=?');
+    $req = $bdd->prepare('SELECT * FROM connexion WHERE Identifiant=?');
     $req->execute(array($c_mail));
     while ($user = $req->fetch()) {
 

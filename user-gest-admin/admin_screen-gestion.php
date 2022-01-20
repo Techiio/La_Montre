@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once("../load/config_PDO.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,12 +65,10 @@
             <br>
             <h3>
                 <?php
-                session_start();
                 if($_SESSION['statut'] == 0 or $_SESSION['statut'] == 1){
 
                     header("Location: /LaMontre/user-gest-admin_menu.php");
                 }
-                $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8', "root", "");
                 $temps_session = 600;
                 $temps_actuel = date("U");
                 $user_ip = $_SERVER['REMOTE_ADDR'];
