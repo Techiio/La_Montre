@@ -1,8 +1,7 @@
 <?php
-session_start();
 require_once("config_PDO.php");
 
-// Récuperation ID de connexion dans le cookie
+// Récuperation ID de connexion dans le session
 $id = $_SESSION['pseudo'];
 
 // Récupération des données sur la journée liées à l'utilisateur
