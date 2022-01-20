@@ -23,7 +23,7 @@
         <img src="../images/LaMontreS.png" alt="">
     </a>
 
-    <a href="fin_de_session.php" class="logo">
+    <a href="../fin_de_session.php" class="logo">
         <h2>
             <?php
             session_start();
