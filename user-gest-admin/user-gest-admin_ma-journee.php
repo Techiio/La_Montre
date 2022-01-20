@@ -46,7 +46,7 @@ require_once("../load/data_journee.php");
     </div>
 
     <!-- Bouton déconnexion  -->
-    <a href="index.php" class="logo">
+    <a href="../load/fin_de_session.php" class="logo">
         <h2 style="color: antiquewhite; font-size: 2.5rem;">
             <?php
 
@@ -92,7 +92,7 @@ require_once("../load/data_journee.php");
         <form method="post">
             <a class="box">
                 <section class="rd" id="rd">
-                    <form action="user-gest-admin/reset_data_user-gest-admin_ma-journee.php" method="post">
+                    <form action="reset_data_user-gest-admin_ma-journee.php" method="post">
                         <div>
                             <input
                                     type="submit"

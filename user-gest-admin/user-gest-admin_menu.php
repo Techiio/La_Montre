@@ -23,7 +23,7 @@
         <img src="../images/LaMontreS.png" alt="">
     </a>
 
-    <a href="../fin_de_session.php" class="logo">
+    <a href="../load/fin_de_session.php" class="logo">
         <h2>
             <?php
             session_start();
@@ -36,7 +36,7 @@
         </h2>
     </a>
 
-    <a href="../fin_de_session.php" class="logo">
+    <a href="../load/fin_de_session.php" class="logo">
         <h3>
             Déconnexion
         </h3>

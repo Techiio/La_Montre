@@ -40,7 +40,7 @@ require_once("../load/config_PDO.php");
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="../fin_de_session.php" class="logo">
+    <a href="../load/fin_de_session.php" class="logo">
         <h2>
             <?php
             if(isset($_SESSION['pseudotemporaire'])){
