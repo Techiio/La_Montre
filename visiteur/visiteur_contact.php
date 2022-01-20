@@ -109,11 +109,11 @@
             <h3>Nous joindre</h3>
             <div class="inputBox">
                 <span class="fas fa-user"></span>
-                <input type="text" placeholder="name">
+                <input type="text" placeholder="Nom">
             </div>
             <div class="inputBox">
                 <span class="fas fa-envelope"></span>
-                <input type="email" placeholder="email">
+                <input type="email" placeholder="Email">
             </div>
 
 
@@ -124,7 +124,7 @@
 
 
             </div>
-            <input type="submit" value="Envoyer" class="btn">
+            <input style="background: brown; font-weight: bold;" type="submit" value="Envoyer" class="btn">
         </form>
 
 </section>
