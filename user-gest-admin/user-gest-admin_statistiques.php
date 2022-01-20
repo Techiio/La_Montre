@@ -105,6 +105,24 @@ require_once("../load/data_stat.php");
             <input type="submit" name="button1" class='btn' style="background: seagreen; font-weight: bold;" value="Télécharger ma semaine"/>
             
         </form>
+        <form method="post">
+            <a class="box">
+                <section class="rd" id="rd">
+                    <form action="user-gest-admin/reset_data_user-gest-admin_ma-journee.php" method="post">
+                        <div>
+                            <input
+                                    type="submit"
+                                    style="background: brown; font-weight: bold; letter-spacing: 0;"
+                                    value="Supprimer les données"
+                                    name="formsend"
+                                    id="formsend"
+                                    class="add"
+                            />
+                        </div>
+                    </form>
+                </section>
+            </a>
+        </form>
     </div>
 
     <!-- Graphique en toile d'araignées sur les données des derniers jours -->

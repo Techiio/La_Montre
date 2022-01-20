@@ -82,18 +82,14 @@ require_once("../load/data_journee.php");
         <canvas id="line-chart-day"></canvas>
     </div>
 
-    <?php
-    if (isset($_POST['button1'])) {
-        if ($_SESSION['statut'] == 1 or $_SESSION['statut'] == 0) {
-            header('Location: ../load/download_journee.php?code=' . $codeproduit);//redirection
-            die();
-        }
-    }
-    ?>
     <!-- Suppression et téléchargement des données -->
     <div class="box2">
-        <form method="post">
+        <form method="GET" action="../load/download_journee.php">
+            <input type ="hidden" name="code" class='btn' value=" <?php echo $codeproduit ?>" />
             <input type="submit" name="button1" class='btn' style="background: seagreen; font-weight: bold;" value="Télécharger ma journée"/>
+
+        </form>
+        <form method="post">
             <a class="box">
                 <section class="rd" id="rd">
                     <form action="user-gest-admin/reset_data_user-gest-admin_ma-journee.php" method="post">
@@ -110,6 +106,7 @@ require_once("../load/data_journee.php");
                     </form>
                 </section>
             </a>
+        </form>
     </div>
 
     <!-- Infos de la journée  -->
