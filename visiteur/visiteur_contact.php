@@ -96,8 +96,8 @@
                 <br>
                 <h4>Je désire supprimer mes données ou mon compte, quelle procédure ?</h4>
                 <br>
-                <h5>Pour supprimer vos données, vous pouvez le faire directement depuis un bouton prévu à cet effet sur la page statistique et journée.
-                        Pour supprimer son compte, veuillez contacter les administrateurs via le formulaire de contact.</h5>
+                <h5>Pour supprimer vos données, veuillez demander au gestionnaire de votre famille de s'en charger depuis l'espace famille dont il a accès.
+                    Pour supprimer votre compte, veuillez contacter un administrateur depuis la page contact (la même que cette FAQ).</h5>
                 <br>
                 <h4>J'ai une question qui n'est pas dans la FAQ, comment faire ?</h4>
                 <br>
