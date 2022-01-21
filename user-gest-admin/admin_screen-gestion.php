@@ -1,6 +1,9 @@
 <?php
 session_start();
 require_once("../load/config_PDO.php");
+if(!isset($_SESSION['statut'])){
+    header("Location: ../index.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +12,7 @@ require_once("../load/config_PDO.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>~Admin~ Screen Gestion</title>
+    <title>~Admin~ Page de Gestion</title>
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="../css/style.css">
@@ -25,23 +28,22 @@ require_once("../load/config_PDO.php");
 <header class="header">
 
     <a class="logo">
-        <img src="../images/EkoS.png" alt="">
+        <img src="../images/LaMontreS.png" alt="">
     </a>
 
-
-    <div class="icons">
-        <nav class="navbar">
-            <a href="user-gest-admin_menu.php">Mon Menu</a>
-            <a href="user-gest-admin_ma-journee.php">Ma Journée</a>
-            <a href="user-gest-admin_statistiques.php">Mes Stats</a>
-            <a href="user-gest-admin_conseils.php">Mes Conseils</a>
-        </nav>
-        <div class="fas fa-bars" id="menu-btn"></div>
-    </div>
-
     <a href="../load/fin_de_session.php" class="logo">
-        <img src="../images/LaMontreS.png" alt="">
-        <h3>Déconnexion</h3>
+        <h2>
+            <?php
+
+            if(isset($_SESSION['pseudo'])){
+                echo '' .$_SESSION['pseudo'] ;
+            }
+            ?>
+
+        </h2>
+        <h3>
+            Déconnexion
+        </h3>
     </a>
 
 
@@ -65,13 +67,10 @@ require_once("../load/config_PDO.php");
             <br>
             <h3>
                 <?php
-                if(!isset($_SESSION['statut'])){
-                    header("Location: ../index.php");
-                }
-                elseif($_SESSION['statut'] == 0){
+                if($_SESSION['statut'] == 0){
                     header("Location: /LaMontre/user-gest-admin/user-gest-admin_menu.php");
                 }
-                elseif($_SESSION['statut'] == 1);{
+                if($_SESSION['statut'] == 1){
                     header("Location: /LaMontre/user-gest-admin/user-gest-admin_menu.php?error=3");
                 }
                 $temps_session = 600;

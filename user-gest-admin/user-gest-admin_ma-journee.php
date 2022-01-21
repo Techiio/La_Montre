@@ -1,5 +1,8 @@
 <?php
 require_once("../load/data_journee.php");
+if(!isset($_SESSION['statut'])){
+    header("Location: ../index.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -92,7 +95,9 @@ require_once("../load/data_journee.php");
             <input type ="hidden" name="code" class='btn' value=" <?php echo $codeproduit ?>" />
             <input type="submit" name="button1" class='btn' style="background: seagreen; font-weight: bold;" value="Télécharger ma journée"/>
         </form>
-            <a class="box">
+        <?php
+        if($_SESSION['statut']==1 ||$_SESSION['statut']==2 || isset($_SESSION['pseudotemporaire'])) {
+            echo '<a class="box">
                 <section class="rd" id="rd">
                     <form action="reset_data_user-gest-admin_ma-journee.php" method="post">
                         <div>
@@ -107,8 +112,9 @@ require_once("../load/data_journee.php");
                         </div>
                     </form>
                 </section>
-            </a>
-        </form>
+            </a>';
+        }
+        ?>
     </div>
 
     <!-- Infos de la journée  -->

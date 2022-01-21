@@ -1,6 +1,9 @@
 <?php
 session_start();
 require_once("../load/data_conseils.php");
+if(!isset($_SESSION['statut'])) {
+    header("Location: ../index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -8,7 +11,7 @@ require_once("../load/data_conseils.php");
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Visiteur Mes Conseils</title>
+        <title>Mes Conseils</title>
 
         <!-- font awesome cdn link  -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -58,7 +61,7 @@ require_once("../load/data_conseils.php");
 <!-- header section ends -->
 
 <section class="content">
-    <h1 class="heading"> . </h1>
+    <h1 class="heading">.</h1>
 </section>
 <!-- mes conseils section starts  -->
 
