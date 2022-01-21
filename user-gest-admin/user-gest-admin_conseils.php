@@ -30,7 +30,33 @@ require_once("../load/data_conseils.php");
 
     <div class="icons">
         <nav class="navbar">
-            <a href="user-gest-admin_menu.php">Mon Menu</a>
+            <?php
+            if(isset($_SESSION['statut'])){
+                if($_SESSION['statut']==2) {
+                    ?>
+                    <a href="../user-gest-admin/user-gest-admin_menu.php">Mon Menu</a>
+
+                    <?php
+                }elseif($_SESSION['statut']==0) {
+                    ?>
+                    <a href="../user-gest-admin/user-gest-admin_menu.php">Mon Menu</a>
+
+                    <?php
+                }elseif($_SESSION['statut']==1) {
+                    ?>
+                    <a href="../user-gest-admin/user-gest-admin_menu.php?error=3">Mon Menu</a>
+                    <?php
+
+                }else {
+                    ?>
+                    <a href="../index.php">
+                    </a>
+                    <?php
+
+                }
+            }
+            ?>
+
             <a href="user-gest-admin_ma-journee.php">Ma Journée</a>
             <a href="user-gest-admin_statistiques.php">Mes Stats</a>
             <a href="user-gest-admin_faq-contact.php">Contact/FAQ</a>
