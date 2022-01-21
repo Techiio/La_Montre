@@ -36,7 +36,7 @@ if(!isset($_SESSION['statut'])) {
             <a href="user-gest-admin_menu.php">Mon Menu</a>
             <a href="user-gest-admin_ma-journee.php">Ma Journée</a>
             <a href="user-gest-admin_statistiques.php">Mes Stats</a>
-            <a href="user-gest-admin_faq-contact.php">Contact/FAQ</a>
+            <a href="user-gest-admin_faq-contact.php">FAQ/Contact</a>
         </nav>
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
