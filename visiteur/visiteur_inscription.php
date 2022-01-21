@@ -57,7 +57,7 @@
             </div>
             <div class="inputBox">
               <span class="fas fa-fire"></span>
-              <input type="text" name="CodeProduit" placeholder="Code produit" />
+              <input type="number" name="CodeProduit" placeholder="Code produit" />
             </div>
             <div class="inputBox" id="codefamille">
                <span class="fas fa-house-user"></span>

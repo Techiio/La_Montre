@@ -19,6 +19,7 @@ try {
         $Identifiant=htmlentities($_POST['Idtf']);
         $CodeStatut=02;
         $mdp=htmlentities($_POST['pwd1']);
+        $mdp= password_hash($mdp, PASSWORD_DEFAULT);
 
         //vérifier l'unicité d'un identifiant
         $test_doublon=$bdd->query("SELECT count(Identifiant) as compte FROM connexion WHERE '$Identifiant'= Identifiant");
