@@ -31,6 +31,7 @@ $i = 0;
 
 // Trie des données dans les variables correctes
 while ($data = $req->fetch()) { // Tant qu'il y a des données à traiter
+
     // On note les données de la journées
     $heure[$i] = $data['Heure'];
     $Bpm[$i] = $data['Bpm'];

@@ -68,6 +68,9 @@ while ($data = $req->fetch()) { // Tant qu'il y a des données à traiter
 
     if($date != $vardate[$a]){ // Synthèse de la journée lorsque la date change
         // Moyenne des données jour après jour
+        if($i==0){ //Eviter la division par 0
+            $i = 1;
+        }
         $sBpm[$a] = $mBpm[$a]/$i;
         $sdB[$a] = $mdB[$a]/$i;
         $sNo2[$a] = $mNo2[$a]/$i;
@@ -98,7 +101,9 @@ while ($data = $req->fetch()) { // Tant qu'il y a des données à traiter
     $mDegCel[$a] = $mDegCel[$a] + $DegCel;
 
 }
-
+if($i==0){ //Eviter la division par 0
+    $i = 1;
+}
 // Dernières valeurs traitées
 $sBpm[$a] = $mBpm[$a]/$i;
 $sdB[$a] = $mdB[$a]/$i;
