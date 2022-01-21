@@ -36,7 +36,12 @@ require_once("../load/data_journee.php");
     <!-- Menu  -->
     <div class="icons">
         <nav class="navbar">
-            <a href="user-gest-admin_menu.php">Mon Menu</a>
+            <?php
+            if($_SESSION['statut']==1) { ?>
+                <a href="../user-gest-admin/user-gest-admin_menu.php?error=3" class="logo">Mon Menu</a>
+                <?php }
+            else{ ?> <a href="user-gest-admin_menu.php">Mon Menu</a> <?php }
+             ?>
             <a href="user-gest-admin_statistiques.php">Mes Stats</a>
             <a href="user-gest-admin_conseils.php">Mes Conseils</a>
             <a href="user-gest-admin_faq-contact.php">Contact/FAQ</a>
