@@ -18,5 +18,5 @@ if (!empty($_POST["Idt"])) {
 }
 
 
-
+?>
 
