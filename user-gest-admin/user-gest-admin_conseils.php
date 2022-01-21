@@ -1,6 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['statut'])) {
+    header("Location: ../index.php");
 require_once("../load/data_conseils.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">

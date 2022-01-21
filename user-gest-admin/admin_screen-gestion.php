@@ -1,6 +1,9 @@
 <?php
 session_start();
 require_once("../load/config_PDO.php");
+if(!isset($_SESSION['statut'])){
+    header("Location: ../index.php");
+}
 ?>
 
 <!DOCTYPE html>

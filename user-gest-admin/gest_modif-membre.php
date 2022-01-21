@@ -26,6 +26,9 @@
         <nav class="navbar">
             <?php
             session_start();
+            if(!isset($_SESSION['statut'])){
+                header("Location: ../index.php");
+            }
             if($_SESSION['statut']==1) { ?>
             <a href="../user-gest-admin/user-gest-admin_menu.php?error=3" class="logo">Mon Menu</a>
             <?php
