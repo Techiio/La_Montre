@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -38,10 +41,9 @@
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="../fin_de_session.php" class="logo">
+    <a href="../load/fin_de_session.php" class="logo">
         <h2>
             <?php
-            session_start();
 
             if(isset($_SESSION['pseudo'])) {
                 echo '' . $_SESSION['pseudo'];

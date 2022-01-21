@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -23,20 +26,24 @@
         <img src="../images/LaMontreS.png" alt="">
     </a>
 
-    <a href="../fin_de_session.php" class="logo">
+    <a class="logo">
         <h2>
             <?php
-            session_start();
 
             if(isset($_SESSION['pseudo'])) {
                 echo '' . $_SESSION['pseudo'];
             }
             ?>
-
+            <br>
+            <?php
+            if(isset($_SESSION['cdefamille'])) {
+                echo '' . $_SESSION['cdefamille'];
+            }
+            ?>
         </h2>
     </a>
 
-    <a href="../fin_de_session.php" class="logo">
+    <a href="../load/fin_de_session.php" class="logo">
         <h3>
             Déconnexion
         </h3>

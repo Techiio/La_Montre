@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 require_once("../load/data_stat.php");
 ?>
@@ -46,7 +45,7 @@ require_once("../load/data_stat.php");
     </div>
 
     <!--Bouton déconnexion -->
-    <a href="../fin_de_session.php" class="logo">
+    <a href="../load/fin_de_session.php" class="logo">
         <h2>
             <?php
 

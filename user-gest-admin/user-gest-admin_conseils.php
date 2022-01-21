@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("../load/data_conseils.php");
 ?>
 <!DOCTYPE html>
@@ -37,7 +38,7 @@ require_once("../load/data_conseils.php");
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
 
-    <a href="../fin_de_session.php" class="logo">
+    <a href="../load/fin_de_session.php" class="logo">
         <h2>
             <?php
 
@@ -163,6 +164,7 @@ require_once("../load/data_conseils.php");
                         echo "Vous êtes exposé à la chaleur. Vous avez une insolation,un coup de chaleur ou peut-être de la fièvre.";
                     }
                 ?></h3><br><br>
+        </a>
 
 </section>
 

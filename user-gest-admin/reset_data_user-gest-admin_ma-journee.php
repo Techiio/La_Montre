@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("../load/data_journee.php");
 
 $Idt=$_SESSION['pseudo'];
@@ -23,4 +24,4 @@ else {
     header('location: user-gest-admin_ma-journee.php?erreur=5');
 }
 
-
+?>

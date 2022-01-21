@@ -46,8 +46,8 @@ require_once("../load/data_journee.php");
     </div>
 
     <!-- Bouton déconnexion  -->
-    <a href="index.php" class="logo">
-        <h2 style="color: antiquewhite; font-size: 2.5rem;">
+    <a href="../load/fin_de_session.php" class="logo">
+        <h2>
             <?php
 
             if(isset($_SESSION['pseudo'])){
