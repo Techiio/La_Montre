@@ -63,7 +63,7 @@ require_once("../load/data_conseils.php");
 <!-- mes conseils section starts  -->
 
 <section class="famille" id="famille">
-    <h1 class="heading"> Ma <span>Famille</span> </h1>
+    <h1 class="heading"> Mes <span>Conseils</span> </h1>
     <div class="box-container">
         <a class="box">
             <h3 style="text-transform: none; font-size: x-large">Meilleur donnée :</h3><br><br><br><br>
