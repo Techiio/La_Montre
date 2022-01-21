@@ -23,11 +23,11 @@ if ($nb_utilisateur['compte']==1) {
     $rq = $bdd->query("DELETE FROM donneesmontre WHERE  '$CodeP'= CodeProduit");
 
     $erreur = 3;
-    header('location: ../admin_screen-gestion.php?erreur=3');
+    header('location: ../user-gest-admin/admin_screen-gestion.php?erreur=3');
 }
 
 else {
-    header('location: ../admin_screen-gestion.php?erreur=5');
+    header('location: ../user-gest-admin/admin_screen-gestion.php?erreur=5');
 }
 
 ?>
