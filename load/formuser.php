@@ -65,22 +65,27 @@ else{
             }
             else{
 
-                if($cdf){
+                if($cdf) {
                     $cdestatut = 0;
                     $cdeproduit = htmlentities($_POST["CodeProduit"]);
                     $cdefamille = htmlentities($_POST["CodeFamille"]);
-                    $mdp = htmlentities($_POST['mdp1']);
-                    $mdp= password_hash($mdp, PASSWORD_DEFAULT);
-                    $_SESSION["cdefamille"]=$cdefamille;
+                    $mdp = $_POST['mdp1'];
+                    $_SESSION["cdefamille"] = $cdefamille;
+
+                    if (str_contains($mdp, ' ')) {
+                        header('Location: ../visiteur/visiteur_inscription.php?erreur=2');
+                    } else {
 //Envoi des coordonnées à mySQL
+                        $mdp = htmlentities($_POST['mdp1']);
+                        $mdp= password_hash($mdp, PASSWORD_DEFAULT);
 
+                        $requete = $bdd->prepare('INSERT INTO profil(CodeProduit, Couleur, CodeFamille, Identifiant ) VALUES(?, ?, ?, ?)');
+                        $requete->execute(array($cdeproduit, $color, $cdefamille, $Identifiant));
 
-                    $requete=$bdd->prepare('INSERT INTO profil(CodeProduit, Couleur, CodeFamille, Identifiant ) VALUES(?, ?, ?, ?)');
-                    $requete->execute(array($cdeproduit, $color, $cdefamille, $Identifiant));
-
-                    $requete=$bdd->prepare('INSERT INTO connexion(CodeStatut, Identifiant, Mdp ) VALUES(?, ?, ?)');
-                    $requete->execute(array($cdestatut, $Identifiant, $mdp));
-                    header('location: ../visiteur/visiteur_connexion.php?correct=1');
+                        $requete = $bdd->prepare('INSERT INTO connexion(CodeStatut, Identifiant, Mdp ) VALUES(?, ?, ?)');
+                        $requete->execute(array($cdestatut, $Identifiant, $mdp));
+                        header('location: ../visiteur/visiteur_connexion.php?correct=1');
+                    }
                 }
                 else{
                     header('Location: ../visiteur/visiteur_inscription.php?code=1');
