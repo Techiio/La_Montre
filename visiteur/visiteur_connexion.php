@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="../css/style.css">
 
     </head>
-<body style="background: black">
+<body>
 
 <!-- header section starts  -->
 
