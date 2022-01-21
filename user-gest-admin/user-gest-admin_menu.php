@@ -34,13 +34,15 @@ session_start();
                 echo '' . $_SESSION['pseudo'];
             }
             ?>
-            <br>
+        </h2>
+        <h3>
+            Mon code famille:
             <?php
             if(isset($_COOKIE['famille'])) {
                 echo '' . $_COOKIE['famille'];
             }
             ?>
-        </h2>
+        </h3>
     </a>
 
     <a href="../load/fin_de_session.php" class="logo">

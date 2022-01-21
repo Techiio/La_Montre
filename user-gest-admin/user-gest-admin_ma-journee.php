@@ -135,7 +135,8 @@ require_once("../load/data_journee.php");
 </section>
 
 <!-- custom js file link  -->
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
+
 <!-- Script pour le graphique des données de la journée  -->
 <script>
     new Chart(document.getElementById("line-chart-day"), {
@@ -209,5 +210,6 @@ require_once("../load/data_journee.php");
         }
     });
 </script>
+
 </body>
 </html>
