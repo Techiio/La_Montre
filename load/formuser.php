@@ -22,6 +22,7 @@ if(isset($_POST["gest"])){
                 $cdefamille = rand(1000000001,9999999999);
                 $_SESSION["cdefamille"]=$cdefamille;
                 $mdp = htmlentities($_POST['mdp1']);
+                $mdp= password_hash($mdp, PASSWORD_DEFAULT);
 //Envoi des coordonnées à mySQL
 
 
@@ -63,6 +64,7 @@ else{
                     $cdeproduit = htmlentities($_POST["CodeProduit"]);
                     $cdefamille = htmlentities($_POST["CodeFamille"]);
                     $mdp = htmlentities($_POST['mdp1']);
+                    $mdp= password_hash($mdp, PASSWORD_DEFAULT);
                     $_SESSION["cdefamille"]=$cdefamille;
 //Envoi des coordonnées à mySQL
 
