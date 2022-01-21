@@ -46,7 +46,7 @@
           <form action="../load/formuser.php" method="post">
             <div class="inputBox">
               <span class="fas fa-user"></span>
-              <input type="number" name="Identifiant" placeholder="Prénom" />
+              <input type="text" name="Identifiant" placeholder="Prénom" />
                 <?php
                 if(isset($_GET['erreur'])){
                     $err = $_GET['erreur'];
@@ -57,7 +57,7 @@
             </div>
             <div class="inputBox">
               <span class="fas fa-fire"></span>
-              <input type="text" name="CodeProduit" placeholder="Code produit" />
+              <input type="number" name="CodeProduit" placeholder="Code produit" />
             </div>
             <div class="inputBox" id="codefamille">
                <span class="fas fa-house-user"></span>
