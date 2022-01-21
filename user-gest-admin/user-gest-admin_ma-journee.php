@@ -1,7 +1,7 @@
 <?php
+require_once("../load/data_journee.php");
 if(!isset($_SESSION['statut'])){
     header("Location: ../index.php");
-require_once("../load/data_journee.php");
 }
 ?>
 
