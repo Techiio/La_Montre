@@ -61,7 +61,7 @@ if(!isset($_SESSION['statut'])) {
 <!-- header section ends -->
 
 <section class="content">
-    <h1 class="heading"> . </h1>
+    <h1 class="heading">.</h1>
 </section>
 <!-- mes conseils section starts  -->
 

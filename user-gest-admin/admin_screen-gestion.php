@@ -28,23 +28,22 @@ if(!isset($_SESSION['statut'])){
 <header class="header">
 
     <a class="logo">
-        <img src="../images/EkoS.png" alt="">
+        <img src="../images/LaMontreS.png" alt="">
     </a>
 
-
-    <div class="icons">
-        <nav class="navbar">
-            <a href="user-gest-admin_menu.php">Mon Menu</a>
-            <a href="user-gest-admin_ma-journee.php">Ma Journée</a>
-            <a href="user-gest-admin_statistiques.php">Mes Stats</a>
-            <a href="user-gest-admin_conseils.php">Mes Conseils</a>
-        </nav>
-        <div class="fas fa-bars" id="menu-btn"></div>
-    </div>
-
     <a href="../load/fin_de_session.php" class="logo">
-        <img src="../images/LaMontreS.png" alt="">
-        <h3>Déconnexion</h3>
+        <h2>
+            <?php
+
+            if(isset($_SESSION['pseudo'])){
+                echo '' .$_SESSION['pseudo'] ;
+            }
+            ?>
+
+        </h2>
+        <h3>
+            Déconnexion
+        </h3>
     </a>
 
 
