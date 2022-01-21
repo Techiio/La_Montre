@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once("config_PDO.php");
 
 $id = $_COOKIE['pseudo'];

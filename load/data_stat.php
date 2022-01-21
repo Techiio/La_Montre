@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once("config_PDO.php");
 
 // Récupération de l'ID de connexion
