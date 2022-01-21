@@ -40,32 +40,11 @@ require_once("../load/data_journee.php");
     <div class="icons">
         <nav class="navbar">
             <?php
-            if(isset($_SESSION['statut'])){
-                if($_SESSION['statut']==2) {
-                    ?>
-                    <a href="../user-gest-admin/user-gest-admin_menu.php">Mon Menu</a>
-
-                    <?php
-                }elseif($_SESSION['statut']==0) {
-                    ?>
-                    <a href="../user-gest-admin/user-gest-admin_menu.php">Mon Menu</a>
-
-                    <?php
-                }elseif($_SESSION['statut']==1) {
-                    ?>
-                    <a href="../user-gest-admin/user-gest-admin_menu.php?error=3">Mon Menu</a>
-                    <?php
-
-                }else {
-                    ?>
-                    <a href="../index.php">
-                    </a>
-                    <?php
-
-                }
-            }
-            ?>
-
+            if($_SESSION['statut']==1) { ?>
+                <a href="../user-gest-admin/user-gest-admin_menu.php?error=3" class="logo">Mon Menu</a>
+                <?php }
+            else{ ?> <a href="user-gest-admin_menu.php">Mon Menu</a> <?php }
+             ?>
             <a href="user-gest-admin_statistiques.php">Mes Stats</a>
             <a href="user-gest-admin_conseils.php">Mes Conseils</a>
             <a href="user-gest-admin_faq-contact.php">Contact/FAQ</a>
@@ -116,9 +95,7 @@ require_once("../load/data_journee.php");
             <input type ="hidden" name="code" class='btn' value=" <?php echo $codeproduit ?>" />
             <input type="submit" name="button1" class='btn' style="background: seagreen; font-weight: bold;" value="Télécharger ma journée"/>
         </form>
-        <?php
-        if($_SESSION['statut']==1 ||$_SESSION['statut']==2 || isset($_SESSION['pseudotemporaire'])) {
-            echo '<a class="box">
+            <a class="box">
                 <section class="rd" id="rd">
                     <form action="reset_data_user-gest-admin_ma-journee.php" method="post">
                         <div>
@@ -133,9 +110,8 @@ require_once("../load/data_journee.php");
                         </div>
                     </form>
                 </section>
-            </a>';
-        }
-        ?>
+            </a>
+        </form>
     </div>
 
     <!-- Infos de la journée  -->
