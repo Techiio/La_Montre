@@ -65,9 +65,14 @@ require_once("../load/config_PDO.php");
             <br>
             <h3>
                 <?php
-                if($_SESSION['statut'] == 0 or $_SESSION['statut'] == 1){
-
-                    header("Location: /LaMontre/user-gest-admin_menu.php");
+                if(!isset($_SESSION['statut'])){
+                    header("Location: ../index.php");
+                }
+                elseif($_SESSION['statut'] == 0){
+                    header("Location: /LaMontre/user-gest-admin/user-gest-admin_menu.php");
+                }
+                elseif($_SESSION['statut'] == 1);{
+                    header("Location: /LaMontre/user-gest-admin/user-gest-admin_menu.php?error=3");
                 }
                 $temps_session = 600;
                 $temps_actuel = date("U");

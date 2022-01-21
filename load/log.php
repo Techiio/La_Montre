@@ -29,7 +29,7 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
 
         $_SESSION['pseudo']= $user['Identifiant'];
         $_SESSION['statut']= $user['CodeStatut'];
-        setcookie('famille', $CodeFamille['CodeFamille'], time()+364*24*3600, '/', null, false, true);
+        setcookie('famille', $CodeFamille['CodeFamille'], time()+3600, '/', null, false, true);
 
         $_SESSION['connect'] = 1;
 
@@ -41,7 +41,7 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
 
             $_SESSION['pseudo']= $user['Identifiant'];
             $_SESSION['statut']= $user['CodeStatut'];
-            setcookie('famille', $CodeFamille['CodeFamille'], time()+364*24*3600, '/', null, false, true);
+            setcookie('famille', $CodeFamille['CodeFamille'], time()+3600, '/', null, false, true);
 
             $_SESSION['connect'] = 1;
 
@@ -53,7 +53,7 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
 
             $_SESSION['pseudo']= $user['Identifiant'];
             $_SESSION['statut']= $user['CodeStatut'];
-            setcookie('famille', $CodeFamille['CodeFamille'], time()+364*24*3600, '/', null, false, true);
+            setcookie('famille', $CodeFamille['CodeFamille'], time()+3600, '/', null, false, true);
 
 
             $_SESSION['connect'] = 1;
