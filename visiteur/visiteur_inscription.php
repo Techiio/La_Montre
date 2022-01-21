@@ -66,7 +66,7 @@
                 if(isset($_GET['code'])){
                     $cdef = $_GET['code'];
                     if($cdef==1)
-                        echo "<p style='color:red; padding: 1rem; font-weight: bold; font-size: 1.5rem; transition: 1s; '>Code famille inexistant</p>";
+                        echo "<p style='color:darkred; padding: 1rem; font-weight: bold; font-size: 1.5rem; transition: 1s; '>Code famille inexistant</p>";
                 }
                 ?>
             </div>
@@ -74,6 +74,13 @@
               <span class="fas fa-id-badge"></span>
               <input type="password" name="mdp1" id="light" placeholder="Mot de passe" />
               <a id="eye" onclick="eyeclick()" class="fas fa-eye"></a>
+                <?php
+                if(isset($_GET['erreur'])){
+                    $er = $_GET['erreur'];
+                    if($er==2)
+                        echo "<p style='color:darkred; padding: 1rem; font-weight: bold; font-size: 1.5rem; transition: 1s; '>Le mot de passe ne doit pas contenir d'espace(s)</p>";
+                }
+                ?>
             </div>
             <div class="inputBox">
               <span class="fas fa-id-badge"></span>
