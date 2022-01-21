@@ -23,7 +23,7 @@
         <img src="../images/LaMontreS.png" alt="">
     </a>
 
-    <a href="../load/fin_de_session.php" class="logo">
+    <a class="logo">
         <h2>
             <?php
             session_start();
@@ -32,7 +32,12 @@
                 echo '' . $_SESSION['pseudo'];
             }
             ?>
-
+            <br>
+            <?php
+            if(isset($_SESSION['cdefamille'])) {
+                echo '' . $_SESSION['cdefamille'];
+            }
+            ?>
         </h2>
     </a>
 
