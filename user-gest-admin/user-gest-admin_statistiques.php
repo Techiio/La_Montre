@@ -84,7 +84,7 @@ require_once("../load/data_stat.php");
     <!-- Données maximales atteintes sur la semaine -->
     <div class="box5">
         <p class="text" style="color: #3cba9f">Pic de No2 : </p>
-        <p class="score"><?php echo round(max($sNo2)).' insérer unité' ?></p>
+        <p class="score"><?php echo round(max($sNo2)).' μg/m3' ?></p>
         <br>
         <p class="text" style="color: #3e95cd">Pic de poul : </p>
         <p class="score"><?php echo round(max($sBpm)).' Bpm' ?></p>

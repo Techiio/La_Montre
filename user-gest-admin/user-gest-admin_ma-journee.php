@@ -113,13 +113,26 @@ require_once("../load/data_journee.php");
     <div class="box3">
         <p class="bigtext" style="color: darkorange">Infos du Jour</p>
         <p class="text" style="color: #3cba9f">Pic de Dioxyde d'Azote : </p>
-        <p class="score"><?php echo max($No2).' insérer unité' ?></p>
+        <p class="score"><?php
+            if(!empty($No2)){
+                echo max($No2).' μg/m3';
+            }
+            ?></p>
         <p class="text" style="color: #3e95cd">Pic de poul : </p>
-        <p class="score"><?php echo max($Bpm).' Bpm' ?></p>
+        <p class="score"><?php
+            if(!empty($Bpm)){
+                echo max($Bpm).' Bpm';
+            }?></p>
         <p class="text" style="color: #e8c3b9">Pic de température du corps : </p>
-        <p class="score"><?php echo max($DegCel).'°C' ?></p>
+        <p class="score"><?php
+            if(!empty($DegCel)){
+                echo max($DegCel).' °C';
+            }?></p>
         <p class="text" style="color: #8e5ea2">Pic de son : </p>
-        <p class="score"><?php echo max($dB).' dB' ?></p>
+        <p class="score"><?php
+            if(!empty($dB)){
+                echo max($dB).' dB';
+            }?></p>
     </div>
 
 </section>
