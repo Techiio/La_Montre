@@ -25,6 +25,7 @@
     <div class="icons">
         <nav class="navbar">
             <?php
+            session_start();
             if($_SESSION['statut']==1) { ?>
             <a href="../user-gest-admin/user-gest-admin_menu.php?error=3" class="logo">Mon Menu</a>
             <?php
@@ -41,7 +42,6 @@
     <a href="../load/fin_de_session.php" class="logo">
         <h2>
             <?php
-            session_start();
 
             if(isset($_SESSION['pseudo'])) {
                 echo '' . $_SESSION['pseudo'];
