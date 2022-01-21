@@ -28,11 +28,26 @@ session_start();
     </a>
     <?php
     if(isset($_SESSION['statut'])){
+        if($_SESSION['statut']==2) {
+    ?>
+        <a href="../user-gest-admin/admin_screen-gestion.php" class="logo">
+            <img src="../images/LaMontreS.png" alt="">
+        </a>
+    <?php
+    }elseif($_SESSION['statut']==0) {
     ?>
         <a href="../user-gest-admin/user-gest-admin_menu.php" class="logo">
             <img src="../images/LaMontreS.png" alt="">
         </a>
+
     <?php
+    }elseif($_SESSION['statut']==1) {
+    ?>
+        <a href="../user-gest-admin/user-gest-admin_menu.php?error=3" class="logo">
+            <img src="../images/LaMontreS.png" alt="">
+        </a>
+    <?php
+
     }else {
     ?>
     <a href="../index.php" class="logo">
@@ -40,6 +55,7 @@ session_start();
     </a>
     <?php
 
+    }
     }
     ?>
 
