@@ -24,4 +24,4 @@ else {
     header('location: user-gest-admin_ma-journee.php?erreur=5');
 }
 
-
+?>
