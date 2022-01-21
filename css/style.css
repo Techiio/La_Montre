@@ -111,13 +111,14 @@ textarea {
 }
 
 .header a h2{
+    text-align: center;
     color: lightyellow;
     font-size: 3rem;
     line-height: 150%;
 }
 
 .header a h3{
-    color: saddlebrown;
+    color: whitesmoke;
     font-size: 2rem;
     line-height: 150%;
 }
