@@ -1,20 +1,10 @@
 <?php
+session_start();
 
-//suppression des cookies admin
-setcookie('pseudo');
-setcookie('statut');
+//connexion à la base de données
+require_once("../load/config_PDO.php");
 
-
-//connexion bdd
-try {
-    $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
-        'root',
-        '');
-} catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
-}
-
-///connexion au profil utilisateur
+//connexion au profil utilisateur
 if (!empty($_POST["Identifiant"])) {
     $Identifiant = htmlentities($_POST['Identifiant']);
     $Mdp = htmlentities($_POST['Mdp']);
@@ -28,9 +18,8 @@ if (!empty($_POST["Identifiant"])) {
         if ($Identifiant == $user['Identifiant']) {
             $error = 0;
 
-            setcookie('pseudo', $user['Identifiant'], time()+364*24*3600, '/', null, false, true);
-            setcookie('statut', $user['CodeStatut'], time()+364*24*3600, '/', null, false, true);
-
+            $_SESSION['pseudo'] = $Identifiant;
+            $_SESSION['statut'] = 2;
             header('location: ../user-gest-admin/user-gest-admin_menu.php');
         }
         else{
