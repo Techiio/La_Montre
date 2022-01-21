@@ -73,22 +73,22 @@ if(!isset($_SESSION['statut'])) {
             <p><?php
                 if ($meilleurScore == $scoreBpm)                                        // Permet d'afficher la meilleure valeur grâce au pire score observé
                 {
-                    echo $sBpm[$a];
+                    echo round($sBpm[$a]);
                     echo " Bpm";
                 }
                 else if ($meilleurScore == $scoreNo2)
                 {
-                    echo $sNo2[$a];
+                    echo round($sNo2[$a]);
                     echo " µg/m³";
                 }
                 else if ($meilleurScore == $scoreDegCel)
                 {
-                    echo $sDegCel[$a];
+                    echo round($sDegCel[$a]);
                     echo " °C";
                 }
                 else if ($meilleurScore == $scoredB)
                 {
-                    echo $sdB[$a];
+                    echo round($sdB[$a]);
                     echo " dB";
                 }
                 ?>
@@ -99,22 +99,22 @@ if(!isset($_SESSION['statut'])) {
             <p> <?php
                 if ($pireScore == $scoreBpm)                                            // Permet d'afficher la pire valeur grâce au pire score observé
                 {
-                    echo $sBpm[$a];
+                    echo round($sBpm[$a]);
                     echo " Bpm";
                 }
                 else if ($pireScore == $scoreNo2)
                 {
-                    echo $sNo2[$a];
+                    echo round($sNo2[$a]);
                     echo " µg/m³";
                 }
                 else if ($pireScore == $scoreDegCel)
                 {
-                    echo $sDegCel[$a];
+                    echo round($sDegCel[$a]);
                     echo " °C";
                 }
                 else if ($pireScore == $scoredB)
                 {
-                    echo $sdB[$a];
+                    echo round($sdB[$a]);
                     echo " dB";
                 }?></p>
         </a>
