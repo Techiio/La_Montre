@@ -164,6 +164,7 @@ require_once("../load/data_conseils.php");
                         echo "Vous êtes exposé à la chaleur. Vous avez une insolation,un coup de chaleur ou peut-être de la fièvre.";
                     }
                 ?></h3><br><br>
+        </a>
 
 </section>
 
