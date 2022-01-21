@@ -50,7 +50,6 @@
 
     <div class="row">
 
-
         <form action="../load/log.php" method="post">
             <div class="inputBox">
                 <span class="fas fa-user"></span>
@@ -61,13 +60,20 @@
                 <input type="password" id="light" name="Mdp" placeholder="Mot de passe">
                 <a id="eye" onclick="eyeclick()" class="fas fa-eye"></a>
             </div>
-            <input style="background: brown; font-weight: bold;" type="submit" name="submit" value="Se connecter" class="btn">
+            <input style="background: brown; font-weight: bold;"    type="submit" name="submit" value="Se connecter" class="btn">
 
             <?php
             if(isset($_GET['erreur'])){
                 $err = $_GET['erreur'];
                 if($err==1 || $err==2)
                     echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Utilisateur ou mot de passe incorrect</p>";
+            }
+            ?>
+            <?php
+            if(isset($_GET['correct'])){
+                $err = $_GET['correct'];
+                if($err==1 || $err ==2)
+                    echo "<p style='color:lawngreen; padding: 1rem; text-align: center; font-weight: bold; font-size: 1.5rem; transition: 1s; '>Compte créé, veuillez-vous connecter</p>";
             }
             ?>
 
