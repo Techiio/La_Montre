@@ -99,7 +99,7 @@ if(!isset($_SESSION['statut'])){
         if($_SESSION['statut']==1 ||$_SESSION['statut']==2 || isset($_SESSION['pseudotemporaire'])) {
             echo '<a class="box">
                 <section class="rd" id="rd">
-                    <form action="reset_data_user-gest-admin_ma-journee.php" method="post">
+                    <form action="../load/reset_data_user-gest-admin_ma-journee.php" method="post">
                         <div>
                             <input
                                     type="submit"

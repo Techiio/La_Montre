@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../load/data_journee.php");
+require_once("../load/data_stat.php");
 
 $Idt=$_SESSION['pseudo'];
 
@@ -17,11 +17,11 @@ if ($nb_utilisateur['compte']==1) {
     $rq = $bdd->query("DELETE FROM donneesmontre WHERE  '$CodeP'= CodeProduit");
 
     $erreur = 3;
-    header('location: user-gest-admin_ma-journee.php?suppression');
+    header('location: ../user-gest-admin/user-gest-admin_statistiques.php?suppression');
 }
 
 else {
-    header('location: user-gest-admin_ma-journee.php?erreur=5');
+    header('location: ../user-gest-admin/user-gest-admin_statistiques.php?erreur=5');
 }
 
 ?>

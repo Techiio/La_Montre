@@ -112,10 +112,11 @@ if(!isset($_SESSION['statut'])){
             <input type="submit" name="button1" class='btn' style="background: seagreen; font-weight: bold;" value="Télécharger ma semaine"/>
             
         </form>
-        <form method="post">
-            <a class="box">
+        <?php
+        if($_SESSION['statut']==1 ||$_SESSION['statut']==2 || isset($_SESSION['pseudotemporaire'])) {
+            echo '<a class="box">
                 <section class="rd" id="rd">
-                    <form action="user-gest-admin/reset_data_user-gest-admin_ma-journee.php" method="post">
+                    <form action="../load/reset_data_user-gest-admin_statistiques.php" method="post">
                         <div>
                             <input
                                     type="submit"
@@ -128,8 +129,9 @@ if(!isset($_SESSION['statut'])){
                         </div>
                     </form>
                 </section>
-            </a>
-        </form>
+            </a>';
+        }
+        ?>
     </div>
 
     <!-- Graphique en toile d'araignées sur les données des derniers jours -->
