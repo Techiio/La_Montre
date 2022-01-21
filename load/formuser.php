@@ -30,7 +30,7 @@ if(isset($_POST["gest"])){
 
                 $requete=$bdd->prepare('INSERT INTO connexion(CodeStatut, Identifiant, Mdp ) VALUES(?, ?, ?)');
                 $requete->execute(array($cdestatut, $Identifiant, $mdp));
-                header('location: ../user-gest-admin/user-gest-admin_menu.php');
+                header('location: ../visiteur/visiteur_connexion.php?correct=1');
 
             }
         }
@@ -72,7 +72,7 @@ else{
 
                     $requete=$bdd->prepare('INSERT INTO connexion(CodeStatut, Identifiant, Mdp ) VALUES(?, ?, ?)');
                     $requete->execute(array($cdestatut, $Identifiant, $mdp));
-                    header('location: ../user-gest-admin/user-gest-admin_menu.php');
+                    header('location: ../visiteur/visiteur_connexion.php?correct=1');
                 }
                 else{
                     header('Location: ../visiteur/visiteur_inscription.php?code=1');

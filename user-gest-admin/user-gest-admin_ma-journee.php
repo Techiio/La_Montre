@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once("../load/data_journee.php");
 ?>
 
@@ -92,7 +91,7 @@ require_once("../load/data_journee.php");
         <form method="post">
             <a class="box">
                 <section class="rd" id="rd">
-                    <form action="user-gest-admin/reset_data_user-gest-admin_ma-journee.php" method="post">
+                    <form action="../user-gest-admin/reset_data_user-gest-admin_ma-journee.php" method="GET">
                         <div>
                             <input
                                     type="submit"
@@ -136,7 +135,8 @@ require_once("../load/data_journee.php");
 </section>
 
 <!-- custom js file link  -->
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
+
 <!-- Script pour le graphique des données de la journée  -->
 <script>
     new Chart(document.getElementById("line-chart-day"), {
@@ -210,5 +210,6 @@ require_once("../load/data_journee.php");
         }
     });
 </script>
+
 </body>
 </html>

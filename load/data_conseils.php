@@ -1,4 +1,5 @@
 <?php
+
 require_once("config_PDO.php");
 
 $id = $_SESSION['pseudo'];

@@ -36,8 +36,8 @@ session_start();
             ?>
             <br>
             <?php
-            if(isset($_SESSION['cdefamille'])) {
-                echo '' . $_SESSION['cdefamille'];
+            if(isset($_COOKIE['famille'])) {
+                echo '' . $_COOKIE['famille'];
             }
             ?>
         </h2>
