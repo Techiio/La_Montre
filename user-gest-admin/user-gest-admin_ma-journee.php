@@ -95,7 +95,9 @@ if(!isset($_SESSION['statut'])){
             <input type ="hidden" name="code" class='btn' value=" <?php echo $codeproduit ?>" />
             <input type="submit" name="button1" class='btn' style="background: seagreen; font-weight: bold;" value="Télécharger ma journée"/>
         </form>
-            <a class="box">
+        <?php
+        if($_SESSION['statut']==1 ||$_SESSION['statut']==2 || isset($_SESSION['pseudotemporaire'])) {
+            echo '<a class="box">
                 <section class="rd" id="rd">
                     <form action="reset_data_user-gest-admin_ma-journee.php" method="post">
                         <div>
@@ -110,8 +112,9 @@ if(!isset($_SESSION['statut'])){
                         </div>
                     </form>
                 </section>
-            </a>
-        </form>
+            </a>';
+        }
+        ?>
     </div>
 
     <!-- Infos de la journée  -->
