@@ -1,7 +1,7 @@
 <?php
 require_once("config_PDO.php");
 
-$id = $_COOKIE['pseudo'];
+$id = $_SESSION['pseudo'];
 
 $sql = "SELECT CodeProduit FROM profil WHERE Identifiant ='$id'";
 $req = $bdd->query($sql);
