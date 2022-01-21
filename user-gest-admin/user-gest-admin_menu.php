@@ -39,10 +39,9 @@ if(!isset($_SESSION['statut'])){
             ?>
         </h2>
         <h3>
-            Mon code famille:
             <?php
             if(isset($_COOKIE['famille'])) {
-                echo '' . $_COOKIE['famille'];
+                echo 'Mon code famille : ' . $_COOKIE['famille'];
             }
             ?>
         </h3>

@@ -21,7 +21,7 @@ if(!isset($_SESSION['statut'])){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 </head>
-<body>
+<body style="background: black">
 
 <!-- header section starts  -->
 
@@ -210,7 +210,7 @@ if(!isset($_SESSION['statut'])){
             <br>
             <section id="liste">
                 <select style="font-size: 2rem;" multiple="yes" size="10">
-                    <?php $rep = $bdd->query('SELECT * FROM connexion WHERE CodeStatut=02');
+                    <?php $rep = $bdd->query('SELECT * FROM connexion WHERE CodeStatut=2');
                     while ($donnees = $rep->fetch())
                     {
                         ?>
