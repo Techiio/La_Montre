@@ -21,18 +21,24 @@ if(isset($_POST["gest"])){
                 $cdeproduit = htmlentities($_POST["CodeProduit"]);
                 $cdefamille = rand(1000000001,9999999999);
                 $_SESSION["cdefamille"]=$cdefamille;
-                $mdp = htmlentities($_POST['mdp1']);
-                $mdp= password_hash($mdp, PASSWORD_DEFAULT);
+                $mdp = $_POST['mdp1'];
+                //$mdp= password_hash($mdp, PASSWORD_DEFAULT);
+
+                if(str_contains($mdp, ' ')){
+                    header('Location: ../visiteur/visiteur_inscription.php?erreur=2');
+                }
+                else {
 //Envoi des coordonnées à mySQL
+                    $mdp = htmlentities($_POST['mdp1']);
+                    $mdp= password_hash($mdp, PASSWORD_DEFAULT);
 
+                    $requete = $bdd->prepare('INSERT INTO profil(CodeProduit, Couleur, CodeFamille, Identifiant ) VALUES(?, ?, ?, ?)');
+                    $requete->execute(array($cdeproduit, $color, $cdefamille, $Identifiant));
 
-                $requete=$bdd->prepare('INSERT INTO profil(CodeProduit, Couleur, CodeFamille, Identifiant ) VALUES(?, ?, ?, ?)');
-                $requete->execute(array($cdeproduit, $color, $cdefamille, $Identifiant));
-
-                $requete=$bdd->prepare('INSERT INTO connexion(CodeStatut, Identifiant, Mdp ) VALUES(?, ?, ?)');
-                $requete->execute(array($cdestatut, $Identifiant, $mdp));
-                header('location: ../visiteur/visiteur_connexion.php?correct=1');
-
+                    $requete = $bdd->prepare('INSERT INTO connexion(CodeStatut, Identifiant, Mdp ) VALUES(?, ?, ?)');
+                    $requete->execute(array($cdestatut, $Identifiant, $mdp));
+                    header('location: ../visiteur/visiteur_connexion.php?correct=1');
+                }
             }
         }
 
