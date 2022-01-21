@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("../load/data_conseils.php");
 ?>
 <!DOCTYPE html>
