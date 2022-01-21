@@ -31,18 +31,18 @@ if (!empty($_POST["Identifiant"])) {
             setcookie('pseudo', $user['Identifiant'], time()+364*24*3600, '/', null, false, true);
             setcookie('statut', $user['CodeStatut'], time()+364*24*3600, '/', null, false, true);
 
-            header('location: ../user-gest-admin_menu.php');
+            header('location: ../user-gest-admin/user-gest-admin_menu.php');
         }
         else{
-            header('Location: ../admin_screen-gestion.php?erreur=4');
+            header('Location: ../user-gest-admin/admin_screen-gestion.php?erreur=4');
         }
     }
     if ($error == 4) {
 
-        header('Location: ../admin_screen-gestion.php?erreur=4');
+        header('Location: ../user-gest-admin/admin_screen-gestion.php?erreur=4');
     }
 }
 else{
-    header('Location: ../admin_screen-gestion.php?erreur=4');
+    header('Location: ../user-gest-admin/admin_screen-gestion.php?erreur=4');
 }
 
