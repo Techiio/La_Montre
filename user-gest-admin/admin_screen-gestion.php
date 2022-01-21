@@ -70,7 +70,7 @@ if(!isset($_SESSION['statut'])){
                 if($_SESSION['statut'] == 0){
                     header("Location: /LaMontre/user-gest-admin/user-gest-admin_menu.php");
                 }
-                elseif($_SESSION['statut'] == 1);{
+                if($_SESSION['statut'] == 1){
                     header("Location: /LaMontre/user-gest-admin/user-gest-admin_menu.php?error=3");
                 }
                 $temps_session = 600;
