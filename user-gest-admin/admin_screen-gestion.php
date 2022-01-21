@@ -68,10 +68,7 @@ if(!isset($_SESSION['statut'])){
             <br>
             <h3>
                 <?php
-                if(!isset($_SESSION['statut'])){
-                    header("Location: ../index.php");
-                }
-                elseif($_SESSION['statut'] == 0){
+                if($_SESSION['statut'] == 0){
                     header("Location: /LaMontre/user-gest-admin/user-gest-admin_menu.php");
                 }
                 elseif($_SESSION['statut'] == 1);{
