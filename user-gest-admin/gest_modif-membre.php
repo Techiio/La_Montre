@@ -42,7 +42,7 @@
     <a href="../load/fin_de_session.php" class="logo">
         <h2>
             <?php
-            session_start();
+
 
             if(isset($_SESSION['pseudo'])) {
                 echo '' . $_SESSION['pseudo'];
