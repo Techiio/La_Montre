@@ -70,22 +70,22 @@ require_once("../load/data_conseils.php");
             <p><?php
                 if ($meilleurScore == $scoreBpm)                                        // Permet d'afficher la meilleure valeur grâce au pire score observé
                 {
-                    echo $sBpm[$a];
+                    echo intval($sBpm[$a]);
                     echo " Bpm";
                 }
                 else if ($meilleurScore == $scoreNo2)
                 {
-                    echo $sNo2[$a];
+                    echo intval($sNo2[$a]);
                     echo " µg/m³";
                 }
                 else if ($meilleurScore == $scoreDegCel)
                 {
-                    echo $sDegCel[$a];
+                    echo intval($sDegCel[$a]);
                     echo " °C";
                 }
                 else if ($meilleurScore == $scoredB)
                 {
-                    echo $sdB[$a];
+                    echo intval($sdB[$a]);
                     echo " dB";
                 }
                 ?>
@@ -96,22 +96,22 @@ require_once("../load/data_conseils.php");
             <p> <?php
                 if ($pireScore == $scoreBpm)                                            // Permet d'afficher la pire valeur grâce au pire score observé
                 {
-                    echo $sBpm[$a];
+                    echo intval($sBpm[$a]);
                     echo " Bpm";
                 }
                 else if ($pireScore == $scoreNo2)
                 {
-                    echo $sNo2[$a];
+                    echo intval($sNo2[$a]);
                     echo " µg/m³";
                 }
                 else if ($pireScore == $scoreDegCel)
                 {
-                    echo $sDegCel[$a];
+                    echo intval($sDegCel[$a]);
                     echo " °C";
                 }
                 else if ($pireScore == $scoredB)
                 {
-                    echo $sdB[$a];
+                    echo intval($sdB[$a]);
                     echo " dB";
                 }?></p>
         </a>
