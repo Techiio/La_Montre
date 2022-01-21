@@ -85,6 +85,7 @@ require_once("../load/data_journee.php");
     <!-- Suppression et téléchargement des données -->
     <div class="box2">
         <form method="GET" action="../load/download_journee.php">
+            <input type ="hidden" name="code" class='btn' value=" <?php echo $codeproduit ?>" />
             <input type="submit" name="button1" class='btn' style="background: seagreen; font-weight: bold;" value="Télécharger ma journée"/>
 
         </form>
