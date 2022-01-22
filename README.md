@@ -1,10 +1,12 @@
 # La Montre by Eko
 
 #~ Sommaire ~
-- Par où commencer ?
-- Les différents dossiers
-- Les différents documents de rédaction
+[- Par où commencer ?](#par-o-commencer-)
 
+[- Les différents dossiers](#les-diffrents-dossiers)
+
+[- Les différents documents de rédaction
+](#les-diffrents-documents-de-rdaction)
 
 #Par où commencer ?
 Le fichier **index.php** correspond à la page d'accueil du site internet, alors pourquoi pas commencer par là ? 
