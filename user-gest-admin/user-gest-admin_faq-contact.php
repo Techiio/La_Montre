@@ -1,17 +1,16 @@
 <?php
 session_start();
+if(!isset($_SESSION['statut'])){
+    header("Location: ../index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>LaMontre - Contact</title>
-</head>
-<head>
-    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Montre - FAQ</title>
+    <title>Nous contacter</title>
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -33,7 +32,12 @@ session_start();
 
     <div class="icons">
         <nav class="navbar">
-            <a href="user-gest-admin_menu.php">Mon Menu</a>
+            <?php
+            if($_SESSION['statut']==1) { ?>
+                <a href="../user-gest-admin/user-gest-admin_menu.php?error=3" class="logo">Mon Menu</a>
+                <?php }
+            else{ ?> <a href="user-gest-admin_menu.php">Mon Menu</a> <?php }
+             ?>
             <a href="user-gest-admin_ma-journee.php">Ma journée</a>
             <a href="user-gest-admin_statistiques.php">Mes Stats</a>
             <a href="user-gest-admin_conseils.php">Mes Conseils</a>

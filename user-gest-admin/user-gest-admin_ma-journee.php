@@ -1,5 +1,8 @@
 <?php
 require_once("../load/data_journee.php");
+if(!isset($_SESSION['statut'])){
+    header("Location: ../index.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -36,10 +39,15 @@ require_once("../load/data_journee.php");
     <!-- Menu  -->
     <div class="icons">
         <nav class="navbar">
-            <a href="user-gest-admin_menu.php">Mon Menu</a>
+            <?php
+            if($_SESSION['statut']==1) { ?>
+                <a href="../user-gest-admin/user-gest-admin_menu.php?error=3" class="logo">Mon Menu</a>
+                <?php }
+            else{ ?> <a href="user-gest-admin_menu.php">Mon Menu</a> <?php }
+             ?>
             <a href="user-gest-admin_statistiques.php">Mes Stats</a>
             <a href="user-gest-admin_conseils.php">Mes Conseils</a>
-            <a href="user-gest-admin_faq-contact.php">Contact/FAQ</a>
+            <a href="user-gest-admin_faq-contact.php">FAQ/Contact</a>
         </nav>
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
@@ -86,12 +94,12 @@ require_once("../load/data_journee.php");
         <form method="GET" action="../load/download_journee.php">
             <input type ="hidden" name="code" class='btn' value=" <?php echo $codeproduit ?>" />
             <input type="submit" name="button1" class='btn' style="background: seagreen; font-weight: bold;" value="Télécharger ma journée"/>
-
         </form>
-        <form method="post">
-            <a class="box">
+        <?php
+        if($_SESSION['statut']==1 ||$_SESSION['statut']==2 || isset($_SESSION['pseudotemporaire'])) {
+            echo '<a class="box">
                 <section class="rd" id="rd">
-                    <form action="../user-gest-admin/reset_data_user-gest-admin_ma-journee.php" method="GET">
+                    <form action="../load/reset_data_user-gest-admin_ma-journee.php" method="post">
                         <div>
                             <input
                                     type="submit"
@@ -104,21 +112,35 @@ require_once("../load/data_journee.php");
                         </div>
                     </form>
                 </section>
-            </a>
-        </form>
+            </a>';
+        }
+        ?>
     </div>
 
     <!-- Infos de la journée  -->
     <div class="box3">
         <p class="bigtext" style="color: darkorange">Infos du Jour</p>
         <p class="text" style="color: #3cba9f">Pic de Dioxyde d'Azote : </p>
-        <p class="score"><?php echo max($No2).' insérer unité' ?></p>
+        <p class="score"><?php
+            if(!empty($No2)){
+                echo max($No2).' μg/m3';
+            }
+            ?></p>
         <p class="text" style="color: #3e95cd">Pic de poul : </p>
-        <p class="score"><?php echo max($Bpm).' Bpm' ?></p>
+        <p class="score"><?php
+            if(!empty($Bpm)){
+                echo max($Bpm).' Bpm';
+            }?></p>
         <p class="text" style="color: #e8c3b9">Pic de température du corps : </p>
-        <p class="score"><?php echo max($DegCel).'°C' ?></p>
+        <p class="score"><?php
+            if(!empty($DegCel)){
+                echo max($DegCel).' °C';
+            }?></p>
         <p class="text" style="color: #8e5ea2">Pic de son : </p>
-        <p class="score"><?php echo max($dB).' dB' ?></p>
+        <p class="score"><?php
+            if(!empty($dB)){
+                echo max($dB).' dB';
+            }?></p>
     </div>
 
 </section>

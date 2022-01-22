@@ -63,6 +63,10 @@ while ($data = $req->fetch()) {
     }
 
     if($date != $vardate[$a]){
+        if($i==0){ //Eviter la division par 0
+            $i = 1;
+        }
+
         $sBpm[$a] = $mBpm[$a]/$i;
         $sdB[$a] = $mdB[$a]/$i;
         $sNo2[$a] = $mNo2[$a]/$i;
@@ -108,7 +112,9 @@ while ($data = $req->fetch()) {
     $mDegCel[$a] = $mDegCel[$a] + $DegCel;
 
 }
-
+if($i==0){ //Eviter la division par 0
+    $i = 1;
+}
 $sBpm[$a] = $mBpm[$a]/$i;
 $sdB[$a] = $mdB[$a]/$i;
 $sNo2[$a] = $mNo2[$a]/$i;

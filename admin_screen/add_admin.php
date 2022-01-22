@@ -3,13 +3,8 @@
 session_start();
 
 //Connexion à la base de données
-try {
-    $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
-        'root',
-        '');
-} catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
-}
+require_once("../load/config_PDO.php");
+
 
 //Ajout d'un admin par un autre admin
 
@@ -19,6 +14,7 @@ try {
         $Identifiant=htmlentities($_POST['Idtf']);
         $CodeStatut=02;
         $mdp=htmlentities($_POST['pwd1']);
+        $mdp= password_hash($mdp, PASSWORD_DEFAULT);
 
         //vérifier l'unicité d'un identifiant
         $test_doublon=$bdd->query("SELECT count(Identifiant) as compte FROM connexion WHERE '$Identifiant'= Identifiant");

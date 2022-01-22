@@ -24,11 +24,19 @@
 
     <div class="icons">
         <nav class="navbar">
-            <a href="user-gest-admin_menu.php">Mon Menu</a>
+            <?php
+            session_start();
+            if(!isset($_SESSION['statut'])){
+                header("Location: ../index.php");
+            }
+            if($_SESSION['statut']==1) { ?>
+            <a href="../user-gest-admin/user-gest-admin_menu.php?error=3" class="logo">Mon Menu</a>
+            <?php
+    } ?>
             <a href="user-gest-admin_ma-journee.php">Ma Journée</a>
             <a href="user-gest-admin_statistiques.php">Mes Stats</a>
             <a href="user-gest-admin_conseils.php">Mes Conseils</a>
-            <a href="user-gest-admin_faq-contact.php">Contact/FAQ</a>
+            <a href="user-gest-admin_faq-contact.php">FAQ/Contact</a>
             <a href="gest_comptes-famille.php">Comptes Famille</a>
         </nav>
         <div class="fas fa-bars" id="menu-btn"></div>
@@ -37,7 +45,7 @@
     <a href="../load/fin_de_session.php" class="logo">
         <h2>
             <?php
-            session_start();
+
 
             if(isset($_SESSION['pseudo'])) {
                 echo '' . $_SESSION['pseudo'];

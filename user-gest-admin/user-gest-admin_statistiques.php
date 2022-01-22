@@ -1,6 +1,9 @@
 <?php
 session_start();
 require_once("../load/data_stat.php");
+if(!isset($_SESSION['statut'])){
+    header("Location: ../index.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -36,10 +39,15 @@ require_once("../load/data_stat.php");
     <!-- Menu -->
     <div class="icons">
         <nav class="navbar">
-            <a href="user-gest-admin_menu.php">Mon Menu</a>
+            <?php
+            if($_SESSION['statut']==1) { ?>
+                <a href="../user-gest-admin/user-gest-admin_menu.php?error=3" class="logo">Mon Menu</a>
+                <?php }
+            else{ ?> <a href="user-gest-admin_menu.php">Mon Menu</a> <?php }
+             ?>
             <a href="user-gest-admin_ma-journee.php">Ma Journée</a>
             <a href="user-gest-admin_conseils.php">Mes Conseils</a>
-            <a href="user-gest-admin_faq-contact.php">Contact/FAQ</a>
+            <a href="user-gest-admin_faq-contact.php">FAQ/Contact</a>
         </nav>
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
@@ -84,7 +92,7 @@ require_once("../load/data_stat.php");
     <!-- Données maximales atteintes sur la semaine -->
     <div class="box5">
         <p class="text" style="color: #3cba9f">Pic de No2 : </p>
-        <p class="score"><?php echo round(max($sNo2)).' insérer unité' ?></p>
+        <p class="score"><?php echo round(max($sNo2)).' μg/m3' ?></p>
         <br>
         <p class="text" style="color: #3e95cd">Pic de poul : </p>
         <p class="score"><?php echo round(max($sBpm)).' Bpm' ?></p>
@@ -104,10 +112,11 @@ require_once("../load/data_stat.php");
             <input type="submit" name="button1" class='btn' style="background: seagreen; font-weight: bold;" value="Télécharger ma semaine"/>
             
         </form>
-        <form method="post">
-            <a class="box">
+        <?php
+        if($_SESSION['statut']==1 ||$_SESSION['statut']==2 || isset($_SESSION['pseudotemporaire'])) {
+            echo '<a class="box">
                 <section class="rd" id="rd">
-                    <form action="user-gest-admin/reset_data_user-gest-admin_ma-journee.php" method="post">
+                    <form action="../load/reset_data_user-gest-admin_statistiques.php" method="post">
                         <div>
                             <input
                                     type="submit"
@@ -120,8 +129,9 @@ require_once("../load/data_stat.php");
                         </div>
                     </form>
                 </section>
-            </a>
-        </form>
+            </a>';
+        }
+        ?>
     </div>
 
     <!-- Graphique en toile d'araignées sur les données des derniers jours -->
