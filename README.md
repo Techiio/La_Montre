@@ -1,15 +1,18 @@
 # La Montre by Eko
 
-#~ Sommaire ~
+# ~ Sommaire ~#
 - Par où commencer ?
 - Les différents dossiers
 - Les différents documents de rédaction
 
 
-#Par où commencer ?
+# Par où commencer ?
 Le fichier **index.php** correspond à la page d'accueil du site internet, alors pourquoi pas commencer par là ? 
 
-#Les différents dossiers
+# Les différents dossiers
+**documents**
+- Contient les différents documents de rédaction (Cf. Chapitre suivant)
+
 **bdd**
 - Contient la base de données initiales utilisée lors de la présentation
 
@@ -57,7 +60,7 @@ Le fichier **index.php** correspond à la page d'accueil du site internet, alors
 - Page de contact pour les visiteurs
 - Page d'inscription
 
-#Les différents documents de rédaction
+# Les différents documents de rédaction
 Dans le dossier **documents**, vous trouverez tous les documents qui ont été fourni au cours du semestre :
 
 - Les différentes présentations client
