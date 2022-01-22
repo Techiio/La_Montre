@@ -62,6 +62,9 @@ Le fichier **index.php** correspond à la page d'accueil du site internet, alors
 - Page de contact pour les visiteurs
 - Page d'inscription
 
+**tmp**
+- Dossier qui sert juste à stocker temporairement les données avant de les télécharger 
+
 # Les différents documents de rédaction
 Dans le dossier **documents**, vous trouverez tous les documents qui ont été fourni au cours du semestre :
 
