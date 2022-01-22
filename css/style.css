@@ -1038,6 +1038,13 @@ textarea {
         font-size: 1.5rem;
     }
 
+    .admin .box-container{
+        display: flex;
+        flex-direction: column;
+        grid-template-columns:32% 32% 32%;
+        gap:2rem;
+    }
+
     .datajour {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
