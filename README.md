@@ -1,6 +1,6 @@
 # La Montre by Eko
 
-# ~ Sommaire ~#
+# ~ Sommaire ~
 - Par où commencer ?
 - Les différents dossiers
 - Les différents documents de rédaction
