@@ -175,30 +175,23 @@ if(!isset($_SESSION['statut'])){
             <h3>Nous Joindre</h3>
             <div class="inputBox">
                 <span class="fas fa-user"></span>
-                <input type="text" placeholder="Nom">
+                <input type="text" name="nom" placeholder="Nom">
                 <span class="error"> <?php echo $nameErr;?></span>
 
             </div>
             <div class="inputBox">
                 <span class="fas fa-envelope"></span>
-                <input type="email" placeholder="email">
-                <span class="error"> <?php echo $nameErr;?></span>
+                <input type="email" name="mail" placeholder="email">
+                <span class="error"> <?php echo $emailErr;?></span>
             </div>
             <div class="inputBox">
                 <span class="fas fa-comment"></span>
-                <input type="text" placeholder="Votre message">
+                <input type="text" name="message" placeholder="Votre message">
                 <span class="error"> <?php echo $nameErr;?></span>
 
             </div>
             <input type="submit" style="background: brown; font-weight: bold;" value="Envoyer" class="btn">
         </form>
-        <?php
-        echo $name;
-        echo "<br>";
-        echo $email;
-        echo "<br>";
-        echo "$message";
-        ?>
 
 
     </div>
