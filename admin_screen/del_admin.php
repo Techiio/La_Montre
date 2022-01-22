@@ -1,13 +1,8 @@
 <?php
 
 //connexion à la base de données
-try {
-    $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8',
-        'root',
-        '');
-} catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
-}
+require_once("../load/config_PDO.php");
+
 
 //Suppression de l'admin dans la base
 if (!empty($_POST["Idt"])) {
@@ -18,5 +13,5 @@ if (!empty($_POST["Idt"])) {
 }
 
 
-
+?>
 

@@ -11,7 +11,7 @@ if(!isset($_SESSION['statut'])) {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Visiteur Mes Conseils</title>
+        <title>Mes Conseils</title>
 
         <!-- font awesome cdn link  -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -36,7 +36,7 @@ if(!isset($_SESSION['statut'])) {
             <a href="user-gest-admin_menu.php">Mon Menu</a>
             <a href="user-gest-admin_ma-journee.php">Ma Journée</a>
             <a href="user-gest-admin_statistiques.php">Mes Stats</a>
-            <a href="user-gest-admin_faq-contact.php">Contact/FAQ</a>
+            <a href="user-gest-admin_faq-contact.php">FAQ/Contact</a>
         </nav>
         <div class="fas fa-bars" id="menu-btn"></div>
     </div>
@@ -61,7 +61,7 @@ if(!isset($_SESSION['statut'])) {
 <!-- header section ends -->
 
 <section class="content">
-    <h1 class="heading"> . </h1>
+    <h1 class="heading">.</h1>
 </section>
 <!-- mes conseils section starts  -->
 
@@ -73,22 +73,22 @@ if(!isset($_SESSION['statut'])) {
             <p><?php
                 if ($meilleurScore == $scoreBpm)                                        // Permet d'afficher la meilleure valeur grâce au pire score observé
                 {
-                    echo $sBpm[$a];
+                    echo round($sBpm[$a]);
                     echo " Bpm";
                 }
                 else if ($meilleurScore == $scoreNo2)
                 {
-                    echo $sNo2[$a];
+                    echo round($sNo2[$a]);
                     echo " µg/m³";
                 }
                 else if ($meilleurScore == $scoreDegCel)
                 {
-                    echo $sDegCel[$a];
+                    echo round($sDegCel[$a]);
                     echo " °C";
                 }
                 else if ($meilleurScore == $scoredB)
                 {
-                    echo $sdB[$a];
+                    echo round($sdB[$a]);
                     echo " dB";
                 }
                 ?>
@@ -99,22 +99,22 @@ if(!isset($_SESSION['statut'])) {
             <p> <?php
                 if ($pireScore == $scoreBpm)                                            // Permet d'afficher la pire valeur grâce au pire score observé
                 {
-                    echo $sBpm[$a];
+                    echo round($sBpm[$a]);
                     echo " Bpm";
                 }
                 else if ($pireScore == $scoreNo2)
                 {
-                    echo $sNo2[$a];
+                    echo round($sNo2[$a]);
                     echo " µg/m³";
                 }
                 else if ($pireScore == $scoreDegCel)
                 {
-                    echo $sDegCel[$a];
+                    echo round($sDegCel[$a]);
                     echo " °C";
                 }
                 else if ($pireScore == $scoredB)
                 {
-                    echo $sdB[$a];
+                    echo round($sdB[$a]);
                     echo " dB";
                 }?></p>
         </a>

@@ -12,7 +12,7 @@ if(!isset($_SESSION['statut'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>~Admin~ Screen Gestion</title>
+    <title>~Admin~ Page de Gestion</title>
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="../css/style.css">
@@ -21,30 +21,29 @@ if(!isset($_SESSION['statut'])){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 </head>
-<body>
+<body style="background: black">
 
 <!-- header section starts  -->
 
 <header class="header">
 
     <a class="logo">
-        <img src="../images/EkoS.png" alt="">
+        <img src="../images/LaMontreS.png" alt="">
     </a>
 
-
-    <div class="icons">
-        <nav class="navbar">
-            <a href="user-gest-admin_menu.php">Mon Menu</a>
-            <a href="user-gest-admin_ma-journee.php">Ma Journée</a>
-            <a href="user-gest-admin_statistiques.php">Mes Stats</a>
-            <a href="user-gest-admin_conseils.php">Mes Conseils</a>
-        </nav>
-        <div class="fas fa-bars" id="menu-btn"></div>
-    </div>
-
     <a href="../load/fin_de_session.php" class="logo">
-        <img src="../images/LaMontreS.png" alt="">
-        <h3>Déconnexion</h3>
+        <h2>
+            <?php
+
+            if(isset($_SESSION['pseudo'])){
+                echo '' .$_SESSION['pseudo'] ;
+            }
+            ?>
+
+        </h2>
+        <h3>
+            Déconnexion
+        </h3>
     </a>
 
 
@@ -211,7 +210,7 @@ if(!isset($_SESSION['statut'])){
             <br>
             <section id="liste">
                 <select style="font-size: 2rem;" multiple="yes" size="10">
-                    <?php $rep = $bdd->query('SELECT * FROM connexion WHERE CodeStatut=02');
+                    <?php $rep = $bdd->query('SELECT * FROM connexion WHERE CodeStatut=2');
                     while ($donnees = $rep->fetch())
                     {
                         ?>
