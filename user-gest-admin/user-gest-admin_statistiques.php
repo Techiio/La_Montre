@@ -136,7 +136,7 @@ if(!isset($_SESSION['statut'])){
 
     <!-- Graphique en toile d'araignées sur les données des derniers jours -->
     <div class="box7" style="background-color: lightgrey">
-       <p class="textgraph">Score des 3 derniers jours</p>
+       <p class="textgraph" style="color: orange">Score des 3 derniers jours</p>
         <canvas id="radar-chart"></canvas>
     </div>
 
