@@ -1,12 +1,9 @@
 # La Montre by Eko
 
 #~ Sommaire ~
-[- Par où commencer ?
-](#par-o-commencer-)
-
-[- Les différents dossiers](#les-diffrents-dossiers)
-
-[- Les différents documents de rédaction](#les-diffrents-dossiers)
+- Par où commencer ?
+- Les différents dossiers
+- Les différents documents de rédaction
 
 
 #Par où commencer ?
