@@ -148,7 +148,7 @@ $a = $a - 1;
 
 
 
-switch ($meilleurScore)
+switch ($meilleurScore)                 // MeilleurScore prend la valeur du meilleur score
 {
     case $meilleurScore == $scoreBpm:
         $meilleureDonnee =  $sBpm[$a];
@@ -163,7 +163,7 @@ switch ($meilleurScore)
         $meilleureDonnee =  $sDegCel[$a];
         break;
 }
-switch ($pireScore)
+switch ($pireScore)                      // PireScore prend la valeur du pire score
 {
     case $pireScore == $scoreBpm:
         $pireDonnee = $sBpm[$a];
