@@ -74,8 +74,9 @@ Dans le dossier **documents**, vous trouverez tous les documents qui ont été f
 
 Ainsi que des documents annexes rédigés en rapport avec la composante informatique :
 - Diagramme de Gantt
-- Lien vers la maquette initiale du site internet
 - Plan de validation des tests
+- Schémas relationnel
+- Diagramme BDD
 
 Et des documents liés plus généralement au projet :
 - Cahier des charges
