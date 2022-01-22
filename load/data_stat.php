@@ -77,9 +77,9 @@ while ($data = $req->fetch()) { // Tant qu'il y a des données à traiter
         $sDegCel[$a] = $mDegCel[$a]/$i ;
 
         // Calcul du score
-        $scoreBpm[$a] = ((($sBpm[$a]-20)*100)/140).',';
+        $scoreBpm[$a] = ((-(abs($sBpm[$a]-70))+70)*100/70).',';
         $scoredB[$a] = (($sdB[$a]*100)/140).',';
-        $scoreDegCel[$a] = ((($sDegCel[$a]-20)*100)/20).',';
+        $scoreDegCel[$a] = ((-(abs($sDegCel[$a]-30))+10)*100/10).',';
         $scoreNo2[$a] = (($sNo2[$a]*100)/40).',';
 
         // Moyenne des données jour après jour, formaté pour Javascript
@@ -110,9 +110,9 @@ $sdB[$a] = $mdB[$a]/$i;
 $sNo2[$a] = $mNo2[$a]/$i;
 $sDegCel[$a] = $mDegCel[$a]/$i ;
 
-$scoreBpm[$a] = ((($sBpm[$a]-20)*100)/140).',';
+$scoreBpm[$a] = ((-(abs($sBpm[$a]-70))+70)*100/70).',';
 $scoredB[$a] = (($sdB[$a]*100)/140).',';
-$scoreDegCel[$a] = ((($sDegCel[$a]-20)*100)/20).',';
+$scoreDegCel[$a] = ((-(abs($sDegCel[$a]-30))+10)*100/10).',';
 $scoreNo2[$a] = (($sNo2[$a]*100)/40).',';
 
 $vBpm[$a] = ($mBpm[$a]/$i).',' ;
