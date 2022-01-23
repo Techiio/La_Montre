@@ -168,7 +168,7 @@ if(!isset($_SESSION['statut'])){
             return $data;
         }
         ?>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <form method="post" action=" ../load/emailsend.php">
             <h3>Nous Joindre</h3>
             <div class="inputBox">
                 <span class="fas fa-user"></span>
