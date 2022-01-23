@@ -30,7 +30,7 @@ if(!isset($_SESSION['statut'])){
 
 <!-- header section starts  -->
 
-<header class="header">
+<header class="header" style="background-color:<?php echo '' . $_COOKIE['couleur'];?>;">
 
     <a class="logo">
         <img src="../images/LaMontreS.png" alt="">
@@ -149,7 +149,7 @@ if(!isset($_SESSION['statut'])){
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+        <a href="../visiteur/visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
         <a>Version: 1.0.12.201</a>
     </div>
 
