@@ -106,7 +106,7 @@
             </div>
         </div>
 
-        <form action="">
+        <form action="../load/contact.php">
             <h3>Nous joindre</h3>
             <div class="inputBox">
                 <span class="fas fa-user"></span>
