@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mar. 11 jan. 2022 à 20:22
--- Version du serveur : 5.7.36
--- Version de PHP : 7.4.26
+-- Hôte : localhost
+-- Généré le : dim. 23 jan. 2022 à 20:06
+-- Version du serveur : 10.4.21-MariaDB
+-- Version de PHP : 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,12 +27,10 @@ SET time_zone = "+00:00";
 -- Structure de la table `connexion`
 --
 
-DROP TABLE IF EXISTS `connexion`;
-CREATE TABLE IF NOT EXISTS `connexion` (
+CREATE TABLE `connexion` (
   `CodeStatut` int(11) NOT NULL,
   `Identifiant` varchar(60) NOT NULL,
-  `Mdp` varchar(60) DEFAULT NULL,
-  PRIMARY KEY (`Identifiant`)
+  `Mdp` varchar(60) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -58,14 +56,11 @@ INSERT INTO `connexion` (`CodeStatut`, `Identifiant`, `Mdp`) VALUES
 -- Structure de la table `conseil`
 --
 
-DROP TABLE IF EXISTS `conseil`;
-CREATE TABLE IF NOT EXISTS `conseil` (
+CREATE TABLE `conseil` (
   `Score` int(11) NOT NULL,
   `CodeProduit` varchar(50) DEFAULT NULL,
   `pirescore` int(11) DEFAULT NULL,
-  `Conseil` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`Score`),
-  KEY `CodeProduit` (`CodeProduit`)
+  `Conseil` varchar(50) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -74,16 +69,14 @@ CREATE TABLE IF NOT EXISTS `conseil` (
 -- Structure de la table `donneesmontre`
 --
 
-DROP TABLE IF EXISTS `donneesmontre`;
-CREATE TABLE IF NOT EXISTS `donneesmontre` (
+CREATE TABLE `donneesmontre` (
   `Bpm` int(11) NOT NULL,
   `Date` date NOT NULL,
   `Heure` time NOT NULL,
   `dB` int(11) NOT NULL,
   `No2` int(11) NOT NULL,
   `DegréCelsius` int(11) NOT NULL,
-  `CodeProduit` int(11) DEFAULT NULL,
-  KEY `CodeProduit` (`CodeProduit`)
+  `CodeProduit` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -350,8 +343,7 @@ INSERT INTO `donneesmontre` (`Bpm`, `Date`, `Heure`, `dB`, `No2`, `DegréCelsius
 -- Structure de la table `listeconseil`
 --
 
-DROP TABLE IF EXISTS `listeconseil`;
-CREATE TABLE IF NOT EXISTS `listeconseil` (
+CREATE TABLE `listeconseil` (
   `Conseil` varchar(300) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -361,13 +353,11 @@ CREATE TABLE IF NOT EXISTS `listeconseil` (
 -- Structure de la table `online`
 --
 
-DROP TABLE IF EXISTS `online`;
-CREATE TABLE IF NOT EXISTS `online` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `online` (
+  `id` int(11) NOT NULL,
   `time` int(11) NOT NULL,
-  `user_ip` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `user_ip` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `online`
@@ -382,14 +372,11 @@ INSERT INTO `online` (`id`, `time`, `user_ip`) VALUES
 -- Structure de la table `profil`
 --
 
-DROP TABLE IF EXISTS `profil`;
-CREATE TABLE IF NOT EXISTS `profil` (
+CREATE TABLE `profil` (
   `CodeProduit` varchar(24) NOT NULL,
   `Couleur` varchar(7) NOT NULL,
   `CodeFamille` varchar(10) DEFAULT NULL,
-  `Identifiant` varchar(60) DEFAULT NULL,
-  PRIMARY KEY (`CodeProduit`),
-  KEY `Identifiant` (`Identifiant`)
+  `Identifiant` varchar(60) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -397,18 +384,62 @@ CREATE TABLE IF NOT EXISTS `profil` (
 --
 
 INSERT INTO `profil` (`CodeProduit`, `Couleur`, `CodeFamille`, `Identifiant`) VALUES
-(0, 'green', NULL, 'jeangerard'),
-(1, 'blue', NULL, 'jacque'),
-(2, 'cyan', NULL, 'jean'),
-(3, 'red', NULL, 'Techio'),
-(4753464, 'white', '3', 'jean-christophe'),
-(4753463, 'white', '1176707671', 'jc'),
-(67, 'white', '9410477622', 'temp'),
-(4, 'red', '4', 'henri'),
-(5, 'red', '4', 'chloe'),
-(6, 'red', '4', 'greg'),
-(7, 'red', '4', 'gest');
+('0', 'green', NULL, 'jeangerard'),
+('1', 'blue', NULL, 'jacque'),
+('2', 'cyan', NULL, 'jean'),
+('3', 'red', NULL, 'Techio'),
+('4753464', 'white', '3', 'jean-christophe'),
+('4753463', 'white', '1176707671', 'jc'),
+('67', 'white', '9410477622', 'temp'),
+('4', 'red', '4', 'henri'),
+('5', 'red', '4', 'chloe'),
+('6', 'red', '4', 'greg'),
+('7', 'red', '4', 'gest');
 
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `connexion`
+--
+ALTER TABLE `connexion`
+  ADD PRIMARY KEY (`Identifiant`);
+
+--
+-- Index pour la table `conseil`
+--
+ALTER TABLE `conseil`
+  ADD KEY `CodeProduit` (`CodeProduit`);
+
+--
+-- Index pour la table `donneesmontre`
+--
+ALTER TABLE `donneesmontre`
+  ADD KEY `CodeProduit` (`CodeProduit`);
+
+--
+-- Index pour la table `online`
+--
+ALTER TABLE `online`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `profil`
+--
+ALTER TABLE `profil`
+  ADD PRIMARY KEY (`CodeProduit`),
+  ADD KEY `Identifiant` (`Identifiant`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `online`
+--
+ALTER TABLE `online`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
