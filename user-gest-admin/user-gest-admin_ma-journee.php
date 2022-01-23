@@ -149,7 +149,7 @@ if(!isset($_SESSION['statut'])){
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+        <a href="../visiteur/visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
         <a>Version: 1.0.12.201</a>
     </div>
 
