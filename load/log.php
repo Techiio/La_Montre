@@ -17,6 +17,8 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
     $codeS = $bdd -> query("SELECT CodeStatut  FROM connexion WHERE Identifiant= '$c_mail'");
     $rq= $bdd -> query("SELECT  CodeFamille FROM profil WHERE Identifiant= '$c_mail'");
     $CodeFamille=$rq->fetch();
+    $raq= $bdd -> query("SELECT  Couleur FROM profil WHERE Identifiant= '$c_mail'");
+    $Color=$raq->fetch();
     $error = 1;
 
     $req = $bdd->prepare('SELECT * FROM connexion WHERE Identifiant=?');
@@ -29,6 +31,7 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
 
         $_SESSION['pseudo']= $user['Identifiant'];
         $_SESSION['statut']= $user['CodeStatut'];
+        setcookie('couleur', $Color['Couleur'], time()+3600, '/', null, false, true);
         setcookie('famille', $CodeFamille['CodeFamille'], time()+3600, '/', null, false, true);
 
         $_SESSION['connect'] = 1;
@@ -41,6 +44,7 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
 
             $_SESSION['pseudo']= $user['Identifiant'];
             $_SESSION['statut']= $user['CodeStatut'];
+            setcookie('couleur', $Color['Couleur'], time()+3600, '/', null, false, true);
             setcookie('famille', $CodeFamille['CodeFamille'], time()+3600, '/', null, false, true);
 
             $_SESSION['connect'] = 1;
@@ -53,6 +57,7 @@ if (!empty($_POST["Identifiant"]) && !empty($_POST["Mdp"])) {
 
             $_SESSION['pseudo']= $user['Identifiant'];
             $_SESSION['statut']= $user['CodeStatut'];
+            setcookie('couleur', $Color['Couleur'], time()+3600, '/', null, false, true);
             setcookie('famille', $CodeFamille['CodeFamille'], time()+3600, '/', null, false, true);
 
 
