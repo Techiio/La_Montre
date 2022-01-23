@@ -61,32 +61,39 @@ require_once("../load/data_conseils.php");
     <h1 class="heading"> . </h1>
 </section>
 <!-- mes conseils section starts  -->
-
+<?php
+if (empty($scoreTotal))
+{
+    $a=0;
+    $scoreTotal[$a]=101;
+}
+?>
 <section class="famille" id="famille">
     <h1 class="heading"> Mes <span>Conseils</span> </h1>
     <div class="box-container">
         <a class="box">
             <h3 style="font-size: x-large; text-transform: none">Meilleur donnée : </h3><br><br><br><br>
             <p><?php
-                if ($meilleurScore == $scoreBpm)                                        // Permet d'afficher la meilleure valeur grâce au pire score observé
+                if($scoreTotal[$a] == 101)                                                  // Affiche "Pas de données" si il n'y pas de données
                 {
-                    echo round($sBpm[$a]);
-                    echo " Bpm";
+                    echo "Pas de données";
                 }
-                else if ($meilleurScore == $scoreNo2)
-                {
-                    echo round($sNo2[$a]);
-                    echo " µg/m³";
-                }
-                else if ($meilleurScore == $scoreDegCel)
-                {
-                    echo round($sDegCel[$a]);
-                    echo " °C";
-                }
-                else if ($meilleurScore == $scoredB)
-                {
-                    echo round($sdB[$a]);
-                    echo " dB";
+                else {
+                    if ($meilleurScore == $scoreBpm)                                        // Permet d'afficher la meilleure valeur grâce au pire score observé
+                    {
+                        echo round($sBpm[$a]);
+                        echo " Bpm";
+                    } else if ($meilleurScore == $scoreNo2) {
+                        echo round($sNo2[$a]);
+                        echo " µg/m³";
+                    } else if ($meilleurScore == $scoreDegCel) {
+                        echo round($sDegCel[$a]);
+                        echo " °C";
+                    } else if ($meilleurScore == $scoredB) {
+                        echo round($sdB[$a]);
+                        echo " dB";
+                    }
+
                 }
                 ?>
             </p>
@@ -94,75 +101,100 @@ require_once("../load/data_conseils.php");
         <a class="box">
             <h3 style="font-size: x-large;text-transform: none">Pire donnée :</h3><br><br><br><br>
             <p> <?php
-                if ($pireScore == $scoreBpm)                                            // Permet d'afficher la pire valeur grâce au pire score observé
+                if($scoreTotal[$a] == 101)                                                  // Affiche "Pas de données" si il n'y pas de données
                 {
-                    echo round($sBpm[$a]);
-                    echo " Bpm";
+                    echo "Pas de données";
                 }
-                else if ($pireScore == $scoreNo2)
+                else
                 {
-                    echo round($sNo2[$a]);
-                    echo " µg/m³";
+                    if ($pireScore == $scoreBpm)                                            // Permet d'afficher la pire valeur grâce au pire score observé
+                    {
+                        echo round($sBpm[$a]);
+                        echo " Bpm";
+                    } else if ($pireScore == $scoreNo2) {
+                        echo round($sNo2[$a]);
+                        echo " µg/m³";
+                    } else if ($pireScore == $scoreDegCel) {
+                        echo round($sDegCel[$a]);
+                        echo " °C";
+                    } else if ($pireScore == $scoredB) {
+                        echo round($sdB[$a]);
+                        echo " dB";
+                    }
                 }
-                else if ($pireScore == $scoreDegCel)
-                {
-                    echo round($sDegCel[$a]);
-                    echo " °C";
-                }
-                else if ($pireScore == $scoredB)
-                {
-                    echo round($sdB[$a]);
-                    echo " dB";
-                }?></p>
+                ?></p>
         </a>
 
     </div><br><br>
     <div class="box-container">
         <a href="#" class="box">
-            <h3 style="font-size: x-large">Score : <?php echo intval($scoreTotal[$a]) ?> <span style="padding: 0 0 0 10%; text-transform: none" >Score précédent :</span> <?php echo intval($scoreTotal[$a-1])?></h3><br><br>  <!-- Affiche le score du jour et le score d'hier -->
+            <h3 style="font-size: x-large; text-transform: none">Score :
+                <?php
+                if($scoreTotal[$a] == 101)                                  // Affiche "Pas de données" si il n'y pas de données
+                {
+                    echo "Pas de données";
+                }
+                else
+                {
+                    echo intval($scoreTotal[$a]);
+                }
+                ?> <span style="padding: 0 0 0 10%; text-transform: none" >Score précédent :</span>
+                <?php
+                if($scoreTotal[$a] == 101)                                  // Affiche "Pas de données" si il n'y pas de données
+                {
+                    echo "Pas de données";
+                }
+                else
+                {
+                    echo intval($scoreTotal[$a - 1]);
+                }
+                ?></h3><br><br>  <!-- Affiche le score du jour et le score d'hier -->
             <h2>/100</h2><br><br>
             <h2 style="color: darkgoldenrod; font-size: large">
-                <?php                                                                         // Compare le score du jour et le score d'hier et donne un conseil en fonction du résultat
-                    if (intval($scoreTotal[$a]) > intval($scoreTotal[$a-1]))
+                <?php
+                if($scoreTotal[$a] == 101)                                  // Affiche "Pas de données" si il n'y pas de données
+                {
+                    echo "Pas de données";
+                }
+                else
+                {
+                    if (intval($scoreTotal[$a]) > intval($scoreTotal[$a - 1]))                     // Compare le score du jour et le score d'hier et donne un conseil en fonction du résultat
                     {
                         echo "Vous progressez, bien joué !";
                     }
-                    elseif (intval($scoreTotal[$a]) == intval($scoreTotal[$a-1]))
+                    elseif (intval($scoreTotal[$a]) == intval($scoreTotal[$a - 1]))
                     {
                         echo "Vous avez obtenu le même score qu'hier. Continuez vos efforts !";
                     }
-                    elseif (intval($scoreTotal[$a]) < intval($scoreTotal[$a-1]))
+                    elseif (intval($scoreTotal[$a]) < intval($scoreTotal[$a - 1]))
                     {
                         echo "Votre score est moins bon que celui d'hier. Ne baissez pas les bras !";
                     }
+                }
                     ?>
             </h2><br><br>
             <h3 style="font-size: x-large ;text-transform: none">Conseil du jour :
                 <?php
+                if($scoreTotal[$a] == 101)                                  // Affiche "Pas de données" si il n'y pas de données
+                {
+                    echo "Pas de données";
+                }
+                else {
                     if ($pireScore == $scoredB)                                 // Donne un conseil en fonction de la pire donnée
                     {
                         echo "Vous êtes trop exposé au bruit. Allez dans des endroits calmes";
-                    }
-                    elseif ($pireScore == $scoreNo2)
-                    {
+                    } elseif ($pireScore == $scoreNo2) {
                         echo "Attention! Vous absorbez un taux de dioxyde d'azote plus élevé que la moyenne. Éloignez-vous des engins à moteurs dès que possible";
-                    }
-                    elseif ($pireScore == $scoreBpm && $Bpm < 70 )
-                    {
+                    } elseif ($pireScore == $scoreBpm && $Bpm < 70) {
                         echo "Votre pouls est trop faible (Normal pour un athlète). Allez voir un médecin.";
-                    }
-                    elseif ($pireScore == $scoreBpm && $Bpm > 70 )
-                    {
+                    } elseif ($pireScore == $scoreBpm && $Bpm > 70) {
                         echo "Votre pouls est trop élevé. En parlez à son médecin.";
-                    }
-                    elseif ($pireScore == $scoreDegCel && $DegCel < 30 )
-                    {
+                    } elseif ($pireScore == $scoreDegCel && $DegCel < 30) {
                         echo "Vous êtes exposé au froid. Réchauffez-vous à l’aide d’une couverture de survie isothermique et placer vous dans un coin chaud.";
-                    }
-                    elseif ($pireScore == $scoreDegCel && $DegCel > 30 )
-                    {
+                    } elseif ($pireScore == $scoreDegCel && $DegCel > 30) {
                         echo "Vous êtes exposé à la chaleur. Vous avez une insolation,un coup de chaleur ou peut-être de la fièvre.";
                     }
+                }
                 ?></h3><br><br>
         </a>
 
