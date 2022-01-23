@@ -31,7 +31,7 @@ if(!isset($_SESSION['statut'])){
 
 <!-- header section starts  -->
 
-<header class="header">
+<header class="header" style="background-color:<?php echo '' . $_COOKIE['couleur'];?>;">
 
     <a class="logo">
         <img src="../images/LaMontreS.png" alt="">
@@ -136,7 +136,7 @@ if(!isset($_SESSION['statut'])){
 
     <!-- Graphique en toile d'araignées sur les données des derniers jours -->
     <div class="box7" style="background-color: lightgrey">
-       <p class="textgraph">Score des 7 derniers jours</p>
+       <p class="textgraph" style="color: orange">Score des 3 derniers jours</p>
         <canvas id="radar-chart"></canvas>
     </div>
 
@@ -176,7 +176,7 @@ if(!isset($_SESSION['statut'])){
                     }
                     ?>
                 ],
-                label: "Bpm",
+                label: "Poul (Bpm)",
                 borderColor: "#3e95cd",
                 fill: false
             }, {
@@ -190,7 +190,7 @@ if(!isset($_SESSION['statut'])){
 
                     ?>
                 ],
-                label: "dB",
+                label: "Son (dB)",
                 borderColor: "#8e5ea2",
                 fill: false
             }, {
@@ -204,7 +204,7 @@ if(!isset($_SESSION['statut'])){
 
                     ?>
                 ],
-                label: "No2",
+                label: "No2 (μg/m3)",
                 borderColor: "#3cba9f",
                 fill: false
             }, {
@@ -218,7 +218,7 @@ if(!isset($_SESSION['statut'])){
 
                     ?>
                 ],
-                label: "Degré Celsius",
+                label: "Température (°C)",
                 borderColor: "#e8c3b9",
                 fill: false
             }
@@ -270,58 +270,6 @@ if(!isset($_SESSION['statut'])){
                     data: [
                         <?php
                         echo $scoreBpm[2], $scoredB[2], $scoreNo2[2], $scoreDegCel[2];
-                        ?>
-                    ]
-                }, {
-                    label: "<?php echo $vardate[3] ?>",
-                    fill: true,
-                    backgroundColor: "rgb(248,242,32)",
-                    borderColor: "rgb(246,239,157)",
-                    pointBorderColor: "#fff",
-                    pointBackgroundColor: "rgb(211,192,126)",
-                    pointBorderColor: "#fff",
-                    data: [
-                        <?php
-                        echo $scoreBpm[3], $scoredB[3], $scoreNo2[3], $scoreDegCel[3];
-                        ?>
-                    ]
-                }, {
-                    label: "<?php echo $vardate[4] ?>",
-                    fill: true,
-                    backgroundColor: "rgba(37,185,22,0.2)",
-                    borderColor: "rgb(99,255,143)",
-                    pointBorderColor: "#fff",
-                    pointBackgroundColor: "rgb(99,255,112)",
-                    pointBorderColor: "#fff",
-                    data: [
-                        <?php
-                        echo $scoreBpm[4], $scoredB[4], $scoreNo2[4], $scoreDegCel[4];
-                        ?>
-                    ]
-                }, {
-                    label: "<?php echo $vardate[5] ?>",
-                    fill: true,
-                    backgroundColor: "rgba(30,86,148,0.2)",
-                    borderColor: "rgb(88,113,196)",
-                    pointBorderColor: "#fff",
-                    pointBackgroundColor: "rgb(99,154,255)",
-                    pointBorderColor: "#fff",
-                    data: [
-                        <?php
-                        echo $scoreBpm[5], $scoredB[5], $scoreNo2[5], $scoreDegCel[5];
-                        ?>
-                    ]
-                }, {
-                    label: "<?php echo $vardate[6] ?>",
-                    fill: true,
-                    backgroundColor: "rgba(169,70,52,0.2)",
-                    borderColor: "rgb(176,106,36)",
-                    pointBorderColor: "#fff",
-                    pointBackgroundColor: "rgb(201,142,34)",
-                    pointBorderColor: "#fff",
-                    data: [
-                        <?php
-                        echo $scoreBpm[6], $scoredB[6], $scoreNo2[6], $scoreDegCel[6];
                         ?>
                     ]
                 }

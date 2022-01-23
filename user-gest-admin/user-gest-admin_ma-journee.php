@@ -30,7 +30,7 @@ if(!isset($_SESSION['statut'])){
 
 <!-- header section starts  -->
 
-<header class="header">
+<header class="header" style="background-color:<?php echo '' . $_COOKIE['couleur'];?>;">
 
     <a class="logo">
         <img src="../images/LaMontreS.png" alt="">
@@ -149,7 +149,7 @@ if(!isset($_SESSION['statut'])){
 <section class="footer">
 
     <div class="links">
-        <a href="visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
+        <a href="../visiteur/visiteur_CGU.php"  style="margin:0 4%;">CGU</a>
         <a>Version: 1.0.12.201</a>
     </div>
 
@@ -179,7 +179,7 @@ if(!isset($_SESSION['statut'])){
                     }
                     ?>
                 ],
-                label: "Bpm",
+                label: "Poul (Bpm)",
                 borderColor: "#3e95cd",
                 fill: false
             }, {
@@ -192,7 +192,7 @@ if(!isset($_SESSION['statut'])){
 
                     ?>
                 ],
-                label: "dB",
+                label: "Son (dB)",
                 borderColor: "#8e5ea2",
                 fill: false
             }, {
@@ -205,7 +205,7 @@ if(!isset($_SESSION['statut'])){
 
                     ?>
                 ],
-                label: "No2",
+                label: "No2 (μg/m3)",
                 borderColor: "#3cba9f",
                 fill: false
             }, {
@@ -218,7 +218,7 @@ if(!isset($_SESSION['statut'])){
 
                     ?>
                 ],
-                label: "°C",
+                label: "Température (°C)",
                 borderColor: "#e8c3b9",
                 fill: false
             }

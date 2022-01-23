@@ -112,13 +112,13 @@ textarea {
 
 .header a h2{
     text-align: center;
-    color: lightyellow;
-    font-size: 3rem;
+    color: black;
+    font-size: 5rem;
     line-height: 150%;
 }
 
 .header a h3{
-    color: whitesmoke;
+    color: saddlebrown;
     font-size: 2rem;
     line-height: 150%;
 }
@@ -1036,6 +1036,13 @@ textarea {
 
     .home .content p{
         font-size: 1.5rem;
+    }
+
+    .admin .box-container{
+        display: flex;
+        flex-direction: column;
+        grid-template-columns:32% 32% 32%;
+        gap:2rem;
     }
 
     .datajour {

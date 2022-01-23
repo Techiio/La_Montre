@@ -106,22 +106,22 @@
             </div>
         </div>
 
-        <form action="">
+        <form action="../load/contact.php">
             <h3>Nous joindre</h3>
             <div class="inputBox">
                 <span class="fas fa-user"></span>
-                <input type="text" placeholder="Nom">
+                <input type="text" name="nom" placeholder="Nom">
             </div>
             <div class="inputBox">
                 <span class="fas fa-envelope"></span>
-                <input type="email" placeholder="Email">
+                <input type="email" name="mail" placeholder="Email">
             </div>
 
 
 
             <div class="inputBox">
                 <span class="fas fa-comment"></span>
-                <input type="text" placeholder="Votre message">
+                <input type="text" name="message" placeholder="Votre message">
 
 
             </div>

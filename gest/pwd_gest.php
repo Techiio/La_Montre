@@ -20,6 +20,7 @@ $Code_Famille_gest =$_COOKIE['famille'];
 if ($Code_Statut == 1 && $Code_Famille_gest == $Code_Famille_Idt ) {
     //Les mots de passe correspondent le changement peut s'effectuer
     if ($Newpwd1 == $Newpwd2) {
+        $Newpwd1 = password_hash($Newpwd1, PASSWORD_DEFAULT);
         $rq = $bdd->query("UPDATE  connexion SET Mdp='$Newpwd1' WHERE Identifiant= '$Idt'");
         header('location: ../user-gest-admin/gest_modif-membre.php?erreur=0');
     }
