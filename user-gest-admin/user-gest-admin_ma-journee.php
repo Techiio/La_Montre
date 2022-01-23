@@ -30,7 +30,7 @@ if(!isset($_SESSION['statut'])){
 
 <!-- header section starts  -->
 
-<header class="header">
+<header class="header" style="background-color:<?php echo '' . $_COOKIE['couleur'];?>;">
 
     <a class="logo">
         <img src="../images/LaMontreS.png" alt="">
