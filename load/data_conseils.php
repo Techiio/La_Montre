@@ -145,7 +145,10 @@ $meilleureDonnee = 0;
 $pireDonnee = 0;
 $a = $a - 1;
 
-
+if($a == -1)
+{
+    $a = 0;
+}
 
 
 switch ($meilleurScore)                 // MeilleurScore prend la valeur du meilleur score

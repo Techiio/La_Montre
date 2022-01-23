@@ -62,7 +62,7 @@ require_once("../load/data_conseils.php");
 </section>
 <!-- mes conseils section starts  -->
 <?php
-if (empty($scoreTotal))
+if (empty($scoreTotal))                     // Si il n'y a pas de données, le score prend la valeur 101 ce qui permettra d'afficher un message d'erreur
 {
     $a=0;
     $scoreTotal[$a]=101;
