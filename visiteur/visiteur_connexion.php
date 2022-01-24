@@ -67,7 +67,6 @@
                 $err = $_GET['erreur'];
                 if($err==1 || $err==2)
                     echo "<p style='color:red; padding: 1rem; font-size: 1.5rem; transition: 1s; '>Utilisateur ou mot de passe incorrect</p>";
-                    echo password_hash('lamontre', PASSWORD_DEFAULT);
             }
             ?>
             <?php

@@ -54,7 +54,9 @@ if(!isset($_SESSION['statut'])){
 
     <!-- Bouton déconnexion  -->
     <a href="../load/fin_de_session.php" class="logo">
-        <h2>
+        <h2 style="color:<?php if(isset($_COOKIE['couleur'])) {
+            echo '' . $_COOKIE['couleur'];
+        }?>">
             <?php
 
             if(isset($_SESSION['pseudo'])){

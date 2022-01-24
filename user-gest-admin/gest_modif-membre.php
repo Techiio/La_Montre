@@ -16,7 +16,7 @@
     </head>
 <body>
 
-<header class="header" style="background-color:<?php echo '' . $_COOKIE['couleur'];?>;">
+<header class="header">
 
     <a class="logo">
         <img src="../images/LaMontreS.png" alt="">
@@ -43,7 +43,9 @@
     </div>
 
     <a href="../load/fin_de_session.php" class="logo">
-        <h2>
+        <h2 style="color:<?php if(isset($_COOKIE['couleur'])) {
+            echo '' . $_COOKIE['couleur'];
+        }?>">
             <?php
 
 
