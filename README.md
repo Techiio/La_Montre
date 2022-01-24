@@ -75,11 +75,11 @@ Dans le dossier **documents**, vous trouverez tous les documents qui ont été f
 - Le manuel de déploiement 
 - DMs de télécom
 
-Ainsi que des documents annexes rédigés en rapport avec la composante informatique :
+Ainsi que des documents **annexes** rédigés en rapport avec la composante informatique :
 - Diagramme de Gantt
 - Plan de validation des tests
 
-Et des documents liés plus généralement au projet :
+Et des documents **annexes** liés plus généralement au projet :
 - Cahier des charges
 - Charte graphique
 - Fiche d'auto-évaluation de l'APP
