@@ -40,8 +40,8 @@ CREATE TABLE `connexion` (
 INSERT INTO `connexion` (`CodeStatut`, `Identifiant`, `Mdp`) VALUES
 (2, 'jesapel', '$2y$10$m/WSciWuSM8IMJgMJ/ipW.7ZykEO1BsgM/lH.0AdaE2u8GyrbbjJ2'),
 (1, 'abboud', '$2y$10$6OQnTqC8h.t55Y5voh9Nj.aBGEquTNDYZkCeJ0xSyVKApzaJMfNKq'),
-(0, 'sirot', '$2y$10$prVVz3LMvD4n/jPgYXh21eJOVHYfwXtSI7292mdB5wNl8RwWixuzi'),
-(0, 'brossolet', '$2y$10$F6Uf/Qa3eNrIS.trpG7PuelGNwTHLW2iqtB//KEGNMG/7nwjcw.Om');
+(0, 'sirot', '$2y$10$SIBytltZPn04TxDIKAPum.fon49qxDKc5SiF8gNLYMZO3gTwbP1fa'),
+(0, 'brossolet', '$2y$10$Cs0LnANKnnF.SRYTeA3n6ub62axZ1.gpOJd1lpPfzVBeUt32IIn7S');
 
 -- --------------------------------------------------------
 
