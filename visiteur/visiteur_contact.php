@@ -106,7 +106,7 @@
             </div>
         </div>
 
-        <form action="../load/contact.php" id="myForm" >
+        <form action="../load/contact.php" id="myForm" method="post" >
             <h3>Nous joindre</h3>
             <div class="inputBox">
                 <span class="fas fa-user"></span>
@@ -126,6 +126,16 @@
 
             </div>
             <input style="background: brown; font-weight: bold;" onclick="sendEmail()" type="submit" value="Envoyer" class="btn">
+            <?php
+            if(isset($_GET['erreur'])){
+                $er = $_GET['erreur'];
+                if($er==1)
+                    echo "<p style='color:lawngreen; padding: 1rem; text-align: center; font-weight: bold; font-size: 1.5rem; transition: 1s; '>Formulaire envoyé</p>";
+                elseif ($er==2)
+                    echo "<p style='color: darkred; padding: 1rem; text-align: center; font-weight: bold; font-size: 1.5rem; transition: 1s; '>Echec</p>";
+
+            }
+            ?>
         </form>
 
         <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>

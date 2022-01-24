@@ -3,13 +3,12 @@
 use PHPMailer\PHPMailer\PHPMailer;
 
 
-
-if(isset($_POST['name']) && isset($_POST['email'])){
+if(!empty($_POST['name']) && !empty($_POST['email'])){
     $name = $_POST['name'];
     $email = $_POST['email'];
     $subject = "Contact";
     $body = $_POST['body'];
-    echo"jfslk";
+
 
     require_once "../load/PHPMailer/PHPMailer.php";
     require_once "../load/PHPMailer/SMTP.php";
@@ -21,34 +20,30 @@ if(isset($_POST['name']) && isset($_POST['email'])){
     $mail->isSMTP();
     $mail->Host = "smtp.gmail.com";
     $mail->SMTPAuth = true;
-    $mail->Username = "fsasaki30@gmail.com";
-    $mail->Password = '21Tchlo;';
+    $mail->Username = "contact.eko.lamontre@gmail.com";
+    $mail->Password = '7S3K7DWwHClfSFdKrHd@';
     $mail->Port = 465;
     $mail->SMTPSecure = "ssl";
 
     //email settings
     $mail->isHTML(true);
     $mail->setFrom($email, $name);
-    $mail->addAddress("fsasaki30@gmail.com");
+    $mail->addAddress("contact.eko.lamontre@gmail.com");
     $mail->Subject = ("$email ($subject)");
     $mail->Body = $body;
 
     if($mail->send()){
-        $status = "success";
-        $response = "Email is sent!";
+        header('location: ../visiteur/visiteur_contact.php?erreur=1');
     }
     else
     {
-        $status = "failed";
-        $response = "Something is wrong: <br>" . $mail->ErrorInfo;
+        header('location: ../visiteur/visiteur_contact.php?erreur=2');
     }
 
     exit(json_encode(array("status" => $status, "response" => $response)));
 }
 
-else{
-    header('location: ../visiteur/visiteur_contact.php');
-}
+
 
 ?>
 
