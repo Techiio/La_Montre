@@ -31,7 +31,7 @@ if(!isset($_SESSION['statut'])){
 
 <!-- header section starts  -->
 
-<header class="header" style="background-color:<?php echo '' . $_COOKIE['couleur'];?>;">
+<header class="header">
 
     <a class="logo">
         <img src="../images/LaMontreS.png" alt="">
