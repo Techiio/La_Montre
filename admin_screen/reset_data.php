@@ -1,7 +1,7 @@
 <?php
 
 //connexion à la base de données
-require_once("../load/config_PDO.php");
+require("../load/config_PDO.php");
 
 //Donnée du formulaire
 $Idt = htmlentities($_POST['Idt']);

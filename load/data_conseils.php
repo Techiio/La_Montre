@@ -1,6 +1,6 @@
 <?php
 
-require_once("config_PDO.php");
+require("config_PDO.php");
 
 $id = $_SESSION['pseudo'];
 

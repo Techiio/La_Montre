@@ -3,7 +3,7 @@
 
 
 session_start();
-require_once("config_PDO.php");
+require("config_PDO.php");
 
 if (isset($_SESSION['connect'])) {
     header('location: ../');
