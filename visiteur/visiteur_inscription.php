@@ -113,8 +113,8 @@
               style="background: brown; font-weight: bold;"
               type="submit"
               value="S'inscrire"
-              name="formsend"
-              id="formsend"
+              name="submit"
+              id="submit"
               class="btn"
             />
           </form>
