@@ -1,5 +1,5 @@
 <?php
-require("config_PDO.php");
+require_once("config_PDO.php");
 
 // Récupération de l'ID de connexion
 $id = $_SESSION['pseudo'];

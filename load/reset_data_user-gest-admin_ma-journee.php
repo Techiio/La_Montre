@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("../load/data_journee.php");
+require_once("../load/data_journee.php");
 
 $Idt=$_SESSION['pseudo'];
 

@@ -3,7 +3,7 @@
 session_start();
 
 //Connexion à la base de données
-require("../load/config_PDO.php");
+require_once("../load/config_PDO.php");
 
 
 //Ajout d'un admin par un autre admin

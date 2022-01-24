@@ -2,7 +2,7 @@
 session_start();
 
 //connexion à la base de données
-require("../load/config_PDO.php");
+require_once("../load/config_PDO.php");
 
 //connexion au profil utilisateur
 if (!empty($_POST["Identifiant"])) {

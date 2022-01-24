@@ -1,7 +1,7 @@
 <?php
 
 //connexion à la base de données
-require("../load/config_PDO.php");
+require_once("../load/config_PDO.php");
 
 
 //Suppression de l'admin dans la base

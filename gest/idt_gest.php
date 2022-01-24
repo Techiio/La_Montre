@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require("../load/config_PDO.php");
+require_once("../load/config_PDO.php");
 
 //Données du formulaire
 $Idt= htmlentities($_POST['Idt']);

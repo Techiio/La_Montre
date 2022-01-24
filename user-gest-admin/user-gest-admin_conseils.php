@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("../load/data_conseils.php");
+require_once("../load/data_conseils.php");
 ?>
 <!DOCTYPE html>
 <html lang="fr">

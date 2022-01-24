@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require("config_PDO.php");
+require_once("config_PDO.php");
 
 $color ="white";
 
