@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `connexion` (
   `CodeStatut` int(11) NOT NULL,
   `Identifiant` varchar(60) NOT NULL,
-  `Mdp` varchar(60) DEFAULT NULL
+  `Mdp` char(80) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
