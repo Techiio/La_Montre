@@ -2,7 +2,7 @@
     //Connexion à la BDD
     try
     {
-        $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8','root', '');
+        $bdd = new PDO('mysql:host=localhost;dbname=bdd;charset=utf8','root', 'CVZVb3vnpXrC');
     }catch(Exception $e)
     {
         die('Erreur'.$e->getMessage());
