@@ -137,28 +137,72 @@ if(!isset($_SESSION['statut'])){
 
             </div>
         </div>
-        <form action="../load/contact.php">
+
+        <form action="../load/contact.php" id="myForm" method="post" >
             <h3>Nous joindre</h3>
             <div class="inputBox">
                 <span class="fas fa-user"></span>
-                <input type="text" name="nom" placeholder="Nom">
+                <input id="name" type="text" name="name" placeholder="Nom">
             </div>
             <div class="inputBox">
                 <span class="fas fa-envelope"></span>
-                <input type="email" name="mail" placeholder="Email">
+                <input id="email" type="email" name="email" placeholder="Email">
             </div>
-
-
-
             <div class="inputBox">
                 <span class="fas fa-comment"></span>
-                <input type="text" name="message" placeholder="Votre message">
+                <input id="body" type="text" name="body" placeholder="Votre message">
 
 
             </div>
-            <input style="background: brown; font-weight: bold;" type="submit" value="Envoyer" class="btn">
-        </form>
+            <input style="background: brown; font-weight: bold;" onclick="sendEmail()" type="submit" value="Envoyer" class="btn">
+            <?php
+            if(isset($_GET['erreur'])){
+                $er = $_GET['erreur'];
+                if($er==1)
+                    echo "<p style='color:lawngreen; padding: 1rem; text-align: center; font-weight: bold; font-size: 1.5rem; transition: 1s; '>Formulaire envoyé</p>";
+                elseif ($er==2)
+                    echo "<p style='color: darkred; padding: 1rem; text-align: center; font-weight: bold; font-size: 1.5rem; transition: 1s; '>Echec</p>";
 
+            }
+            ?>
+
+        </form>
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript">
+            function sendEmail() {
+                var name = $("#name");
+                var email = $("#email");
+                var subject = "Contact";
+                var body = $("#body");
+
+                if (isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(subject) && isNotEmpty(body)) {
+                    $.ajax({
+                        url: 'contact.php',
+                        method: 'POST',
+                        dataType: 'json',
+                        data: {
+                            name: name.val(),
+                            email: email.val(),
+                            subject: subject.val(),
+                            body: body.val()
+                        }, success: function (response) {
+                            $('#myForm')[0].reset();
+                            $('.sent-notification').text("Message Sent Successfully.");
+                        }
+                    });
+                }
+            }
+
+            function isNotEmpty(caller) {
+                if (caller.val() == "") {
+                    caller.css('border', '1px solid red');
+                    return false;
+                } else
+                    caller.css('border', '');
+
+                return true;
+            }
+        </script>
 
     </div>
 <!--début du code pour les e-mails sous linux-->

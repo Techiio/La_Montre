@@ -33,11 +33,19 @@ if(!empty($_POST['name']) && !empty($_POST['email'])){
     $mail->Body = $body;
 
     if($mail->send()){
-        header('location: ../visiteur/visiteur_contact.php?erreur=1');
+        if (!empty($_SESSION['pseudo'])) {
+            header('location: ../user-gest-admin/user-gest-admin_faq-contact.php?erreur=1');
+        }
+        else {
+            header('location: ../visiteur/visiteur_contact.php?erreur=1');}
     }
     else
     {
-        header('location: ../visiteur/visiteur_contact.php?erreur=2');
+        if (!empty($_SESSION['pseudo'])) {
+            header('location: ../user-gest-admin/user-gest-admin_faq-contact.php?erreur=2');
+        }
+        else{
+        header('location: ../visiteur/visiteur_contact.php?erreur=2');}
     }
 
     exit(json_encode(array("status" => $status, "response" => $response)));
