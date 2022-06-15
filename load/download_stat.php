@@ -1,5 +1,5 @@
 <?php
-require_once('config_PDO.php');
+require_once('passerelle.php');
 
 if(!isset($_GET['code'])){// Méthode get
     die();
