@@ -40,39 +40,17 @@ for($i=0, $size=count($data_tab); $i<$size; $i++){
     $date = $year . '-' . $month . '-'. $day;
     $time = $hour . ':' . $min . ':' . $sec;
 
-    if(($iteration == 1) && ($iteration == $type)){
+    if($type == 1){
         $degCel= $valeur;
     }
-    elseif (($iteration == 1) && ($iteration != $type)){
-        $degCel=0;
-        $iteration -=1;
-
-    }
-    if(($iteration == 2) && ($iteration == $type)){
+    if($type == 2){
         $db = $valeur;
     }
-    elseif(($iteration == 2) && ($iteration != $type)){
-        $db=0;
-        $iteration -=1;
-
-    }
-    if(($iteration == 3) && ($iteration == $type)){
+    if($type == 3){
         $No2 = $valeur;
     }
-    elseif(($iteration == 3) && ($iteration != $type)){
-        $No2=0;
-        $iteration -=1;
-
-    }
-    if(($iteration == 4) && ($iteration == $type)){
+    if($type == 4){
         $bpm = $valeur;
-        $requete = $bdd->prepare('INSERT INTO donneesmontre(Date, Heure, Bpm, dB, No2, DegréCelsius, CodeProduit, compteur) VALUES(?, ?, ?, ?, ?, ?, ?,?)');
-        $requete->execute(array($date, $time, $bpm, $db, $No2, $degCel, $codeproduit, $compteur));
-        $compteur +=1;
-        $iteration =0;
-    }
-    elseif (($iteration = 4) && ($iteration != $type)){
-        $bpm=0;
         $requete = $bdd->prepare('INSERT INTO donneesmontre(Date, Heure, Bpm, dB, No2, DegréCelsius, CodeProduit, compteur) VALUES(?, ?, ?, ?, ?, ?, ?,?)');
         $requete->execute(array($date, $time, $bpm, $db, $No2, $degCel, $codeproduit, $compteur));
         $compteur +=1;
