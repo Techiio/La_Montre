@@ -32,7 +32,6 @@ for($i=0, $size=count($data_tab); $i<$size; $i++){
     $req = $bdd->query($sql);
 
 
-
     if(($iteration > 1) && ($iteration < 4)){
         if($type == 1){ //Capteur température
 
