@@ -10,6 +10,10 @@ echo($data);
 
 $data_tab = str_split($data,33);
 echo "Tabular Data:<br />";
+
+$num = [];
+$numverif = 0;
+$iteration = 1;
 for($i=0, $size=count($data_tab); $i<$size; $i++){
     echo "Trame $i: $data_tab[$i]";
 
@@ -26,6 +30,35 @@ for($i=0, $size=count($data_tab); $i<$size; $i++){
 
     $sql = 'DELETE FROM `donneesmontre`';
     $req = $bdd->query($sql);
+
+
+
+    if(($iteration > 1) && ($iteration < 4)){
+        if($type == 1){ //Capteur température
+
+
+        }else if($type == 2){ //Capteur son
+
+        }else if($type == 3){ //Capteur CO2
+
+        }else if($type == 4){ //Capteur cardiaque
+
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     $requete = $bdd->prepare('INSERT INTO donneesmontre(Date, Heure, Bpm, dB, No2, DegréCelsius, CodeProduit) VALUES(?, ?, ?, ?, ?, ?, ?)');
