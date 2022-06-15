@@ -15,10 +15,11 @@ $num = [];
 $numverif = 0;
 $iteration = 1;
 $compteur = 1;
-$bpm = null;
-$db = null;
-$No2 = null;
-$degCel = null;
+$bpm = 0;
+$db = 0;
+$No2 = 0;
+$degCel = 0;
+
 $sql = 'DELETE FROM `donneesmontre`';
 $req = $bdd->query($sql);
 
@@ -36,57 +37,48 @@ for($i=0, $size=count($data_tab); $i<$size; $i++){
         sscanf($trame,"%1s%4s%1s%1s%2s%4s%4s%2s%4s%2s%2s%2s%2s%2s");
     echo("<br />$t,$codeproduit,$r,$type,$n,$valeur,$boucle,$x,$year,$month,$day,$hour,$min,$sec<br /><br/>");
 
-    $date = $day . '-' . $month . '-'. $year;
+    $date = $year . '-' . $month . '-'. $day;
     $time = $hour . ':' . $min . ':' . $sec;
 
-    if($iteration = 1 && $iteration = $type){
+    if(($iteration == 1) && ($iteration == $type)){
         $degCel= $valeur;
-        $iteration +=1;
     }
-    elseif ($iteration = 1 && $iteration != $type){
-        $degCel=null;
-        $iteration +=1;
+    elseif (($iteration == 1) && ($iteration != $type)){
+        $degCel=0;
+        $iteration -=1;
+
     }
-    if($iteration = 2 && $iteration = $type){
+    if(($iteration == 2) && ($iteration == $type)){
         $db = $valeur;
-        $iteration +=1;
     }
-    elseif ($iteration = 2 && $iteration != $type){
-        $db=null;
-        $iteration +=1;
+    elseif(($iteration == 2) && ($iteration != $type)){
+        $db=0;
+        $iteration -=1;
+
     }
-    if($iteration = 3 && $iteration = $type){
+    if(($iteration == 3) && ($iteration == $type)){
         $No2 = $valeur;
-        $iteration +=1;
     }
-    elseif ($iteration = 3 && $iteration != $type){
-        $No2=null;
-        $iteration +=1;
+    elseif(($iteration == 3) && ($iteration != $type)){
+        $No2=0;
+        $iteration -=1;
+
     }
-    if($iteration = 4 && $iteration = $type){
+    if(($iteration == 4) && ($iteration == $type)){
         $bpm = $valeur;
         $requete = $bdd->prepare('INSERT INTO donneesmontre(Date, Heure, Bpm, dB, No2, DegréCelsius, CodeProduit, compteur) VALUES(?, ?, ?, ?, ?, ?, ?,?)');
         $requete->execute(array($date, $time, $bpm, $db, $No2, $degCel, $codeproduit, $compteur));
-        $iteration =1;
         $compteur +=1;
+        $iteration =0;
     }
-    elseif ($iteration = 4 && $iteration != $type){
-        $bpm=null;
+    elseif (($iteration = 4) && ($iteration != $type)){
+        $bpm=0;
         $requete = $bdd->prepare('INSERT INTO donneesmontre(Date, Heure, Bpm, dB, No2, DegréCelsius, CodeProduit, compteur) VALUES(?, ?, ?, ?, ?, ?, ?,?)');
         $requete->execute(array($date, $time, $bpm, $db, $No2, $degCel, $codeproduit, $compteur));
-        $iteration =1;
         $compteur +=1;
-
+        $iteration =0;
     }
-
-        //if($type == 2){ //Capteur son
-
-        //}else if($type == 3){ //Capteur CO2
-
-       // }else if($type == 4){ //Capteur cardiaque
-
-    //$requete = $bdd->prepare('INSERT INTO donneesmontre(Date, Heure, Bpm, dB, No2, DegréCelsius, CodeProduit) VALUES(?, ?, ?, ?, ?, ?, ?)');
-   // $requete->execute(array($date, $heure, $bpm, $db, $No2, $degCel, $codeproduit));
+    $iteration +=1;
 
 }
 ?>
