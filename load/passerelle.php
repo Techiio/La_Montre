@@ -1,7 +1,7 @@
 <?php
 require_once("config_PDO.php");
 
-$datalamontre = "http://projets-tomcat.isep.fr:8080/appService?ACTION=GETLOG&TEAM=6742";
+$datalamontre = "http://projets-tomcat.isep.fr:8080/appService?ACTION=GETLOG&TEAM=6744";
 $data = file_get_contents($datalamontre);
 
 $data_tab = str_split($data,33);
